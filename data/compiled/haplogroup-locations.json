@@ -1,0 +1,893 @@
+{
+	"metadata":
+	{
+		"authors": ["T. M. Keesey"],
+		"year": null,
+		"note": "in progress"
+	},
+	"data":
+	{
+		"occurrences":
+		{
+			"Hominidae*": [
+			{
+				"geo":
+				{
+					"Indochina": [[20, 100]]
+				}
+			}],
+			"mt-L0": [
+			{
+				"geo":
+				{
+					"south Africa": [[-25, 21]]
+				}
+			}],
+			"mt-L1": [
+			{
+				"geo":
+				{
+					"Cameroon/Gabon": [[2, 13]]
+				}
+			}],
+			"mt-L2": [
+			{
+				"geo":
+				{
+					"Guinea": [[10, -10]],
+					"Uganda": [[0, 33]]
+				}
+			}],
+			"mt-L3": [
+			{
+				"geo":
+				{
+					"east Africa": [[5, 35]]
+				}
+			}],
+			"mt-L4": [
+			{
+				"geo":
+				{
+					"Lake Eyasi": [[-4, 35]]
+				}
+			}],
+			"mt-L5": [
+			{
+				"geo":
+				{
+					"DRC": [[2, 29]]
+				}
+			}],
+			"mt-L6": [
+			{
+				"geo":
+				{
+					"Yemen/Djibouti": [[12, 43]]
+				}
+			}],
+			"mt-M": [
+			{
+				"geo":
+				{
+					"India": [[21, 78]],
+					"W. Madagascar": [[-17, 46]]
+				}
+			}],
+			"mt-N": [
+			{
+				"geo":
+				{
+					"Australia": [[-25, 134]],
+					"Eurasia": [[45, 75]]
+				}
+			}],
+			"mt-D": [
+			{
+				"geo":
+				{
+					"NE Asia": [[50, 130]]
+				}
+			}],
+			"mt-D1": [
+			{
+				"geo":
+				{
+					"Alaska": [[70, -150]],
+					"Virginia": [[37, -78]],
+					"Argentina": [[-38, -64]]
+				}
+			}],
+			"mt-D4": [
+			{
+				"geo":
+				{
+					"Kamchatka": [[65, 160]],
+					"Japan": [[36, 136]],
+					"Mongolia": [[47, 104]]
+				}
+			}],
+			"mt-D5'6": [
+			{
+				"geo":
+				{
+					"China": [[35, 110]]
+				}
+			}],
+			"mt-E": [
+			{
+				"geo":
+				{
+					"Borneo": [[1, 114]],
+					"Philippines": [[13, 122]]
+				}
+			}],
+			"mt-G": [
+			{
+				"geo":
+				{
+					"Hokkaido": [[43, 141]],
+					"Tibet": [[30, 91]]
+				}
+			}],
+			"mt-Q": [
+			{
+				"geo":
+				{
+					"New Guinea": [[-5, 140]]
+				}
+			}],
+			"mt-C1": [
+			{
+				"geo":
+				{
+					"Beringia": [[66, -168]]
+				}
+			}],
+			"mt-C1a": [
+			{
+				"geo":
+				{
+					"East Asia": [[45, 113]]
+				}
+			}],
+			"mt-C1b": [
+			{
+				"geo":
+				{
+					"South America": [[-9, -56]]
+				}
+			}],
+			"mt-C1c": [
+			{
+				"geo":
+				{
+					"Panama": [[9, -80]]
+				}
+			}],
+			"mt-C1d": [
+			{
+				"geo":
+				{
+					"Canada": [[56, -106]]
+				}
+			}],
+			"mt-C1e": [
+			{
+				"geo":
+				{
+					"Iceland": [[65, -19]]
+				}
+			}],
+			"mt-C4a'b'c": [
+			{
+				"geo":
+				{
+					"Kamchatka": [[67, -178]]
+				}
+			}],
+			"mt-C4a": [
+			{
+				"geo":
+				{
+					"Baikal": [[54, 108]],
+					"NE India": [[26, 87]]
+				}
+			}],
+			"mt-C4b": [
+			{
+				"geo":
+				{
+					"NE Asia": [[59, 143]]
+				}
+			}],
+			"mt-C4c": [
+			{
+				"geo":
+				{
+					"British Columbia": [[54, -128]],
+					"Colombia": [[5, -74]]
+				}
+			}],
+			"mt-C4d'e": [
+			{
+				"geo":
+				{
+					"Altai": [[52, 83]]
+				}
+			}],
+			"mt-C5": [
+			{
+				"geo":
+				{
+					"Yukaghir": [[67, 153.5]]
+				}
+			}],
+			"mt-C7": [
+			{
+				"geo":
+				{
+					"India/China": [[28, 96]]
+				}
+			}],
+			"mt-A": [
+			{
+				"geo":
+				{
+					"Chukotko–Kamchatka": [[66, 178]]
+				}
+			}],
+			"mt-A5": [
+			{
+				"geo":
+				{
+					"Korea/Japan": [[34, 130]]
+				}
+			}],
+			"mt-A8": [
+			{
+				"geo":
+				{
+					"Central Asia": [[44, 67]]
+				}
+			}],
+			"mt-A10": [
+			{
+				"geo":
+				{
+					"Krasnoyarsk Krai": [[64, 95]]
+				}
+			}],
+			"mt-A1-4'7'9'11": [
+			{
+				"geo":
+				{
+					"North America": [[50, -100]]
+				}
+			}],
+			"mt-O": [
+			{
+				"geo":
+				{
+					"Timor Sea": [[-11, 128]]
+				}
+			}],
+			"mt-S": [
+			{
+				"geo":
+				{
+					"Australia": [[-39, 144]]
+				}
+			}],
+			"mt-X": [
+			{
+				"geo":
+				{
+					"Asia Minor": [[39, 35]]
+				}
+			}],
+			"mt-X1'3": [
+			{
+				"geo":
+				{
+					"Sinai": [[30, 34]]
+				}
+			}],
+			"mt-X2": [
+			{
+				"geo":
+				{
+					"Kamchatka": [[55, 155]]
+				}
+			}],
+			"mt-X2a'o": [
+			{
+				"geo":
+				{
+					"Algonquia": [[50, -80]]
+				}
+			}],
+			"mt-X2f": [
+			{
+				"geo":
+				{
+					"West Asia": [[30, 45]]
+				}
+			}],
+			"mt-X2k": [
+			{
+				"geo":
+				{
+					"Italy": [[42, 13]]
+				}
+			}],
+			"mt-X4": [
+			{
+				"geo":
+				{
+					"East Europe": [[50, 30]]
+				}
+			}],
+			"mt-Y": [
+			{
+				"geo":
+				{
+					"Sakhalin": [[53, 142]]
+				}
+			}],
+			"mt-Z": [
+			{
+				"geo":
+				{
+					"Lapland (Finland)": [[67, 26]],
+					"Inner Mongolia": [[44, 113]],
+					"Korea": [[38, 127]]
+				}
+			}],
+			"mt-R": [
+			{
+				"geo":
+				{
+					"Thailand": [[16, 101]]
+				}
+			}],
+			"mt-R0": [
+			{
+				"geo":
+				{
+					"Socotra": [[12, 54]]
+				}
+			}],
+			"mt-R24": [
+			{
+				"geo":
+				{
+					"Philippines": [[17, 122]]
+				}
+			}],
+			"mt-R11'B6": [
+			{
+				"geo":
+				{
+					"China": [[29, 116]]
+				}
+			}],
+			"mt-B4'5": [
+			{
+				"geo":
+				{
+					"Tungusic Region": [[52, 126]]
+				}
+			}],
+			"mt-B4a1a": [
+			{
+				"geo":
+				{
+					"Taiwan": [[24, 120]]
+				}
+			}],
+			"mt-B4a1a1": [
+			{
+				"geo":
+				{
+					"Hawaii": [[19.9, -155.6]],
+					"Easter Island": [[-27, -109]],
+					"Philippines": [[8, 124]],
+					"East Madagascar": [[-15, 50]],
+					"New Zealand": [[-42, 174]],
+					"Sumatra": [[4.3, 97]]
+				}
+			}],
+			"mt-B4a1a2": [
+			{
+				"geo":
+				{
+					"Taiwan": [[24, 122]]
+				}
+			}],
+			"mt-B4a1a3": [
+			{
+				"geo":
+				{
+					"Malaysia": [[4, 102]]
+				}
+			}],
+			"mt-B4a1a4": [
+			{
+				"geo":
+				{
+					"Batanes": [[20, 122]]
+				}
+			}],
+			"mt-B4a1a5": [
+			{
+				"geo":
+				{
+					"Philippines": [[7, 125]]
+				}
+			}],
+			"mt-B4a1c": [
+			{
+				"geo":
+				{
+					"Irkutsk": [[52, 104]]
+				}
+			}],
+			"mt-B4a1d": [
+			{
+				"geo":
+				{
+					"Taiwan": [[23, 121]]
+				}
+			}],
+			"mt-B4a2": [
+			{
+				"geo":
+				{
+					"East China Sea": [[30, 126]]
+				}
+			}],
+			"mt-B4a3": [
+			{
+				"geo":
+				{
+					"S. Japan": [[35, 136]]
+				}
+			}],
+			"mt-B4a4": [
+			{
+				"geo":
+				{
+					"Ladakh": [[34, 77]]
+				}
+			}],
+			"mt-B4g": [
+			{
+				"geo":
+				{
+					"Vietnam/China": [[23, 105]]
+				}
+			}],
+			"mt-B4h": [
+			{
+				"geo":
+				{
+					"Vietnam": [[14, 108]]
+				}
+			}],
+			"mt-B4i": [
+			{
+				"geo":
+				{
+					"Strait of Taiwan": [[25, 120]]
+				}
+			}],
+			"mt-B4b": [
+			{
+				"geo":
+				{
+					"Beringia": [[62, 171]]
+				}
+			}],
+			"mt-B4b1": [
+			{
+				"geo":
+				{
+					"SE Asia": [[11, 107]]
+				}
+			}],
+			"mt-B2": [
+			{
+				"geo":
+				{
+					"California": [[37, -119]]
+				}
+			}],
+			"mt-B4d": [
+			{
+				"geo":
+				{
+					"S. Siberia": [[55, 100]]
+				}
+			}],
+			"mt-B4e": [
+			{
+				"geo":
+				{
+					"S. China": [[25, 110]]
+				}
+			}],
+			"mt-B4j": [
+			{
+				"geo":
+				{
+					"NE Asia": [[56, 124]]
+				}
+			}],
+			"mt-B4c": [
+			{
+				"geo":
+				{
+					"E Asia": [[44, 108]]
+				}
+			}],
+			"mt-B4f": [
+			{
+				"geo":
+				{
+					"East China Sea": [[32, 126]]
+				}
+			}],
+			"mt-B5": [
+			{
+				"geo":
+				{
+					"E Asia": [[40, 110]]
+				}
+			}],
+			"mt-F": [
+			{
+				"geo":
+				{
+					"Nicobar": [[9, 93]],
+					"Kemerovo Oblast": [[55, 87]]
+				}
+			}],
+			"mt-J": [
+			{
+				"geo":
+				{
+					"Iran": [[32, 54]]
+				}
+			}],
+			"mt-P": [
+			{
+				"geo":
+				{
+					"Meganesia": [[-9, 143]]
+				}
+			}],
+			"mt-T": [
+			{
+				"geo":
+				{
+					"Baltic Sea": [[58, 20]]
+				}
+			}],
+			"mt-U": [
+			{
+				"geo":
+				{
+					"Svaneti": [[42, 45]]
+				}
+			}],
+			"mt-HV": [
+			{
+				"geo":
+				{
+					"Azerbaijan": [[40, 48]]
+				}
+			}],
+			"mt-H": [
+			{
+				"geo":
+				{
+					"Belgium": [[51, 4]]
+				}
+			}],
+			"mt-V": [
+			{
+				"geo":
+				{
+					"Lapland": [[69, 24]],
+					"Tunisia": [[34, 10]]
+				}
+			}],
+			"mt-K": [
+			{
+				"geo":
+				{
+					"Kurdistan": [[36, 47]]
+				}
+			}],
+			"mt-W": [
+			{
+				"geo":
+				{
+					"Pakistan": [[35, 70]]
+				}
+			}],
+			"Y-A00": [
+			{
+				"geo":
+				{
+					"North Cameroon": [[8.5, 14]]
+				}
+			}],
+			"Y-A0": [
+			{
+				"geo":
+				{
+					"South Cameroon": [[2.5, 11.75]]
+				}
+			}],
+			"Y-A1a": [
+			{
+				"geo":
+				{
+					"Guinea-Bissau/Senegambia": [[13.5, -16]],
+					"Morocco": [[32, -6]]
+				}
+			}],
+			"Y-A1b": [
+			{
+				"geo":
+				{
+					"Okavango": [[-18, 20]]
+				}
+			}],
+			"Y-A1b1": [
+			{
+				"geo":
+				{
+					"SE Africa": [[-14, 32]]
+				}
+			}],
+			"Y-B": [
+			{
+				"geo":
+				{
+					"South Sudan": [[5, 32]],
+					"Sudan": [[15, 32]],
+					"Menabe": [[-20, 44]],
+					"Hormozgan": [[27, 56]]
+				}
+			}],
+			"Y-C": [
+			{
+				"geo":
+				{
+					"Australia": [[-12, 134]],
+					"British Columbia": [[54, -125]],
+					"Kazakhstan": [[48, 68]],
+					"China": [[35, 103]],
+					"New Zealand": [[-42, 174]]
+				}
+			}],
+			"Y-D": [
+			{
+				"geo":
+				{
+					"Andaman Islands": [[11.74, 92.66]],
+					"Bengal": [[24, 88]],
+					"Tibet": [[30, 91]],
+					"Hokkaido": [[43.06, 141.35]]
+				}
+			}],
+			"Y-E": [
+			{
+				"geo":
+				{
+					"East Africa": [[-1, 37]],
+					"West Africa": [[14, 4]],
+					"South Africa": [[-30, 25]],
+					"Bongolava": [[-19, 46]]
+				}
+			}],
+			"Y-G": [
+			{
+				"geo":
+				{
+					"Caucasus": [[42, 44]]
+				}
+			}],
+			"Y-H": [
+			{
+				"geo":
+				{
+					"South India": [[13, 77]]
+				}
+			}],
+			"Y-I": [
+			{
+				"geo":
+				{
+					"Slovakia": [[49, 20]]
+				}
+			}],
+			"Y-J": [
+			{
+				"geo":
+				{
+					"Red Sea": [[20, 39]]
+				}
+			}],
+			"Y-K": [
+			{
+				"geo":
+				{
+					"Taiwan": [[24, 121]],
+					"Hawaii": [[19.9, -155.6]],
+					"Easter Island": [[-27, -109]],
+					"Timor": [[-9, 125]],
+					"Philippines": [[12.88, 121.77]],
+					"East India": [[23, 87]]
+				}
+			}],
+			"Y-L": [
+			{
+				"geo":
+				{
+					"Pakistan": [[30, 69]]
+				}
+			}],
+			"Y-M": [
+			{
+				"geo":
+				{
+					"New Guinea": [[-5.5, 141]]
+				}
+			}],
+			"Y-N": [
+			{
+				"geo":
+				{
+					"Finland": [[61.92, 25.75]],
+					"Yakutia": [[62.03, 129.73]]
+				}
+			}],
+			"Y-O": [
+			{
+				"geo":
+				{
+					"Liaoning": [[41, 122]],
+					"Java": [[-8, 111]],
+					"Analanjirofo": [[-17, 49]]
+				}
+			}],
+			"Y-P": [
+			{
+				"geo":
+				{
+					"Siberia-Kazkhstan-China-Mongolia": [[49, 87]]
+				}
+			}],
+			"Y-Q": [
+			{
+				"geo":
+				{
+					"Afghanistan": [[34, 68]]
+				}
+			}],
+			"Y-Q1": [
+			{
+				"geo":
+				{
+					"Iran": [[32, 54]]
+				}
+			}],
+			"Y-Q1a": [
+			{
+				"geo":
+				{
+					"Siberia": [[61, 99]]
+				}
+			}],
+			"Y-Q1a1": [
+			{
+				"geo":
+				{
+					"West Kazakhstan": [[51, 51]]
+				}
+			}],
+			"Y-Q1a2": [
+			{
+				"geo":
+				{
+					"Volga": [[54, 47]]
+				}
+			}],
+			"Y-Q1a2a": [
+			{
+				"geo":
+				{
+					"Mongolia": [[47, 104]]
+				}
+			}],
+			"Y-Q1a2a1": [
+			{
+				"geo":
+				{
+					"Kamchatka": [[57, 160]]
+				}
+			}],
+			"Y-Q1a2a1a": [
+			{
+				"geo":
+				{
+					"South America": [[-9, -56]]
+				}
+			}],
+			"Y-Q1a2a1b": [
+			{
+				"geo":
+				{
+					"Mexico": [[24, -103]]
+				}
+			}],
+			"Y-Q1a2a1c": [
+			{
+				"geo":
+				{
+					"Irkutsk": [[52, 104]]
+				}
+			}],
+			"Y-Q1a2b": [
+			{
+				"geo":
+				{
+					"Georgia": [[42, 43]]
+				}
+			}],
+			"Y-Q1a2c": [
+			{
+				"geo":
+				{
+					"Yemen": [[13, 44]]
+				}
+			}],
+			"Y-Q1b": [
+			{
+				"geo":
+				{
+					"Eurasia": [[43, 75]]
+				}
+			}],
+			"Y-R": [
+			{
+				"geo":
+				{
+					"S. Asia": [[23, 70]],
+					"W. Europe": [[46.2, 1.3]]
+				}
+			}],
+			"Y-S": [
+			{
+				"geo":
+				{
+					"Papua New Guinea": [[-6.31, 143.96]]
+				}
+			}],
+			"Y-T": [
+			{
+				"geo":
+				{
+					"Djibouti": [[12, 43]],
+					"East India": [[19, 85]],
+					"Iraq": [[33, 44]],
+					"Switzerland": [[47, 8]]
+				}
+			}]
+		}
+	}
+}

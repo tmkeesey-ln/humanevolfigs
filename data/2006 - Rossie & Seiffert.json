@@ -1,0 +1,152 @@
+{
+	"metadata":
+	{
+		"authors": ["James B. Rossie", "Erik R. Seiffert"],
+		"year": 2006,
+		"title": "Continental paleobiogeography as phylogenetic evidence",
+		"pages": [469, 522],
+		"volume": {
+			"title": "Primate Biogeography: Progress and Prospects",
+			"editors": ["Shawn M. Lehman", "John G. Fleagle"],
+			"publisher": "Springer",
+			"location": "New York",
+			"uri": "uri:isbn:1441940081"
+		}
+	},
+	"data":
+	{
+		"topologies":
+		{
+			"Fig4a":
+			[
+				["Saimiri sciureus", "Aotus trivirgatus", "Cebus apella"],
+				[
+					"Catopithecus browni",
+					[
+						"Aegyptopithecus zeuxis",
+						[
+							[
+								["Epipliopithecus vindobonensis", "Laccopithecus robustus"],
+								"Dionysopithecus shuangouensis"
+							],
+							"Limnopithecus evansi",
+							"Micropithecus clarki",
+							[
+								"Victoriapithecus macinnesi",
+								[
+									"Presbytis spp.",
+									["Macaca spp.", "Cercopithecus spp."]
+								]
+							],
+							"Dendropithecus macinnesi",
+							"Kalepithecus songhorensis",
+							"Limnopithecus legetet",
+							"Proconsul heseloni",
+							"Proconsul nyanzae",
+							["Proconsul africanus", "Proconsul major"],
+							"Simiolus enjiessi",
+							[
+								"Turkanapithecus kalakolensis",
+								[
+									"Rangwapithecus gordoni",
+									[
+										"Nyanzapithecus vancouveringorum",
+										["Nyanzapithecus harrisoni", "Nyanzapithecus pickfordi"]
+									]
+								]
+							],
+							["Afropithecus turkanensis", "Morotopithecus bishopi"],
+							"Equatorius africanus",
+							[
+								"Hylobates spp.",
+								[
+									"Pongo pygmaeus",
+									["Gorilla gorilla", "Pan troglodytes"]
+								]
+							] 
+						]
+					]
+				]
+			]
+		},
+		"characterScores":
+		{
+			"Appendix4":
+			{
+				"characterType": "discrete",
+				"scores":
+				{
+					"Aotus trivirgatus":
+						[0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 4, 0, 0, 0, 0, 1, 0, 3, 1, 1, 2, 0, 1, 0, 1, 0, 0, 0, 0, 3, 0, 1, 0, 1, 1, 2, 2, 1, 2, 0, 0, 0, 1, 1, 0, 0, 0, [], 1, [], 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 2, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, null, 0, 1, 1, 0, 1, 1, 1, 0, 1, 2, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 10],
+					"Saimiri sciureus":
+						[0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [], 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0, 0, 1, 0, 3, 0, 1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 3, 0, 1, 0, 0, 1, 3, 3, 1, 2, 0, 0, 0, 1, 2, 0, 0, 0, [], 1, [], 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, [0, 1], 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 10],
+					"Cebus apella":
+						[0, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 4, 0, 0, 0, 0, 1, 1, 3, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1, 3, 3, 1, 2, 0, 0, 0, 1, 1, 0, 0, 0, [], 1, [], 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 2, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 10],
+					"Catopithecus browni":
+						[0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 2, 3, 1, [], 1, 0, [], 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 3, 0, 0, 0, 1, 1, [], 3, [], 0, 1, 0, 0, 0, null, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2, 1, 0, 1, 0, 2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 1, null, 0, 0, 0, 0, 1, 0, 0, null, null, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 1, 2, null, null, 1, 1, 1, 0, 0, null, null, null, null, null, null, null, 1, 0, 0, 1, 0, null, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, null, 0, null, 0, null, 0],
+					"Aegyptopithecus zeuxis":
+						[0, 0, 0, 0, 2, 1, 0, 2, 1, 0, 1, 1, 1, 1, 1, 0, [], 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 3, 0, 0, 0, 0, 1, 2, 3, 1, 0, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, null, 3, 0, 0, 0, null, 0, null, 0, null, null, 0, 1, null, null, 0, 0, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, 0, 1, 0, 2, 0, 2, 1, 1, 1, 0, 0, 0, null, 0, 0, null, 1, null, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, null, 0, 0, 1],
+					"Dionysopithecus shuangouensis":
+						[1, null, 0, null, 1, 1, null, 1, 1, 0, null, null, 1, null, null, null, null, null, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 1, [0, 1], 0, 0, 1, 1, 0, null, 0, 1, 0, 0, [0, 1], 1, 1, 0, null, [1, 2], 0, 0, 2, 1, 0, 0, 2, 1, 0, 0, 2, 0, 0, 1, 1, 1, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 4],
+					"Epipliopithecus vindobonensis":
+						[1, 0, 1, 0, 1, 1, 0, 2, 1, 0, 0, 1, 1, 0, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 2, 0, 0, 1, 0, 1, 2, 1, 0, 0, 4, 0, 0, 0, 2, 0, 0, 1, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, null, null, 1, null, 0, 0, null, null, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, null, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 1, 0, 0, 0, 0, null, null, null, 0, 2, null, 0, 1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, null, 0, 1, 0, 1, 1, 0, 1, 0, 1, null, 2, 0, 1, 1, null, 1, 0, 1, null, 0, null, 6],
+					"Laccopithecus robustus":
+						[1, 0, 1, 1, 2, 1, 1, 2, 1, 1, 0, 1, 1, 0, 1, 0, 0, 2, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 2, 1, 0, 1, 3, 0, 1, 0, 2, 0, 0, 1, 2, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, 0, 1, 1, 0, 1, null, 1, 1, 2, 0, 1, 1, null, null, null, 1, null, 0, null, 7],
+					"Victoriapithecus macinnesi":
+						[0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 3, 2, 1, 0, 2, 0, 2, 2, 1, 2, 3, 1, 0, 1, 1, 1, 1, 0, 2, 0, 0, 1, 0, 2, 0, 2, 1, [], 1, 0, 1, 1, 1, 0, 0, 0, 4, 1, 0, 0, 0, 1, 1, 2, 2, 1, 2, 2, [], [], 0, [], 1, 0, 1, 1, 1, 0, 2, 0, null, 0, null, null, null, null, null, null, null, null, null, null, 0, 2, null, null, null, null, null, 0, null, 1, 0, 0, 0, 0, 1, 1, 1, 0, 2, 0, 0, 0, 2, 0, 0, 1, 0, 0, null, 3, 1, 0, 0, 0, null, 0, 0, 0, null, 1, 0, 0, null, 2, null, null, null, null, null, 0, 0, 0, null, null, 1, null, null, 0, null, 1, 1, 0, null, 0, null, 0, 0, 0, 0, 1, null, 0, null, 1, null, 0, null, 1, null, 0, 2, 0, 0, 0, 1, 0, 2, 0, null, 0, 1, 0, 0, 1, 0, 1, 1, null, 0, 1, 2],
+					"Cercopithecus sp.":
+						[0, 0, 1, 0, 0, 1, 0, 1, 1, 2, 0, 3, 3, 0, 0, [0, 2], 1, 2, 2, 0, 3, 3, 1, 0, 1, 1, 0, 1, 0, 3, 0, 1, 0, 0, 2, 2, 0, 0, [], 0, 1, 1, 1, 0, 0, 0, 1, 4, 0, 0, 0, 0, 1, 1, 0, 1, 1, 2, [], [], [], 1, [], 1, 0, 1, 1, 1, [], 2, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, null, 1, 1, 1, 0, 1, 2, 0, 2, 0, 1, 1, 1, 0, 2, 1, 2, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 8],
+					"Macaca spp.":
+						[0, 0, 0, 1, 0, 1, 0, 2, 1, 0, 0, 3, 3, 0, 0, 2, 1, 2, 2, 2, 3, 3, 1, 0, 1, 1, 0, 1, 0, null, 1, 1, 1, 0, 2, 2, 0, 0, [], 0, 1, 1, 1, 0, 0, 0, 1, 4, 2, 0, 0, 0, 1, 1, 0, 1, 1, 2, [], [], [], 1, [], 1, 0, 1, 1, 1, [], 2, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, null, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 2, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 2, 0, 1, 1, 1, 0, 2, 1, 2, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 9],
+					"Presbytis spp.":
+						[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 2, 0, 0, 2, 1, 2, 2, 0, 3, 3, 1, 0, 1, 1, 0, 1, 0, 2, 1, 1, 1, 0, 2, 2, 0, 0, [], 0, 0, 1, 1, 0, 0, 0, [0, 1], 4, 2, 0, 1, 0, 1, 1, 1, 2, 1, 2, [], [], [], 1, [], 1, 1, 0, 0, 1, [], 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, null, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, null, 1, 1, 1, 0, 1, 2, 0, 2, 0, 1, 1, 1, 1, 2, 1, 2, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 9],
+					"Proconsul major":
+						[0, null, 0, 0, 1, 1, 0, 2, 1, 0, 0, 1, 1, 0, 0, 0, [], 2, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 2, 3, 1, 0, 0, 1, 1, 2, 2, 1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2],
+					"Proconsul africanus":
+						[0, null, 0, 0, 1, 1, 0, 2, 0, 0, 2, 1, 1, 0, 1, 0, 1, 2, 2, 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, null, 0, 1, 2, 3, 1, 0, 0, 1, 1, 2, 2, 1, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2],
+					"Nyanzapithecus harrisoni":
+						[null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, 3, 3, 3, 0, 1, 1, 2, 0, 1, 3, 1, 0, 0, 0, 1, 0, 0, 1, 0, 2, 2, null, null, null, null, null, 0, 1, 2, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 3, 2, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5],
+					"Nyanzapithecus pickfordi":
+						[0, 0, 1, 1, 0, 1, 2, 2, 2, 2, 0, 3, 3, 1, 1, 0, 1, 2, 0, 3, 3, 3, 1, 1, 1, 2, 1, 1, 3, 0, 1, 0, 0, 1, 1, 0, 2, 1, 2, 2, 0, 1, 1, 1, 0, null, 1, null, 0, 0, 1, 0, null, 1, 0, 0, 1, 1, 2, 2, null, 0, 0, 0, 1, 1, 1, 1, 1, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5],
+					"Equatorius africanus":
+						[0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 0, 2, 1, 2, [1, 2], 1, 2, 3, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 3, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 3, 0, 0, 0, 1, 1, 1, 2, 1, 2, 3, 2, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, 0, null, null, 1, null, 1, 0, null, 1, 0, null, 1, 1, 1, 1, 1, null, null, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, null, 1, 1, 0, 0, 0, 0, 0, 1, null, null, 0, 1, null, 1, 0, null, 0, 1, null, 1, 1, 1, null, 1, 0, null, 0, 0, 1, 0, 0, null, 2, 1, 1, null, null, null, null, null, null, null, 1, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5],
+					"Afropithecus turkanensis":
+						[0, 0, 1, 0, 2, 1, 1, null, 1, 1, 0, 0, 0, 0, 0, null, 0, 0, 0, 1, 1, 2, 0, 0, 0, 1, 1, null, 1, 0, 1, 0, 1, 1, null, null, 1, null, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 3, 0, 0, 0, 1, 1, null, 2, 1, 1, 2, 2, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, 0, 1, 1, null, null, null, 0, 0, null, 0, null, null, null, null, null, null, null, 1, 1, null, 0, null, null, null, 0, null, null, null, null, 0, null, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, null, 0, 1, 3],
+					"Nyanzapithecus vancouveringorum":
+						[null, null, null, null, null, 1, 2, 2, 2, 2, 0, 2, 3, 1, 1, null, null, 0, 0, 2, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 2, null, null, null, null, null, null, null, null, 3, 0, 1, 0, 1, 1, 0, 0, 1, 1, 3, 2, 2, 0, 0, 0, 1, 1, 1, 1, null, 0, 1, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, 0, 1, 1, 1, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 3],
+					"Simiolus enjiessi":
+						[0, null, null, null, 0, 1, 0, 0, 0, 0, 2, 1, 1, 0, 0, 1, [], 1, 1, 0, 1, 3, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 1, 1, 1, 1, 3, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 3, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 2, 2, 2, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 1, null, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, 0, 1, 1, null, null, null, 1, 0, null, 0, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 1, 1, null, null, null, 0, null, 0, null, null, null, null, 1, null, null, null, 3],
+					"Micropithecus clarki":
+						[0, 0, 0, 0, 2, 1, 0, 2, 0, 0, 2, 1, 1, 0, 0, 0, 0, 2, 1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 1, 1, 1, [0, 1], 3, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 3, 2, 0, 0, 0, 0, 1, 1, 2, 1, 1, 2, 2, 2, 0, 1, 0, 0, 0, 1, 2, 0, 0, 0, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, 1, null, null, 0, 1, 1, null, null, 1, null, 1, null, null, null, null, 1, null, null, 1, 2],
+					"Kalepithecus songhorensis":
+						[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 2, 0, 0, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 2, null, null, 0, 1, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 2, 1, 0, 0, 0, 1, 2, 3, 1, 0, 3, 2, 1, 0, 0, 0, 0, 1, 0, 1, [0, 1], 0, [0, 1], 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, 1, 1, 1, 1, 0, 0, null, null, null, null, null, null, null, null, 0, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 0, 2],
+					"Limnopithecus legetet":
+						[0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 2, 1, 0, 1, 2, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 1, 3, 0, 0, 1, 0, 1, 0, 1, 0, 0, [0, 1], 1, 2, 0, 1, 0, 1, 1, 1, 2, 1, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 0, null, null, 0, 1, null, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, null, 0, null, null, 1, 1, 0, 0, null, 1, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2],
+					"Limnopithecus evansi":
+						[0, null, 0, null, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, [], 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 2, 1, 0, 0, 0, 1, 1, 1, 2, 1, 0, 2, 2, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, null, null, null, null, null, null, null, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 0, 1, null, null, null, 1, 0, 0, 0, null, null, null, null, null, null, null, null, 0, null, 0, null, null, null, null, null, null, null, null, null, 1, null, null, null, null, 1, null, 0, 0, 2],
+					"Dendropithecus macinnesi":
+						[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 3, 2, 1, 0, 0, 1, 1, 1, 1, 1, 0, 3, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, null, null, null, 0, 0, 1, null, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, null, null, 0, null, null, 3, 0, 1, 0, 1, null, null, null, null, null, 0, 0, 0, 1, 0, 0, null, 0, null, null, null, null, null, null, null, null, null, 0, null, null, null, 0, null, null, null, null, null, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, null, null, null, 1, null, 0, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 2],
+					"Rangwapithecus gordoni":
+						[0, null, 0, 1, 0, 1, 1, 2, 1, 0, 0, 1, 2, 1, 1, 0, [], 0, 0, 0, 3, 3, 1, 0, 0, 1, 0, 0, 2, 0, 1, 0, null, 1, 0, 0, 1, 0, 1, 2, 0, 0, 0, 1, 0, 0, 1, 2, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 3, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 1, 0, null, null, 1, 1, 0, 0, null, null, 1, 0, 0, null, null, null, null, 1, null, 1, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, 0, null, 2],
+					"Turkanapithecus kalakolensis":
+						[null, null, null, null, 1, 1, 1, 2, 1, 2, 0, 2, 2, 1, 0, 0, [], 1, 0, null, 2, 3, 1, 1, 0, 1, 0, 0, 3, 1, 1, 0, 0, 1, 1, 0, 2, 0, 2, 1, null, null, null, null, null, null, 1, null, null, null, null, 0, 1, 1, null, 0, 1, 1, 3, null, 1, 0, 0, 0, 1, 1, 1, 1, null, null, 1, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 0, 1, 0, 1, 1, null, null, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 1, 1, 0, null, 1, 0, 0, 0, 0, 0, 0, 1, 0, null, null, null, 1, 3],
+					"Proconsul nyanzae":
+						[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 2, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 1, 0, 1, 3, 0, 0, 1, 0, 0, 0, null, 0, 0, 1, 2, 3, 0, 0, 0, 1, 1, 2, 2, 1, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, null, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 0, null, 1, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 1, null, 1, 1, 1, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, null, null, 1, null, 0, null, 0, null, null, null, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, null, 0, 0, 0, 1, null, 0, null, 0, null, 0, null, null, 1, 0, 1, null, 0, null, 0, 0, 0, 0, 1, null, 1, null, 0, null, 3],
+					"Proconsul heseloni":
+						[0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 2, 2, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, null, 0, 0, 1, 2, 3, 1, 0, 0, 1, 1, 2, 1, 1, 0, 3, 2, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, null, 0, null, null, null, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, null, 0, null, null, null, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, null, 0, 1, 3],
+					"Gorilla gorilla":
+						[0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 2, 2, 0, 0, 2, 1, 1, 1, 0, 2, 3, 1, 0, 1, 1, 1, 1, 1, 3, 1, 0, 0, 1, 0, 0, 3, 0, 1, 2, 0, 0, 1, 1, 0, 1, 1, 1, 3, 0, 1, 0, 1, 1, 1, 2, 1, 0, 3, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 3, [0, 2], 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 0, 2, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 2, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 2, 1, 1, 1, 0, 0, 2, 1, 0, 1, 0, 1, 0, 2, 1, 2, 2, 2, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 8],
+					"Pan troglodytes":
+						[0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 2, 0, 0, 2, 1, 2, 2, 0, 2, 2, 1, 0, 1, 1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 0, 3, 0, 1, 2, 0, 1, 1, 1, 0, 1, 1, 1, 3, 0, 0, 0, 1, 1, 2, 2, 1, 2, 3, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 3, [0, 2], 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 0, 2, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 2, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 2, 1, 1, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 8],
+					"Pongo pygmaeus":
+						[0, 1, 1, 0, 1, 1, 0, 1, 2, 1, 0, 3, 2, 1, 0, 2, 1, 2, 2, 1, 2, 3, 1, 0, 0, 0, 2, 1, 0, 2, 1, 0, 0, [0, 1], 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 3, 1, 0, 0, 1, 1, 2, 3, 1, 1, 3, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 3, 2, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 0, 2, 1, 1, 0, [0, 1], 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 2, 2, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 2, 1, 1, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 9],
+					"Hylobates spp.":
+						[0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 3, 3, 0, 0, 2, 1, 2, 1, 0, 2, 3, 1, 0, 0, 0, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0, 3, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 2, 1, 0, 1, 0, 1, 1, 1, 2, 1, 2, 3, 2, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 2, 1, 0, [0, 1], 1, 1, 1, 1, 2, [1, 2], 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 2, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 2, 2, 0, 0, 0, 1, 0, 1, 2, 0, [], 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 2, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, null, 0, 2, 1, 2, 2, 1, 1, 0, 1, 0, 1, 0, 2, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 9],
+					"Morotopithecus bishopi":
+						[null, 0, 1, 0, 2, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 2, [], 1, 1, 1, 2, 3, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 1, 1, null, 0, 1, null, null, null, null, null, null, 1, null, null, null, null, 0, 1, 1, 2, null, 1, 1, 2, 2, 0, 0, 0, 0, 0, 1, 1, null, null, null, null, null, null, 2, 2, 1, 1, 1, 1, 1, 1, null, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 1, 0, null, null, 2, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, 1, null, 0, 1, 0, 1, null, 0, 0, 0, 0, 0, 0, 0, 0, 1, null, 1, 1, 2]
+				},
+				"note": "Need to remove final character, since it's geographic, not morphological."
+			}
+		}
+	}
+}

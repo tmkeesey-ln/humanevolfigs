@@ -1,0 +1,51 @@
+{
+	"metadata":
+	{
+		"authors": ["Fulvio Cruciani", "Beniamino Trombetta", "Andrea Massaia", "Giovanni Destro-Bisol", "Daniele Sellitto", "Rosaria Scozzari"],
+		"year": 2011,
+		"title": "A revised root for the human Y chromosomal phylogenetic tree: the origin of patrilineal diversity in Africa",
+		"journal": "Am. J. Hum. Genet.",
+		"volume": 88,
+		"issue": 6,
+		"pages": [814, 818],
+	    "uri": "urn:doi:10.1016/j.ajhg.2011.05.002",
+	    "note": "partial data"
+	},
+	"data":
+	{
+	    "datings":
+	    {
+	    	"analysis": [
+	    		{
+	    			"taxa": ["Y-MRCA"],
+	    			"time": [-157100, -125900]
+	    		},
+	    		{
+	    			"taxa": ["Y-A1a-T"],
+	    			"time": [-119800, -95400]
+	    		},
+	    		{
+	    			"taxa": ["Y-A2-T"],
+	    			"time": [-118000, -91800]
+	    		},
+	    		{
+	    			"taxa": ["Y-BT"],
+	    			"time": [-87000, -62000]
+	    		},
+	    		{
+	    			"taxa": ["Y-CT"],
+	    			"time": [-48500, -29100]
+	    		}
+	    	]
+	    },
+		"phyloGraphs":
+		{
+			"lineage": [
+				["Y-MRCA", "Y-A1a-T"],
+				["Y-A1a-T", "Y-A2-T"],
+				["Y-A2-T", "Y-BT"],
+				["Y-BT", "Y-CT"]
+			]
+		}
+	}
+}

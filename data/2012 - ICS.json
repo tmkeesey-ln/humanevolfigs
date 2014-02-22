@@ -1,0 +1,125 @@
+{
+	"metadata":
+	{
+		"authors": ["International Commission on Stratigraphy"],
+		"year": 2012,
+		"title": "International Chronostratigraphic Chart",
+	    "uri": "http://www.stratigraphy.org/column.php?id=Chart/Time%20Scale"
+	},
+	"data":
+	{
+		"stratigraphy":
+		{
+			"boundaries":
+			{
+				"a": 0,
+				"b": -11700,
+				"c": -126000,
+				"d": -781000,
+				"e": -1806000,
+				"f": -2588000,
+				"g": -3600000,
+				"h": -5333000,
+				"i": -7246000,
+				"j": -11620000,
+				"k": -13820000,
+				"l": -15970000,
+				"m": -20440000,
+				"n": -23030000
+			},
+			"units":
+			{
+				"Upper Pleistocene":
+				{
+					"type": "stage/age",
+					"boundaries": ["b", "c"]
+				},
+				"Middle Pleistocene":
+				{
+					"type": "stage/age",
+					"boundaries": ["c", "d"]
+				},
+				"Calabrian":
+				{
+					"type": "stage/age",
+					"boundaries": ["d", "e"]
+				},
+				"Gelasian":
+				{
+					"type": "stage/age",
+					"boundaries": ["e", "f"]
+				},
+				"Piacenzian":
+				{
+					"type": "stage/age",
+					"boundaries": ["f", "g"]
+				},
+				"Zanclean":
+				{
+					"type": "stage/age",
+					"boundaries": ["g", "h"]
+				},
+				"Messinian":
+				{
+					"type": "stage/age",
+					"boundaries": ["h", "i"]
+				},
+				"Tortonian":
+				{
+					"type": "stage/age",
+					"boundaries": ["i", "j"]
+				},
+				"Serravallian":
+				{
+					"type": "stage/age",
+					"boundaries": ["j", "k"]
+				},
+				"Langhian":
+				{
+					"type": "stage/age",
+					"boundaries": ["k", "l"]
+				},
+				"Burdigalian":
+				{
+					"type": "stage/age",
+					"boundaries": ["l", "m"]
+				},
+				"Aquitanian":
+				{
+					"type": "stage/age",
+					"boundaries": ["m", "n"]
+				},
+				"Holocene":
+				{
+					"type": "series/epoch",
+					"boundaries": ["a", "b"]
+				},
+				"Pleistocene":
+				{
+					"type": "series/epoch",
+					"boundaries": ["b", "f"]
+				},
+				"Pliocene":
+				{
+					"type": "series/epoch",
+					"boundaries": ["f", "h"]
+				},
+				"Miocene":
+				{
+					"type": "series/epoch",
+					"boundaries": ["h", "n"]
+				},
+				"Quaternary":
+				{
+					"type": "system/period",
+					"boundaries": ["a", "f"]
+				},
+				"Neogene":
+				{
+					"type": "system/period",
+					"boundaries": ["f", "n"]
+				}
+			}
+		}
+	}
+}

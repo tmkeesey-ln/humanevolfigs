@@ -1,0 +1,122 @@
+{
+	"metadata":
+	{
+		"authors": ["T. M. Keesey"],
+		"year": null,
+		"note": "in progress"
+	},
+	"data":
+	{
+		"topologies":
+		{
+			"allTaxa":
+			[
+				"Hispanopithecus",
+				[
+					"Pierolapithecus",
+					["Dryopithecus", "Oreopithecus"]
+				],
+				[
+					"Lufengpithecus",
+					"Ponginae indet.",
+					[
+						"Ankarapithecus",
+						"Gigantopithecus",
+						"Sivapithecus",
+						[
+							"Khoratpithecus",
+							["Pongo hooijeri", "Pongo (Pongo)"]
+						]
+					]
+				],
+				[
+					"Graecopithecus",
+					"Nakalipithecus",
+					"Ouranopithecus",
+					"Samburupithecus",
+					"Udabnopithecus",
+					[
+						[
+							"Chororapithecus",
+							"Gorilla"
+						],
+						[
+							"Ardipithecus kadabba",
+							"Orrorin",
+							"Sahelanthropus",
+							"Pan",
+							[
+								"Ardipithecus ramidus",
+								"Australopithecus praegens",
+								[
+									"Australopithecus anamensis",
+									"Hominina indet.",
+									[
+										"Australopithecus aff. afarensis",
+										"Australopithecus afarensis",
+										"Australopithecus garhi",
+										"Australopithecus africanus",
+										"Australopithecus platyops",
+										[
+											"Paranthropus aethiopicus",
+											"Paranthropus boisei",
+											"Paranthropus indet.",
+											"Paranthropus robustus"
+										],
+										[
+											"Australopithecus sediba",
+											[
+												"Homo aff. habilis",
+												"Homo floresiensis",
+												"Homo habilis",
+												"Homo rudolfensis",
+												"Homo indet.",
+												[
+													"Homo ergaster ergaster",
+													"Homo ergaster georgicus",
+													"Homo modjokertensis",
+													"Homo yuanmouensis",
+													[
+														"Homo erectus",
+														"Homo heidelbergensis daliensis",
+														"Homo heidelbergensis mabaensis"
+													],
+													[
+														"Homo ergaster ssp.",
+														"Homo heidelbergensis antecessor",
+														[
+															"Homo heidelbergensis cepranensis",
+															"Homo heidelbergensis narmadensis",
+															"Homo heidelbergensis ssp.",
+															[
+																"Homo heidelbergensis daliensis",
+																"Homo heidelbergensis mabaensis",
+																"Homo heidelbergensis rhodesiensis",
+																"Homo sapiens"
+															],
+															[
+																"Homo heidelbergensis heidelbergensis",
+																"Homo sp. (Denisova)",
+																[
+																	"Homo neanderthalensis paleohungaricus",
+																	[
+																		"Homo neanderthalensis ssp. (Transitional)",
+																		"Homo neanderthalensis neanderthalensis"
+																	]
+																]
+															]
+														]
+													]
+												]
+											]
+										]
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		}
+	}
+}

@@ -1,0 +1,2869 @@
+{
+	"metadata":
+	{
+		"authors": ["T. M. Keesey"],
+		"year": null,
+		"note": "in progress"
+	},
+	"data":
+	{
+		"characterScores":
+		{
+			"cranialCapacity":
+			{
+				"characterType": "range",
+				"scores":
+				{
+					"Ardipithecus ramidus":
+						[[300, 350]],
+					"Australopithecus afarensis antiquus":
+						[[375, 550]],
+					"Australopithecus africanus":
+						[[425, 515]],
+					"Australopithecus garhi":
+						[[450, 450]],
+					"Australopithecus sediba":
+						[[440, 440]],
+					"Gorilla":
+						[[340, 750]],
+					"Homo erectus erectus":
+						[[900, 940]],
+					"Homo erectus hexianensis":
+						[[1025, 1025]],
+					"Homo erectus pekinensis":
+						[[900, 1300]],
+					"Homo erectus soloensis":
+						[[1013, 1251]],
+					"Homo ergaster ergaster":
+						[[700, 900]],
+					"Homo ergaster georgicus":
+						[[600, 775]],
+					"Homo floresiensis":
+						[[380, 380]],
+					"Homo habilis":
+						[[500, 800]],
+					"Homo heidelbergensis antecessor":
+						[[900, 1100]],
+					"Homo heidelbergensis cepranensis":
+						[[1180, 1220]],
+					"Homo heidelbergensis daliensis":
+						[[1100, 1200]],
+					"Homo heidelbergensis heidelbergensis":
+						[[1100, 1400]],
+					"Homo heidelbergensis rhodesiensis":
+						[[1090, 1400]],
+					"Homo neanderthalensis neanderthalensis":
+						[[1200, 1900]],
+					"Homo neanderthalensis paleohungaricus":
+						[[1400, 1500]],
+					"Homo neanderthalensis ssp. (Transitional)":
+						[[1300, 1700]],
+					"Homo rudolfensis":
+						[[700, 700]],
+					"Homo sapiens idaltu":
+						[[1450, 1450]],
+					"Homo sapiens sapiens":
+						[[1000, 1850]],
+					"Pan paniscus":
+						[[275, 380]],
+					"Pan troglodytes":
+						[[275, 450]],
+					"Paranthropus aethiopicus":
+						[[410, 410]],
+					"Paranthropus boisei":
+						[[390, 530]],
+					"Paranthropus robustus":
+						[[505, 555]],
+					"Pongo":
+						[[275, 500]],
+					"Sahelanthropus tchadensis":
+						[[320, 380]]
+				}
+			}
+		},
+		"occurrences":
+		{
+			"Ardipithecus kadabba":
+			[
+				{
+					"count": 4,
+					"time": [-5770000, -5450000],
+					"geo":
+					{
+						"Middle Awash": [[10, 40]]
+					}
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Middle Awash": [[10, 40]]
+					},
+					"note": "Classified as Ardipithecus cf. kadabba",
+					"time": [-5550000, -5180000]
+				}
+			],
+			"Ardipithecus ramidus":
+			[
+				{
+					"count": 36,
+					"geo":
+					{
+						"Middle Awash": [[10, 40]]
+					},
+					"time": [-4400000, -4400000]
+				}
+			],
+			"Australopithecus aff. afarensis":
+			[
+				{
+					"count": [2, 8],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"time": [-3100000, -2900000],
+					"note": "isolated teeth"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Belohdelie, Ethiopia": [[12, 42]]
+					},
+					"time": [-3900000, -3800000],
+					"note": "BEL-VP 1/1"
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Fejej, Ethiopia": [[5, 36]]
+					},
+					"time": [-4200000, -4000000],
+					"note": "BEL-VP 1/1"
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"South Turkwel, Kenya": [[3, 36]]
+					},
+					"time": [-3580000, -3200000],
+					"note": "count is probably higher"
+				}
+			],
+			"Australopithecus afarensis sspp.":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Dikika, Ethiopia": [[11.5, 41]]
+					},
+					"time": [-3400000, -3300000],
+					"note": "DIK 1/1 ('Selam'); DIK 2/1"
+				},
+				{
+					"count": [4, 9],
+					"geo":
+					{
+						"Maka, Ethiopia": [[12, 42]]
+					},
+					"time": [-3450000, -3350000],
+					"note": "MAK-VP 1/2; 1/6; 1/12; 1/83; etc."
+				}
+			],
+			"Australopithecus afarensis afarensis":
+			[
+				{
+					"count": 7,
+					"geo":
+					{
+						"Upper Laetolil Beds, Laetoli": [[-3, 35]]
+					},
+					"time": [-3850000, -3609000],
+					"note": "M.42323; Garusi I (Meganthropus africanus holotype); Garusi II; MB Ma. 8294/Garusi IV; LH29; LH31 (lost); LAET 79-5447"
+				},
+				{
+					"count": 23,
+					"geo":
+					{
+						"Upper Laetolil Beds b/t Tuffs 4 and 8, Laetoli": [[-3, 35]]
+					},
+					"time": [-3850000, -3612000],
+					"note": "LH1; LH2; LH3; LH4 (afarensis lectotype); LH5, LH27, LH28; LH6; LH7; LH8, LH22; LH10; LH11; LH13; LH14; LH16; LH17; LH19; LH21; LH23; LH24; LH25; LH26; LH30 (formerly LH3/6); EP 162/00; EP 2400/00"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Upper Laetolil Beds b/t Tuffs 2 and 8, Laetoli": [[-3, 35]]
+					},
+					"time": [-3850000, -3750000],
+					"note": "LH12"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"above Tuff 8, Laetoli": [[-3, 35]]
+					},
+					"time": [-3648000, -3460000],
+					"note": "LH15"
+				}
+			],
+			"Australopithecus afarensis antiquus":
+			[
+				{
+					"count": [61, 110],
+					"geo":
+					{
+						"Afar Locality, Hadar, Ethiopia": [[11.17, 40.63]]
+					},
+					"time": [-3400000, -2960000],
+					"note": "AL 58-22; AL 125-11; AL 129-1; AL 162-28; AL166-9; AL 199-1; AL 200-1; AL 224-9; AL 288-1 ('Lucy'); AL 333 [17 individuals: 'First Family'; ~4? individuals in 2011 finds]; AL 413-1; AL 417-1; AL 423-1; AL 427-1; AL 438-1; AL 439-1; AL 442-1; AL 444-2; AL 457-2; AL 486-1; AL 487-1; AL 651-1; AL 701-1; AL 770-1; AL 822-1; AL 922-1; various other AL specimens"
+				}
+			],
+			"Australopithecus afarensis bahrelghazali":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Bahr el Gazel, Chad": [[13.64, 16.49]]
+					},
+					"time": [-3600000, -3000000]
+				}
+			],
+			"Australopithecus africanus":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Taung": [[-27.52, 24.78]]
+					},
+					"time": [-2900000, -2000000]
+				},
+				{
+					"count": 35,
+					"geo":
+					{
+						"Makapansgat": [[-24.16, 29.18]]
+					},
+					"note": "Count conservative.",
+					"time": [-2850000, -2580000]
+
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Sterkfontein": [[-26.02, 27.73]]
+					},
+					"note": "Sts 14",
+					"time": [-2800000, -2600000]
+
+				},
+				{
+					"count": 90,
+					"geo":
+					{
+						"Sterkfontein": [[-26.02, 27.73]]
+					},
+					"note": "Member 4 in general: STS 71, 52, etc. Count approximate.",
+					"time": [-2580000, -2040000]
+
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Gladysvale": [[-25.9, 27.75]]
+					},
+					"note": "teeth",
+					"time": [-2400000, -2000000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Sterkfontein": [[-26.02, 27.73]]
+					},
+					"note": "StW 573 - 'Little Foot' - may be another species",
+					"time": [-2300000, -2200000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Sterkfontein": [[-26.02, 27.73]]
+					},
+					"note": "Sts 5 - Mrs. Ples",
+					"time": [-2200000, -2000000]
+
+				}
+			],
+			"Australopithecus anamensis":
+			[
+				{
+					"count": 13,
+					"geo":
+					{
+						"Lake Turkana": [[3.58, 38.12]]
+					},
+					"time": [-4170000, -3500000]
+				},
+				{
+					"count": 8,
+					"geo":
+					{
+						"Allia Bay": [[3.75, 36.25]]
+					},
+					"time": [-4120000, -4120000]
+				}
+			],
+			"Australopithecus garhi":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Middle Awash": [[10, 40]]
+					},
+					"time": [-2600000, -2500000]
+				}
+			],
+			"Australopithecus platyops":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 2602 - placement provisional - was originally assigned to afarensis",
+					"time": [-3300000, -3300000]
+				},
+				{
+					"count": 5,
+					"geo":
+					{
+						"Lomekwi": [[3.90, 35.73]]
+					},
+					"note": "Classified as Kenyanthropus cf. platyops.",
+					"time": [-3530000, -3200000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Lomekwi": [[3.90, 35.73]]
+					},
+					"time": [-3500000, -3300000]
+				}
+			],
+			"Australopithecus praegens":
+			[
+				{
+					"count": 1,
+					"time": [-5250000, -4960000],
+					"geo":
+					{
+						"Tugen Hills": [[0.67, 36]]
+					}
+				}
+			],
+			"Australopithecus sediba":
+			[
+				{
+					"count": 2,
+					"time": [-1950000, -1780000],
+					"geo":
+					{
+						"Malapa": [[-25.97, 27.66]]
+					}
+				}
+			],
+			"Australopithecus sp.":
+			[
+				{
+					"count": 1,
+					"time": [-2600000, -2000000],
+					"geo":
+					{
+						"Ishango": [[-0.126969, 29.600403]]
+					}
+				}
+			],
+			"Dryopithecus fontani": 
+			[
+				{
+					"count": [5, 10],
+					"note": "More than 5 individuals, but not sure how many more -- 'a number of isolated teeth'",
+					"geo":
+					{
+						"St. Gaudens, France": [[43.11, 0.72]],
+						"La Grive-St.-Alban M, France": [[45.60, 5.23]],
+						"St. Stefan, Austria": [[46.62, 13.52]]
+					},
+					"time": [-12000000, -11000000]
+				}
+			],
+			"Dryopithecus brancoi":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Rudabanya, Hungary": [[48.37, 20.62]],
+						"Salmendingen, Germany": [[48.29, 9.11]]
+					},
+					"note": ":TODO: More than 2, but need to determine number.",
+					"time": [-10000000, -9500000]
+				}
+			],
+			"Dryopithecus laietanus":
+			[
+				{
+					"count": 4,
+					"geo":
+					{
+						"La Tarumba, Spain": [[41.5, 2]],
+						"Can Llobateres, Spain": [[41.54, 2.13]],
+						"Polinya, Spain": [[41.56, 2.16]],
+						"Can Mata, Spain": [[41.51, 1.73]]
+					},
+					"note": ":TODO: More than 4, but need to determine number.",
+					"time": [-10000000, -9500000]
+				}
+			],
+			"Gigantopithecus bilaspurensis":
+			[
+				{
+					"count": 1,
+					"note": "CYP 35968",
+					"geo":
+					{
+						"Haritalyangar": [[31.53, 76.63]]
+					},
+					"time": [-3800000, -3400000]
+				}
+			],
+			"Gigantopithecus blacki":
+			[
+				{
+					"count": [90, 1300],
+					"geo":
+					{
+						"Guangxi": [[22.8, 108.3]],
+						"Hubei": [[30.5,114.3]],
+						"Sichuan": [[30.7,104.1]]
+					},
+					"note": "count approximate",
+					"time": [-781000, -126000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000],
+					"note": "canine tooth (TK 65/122)-- other teeth from this site attributed to G. blacki may be another pongine"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Tham Om, Vietnam": [[19.4, 105.3]]
+					},
+					"time": [-250000, -140000],
+					"note": "Tooth. Species uncertain."
+				}
+			],
+			"Gigantopithecus giganteus":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Siwaliks of India": [[32, 78]],
+						"Siwaliks of Pakistan": [[33, 73]]
+					},
+					"note": ":TODO: More than 2, but need to determine number.",
+					"time": [-11608000, -5332000]
+				}
+			],
+			"Gorilla beringei beringei":
+			[
+				{
+					"count": 800,
+					"geo":
+					{
+						"Bwindi": [[-1.05, 29.72]],
+						"Virunga": [[0.917, 29.17]]
+					},
+					"time": [0, 0]
+				}
+			],
+			"Gorilla beringei graueri":
+			[
+				{
+					"count": 4000,
+					"geo":
+					{
+						"Maiko": [[-0.4, 27.57]],
+						"Kahuzi-Biega": [[-2.5, 28.75]],
+						"DRC": [[-0.3, 28.7]]
+					},
+					"time": [0, 0]
+				}
+			],
+			"Gorilla gorilla diehli":
+			[
+				{
+					"count": 300,
+					"geo":
+					{
+						"Afi Mountain Wildlife Preserve": [[6.31, 8.99]],
+						"Afi River Forest Preserve": [[6.20, 8.98]],
+						"Cross River National Park": [[5.58, 8.75]],
+						"Takamanda National Park": [[6.17, 9.33]],
+						"Mone Forest Reserve": [[6, 9.5]],
+						"Cameroon A": [[6.2, 9.5]],
+						"Cameroon B": [[5.9, 9.3]],
+						"Kagwene Gorilla Sanctuary": [[6.1, 9.6]]
+					},
+					"time": [0, 0]
+				}
+			],
+			"Gorilla gorilla gorilla":
+			[
+				{
+					"count": 200000,
+					"time": [0, 0],
+					"geo":
+					{
+						"West Central Africa": [[3.43, 9.67], [5.23, 13.86], [3.61, 18.61], [-0.61, 17.73], [-2.15, 16.23], [-1.31, 14.48], [-3.11, 13.82], [-3.29, 13.03], [-4.87, 13.12], [-5.04, 12.77], [-2.46, 11.58], [-4.08, 11.05], [-0.74, 8.24]]
+					}
+				}
+			],
+			"Hominina indet.":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Loc. 22S, Upper Ndolanya Beds, Laetoli": [[-3, 35]]
+					},
+					"time": [-2676000, -2644000],
+					"note": "EP1000/98"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Loc. 7E, Upper Ndolanya Beds, Laetoli": [[-3, 35]]
+					},
+					"time": [-2676000, -2644000],
+					"note": "LAET 75â€“3817"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Hanging Remnant, Member 1, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-2100000, -1900000],
+					"note": "SK 14147"
+				},
+				{
+					"count": [1, 3],
+					"geo":
+					{
+						"Lower Bank, Member 1, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-2100000, -1900000],
+					"note": "SKX 16699, 38529, 42695"
+				},
+				{
+					"count": [2, 7],
+					"geo":
+					{
+						"Member 2, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-1700000, -1100000],
+					"note": "SKX 247, 344, 1261, 3062, 3498; SKW 2954, 3646"
+				},
+				{
+					"count": [2, 7],
+					"geo":
+					{
+						"Member 3, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-600000, -1000000],
+					"note": "SKX 19576, 22511, 27504, 33355, 35439, 35822, 36712"
+				}
+			],
+			"Homo aff. habilis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Hadar": [[11.17, 40.63]]
+					},
+					"time": [-2400000, -2260000]
+				}
+			],
+			"Homo erectus ssp.":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000],
+					"note": "canine tooth (TK 65/167)"
+				}
+			],
+			"Homo erectus erectus":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Sangiran": [[-7.4, 110.82]]
+					},
+					"time": [-700000, -700000]
+				},
+				{
+					"count": [1, 2],
+					"geo":
+					{
+						"Trinil": [[-7.4, 110]]
+					},
+					"time": [-700000, -100000]
+				}
+			],
+			"Homo erectus hexianensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Hexian": [[31.74, 118.35]]
+					},
+					"time": [-190000, -150000],
+					"note": "Could be up to 270,000 years old"
+				}
+			],
+			"Homo erectus lantianensis":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"near Xi'an": [[34.27, 108.9]]
+					},
+					"time": [-1000000, -530000]
+				}
+			],
+			"Homo erectus nankinensis":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Tangshan Cave": [[32.05, 118.77]]
+					},
+					"time": [-620000, -580000]
+				}
+			],
+			"Homo erectus palaeojavanicus":
+			[
+				{
+					"count": 6,
+					"geo":
+					{
+						"Sangiran": [[-7.4, 110.82]]
+					},
+					"time": [-1400000, -900000]
+				}
+			],
+			"Homo erectus pekinensis":
+			[
+				{
+					"count": 40,
+					"geo":
+					{
+						"Zhoukoudian": [[39.69, 115.92]]
+					},
+					"time": [-500000, -300000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Yunxian": [[24.44,100.12]]
+					},
+					"time": [-500000, -350000],
+					"note": "subspecific placement provisional"
+				}
+			],
+			"Homo erectus soloensis":
+			[
+				{
+					"count": 11,
+					"geo":
+					{
+						"Ngandong": [[-7.78,110.55]]
+					},
+					"time": [-550000, -143000]
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Sambungmacan": [[-7.36, 111.13]]
+					},
+					"time": [-612000, -143000],
+					"note": "subspecific placement provisional"
+				}
+			],
+			"Homo ergaster ergaster":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Swartkrans": [[-25.93, 27.79]]
+					},
+					"note": "SK 847",
+					"time": [-1800000, -1500000]
+				},
+				{
+					"count": 7,
+					"geo":
+					{
+						"Koobi Fora": [[4.31, 36.23]]
+					},
+					"note": "KNM ER specimens -- count is only the best specimens -- total may be higher",
+					"time": [-1800000, -1400000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"West Turkana": [[4.1, 35.9]]
+					},
+					"note": "KNM-WT 15000 - Nariokotome Boy",
+					"time": [-1650000, -1550000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Gona, Afar": [[11.5,40]]
+					},
+					"note": "BSN49/P27 - 'Mrs. Elvis'",
+					"time": [-1550000, -1450000]
+				}
+			],
+			"Homo ergaster georgicus":
+			[
+				{
+					"count": 5,
+					"geo":
+					{
+						"Dmanisi": [[41.32, 44.35]]
+					},
+					"time": [-1770000, -1770000]
+				}
+			],
+			"Homo ergaster ssp.":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Olduvai Gorge": [[-2.99, 35.35]]
+					},
+					"note": "OH 9 - or H. heidelbergensis?",
+					"time": [-1200000, -1100000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Middle Awash": [[10, 40]]
+					},
+					"note": "BOU-VP-2/66 - Daka skull - or H. heidelbergensis?",
+					"time": [-1050000, -950000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Buia, Eritrea": [[15.2,39.9]]
+					},
+					"note": "UA 31 [cranium], 173, 222, 369, 405, 444 - or H. heidelbergensis?",
+					"time": [-1050000, -950000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Olorgesailie": [[-1.58, 36.45]]
+					},
+					"note": "KNM-OL 45500 - or H. heidelbergensis?",
+					"time": [-970000, -900000]
+				}
+			],
+			"Homo floresiensis":
+			[
+				{
+					"count": 9,
+					"geo":
+					{
+						"Liang Bua": [[-8.53, 120.46]]
+					},
+					"time": [-38000, -13000]
+				}
+			],
+			"Homo habilis":
+			[
+				{
+					"count": 6,
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"time": [-1900000, -1740000],
+					"note": "KNM ER 1478, 1501, 1502, 1805, 1813, 3735"
+				},
+				{
+					"count": 10,
+					"geo":
+					{
+						"Olduvai Gorge": [[-3, 35]]
+					},
+					"time": [-1750000, -1740000],
+					"note": "OH 4, 6, 7 [holotype], 8, 13, 14, 16, 24, 62, 65"
+				}
+			],
+			"Homo heidelbergensis antecessor":
+			[
+				{
+					"count": 10,
+					"geo":
+					{
+						"Atapuerca": [[42.35, -3.52]]
+					},
+					"time": [-1200000, -800000]
+				}
+			],
+			"Homo heidelbergensis cepranensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Ceprano": [[41.54, 13.51]]
+					},
+					"time": [-450000, -450000]
+				}
+			],
+			"Homo heidelbergensis daliensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Jinniushan": [[41.9,123.8]]
+					},
+					"time": [-280000, -200000],
+					"note": "placement provisional"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Jiefang, Dali, Shaanxi": [[34.8,109.9]]
+					},
+					"time": [-232000, -186000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Xujiayao, Gucheng, Shaanxi": [[33.7,110.3]]
+					},
+					"time": [-125000, -104000],
+					"note": "placement provisional"
+				}
+			],
+			"Homo heidelbergensis heidelbergensis":
+			[
+				{
+					"count": [1, 6],
+					"time": [-900000, -780000],
+					"note": "6 teeth",
+					"geo":
+					{
+						"Cueva Negra, Spain": [[38.1, -1.9]]
+					}
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Petralona": [[40.37, 23.16]]
+					},
+					"note": "skeletons",
+					"time": [-810000, -790000]
+				},
+				{
+					"count": [1, 4],
+					"geo":
+					{
+						"Petralona": [[40.37, 23.16]]
+					},
+					"note": "teeth",
+					"time": [-800000, -700000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Petralona": [[40.37, 23.16]]
+					},
+					"note": "skull",
+					"time": [-710000, -690000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Mauer": [[49.34, 8.80]]
+					},
+					"note": "holotype",
+					"time": [-600000, -500000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Boxgrove Quarry": [[50.87, -0.69]]
+					},
+					"note": "tibia, 2 incisors",
+					"time": [-524000, -478000]
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Tautavel": [[42.82, 2.74]]
+					},
+					"time": [-455000, -445000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Steinheim an der Murr": [[48.97, 9.28]]
+					},
+					"time": [-350000, -250000]
+				}
+			],
+			"Homo heidelbergensis heidelbergensis (Sima de los Huesos)":
+			[
+				{
+					"count": 28,
+					"time": [-530000, -350000],
+					"geo": {
+						"Sima de los Huesos": [[42.35, -3.52]]
+					}
+				}
+			],
+			"Homo heidelbergensis mabaensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Maba, Guandong, China": [[24.71,113.59]]
+					},
+					"time": [-135000, -129000]
+				}
+			],
+			"Homo heidelbergensis narmadensis":
+			[
+				{
+					"count": 1,
+					"geo": {
+						"Narmada, India": [[22.36, 76.27]]
+					},
+					"time": [-500000, -500000]
+				}
+			],
+			"Homo heidelbergensis rhodesiensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Bodo D'ar": [[12.3, 42.3]]
+					},
+					"time": [-610000, -590000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Elandsfontein, Saldanha Bay": [[-33, 18]]
+					},
+					"time": [-500000, -200000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Lake Ndutu": [[-3.00, 35.00]]
+					},
+					"time": [-410000, -390000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Kabwe": [[-14.43, 28.45]]
+					},
+					"note": "holotype (Broken Hill)",
+					"time": [-300000, -125000]
+				}
+			],
+			"Homo heidelbergensis ssp.":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Kacabas, Turkey": [[41.03,29.03]]
+					},
+					"note": "or Homo erectus?",
+					"time": [-510000, -490000]
+				}
+			],
+			"Homo indet. A":
+			[
+				{
+					"count": 9,
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"time": [-1950000, -1780000],
+					"note": "KNM-ER 1506, 3734, 807, 808, 809, 1462, 1480, 1508, 1814"
+				}
+			],
+			"Homo indet. B":
+			[
+				{
+					"count": [2, 7],
+					"geo":
+					{
+						"Drimolen Cave, South Africa": [[-26, 28]]
+					},
+					"time": [-1900000, -1600000],
+					"note": "minimal count approximate"
+				},
+				{
+					"count": 4,
+					"geo":
+					{
+						"Hanging Remnant, Member 1, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-2100000, -1900000],
+					"note": "SK 85, 853, 1896, 3155b"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Lower Bank, Member 1, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-2100000, -1900000],
+					"note": "SKX 34805"
+				}
+			],
+			"Homo indet. C":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Member 2, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-1700000, -1100000],
+					"note": "SK 18b; SKX 2045, 3342"
+				}
+			],
+			"Homo indet. D":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Member 3, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-600000, -1000000],
+					"note": "SKX 10924, 22741, 227431"
+				}
+			],
+			"Homo modjokertensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Modjokerto": [[-7.47, 112.43]]
+					},
+					"time": [-1770000, -781000],
+					"note": "maximum date from https://edocs.uis.edu/druez2/www/publications/MojokertoDiscoveryJHE.pdf [O.F. Huffman et al. / Journal of Human Evolution 50 (2006) 431e451]; minimum date unknown -- some tentative support for Early-Middle Pleistocene boundary"
+				}
+			],
+			"Homo neanderthalensis paleohungaricus":
+			[
+				{
+					"count": 3,
+					"time": [-450000, -200000],
+					"note": "I^2 (Aubesier 4), maxillary molar (Aubesier 10), partial mandible (Aubesier 11)",
+					"geo": {
+						"Bau de l'Aubesier, Vaucluse": [[44.1, 5.4]]
+					}
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Apidima": [[36.6, 22.4]]
+					},
+					"note": "two crania",
+					"time": [-400000, -105000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Altamura": [[40.8, 16.6]]
+					},
+					"time": [-400000, -100000]
+				},
+				{
+					"count": [2, 3],
+					"time": [-350000, -350000],
+					"note": "'Samu' - type of Homo erectus paleohungaricus (occipital bone), and 2 juvenile teeth",
+					"geo": {
+						"Vertesszolos": [[47.63, 18.38]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-300000, -200000],
+					"geo": {
+						"Mugharet ez-Zuttiyeh, Israel": [[33.9, 35.5]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "Teeth -- may be more than one individual.",
+					"time": [-250000, -250000],
+					"geo": {
+						"La Cotte de St Brelade, Jersey": [[49.2, -2.2]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "parietal -- thought to be heidelbergensis",
+					"time": [-250000, -200000],
+					"geo": {
+						"Casal de Pazzi": [[41.93, 12.57]]
+					}
+				},
+				{
+					"count": 2,
+					"note": "seemingly Neanderthalesque",
+					"time": [-250000, -170000],
+					"geo": {
+						"Biache-Saint-Vaast": [[50.31, 2.95]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-230000, -225000],
+					"note": "Teeth, juvenile mandible -- may be more individuals",
+					"geo": {
+						"Bontnewydd": [[53.23, -3.48]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "Details vague",
+					"time": [-200000, -135000],
+					"geo": {
+						"Prince": [[48.2, -1.1]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-186000, -127000],
+					"geo": {
+						"Lazaret": [[43.69, 7.29]]
+					}
+				},
+				{
+					"count": 23,
+					"time": [-151000, -150000],
+					"geo": {
+						"La Chaise": [[46, 1]]
+					}
+				},
+				{
+					"count": 9,
+					"time": [-150000, -150000],
+					"geo": {
+						"Sima de las Palomas, Spain": [[37.8, -0.9]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-130000, -114000],
+					"geo": {
+						"Ehringsdorf": [[51, 11]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "mandible",
+					"time": [-130000, -114000],
+					"geo": {
+						"Montmaurin": [[43.2, 0.6]]
+					}
+				}
+			],
+			"Homo neanderthalensis ssp. (Transitional)":
+			[
+				{
+					"count": 75,
+					"note": "Number approximate and conservative -- over 800 fossil elements",
+					"time": [-130000, -120000],
+					"geo": {
+						"Krapina": [[46.16, 15.87]]
+					}
+				},
+				{
+					"count": 2,
+					"note": "infant and adult",
+					"time": [-130000, -60000],
+					"geo": {
+						"Kiik-Koba, Ukraine": [[44.97, 34.35]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-130000, -21000],
+					"note": "Could not find a reliable date estimate.",
+					"geo": {
+						"Sveduv Stul": [[49,16]]
+					}
+				},
+				{			
+					"count": 1,
+					"note": "mtDNA fragment recovered, clades with Neandertals but outside the variation of later ones",
+					"time": [-100000, -100000],
+					"geo": {
+						"Sclayn/Scladina, Belgium": [[50.49, 5.03]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-100000, -53000],
+					"geo": {
+						"Obi-Rakhmat, Uzbekistan": [[41.34 , 70.08]]
+					}
+				},
+				{
+					"count": 9,
+					"time": [-80000, -35000],
+					"geo": {
+						"Shanidar": [[38.80, 44.24]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-70000, -70000],
+					"geo": {
+						"Teshik-Tash, Uzbekistan": [[37.97, 67.16]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "juvenile",
+					"time": [-70000, -70000],
+					"geo": {
+						"Engis, Belgium": [[50.6, 5.4]]
+					}
+				},
+				{
+					"count": 18,
+					"time": [-61000, -45000],
+					"geo": {
+						"Amud": [[32.9, 35.5]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-60000, -45000 ],
+					"geo": {
+						"Sala, Slovakia": [[48,18]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-45000, -35000],
+					"geo": {
+						"S<h>ipka": [[49.6, 18.1]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "metatarsal - may not be Neandertal",
+					"time": [-43900, -38100],
+					"geo": {
+						"Anghilak, Uzbekistan": [[39.20, 67.09]]
+					}
+				}
+			],
+			"Homo neanderthalensis neanderthalensis":
+			[
+				{
+					"count": 1,
+					"time": [-100000, -100000],
+					"geo": {
+						"Ganovce": [[49.03, 20.33]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-70000, -70000],
+					"geo": {
+						"Teshik-Tash": [[37.97, 67.16]]
+					},
+					"note": "young boy -- DNA extracted"
+				},
+				{
+					"count": 10,
+					"time": [-70000, -45000],
+					"geo": {
+						"Combe-Grenal": [[44.81,1.23]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "Teeth are known from the same site",
+					"time": [-51000, -41000],
+					"geo": {
+						"Pech de l'Aze I": [[44.88,1.25]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-129000, -12200],
+					"geo": {
+						"Saccopastore": [[42, 13]]
+					}
+				},
+				{
+					"count": 6,
+					"note": "78 fragments in all -- may be more than 6 individuals",
+					"time": [-120000, -80000],
+					"geo": {
+						"Moula-Guercy, France": [[45, 5]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-120000, -120000],
+					"geo": {
+						"Tabun": [[32.67, 34.97]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-100000, -80000],
+					"note": "Time approximate",
+					"geo": {
+						"Regourdou": [[45.05,1.18]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-90000, -90000],
+					"geo": {
+						"Malarnaud": [[43, 1.33]]
+					}
+				},
+				{
+					"count": 3,
+					"time": [-75000, -60000],
+					"geo": {
+						"La Ferassie": [44.9, 0.9]
+					}
+				},
+				{
+					"count": 25,
+					"time": [-75000, -40000],
+					"geo": {
+						"La Quina": [[46, 0]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "may be transitional",
+					"time": [-73000, -41000],
+					"geo": {
+						"Banyoles, Spain": [[42.12,2.76]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-70000, -50000],
+					"geo": {
+						"Dederiyeh Cave, Syria": [[36.4,36.9]]
+					}
+				},
+				{
+					"count": 9,
+					"time": [-70000, -30000],
+					"geo": {
+						"Cueva del Sidron, Spain": [[43.38, -5.33]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-60000, -60000],
+					"geo": {
+						"Kebara": [[32.57, 34.97]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-60000, -55000],
+					"geo": {
+						"Monte Circeo": [[41.23, 13.05]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-60000, -50000],
+					"geo": {
+						"Zeeland Ridges": [[51.7, 3.3]]
+					}
+				},
+				{
+					"count": [10, 30],
+					"time": [-59000, -40000],
+					"geo": {
+						"G3 level, Vindija": [[46.3, 16.1]]
+					},
+					"note": "count approximate"
+				},
+				{
+					"count": 1,
+					"time": [-56500, -46300],
+					"geo": {
+						"Salzgitter-Lebenstedt, Germany": [[52.2,10.3]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-56000, -47000],
+					"geo": {
+						"La Chapelle-aux-Saints": [[44.99, 1.73]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-50000, -30000],
+					"geo": {
+						"Forbe's Quarry, Gibraltar": [[36.15, -5.35]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "right lower dm2",
+					"time": [-48800, -44300],
+					"geo": {
+						"Okladnikov Cave, Altai": [[49, 89]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-47000, -46000],
+					"geo": {
+						"Bacho Kiro": [[42.9, 25.4]]
+					},
+					"note": "May be H. sapiens"
+				},
+				{
+					"count": 1,
+					"time": [-45000, -42000],
+					"geo": {
+						"Ksar Akil, Lebanon": [[33.92, 35.6]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-45000, -40000],
+					"geo": {
+						"Le Moustier": [44.99, 1.08]
+					}
+				},
+				{
+					"count": 5,
+					"time": [-45000, -35000],
+					"geo": {
+						"l'Horus": [[43.8, 5.8]]
+					},
+					"note": "50 fragments -- rough estimate of number of individuals"
+				},
+				{
+					"count": 20,
+					"time": [-45000, -35000],
+					"geo": {
+						"Hortus": [[43.79,3.84]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-45000, -35000],
+					"geo": {
+						"Saint Cesaire": [[45.8, -0.5]]
+					}
+				},
+				{
+					"count": [1, 4],
+					"note": "middle hand phalanx, left lower P3, left lower M1, right lower M3",
+					"time": [-44800, -29490],
+					"geo": {
+						"Okladnikov Cave, Altai": [[49, 89]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-42000, -42000],
+					"geo": {
+						"Axlor, Spain": [[43.125, -2.721]]
+					}
+				},
+				{
+					"count": 3,
+					"time": [-42000, -42000],
+					"geo": {
+						"Feldhofer": [[51.23, 6.95]]
+					},
+					"note": "count minimal -- includes DNA"
+				},
+				{
+					"count": 1,
+					"time": [-40700, -40700],
+					"geo": {
+						"Les Rochers-de-Villeneuve, France": [[48.10, 3.31]]
+					}
+				},
+				{
+					"count": 3,
+					"time": [-40000, -40000],
+					"geo": {
+						"Kleine Feldhofer Grotte, Neandertal": [[51.23, 6.95]]
+					}
+				},
+				{
+					"count": 26,
+					"time": [-36000, -36000],
+					"geo": {
+						"Spy-sur-l'Orneau, Belgium": [[50.48, 4.67]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-31600, -30200],
+					"geo": {
+						"Figueira Brava": []
+					},
+					"note": "teeth -- unsure of count"
+				},
+				{
+					"count": [1, 2],
+					"note": "subadult humerus (OK1), subadult femur (OK2)",
+					"time": [-34950, -33430],
+					"geo": {
+						"Okladnikov Cave, Altai": [[49, 89]]
+					}
+				},
+				{
+					"count": 4,
+					"time": [-34000, -34000],
+					"geo": {
+						"G1 level, Vindija": [[46.3, 16.1]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-34000, -32000],
+					"geo": {
+						"Fontechevade": [[45.68, 0.48]]
+					}
+				},
+				{
+					"count": [1, 3],
+					"time": [-33200, -25000],
+					"geo": {
+						"F level, Vindija": [[46.3, 16.1]]
+					},
+					"note": "teeth -- may be sapiens"
+				},
+				{
+					"count": 1,
+					"time": [-30160, -28230],
+					"geo": {
+						"Mezmaiskaya Cave, Russia": [[44.17, 40]]
+					},
+					"note": "rib fragment from infant -- yielded DNA"
+				},
+				{
+					"count": 1,
+					"time": [-30000, -30000],
+					"geo": {
+						"Zafarraya, Spain": [[36.97, -4.13]]
+					}
+				},
+				{
+					"count": 1,
+					"note": "May be H. sapiens.",
+					"time": [-24500, -24500],
+					"geo": {
+						"Lagar Velho": [39.76, -8.74]
+					}
+				},
+				{
+					"count": [1, 2],
+					"note": "adult humerus, left lower M3",
+					"time": [-24440, -24080],
+					"geo": {
+						"Okladnikov Cave, Altai": [[49, 89]]
+					}
+				}
+			],
+			"Homo rudolfensis":
+			[
+				{
+					"count": 14,
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"time": [-1950000, -1780000],
+					"note": "KNM-ER 813, 819, 1470 [holotype], 1472, 1481, 1482, 1483, 1590, 1801, 1802, 3732, 3891, 62000, 620003"
+				}
+			],
+			"Homo sapiens helmei":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Florisbad": [[-28.70, 26.47]]
+					},
+					"time": [-259000, -259000]
+				}
+			],
+			"Homo sapiens idaltu":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Herto Bouri": [[10.23,41.42]]
+					},
+					"time": [-160000, -160000]
+				}
+			],
+			"Homo sapiens njarasensis":
+			[
+				{
+					"count": 4,
+					"geo":
+					{
+						"Lake Eyasi": [[-3.58, 35.00]]
+					},
+					"time": [-132000, -88000]
+				}
+			],
+			"Homo sapiens sapiens":
+			[
+				{
+                    "count": 15,
+					"time": [-115000, -92000],
+					"geo": {
+						"Qafzeh": [[34, 9]]
+					}
+				},
+				{
+					"count": 16,
+					"time": [-101000, -81000],
+					"geo": {
+						"Skhul": [[32.63, 34.96]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-73000, -59000],
+					"geo": {
+						"Ban~olas, Gibraltar": [[36.138,-5.345]]
+					},
+					"note": "mandible - holotype of Homo calpicus - may be H. neanderthalensis"
+				},
+				{
+					"count": 1,
+					"time": [-45000, -39000],
+					"geo": {
+						"Niah cave, East Malaysia": [[3.81, 113.78]]
+					},
+					"note": "child"
+				},
+				{
+					"count": 1,
+					"time": [-44200, -41500],
+					"geo": {
+						"Kents Cavern 4": [[50.47, -3.50]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-42000, -39000],
+					"geo": {
+						"Tianyuan Cave": [[39.66, 115.87]]
+					}
+				},
+				{
+					"count": 2,
+					"time": [-42000, -38000],
+					"geo": {
+						"Lake Mungo": [[-33.75, 143.08]]
+					},
+					"note": "LM1 and LM3; dating from doi:10.1038/nature01383"
+				},
+				{
+					"count": 3,
+					"time": [-42000, -37800],
+					"note2": "May be H. neanderthalensis.",
+					"geo": {
+						"Pestera cu Oase": [[45.02, 21.83]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-40000, -30000],
+					"note": "has occipital bun, like Neandertals",
+					"geo": {
+						"Pestera Muierii": [[45.19, 23.75]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-39400, -33000],
+					"geo": {
+						"Hofmeyr, Eastern Cape South Africa": [[-31.63, 25.8]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-37000, -37000],
+					"geo": {
+						"Sri Lanka": [[7, 81]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-33000, -33000],
+					"geo": {
+						"Upper Zhoukoudian Cave": [[51.55, -4.26]]
+					},
+					"note": "Red Lady of Paviland"
+				},
+				{
+					"count": 2,
+					"time": [-33000, -31000],
+					"geo": {
+						"Yamashita-Cho": [[26.21, 127.68]]
+					},
+					"note": "more than this, but not sure of exact number"
+				},
+				{
+					"count": 8,
+					"time": [-33000, -10000],
+					"geo": {
+						"Upper Zhoukoudian Cave": [[39.69, 115.92]]
+					}
+				},
+				{
+					"count": 6,
+					"time": [-31000, -31000],
+					"geo": {
+						"Mladec<h>": [[49.71, 17.02]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-30000, -22000],
+					"geo": {
+						"Predmosti, Moravia": [[49.5, 17.4]]
+					}
+				},
+				{
+					"count": 5,
+					"time": [-27950, -27410],
+					"geo": {
+						"Cro Magnon": [[44.94, 1.02]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-24580, -24360],
+					"geo": {
+						"Eel Point, Caldey Island, Wales": [[51.64, -4.69]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-18500, -14500],
+					"geo": {
+						"Tabon Cave, Philippines": [[9.28, 117.98]]
+					},
+					"note": "may be more than 1"
+				},
+				{
+					"count": 1,
+					"time": [-16300, -11700],
+					"geo": {
+						"Iwo Eleru, Nigeria": [[7, 5]]
+					},
+					"note": "has some archaic features"
+				},
+				{
+					"count": 4,
+					"time": [-16000, -14000],
+					"geo": {
+						"Minatogawa Quarry, Okinawa": [[26.21, 127.68]]
+					}
+				},
+				{
+					"count": [5, 7],
+					"time": [-14800, -14600],
+					"geo": {
+						"Gough's Cave, Somerset, England": [[51.28, -2.76]]
+					}
+				},
+				{
+					"count": 6,
+					"time": [-14500, -11500],
+					"geo": {
+						"Maludong (Red Deer Cave)": [[25, 102]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-14500, -11500],
+					"geo": {
+						"Longlin Cave": [[25, 102]]
+					}
+				},
+				{
+					"count": 100000000000,
+					"note": "worldwide",
+					"time": [-6000, 0]
+				},
+				{
+					"count": 100,
+					"geo":
+					{
+						"name": "Africa"
+					},
+					"note": ":TODO: Provisional - need to split out.",
+					"time": [-80000, -6000]
+				},
+				{
+					"count": 200,
+					"geo":
+					{
+						"name": "Old World & Australasia"
+					},
+					"note": ":TODO: Need to split out.",
+					"time": [-45000, -6000]
+				},
+				{
+					"count": 50,
+					"geo":
+					{
+						"name": "Americas"
+					},
+					"note": ":TODO: Need to split out.",
+					"time": [-20000, -6000]
+				}
+			],
+			"Homo sapiens ssp.":
+			[
+				{
+					"count": [10, 200],
+					"time": [-200000, -190000],
+					"geo":
+					{
+						"Omo Kibish, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Count approximate. At least 5 individuals with skeletal remains, but about 200 teeth."
+				}
+			],
+			"Homo sp. (Denisova)":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Denisova": [[51.40, 84.68]]
+					},
+					"time": [-41500, -40500]
+				}
+			],
+			"Homo yuanmouensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Yuanmou County": [[25.72, 101.86]]
+					},
+					"time": [-1700000, -500000]
+				}
+			],
+			"Khoratpithecus chiangmuanensis":
+			[
+				{
+					"count": [4, 20],
+					"geo":
+					{
+						"Chiang Muan, Thailand": [[18.8, 98.7]]
+					},
+					"note": "minimal count may be higher",
+					"time": [-12500000, -11500000]
+				}
+			],
+			"Khoratpithecus piriyai":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Piriyai, Thailand": [[18.1, 100.1]]
+					},
+					"time": [-7500000, -6500000]
+				}
+			],
+			"Lufengpithecus hudienensis":
+			[
+				{
+					"count": [140, 1400],
+					"geo":
+					{
+						"Yuanmou Basin": [[26, 102]]
+					},
+					"note": "juvenile face, jaw fragments, ~1400 teeth - count is a rough estimate",
+					"time": [-9000000, -7000000]
+				}
+			],
+			"Lufengpithecus keiyuanensis":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Yuanmou Basin": [[26, 102]]
+					},
+					"time": [-9000000, -7000000]
+				}
+			],
+			"Lufengpithecus lufengensis":
+			[
+				{
+					"count": [100, 600],
+					"geo":
+					{
+						"Lufeng": [[25, 102]]
+					},
+					"time": [-9000000, -7000000],
+					"note": "count approximate"
+				}
+			],
+			"Lufengpithecus wushanensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Longgupo, Wushan County": [[31, 110]]
+					},
+					"note": "Placement provisional.",
+					"time": [-1900000, -1900000]
+				}
+			],
+			"Orrorin tugenensis":
+			[
+				{
+					"count": 5,
+					"geo":
+					{
+						"Tugen Hills": [[0.67, 36]]
+					},
+					"time": [-6100000, -5800000]
+				}
+			],
+			"Pan paniscus":
+			[
+				{
+					"count": 50000,
+					"geo":
+					{
+						"DRC": [[1.76,23.84],[-3.72,25.29],[-4.47,22.96],[-2.19,21.59],[-1.05,18.61],[1.01,18.69]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pan sp.":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Lake Baringo": [[0.63, 36.08]]
+					},
+					"time": [-548000, -542000]
+				}
+			],
+			"Pan troglodytes ellioti":
+			[
+				{
+					"count": 3100,
+					"geo":
+					{
+						"Nigeria & Cameroon": [[4.82, 8.26], [6.35, 8.79], [7.16, 10.55], [7.40, 11.86], [5.50, 9.73], [4.47, 10.70], [3.93, 9.43]],
+						"Cameroon 1": [[5.61, 11.3],[6.11, 11.36]],
+						"Cameroon 2": [[6.43, 12.7], [5.77, 12.46], [5.77, 12.9]],
+						"Nigeria 1": [[8.4, 3.9]],
+						"Nigeria 2": [[7.35, 5.54]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pan troglodytes marungensis":
+			[
+				{
+					"count": 11000,
+					"geo":
+					{
+						"DRC, Rwanda, Burundi": [[-1.35, 29.58], [-2.58, 29.23], [-3.27, 29.43], [-4.03, 29.88], [-5.63, 29.39], [-5.59, 26.61], [-1.04, 25.6]],
+						"DRC, Tanzania": [[-5.67, 31.63], [-6.81, 28.19]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pan troglodytes schweinfurthii":
+			[
+				{
+					"count": 61500,
+					"geo":
+					{
+						"DRC, S. Sudan, ?Uganda": [[2, 32.3], [3.16, 30.0], [4.40, 28.1], [3.4, 25.0], [4.60, 23.6], [4.12, 22.46], [4.87, 20.08], [3.47, 18.6], [0.35, 18.06], [2.23, 22.15], [0.52, 25.19], [-0.8, 26.3], [-1.39, 29.59]],
+						"north DRC": [[4.48, 25.1]],
+						"S. Sudan, CAR": [[3.87, 31.9], [7.87, 23.12], [4.85, 22.97], [5.02, 27.45], [3.45, 30.85]],
+						"CAR": [[9.1, 21.6]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pan troglodytes troglodytes":
+			[
+				{
+					"count": 40000,
+					"geo":
+					{
+						"West Central Africa": [[3, 10], [5.8, 14], [4.5, 14], [4.5, 17], [3.5, 18.5], [-2.5, 16.5], [-1, 15.5], [-1.5, 14.5], [-1.5, 16], [-1.7, 14.5], [-3.5, 13.5], [-3.5, 13], [-2.5, 12.5], [-3, 11.5], [-4.5, 12.5], [-5, 12], [-0.6, 8.7], [-0.7, 9.1], [1, 9.5]],
+						"CAR": [[7, 15.5], [5, 17]],
+						"Congo": [[-3, 15.5]],
+						"DR Congo": [[-5, 13]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pan troglodytes verus":
+			[
+				{
+					"count": 17000,
+					"geo":
+					{
+						"West Africa": [[11, -15], [13.5, -19], [12.5, -9], [9, -8], [10.5, -6.5], [6.5, -4.5], [10, -4], [5, -1.5], [6, -4.5], [4.35, -7.6], [6.9, -11.45]]
+
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Paranthropus aethiopicus":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Upper Ndolanya Beds, Laetoli": [[-3, 35]]
+					},
+					"time": [-2676000, -2644000],
+					"note": "EP1500/01"
+				},
+				{
+					"count": 3,
+					"time": [-2750000, -2580000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L55-33, L62-17, 18-18"
+				},
+				{
+					"count": 1,
+					"time": [-2650000, -2550000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo 18-31"
+				},
+				{
+					"count": 1,
+					"time": [-2600000, -2600000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo 84-100"
+				},
+				{
+					"count": 1,
+					"time": [-2580000, -2520000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L51-79"
+				},
+				{
+					"count": 3,
+					"time": [-2520000, -2400000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L50-2, L64-2, L296-1"
+				},
+				{
+					"count": [6, 15],
+					"time": [-2400000, -2360000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L10-21, L26-59, L338X-32, L338X-33, L338X-34, L338X-35, L338X-39, L338X-40, L338Y-6, L338Y-89, 44-1410, 44-2466, 57-42, 57-147, 57-148"
+				},
+				{
+					"count": 1,
+					"time": [-2380000, -2380000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo 57-41"
+				},
+				{
+					"count": [2, 16],
+					"time": [-2360000, -2360000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L398-14, L398-120, L398-264, L398-266, L398-630, L398-847, L398-1223, L398-2608, 33-9, 33-62, 33-63, 33-65, 33-506, 33-507, 33-508, 33-6172"
+				},
+				{
+					"count": [9, 11],
+					"time": [-2360000, -2330000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo F22-1a, F22-1b, L28-126, L157-35, L209-17, L238-35, L420-15, L465-111, L465-112, L860-2, 76R-11"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Lake Turkana": [[3.58, 38.12]]
+					},
+					"time": [-2460000, -2360000],
+					"note": "KNM-WT 16005"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Lake Turkana": [[3.58, 38.12]]
+					},
+					"time": [-2570000, -2470000],
+					"note": "KNM-WT 17000"
+				}
+			],
+			"Paranthropus boisei":
+			[
+				{
+					"count": 1,
+					"time": [-1700000, -1560000],
+					"geo":
+					{
+						"Peninj, Tanzania": [[-2.3, 36.0]]
+					},
+					"note": "NMT-W64-160"
+				},
+				{
+					"count": [4, 9],
+					"time": [-1430000, -1410000],
+					"geo":
+					{
+						"Konso, Ethiopia": [[5.25, 37.48]]
+					}
+				},
+				{
+					"count": 3,
+					"time": [-1500000, -1420000],
+					"geo":
+					{
+						"Chesowanja, Kenya": [[0.4, 35.4]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-2500000, -2300000],
+					"geo":
+					{
+						"Malema, Malawi": [[-10.8, 33.9]]
+					},
+					"note": "RC 911"
+				},
+				{
+					"count": [1, 3],
+					"time": [-1450000, -1400000],
+					"geo":
+					{
+						"Olduvai Gorge": [[-3, 35]]
+					},
+					"note": "OH 3, 36, 38"
+				},
+				{
+					"count": 2,
+					"time": [-1850000, -1790000],
+					"geo":
+					{
+						"Olduvai Gorge": [[-3, 35]]
+					},
+					"note": "OH 5 [holotype], 46"
+				},
+				{
+					"count": [2, 3],
+					"time": [-1790000, -1660000],
+					"geo":
+					{
+						"Olduvai Gorge": [[-3, 35]]
+					},
+					"note": "OH 20, 26, 30"
+				},
+				{
+					"count": 6,
+					"time": [-1790000, -1650000],
+					"geo":
+					{
+						"West Turkana": [[4.3, 35.8]]
+					}
+				},
+				{
+					"count": 6,
+					"time": [-1870000, -1670000],
+					"geo":
+					{
+						"West Turkana": [[4.3, 35.8]]
+					},
+					"note": "KNM-WT 17400"
+				},
+				{
+					"count": [2, 4],
+					"time": [-1900000, -1870000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 1469, 1500, 3729, 3731"
+				},
+				{
+					"count": 1,
+					"time": [-1900000, -1850000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 1477"
+				},
+				{
+					"count": 1,
+					"time": [-1900000, -1800000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 25520"
+				},
+				{
+					"count": 5,
+					"time": [-1870000, -1870000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 405, 1479, 3952, 13750, 23000"
+				},
+				{
+					"count": [2, 4],
+					"time": [-1870000, -1600000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 1819, 2607, 3954, 16841"
+				},
+				{
+					"count": [1, 2],
+					"time": [-1850000, -1850000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 407, 3229"
+				},
+				{
+					"count": 1,
+					"time": [-1790000, -1770000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 3885"
+				},
+				{
+					"count": [2, 10],
+					"time": [-1770000, -1770000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 403, 810, 812, 814, 816, 3886, 6128, 15930, 15940, 17760"
+				},
+				{
+					"count": 1,
+					"time": [-1700000, -1670000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 1820"
+				},
+				{
+					"count": 1,
+					"time": [-1670000, -1670000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 403"
+				},
+				{
+					"count": [2, 5],
+					"time": [-1650000, -1550000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 726, 818, 1468, 6080, 6082"
+				},
+				{
+					"count": 1,
+					"time": [-1650000, -1500000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 3887"
+				},
+				{
+					"count": [4, 14],
+					"time": [-1600000, -1560000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 406, 727, 732, 801, 802, 1170, 1171, 1816, 1818, 3230, 3737, 3890, 5429, 5679"
+				},
+				{
+					"count": [3, 9],
+					"time": [-1550000, -1490000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 404, 725, 728, 729, 733, 805, 1467, 5877, 15950"
+				},
+				{
+					"count": 1,
+					"time": [-1490000, -1490000],
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 3889"
+				},
+				{
+					"count": 1,
+					"time": [-2520000, -2400000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L704-2"
+				},
+				{
+					"count": 1,
+					"time": [-2400000, -2360000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L40-19"
+				},
+				{
+					"count": [3, 8],
+					"time": [-2330000, -2270000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L628-1, L628-2, L628-3, L628-4, L628-5, L628-9, 76-37, 141-2"
+				},
+				{
+					"count": [5, 6],
+					"time": [-2270000, -2190000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L7A-25, L74A-21, L726-11, L797-1, 47-46, 323-896"
+				},
+				{
+					"count": 1,
+					"time": [-2100000, -2100000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo 47-1500"
+				},
+				{
+					"count": 1,
+					"time": [-2000000, -1800000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo L427-7"
+				},
+				{
+					"count": 1,
+					"time": [-1450000, -1400000],
+					"geo":
+					{
+						"Omo, Ethiopia": [[5.8, 35.8]]
+					},
+					"note": "Omo F203-1"
+				}
+			],
+			"Paranthropus indet.":
+			[
+				{
+					"count": [1, 2],
+					"geo":
+					{
+						"Gondolin Cave, South Africa": [[-25.8, 27.9]]
+					},
+					"time": [-1900000, -1700000]
+				}
+			],
+			"Paranthropus robustus":
+			[
+				{
+					"count": 8,
+					"geo":
+					{
+						"Hanging Remnant, Member 1, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-2100000, -1900000],
+					"note": "SK 50, 82, 84, 97, 2598, 3981a, 3981b, 854; SKW 19"
+				},
+				{
+					"count": 15,
+					"geo":
+					{
+						"Lower Bank, Member 1, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-2100000, -1900000],
+					"note": "SK 10641, 15468, 24601, 25600; SKX 3602, 3774, 5016-5022, 8761, 8963, 9449, 10641, 13476, 16699, 45690; SKW 4776"
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Member 2, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-1700000, -1100000],
+					"note": "SK 3121; SKX 1084, 3699"
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Member 3, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
+					},
+					"time": [-600000, -1000000],
+					"note": "SKX 31117, 33380, 38653"
+				},
+				{
+					"count": [15, 47],
+					"geo":
+					{
+						"Drimolen Cave, South Africa": [[-26, 28]]
+					},
+					"time": [-1900000, -1600000],
+					"note": "minimal count approximate"
+				},
+				{
+					"count": [1, 2],
+					"geo":
+					{
+						"Sites A/B, Coopers Cave, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1900000, -1600000]
+				},
+				{
+					"count": [5, 12],
+					"geo":
+					{
+						"Site D, Coopers Cave, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1900000, -1600000],
+					"note": "count approximate"
+				},
+				{
+					"count": 9,
+					"geo":
+					{
+						"Kromdraai, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1800000, -1700000],
+					"note": "includes TM 1517 [robustus holotype]; count is minimal"
+				},
+				{
+					"count": 40,
+					"geo":
+					{
+						"Member 5A, Sterkfontein Cave, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1800000, -1400000],
+					"note": "count approximate"
+				},
+				{
+					"count": 40,
+					"geo":
+					{
+						"Member 5B, Sterkfontein Cave, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1400000, -1100000],
+					"note": "count approximate"
+				},
+				{
+					"count": 40,
+					"geo":
+					{
+						"Member 5C, Sterkfontein Cave, South Africa": [[-26, 27.7]]
+					},
+					"time": [-800000, -1300000],
+					"note": "count approximate"
+				}
+			],
+			"Ponginae indet.":
+			[
+				{
+					"count": 4,
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000],
+					"note": "teeth"
+				}
+			],
+			"Pongo (Pongo) indet.":
+			[
+				{
+					"count": [1, 4],
+					"geo":
+					{
+						"Keo Leng, Vietnam": [[21.8,107]]
+					},
+					"time": [-30000, -20000],
+					"note": "Not sure of exact count -- may be higher."
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Nguom Rockshelter, Vietnam": [[21.5, 106]]
+					},
+					"time": [-23000, -23000],
+					"note": "partial mandible"
+				},
+				{
+					"count": [20, 200],
+					"geo":
+					{
+						"Lang Trang, Vietnam": [[19.4, 105.3]]
+					},
+					"time": [-500000, -50000],
+					"note": "Over 200 teeth. Minimum number an estimate."
+				},
+				{
+					"count": [3, 30],
+					"geo":
+					{
+						"Dieu Rockshelter, Vietnam": [[19.4, 105.3]]
+					},
+					"time": [-500000, -50000],
+					"note": "30 teeth. Minimum number an estimate. Dating uncertain."
+				}
+			],
+			"Pongo abelii":
+			[
+				{
+					"count": 6600,
+					"geo":
+					{
+						"Sumatra": [[5.53,95.27],[4.48,95.77],[3.00,97.43],[3.96,98.39]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pongo ciochoni":
+			[
+				{
+					"count": [3, 14],
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000]
+				}
+			],
+			"Pongo devosi":
+			[
+				{
+					"count": [6, 56],
+					"geo":
+					{
+						"Hang Hum, Vietnam": [[21, 103.5]]
+					},
+					"time": [-140000, -80000],
+					"note": "Minimum number an estimate."
+				}
+			],
+			"Pongo fromageti":
+			[
+				{
+					"count": [6, 60],
+					"geo":
+					{
+						"Tham Om, Vietnam": [[19.4, 105.3]]
+					},
+					"time": [-250000, -140000],
+					"note": "~60 teeth. Minimum number an estimate. Part of crown group"
+				}
+			],
+			"Pongo hooijeri":
+			[
+				{
+					"count": [8, 44],
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Tham Hai, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000]
+				}
+			],
+			"Pongo khalkei":
+			[
+				{
+					"count": [3, 19],
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-300000, -250000],
+					"note": "Minimum number an estimate."
+				}
+			],
+			"Pongo palaeosumatrensis":
+			[
+				{
+					"count": [200, 3170],
+					"geo":
+					{
+						"Padang Highlands, Sumatra": [[-0.5, 100.5]]
+					},
+					"time": [-11700, -6000],
+					"note": "minimum number an estimate. Dating uncertain -- given as 'early Holocene'"
+				}
+			],
+			"Pongo pygmaeus":
+			[
+				{
+					"count": 54500,
+					"geo":
+					{
+						"North Borneo": [[7.32,117.09],[5.23,119.16],[3.78,116.61]],
+						"South Borneo": [[2.33,118.10],[0.27,117.44],[0.58,114.24],[-1.93,114.99],[-3.42,113.79],[-2.89,110.01],[-0.21,109.00],[-0.52,112.21],[1.01,111.37],[2.15,109.48]]
+					},
+					"time": [-200, 0]
+				}
+			],
+			"Pongo weidenreichi":
+			[
+				{
+					"count": 1,
+					"note": "not sure of count",
+					"geo":
+					{
+						"Hoshantung": [[36.67, 117.02]]
+					},
+					"time": [-2588000, -126000]
+				}
+			],
+			"Sahelanthropus tchadensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Toros-Menalla, Djurab Desert": [[17, 18]]
+					},
+					"time": [-7000000, -6000000]
+				}
+			],
+			"Sivapithecus sp.":
+			[
+				{
+					"count": 1,
+					"time": [-9500000, -8500000],
+					"geo":
+					{
+						"Haritalyangar": [[32, 77.5]]
+					}
+				}
+			],
+			"Sivapithecus indicus":
+			[
+				{
+					"count": 5,
+					"geo":
+					{
+						"Chinji": [[33, 72.5]],
+						"Haritalyangar": [[32, 77.5]]
+					},
+					"time": [-12500000, -10500000]
+				}
+			],
+			"Sivapithecus parvada":
+			[
+				{
+					"time": [-10000000, -10000000],
+					"geo":
+					{
+						"Pothohar Plateau": [[33, 73]]
+					}
+				}
+			],
+			"Sivapithecus sivalensis":
+			[
+				{
+					"count": 2,
+					"note": ":TODO: Need to check number.",
+					"time": [-9500000, -8500000],
+					"geo":
+					{
+						"Pothohar Plateau": [[33, 73]],
+						"Haritalyangar": [[32, 77.5]]
+					}
+				}
+			],
+			"Udabnopithecus garedziensis":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Udabno, Georgia": [[41.51, 45.38]]
+					},
+					"time": [-9000000, -9000000]
+				}
+			]
+		}
+	}
+}

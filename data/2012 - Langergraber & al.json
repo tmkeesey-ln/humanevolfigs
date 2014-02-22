@@ -1,0 +1,87 @@
+{
+	"metadata":
+	{
+		"authors": ["Kevin E. Langergraber", "Kay Prüfer", "18 others"],
+		"year": 2012,
+		"title": "Generation times in wild chimpanzees and gorillas suggest earlier divergence times in great ape and human evolution",
+		"journal": "Proceedings of the National Academy of Sciences of the United States of America",
+		"volume": 109,
+		"issue": 39,
+		"pages": [814, 818],
+	    "uri": "urn:doi:10.1073/pnas.1211740109"
+	},
+	"data":
+	{
+	    "datings":
+	    {
+	    	"discussion": [
+	    		{
+	    			"taxa": ["Gorilla", "Homo sapiens"],
+	    			"time": [-19000000, -8000000]
+	    		},
+	    		{
+	    			"taxa": ["Pan", "Homo sapiens"],
+	    			"time": [-13000000, -7000000]
+	    		},
+	    		{
+	    			"taxa": ["Pan troglodytes", "Pan paniscus"],
+	    			"time": [-2600000, -1500000]
+	    		},
+	    		{
+	    			"taxa": ["Homo sapiens", "Homo neanderthalensis"],
+	    			"time": [-781000, -423000]
+	    		}
+	    	],
+	    	"alternate": [
+	    		{
+	    			"taxa": ["Gorilla", "Homo sapiens"],
+	    			"time": [-17200000, -10900000]
+	    		},
+	    		{
+	    			"taxa": ["Pan", "Homo sapiens"],
+	    			"time": [-11600000, -6800000]
+	    		}
+	    	],
+	    	"table2": [
+	    		{
+	    			"taxa": ["Gorilla", "Homo sapiens"],
+	    			"time": [-20000000, -8310000]
+	    		},
+	    		{
+	    			"taxa": ["Pan", "Homo sapiens"],
+	    			"time": [-13450000, -6780000]
+	    		},
+	    		{
+	    			"taxa": ["Pan troglodytes", "Pan paniscus"],
+	    			"time": [-2550000, -1450000]
+	    		},
+	    		{
+	    			"taxa": ["Gorilla gorilla", "Gorilla beringei"],
+	    			"time": [-3010000, -1200000]
+	    		}
+	    	],
+	    	"synthesis": [
+	    		{
+	    			"taxa": ["Gorilla", "Homo sapiens"],
+	    			"time": [-17200000, -8310000]
+	    		},
+	    		{
+	    			"taxa": ["Gorilla gorilla", "Gorilla beringei"],
+	    			"time": [-3010000, -1200000]
+	    		},
+	    		{
+	    			"taxa": ["Pan", "Homo sapiens"],
+	    			"time": [-11600000, -6780000]
+	    		},
+	    		{
+	    			"taxa": ["Pan troglodytes", "Pan paniscus"],
+	    			"time": [-2550000, -1450000]
+	    		},
+	    		{
+	    			"taxa": ["Homo sapiens", "Homo neanderthalensis"],
+	    			"time": [-781000, -423000]
+	    		}
+	    	]
+	    }
+	}
+}

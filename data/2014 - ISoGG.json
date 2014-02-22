@@ -1,0 +1,75 @@
+{
+	"metadata":
+	{
+		"authors": ["International Society of Genetic Genealogy"],
+		"year": 2014,
+		"month": 1,
+		"day": 7,
+		"title": "Y-DNA Haplogroup Tree 2014, Version: 9.04",
+	    "uri": "http://www.isogg.org/tree/",
+	    "note": "'Y-' prefix has been added to disambiguate from mitochondrial haplogroups."
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"synonymies": [
+				["Root (Y-Adam)", "Y-MRCA"],
+				["Y-K(xLT)", "Y-MNOPS"],
+				["Y-BT", "Y-A1b2"]
+			]
+		},
+		"phyloGraphs":
+		{
+			"v7.54": [
+				["Root (Y-Adam)", "Y-A00"],
+				["Root (Y-Adam)", "Y-A0-T"],
+				["Y-A0-T", "Y-A0"],
+				["Y-A0-T", "Y-A1"],
+				["Y-A1", "Y-A1a"],
+				["Y-A1", "Y-A1b"],
+				["Y-A1b", "Y-A1b1"],
+				["Y-A1b", "Y-BT"],
+				["Y-BT", "Y-B"],
+				["Y-BT", "Y-CT"],
+				["Y-CT", "Y-DE"],
+				["Y-CT", "Y-CF"],
+				["Y-DE", "Y-D"],
+				["Y-DE", "Y-E"],
+				["Y-CF", "Y-C"],
+				["Y-CF", "Y-F"],
+				["Y-F", "Y-G"],
+				["Y-F", "Y-H"],
+				["Y-F", "Y-IJK"],
+				["Y-IJK", "Y-IJ"],
+				["Y-IJK", "Y-K"],
+				["Y-IJ", "Y-I"],
+				["Y-IJ", "Y-J"],
+				["Y-K", "Y-LT"],
+				["Y-K", "Y-K(xLT)"],
+				["Y-LT", "Y-L"],
+				["Y-LT", "Y-T"],
+				["Y-K(xLT)", "Y-M"],
+				["Y-K(xLT)", "Y-NO"],
+				["Y-K(xLT)", "Y-P"],
+				["Y-K(xLT)", "Y-S"],
+				["Y-NO", "Y-N"],
+				["Y-NO", "Y-O"],
+				["Y-P", "Y-Q"],
+				["Y-P", "Y-R"],
+				["Y-Q", "Y-Q1"],
+				["Y-Q1", "Y-Q1a"],
+				["Y-Q1", "Y-Q1b"],
+				["Y-Q1a", "Y-Q1a1"],
+				["Y-Q1a", "Y-Q1a2"],
+				["Y-Q1a2", "Y-Q1a2a"],
+				["Y-Q1a2", "Y-Q1a2b"],
+				["Y-Q1a2", "Y-Q1a2c"],
+				["Y-Q1a2a", "Y-Q1a2a1"],
+				["Y-Q1a2a1", "Y-Q1a2a1a"],
+				["Y-Q1a2a1", "Y-Q1a2a1b"],
+				["Y-Q1a2a1", "Y-Q1a2a1c"]
+			]
+		}
+	}
+}

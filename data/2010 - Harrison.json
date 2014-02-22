@@ -1,0 +1,64 @@
+{
+	"metadata":
+	{
+		"authors": ["T. Harrison"],
+		"day": 29,
+		"journal": "Science",
+		"month": 1,
+		"title": "Apes among the tangled branches of human origins",
+		"urn": "urn:doi:10.1126/science.1184703",
+		"volume": 327,
+		"year": 2010
+	},
+	"data":
+	{
+		"topologies": {
+			"Fig2approx": [
+				[
+					"Pierolapithecus",
+					["Dryopithecus", "Oreopithecus"]
+				],
+				[
+					"Lufengpithecus",
+					[
+						"Ankarapithecus",
+						"Gigantopithecus",
+						"Sivapithecus",
+						["Khoratpithecus", "Pongo"]
+					]
+				],
+				[
+					"Ardipithecus",
+					"Chororapithecus",
+					"Nakalipithecus",
+					"Orrorin",
+					"Ouranopithecus",
+					"Sahelanthropus",
+					"Samburupithecus",
+					"Udabnopithecus",
+					[
+						"Ardipithecus",
+						"Orrorin",
+						"Sahelanthropus",
+						[
+							"Gorilla",
+							[
+								"Pan",
+								[
+									"Ardipithecus",
+									"Orrorin",
+									"Sahelanthropus",
+									[
+										"Australopithecus",
+										"Homo",
+										"Paranthropus"
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		}
+	}
+}
