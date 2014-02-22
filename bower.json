@@ -1,0 +1,29 @@
+{
+  "name": "humanevolfigs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/keesey/humanevolfigs",
+  "authors": [
+    "T. Michael Keesey <keesey@gmail.com>"
+  ],
+  "description": "Human Evolution Figures",
+  "keywords": [
+    "human",
+    "evolution",
+    "hominidae",
+    "figure",
+    "chart",
+    "graph"
+  ],
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "haeckel": "*"
+  }
+}

@@ -1,4 +1,4 @@
-humanevolfigs
+Human Evolution Figures
 =============
 
-Human Evolution Figures (using Haeckel)
+Uses Haeckel: https://github.com/keesey/Haeckel
