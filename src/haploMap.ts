@@ -52,7 +52,19 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				width: mapArea.width + 'px',
 				height: mapArea.height + 'px'
 			})
-
+	defs.child(Haeckel.SVG_NS, 'marker')
+		.attrs(Haeckel.SVG_NS, {
+				id: 'arrowhead',
+      			viewBox: "0 0 10 10",
+      			refX: "5",
+      			refY: "5",
+      			markerUnits: "strokeWidth",
+      			markerWidth: "4",
+      			markerHeight: "3",
+      			orient: "auto"
+  			})
+		.child(Haeckel.SVG_NS, 'path')
+			.attr(Haeckel.SVG_NS, 'd', "M0 0L10 5L0 10z");
 
 	var main = builder
 		.child(Haeckel.SVG_NS, 'g')
@@ -110,8 +122,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 			regionsChecked = false;
 		if (source === target || (Haeckel.ext.contains(solver.sinks, target) && (getRegions() === null || getRegions().size === 1)))
 		{
-			//attrs['arrow-end'] = 'classic-medium-short';
-			// :TODO: arrowhead
+			attrs['marker-end'] = "url(#arrowhead)";
 		}
 		return attrs;
 	};
