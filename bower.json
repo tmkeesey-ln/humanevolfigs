@@ -25,5 +25,8 @@
   ],
   "dependencies": {
     "haeckel": "*"
+  },
+  "devDependencies": {
+    "dt-node": "*"
   }
 }

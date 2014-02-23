@@ -1,0 +1,36 @@
+{
+  "name": "humanevolfigs",
+  "version": "0.0.0",
+  "description": "Human Evolution Figures",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keesey/humanevolfigs"
+  },
+  "keywords": [
+    "human",
+    "evolution",
+    "hominidae",
+    "charts",
+    "figures"
+  ],
+  "author": "T. Michael Keesey <keesey@gmail.com>",
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "bugs": {
+    "url": "https://github.com/keesey/humanevolfigs/issues"
+  },
+  "homepage": "https://github.com/keesey/humanevolfigs",
+  "dependencies": {
+    "xmldom": "~0.1.19"
+  },
+  "devDependencies": {
+    "time-grunt": "~0.2.9",
+    "load-grunt-tasks": "~0.3.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-typescript": "~0.2.7"
+  }
+}
