@@ -11,6 +11,43 @@ module.exports = function(grunt)
   grunt.loadNpmTasks('grunt-typescript');
   grunt.loadNpmTasks('grunt-svg2png');
 
+  grunt.registerMultiTask('svg', 'Generates an SVG file for a figure.', function()
+  {
+    var done = this.async(),
+      name = this.target;
+    grunt.util.spawn({
+      cmd: 'node',
+      args: ['bower_components/haeckel/lib/haeckel.js', 'src/' + name + '.fig.js']
+    }, function (error, result, code)
+    {
+      if (error)
+      {
+        grunt.log.error('Error #' + code);
+        grunt.log.error(String(error));
+        done(false);
+      }
+      else
+      {
+        try
+        {
+          grunt.file.write('bin/' + name + '.svg', result.stdout, {encoding: 'utf-8'});
+        }
+        catch (e)
+        {
+          grunt.log.error(String(e));
+          done(false);
+        }
+        done(true);
+      }
+    });
+  });
+
+  grunt.registerMultiTask('figure', 'Compiles and renders a figure', function()
+  {
+    grunt.task.run('typescript:' + this.target);
+    grunt.task.run('svg:' + this.target);
+  });
+
   // Project configuration.
   grunt.initConfig(
   {
@@ -46,9 +83,19 @@ module.exports = function(grunt)
           noImplicitAny: true
         }
       }
+    },
+    svg:
+    {
+      mtDNA: {},
+      YDNA: {}
+    },
+    figure:
+    {
+      mtDNA: {},
+      YDNA: {}
     }
     // :TODO: watch tasks
   });
 
-  grunt.registerTask('default', ['clean', 'typescript']); // :TODO: make task to generate all figures
+  grunt.registerTask('default', ['clean', 'figure']);
 };
