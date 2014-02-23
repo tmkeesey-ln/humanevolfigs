@@ -84,6 +84,13 @@ module.exports = function(grunt)
         }
       }
     },
+    svg2png:
+    {
+      all:
+      {
+        files: [{ src: ['bin/*.svg'], dest: 'bin/' }]
+      }
+    },
     svg:
     {
       mtDNA: {},
@@ -97,5 +104,7 @@ module.exports = function(grunt)
     // :TODO: watch tasks
   });
 
-  grunt.registerTask('default', ['clean', 'figure']);
+  grunt.registerTask('vector', ['clean', 'figure']);
+
+  grunt.registerTask('default', ['vector', 'svg2png']);
 };
