@@ -32,6 +32,19 @@ module.exports = function(grunt)
           sourcemap: false,
           noImplicitAny: true
         }
+      },
+      YDNA:
+      {
+        src: [ 'src/haploMap.ts', 'src/YDNA.fig.ts' ],
+        dest: 'src/YDNA.fig.js',
+        options: 
+        {
+          target: 'es5',
+          base_path: 'src',
+          declaration: false,
+          sourcemap: false,
+          noImplicitAny: true
+        }
       }
     }
     // :TODO: watch tasks
