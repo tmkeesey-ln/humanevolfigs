@@ -9,6 +9,7 @@ module.exports = function(grunt)
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-typescript');
+  grunt.loadNpmTasks('grunt-svg2png');
 
   // Project configuration.
   grunt.initConfig(

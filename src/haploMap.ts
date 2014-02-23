@@ -5,9 +5,10 @@ function haploMap(builder: Haeckel.ElementBuilder,
 	phylogeny: Haeckel.DAGSolver<Haeckel.Taxic>,
 	occurrences: Haeckel.CharacterMatrix<Haeckel.Set>,
 	worldMapAssetData: string,
+	mapArea: Haeckel.Rectangle,
 	extensions: boolean = true)
 {
-	var MARGIN = 20;
+	var MARGIN = 50;
 
 	var OFFSET = -150;
 
@@ -27,7 +28,6 @@ function haploMap(builder: Haeckel.ElementBuilder,
 		return lat;
 	}
 
-	var mapArea: Haeckel.Rectangle = Haeckel.rec.createFromBoundingClientRect(<SVGSVGElement> builder.build());
 	mapArea = Haeckel.rec.create(mapArea.x + MARGIN, mapArea.y + MARGIN, mapArea.width - MARGIN * 2, mapArea.height - MARGIN * 2);
 	var mapAOffset = mapArea.width * OFFSET / 360,
 		mapBOffset = mapArea.width * (OFFSET + 360) / 360,
@@ -43,9 +43,10 @@ function haploMap(builder: Haeckel.ElementBuilder,
 			.child(Haeckel.SVG_NS, 'defs');
 
 	defs.build().appendChild(mapSVG.build());
-	defs.child(Haeckel.SVG_NS, 'rect')
+	defs.child(Haeckel.SVG_NS, 'clipPath')
+		.attr(Haeckel.SVG_NS, 'id', 'mask')
+		.child(Haeckel.SVG_NS, 'rect')
 		.attrs(Haeckel.SVG_NS, {
-				id: 'mask',
 				x: mapArea.x + 'px',
 				y: mapArea.y + 'px',
 				width: mapArea.width + 'px',
@@ -55,7 +56,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 
 	var main = builder
 		.child(Haeckel.SVG_NS, 'g')
-		.attr(Haeckel.SVG_NS, 'mask', 'url(#mask)');
+		.attr(Haeckel.SVG_NS, 'clip-path', 'url(#mask)');
 	var maps = main
 		.child(Haeckel.SVG_NS, 'g')
 		.attr(Haeckel.SVG_NS, 'id', 'maps');
@@ -66,7 +67,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				width: mapArea.width + 'px',
 				height: mapArea.height + 'px'
 			})
-		.attr(XLINK_NS, 'href', '#map');
+		.attr(XLINK_NS, 'xlink:href', '#map');
 	maps.child(Haeckel.SVG_NS, 'use')
 		.attrs(Haeckel.SVG_NS, {
 				x: (mapArea.x + mapBOffset) + 'px',
@@ -74,8 +75,11 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				width: mapArea.width + 'px',
 				height: mapArea.height + 'px'
 			})
-		.attr(XLINK_NS, 'href', '#map');
+		.attr(XLINK_NS, 'xlink:href', '#map');
 
+	var chartGroup = main
+		.child(Haeckel.SVG_NS, 'g')
+		.attr(Haeckel.SVG_NS, 'id', 'chart');
 	var chart = new Haeckel.GeoPhyloChart(),
 		root = Haeckel.ext.singleMember(phylogeny.sources),
 		maxDistance = 1;
@@ -96,9 +100,11 @@ function haploMap(builder: Haeckel.ElementBuilder,
 		}
 
 		var attrs: { [name: string]: string; } = {
+				'fill': 'transparent',
 				'opacity': '0.33',
+				'stroke': '#000000',
 				'stroke-linecap': 'round',
-				'stroke-width': '4px'
+				'stroke-width': '16px'
 			},
 			regions: Haeckel.ExtSet<Haeckel.GeoCoords[]>,
 			regionsChecked = false;
@@ -113,11 +119,11 @@ function haploMap(builder: Haeckel.ElementBuilder,
 	chart.mapArea = mapArea;
 	chart.nomenclature = nomenclature;
 	chart.occurrenceMatrix = occurrences;
-	chart.paddingY = 12;
+	chart.paddingY = 48;
 	chart.projector = (coords: Haeckel.GeoCoords) => Haeckel.pt.create((wrapLongitude(coords.lon) + 180) / 360, (90 - coords.lat) / 180);
-	chart.rootRadius = 5;
+	chart.rootRadius = 20;
 	chart.solver = phylogeny;
-	chart.render(main);
+	chart.render(chartGroup);
 
 	main.child(Haeckel.SVG_NS, 'rect')
 		.attrs(Haeckel.SVG_NS, {
@@ -127,7 +133,8 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				height: mapArea.height + 'px',
 				fill: 'none',
 				stroke: '#000000',
-				"stroke-width": '4px',
+				opacity: '1',
+				"stroke-width": '8px',
 				"stroke-linejoin": 'miter'
 			});
 }
