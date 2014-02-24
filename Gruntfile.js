@@ -2,6 +2,15 @@
 
 module.exports = function(grunt)
 {
+  var TYPESCRIPT_OPTIONS =
+  {
+    target: 'es5',
+    base_path: 'src',
+    declaration: false,
+    sourcemap: false,
+    noImplicitAny: true
+  };
+
   // Show elapsed time at the end
   require('time-grunt')(grunt);
 
@@ -57,31 +66,23 @@ module.exports = function(grunt)
     },
     typescript:
     {
+      geoChron:
+      {
+        src: [ 'src/geoChron.fig.ts' ],
+        dest: 'src/geoChron.fig.js',
+        options: TYPESCRIPT_OPTIONS
+      },
       mtDNA:
       {
         src: [ 'src/haploMap.ts', 'src/mtDNA.fig.ts' ],
         dest: 'src/mtDNA.fig.js',
-        options: 
-        {
-          target: 'es5',
-          base_path: 'src',
-          declaration: false,
-          sourcemap: false,
-          noImplicitAny: true
-        }
+        options: TYPESCRIPT_OPTIONS
       },
       YDNA:
       {
         src: [ 'src/haploMap.ts', 'src/YDNA.fig.ts' ],
         dest: 'src/YDNA.fig.js',
-        options: 
-        {
-          target: 'es5',
-          base_path: 'src',
-          declaration: false,
-          sourcemap: false,
-          noImplicitAny: true
-        }
+        options: TYPESCRIPT_OPTIONS
       }
     },
     svg2png:
@@ -93,11 +94,13 @@ module.exports = function(grunt)
     },
     svg:
     {
+      geoChron: {},
       mtDNA: {},
       YDNA: {}
     },
     figure:
     {
+      geoChron: {},
       mtDNA: {},
       YDNA: {}
     }

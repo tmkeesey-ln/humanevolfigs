@@ -116,7 +116,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				'opacity': '0.33',
 				'stroke': '#000000',
 				'stroke-linecap': 'round',
-				'stroke-width': '16px'
+				'stroke-width': '4px'
 			},
 			regions: Haeckel.ExtSet<Haeckel.GeoCoords[]>,
 			regionsChecked = false;
@@ -130,9 +130,9 @@ function haploMap(builder: Haeckel.ElementBuilder,
 	chart.mapArea = mapArea;
 	chart.nomenclature = nomenclature;
 	chart.occurrenceMatrix = occurrences;
-	chart.paddingY = 48;
+	chart.paddingY = 12;
 	chart.projector = (coords: Haeckel.GeoCoords) => Haeckel.pt.create((wrapLongitude(coords.lon) + 180) / 360, (90 - coords.lat) / 180);
-	chart.rootRadius = 20;
+	chart.rootRadius = 5;
 	chart.solver = phylogeny;
 	chart.render(chartGroup);
 
@@ -145,7 +145,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				fill: 'none',
 				stroke: '#000000',
 				opacity: '1',
-				"stroke-width": '8px',
+				"stroke-width": '2px',
 				"stroke-linejoin": 'miter'
 			});
 }
