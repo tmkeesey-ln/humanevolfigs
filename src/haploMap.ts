@@ -1,10 +1,11 @@
-/// <reference path="../bower_components/dt-node/node.d.ts"/>
-/// <reference path="../bower_components/haeckel/lib/haeckel.d.ts"/>
+/// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
+
 function haploMap(builder: Haeckel.ElementBuilder,
+	defs: Haeckel.ElementBuilder,
 	nomenclature: Haeckel.Nomenclature,
 	phylogeny: Haeckel.DAGSolver<Haeckel.Taxic>,
 	occurrences: Haeckel.CharacterMatrix<Haeckel.Set>,
-	worldMapAssetData: string,
+	worldMapAssetID: string,
 	mapArea: Haeckel.Rectangle,
 	extensions: boolean = true)
 {
@@ -30,19 +31,8 @@ function haploMap(builder: Haeckel.ElementBuilder,
 
 	mapArea = Haeckel.rec.create(mapArea.x + MARGIN, mapArea.y + MARGIN, mapArea.width - MARGIN * 2, mapArea.height - MARGIN * 2);
 	var mapAOffset = mapArea.width * OFFSET / 360,
-		mapBOffset = mapArea.width * (OFFSET + 360) / 360,
+		mapBOffset = mapArea.width * (OFFSET + 360) / 360;
 
-		xmldom: any = require('xmldom'),
-		parser = <DOMParser> new xmldom.DOMParser(),
-
-		mapDoc = parser.parseFromString(worldMapAssetData, 'image/svg+xml'),
-		mapSVG = new Haeckel.ElementBuilder(mapDoc, mapDoc.documentElement)
-			.attr(Haeckel.SVG_NS, 'id', 'map'),
-
-		defs = builder
-			.child(Haeckel.SVG_NS, 'defs');
-
-	defs.build().appendChild(mapSVG.build());
 	defs.child(Haeckel.SVG_NS, 'clipPath')
 		.attr(Haeckel.SVG_NS, 'id', 'mask')
 		.child(Haeckel.SVG_NS, 'rect')
@@ -79,7 +69,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				width: mapArea.width + 'px',
 				height: mapArea.height + 'px'
 			})
-		.attr(XLINK_NS, 'xlink:href', '#map');
+		.attr('xlink:href', '#' + worldMapAssetID);
 	maps.child(Haeckel.SVG_NS, 'use')
 		.attrs(Haeckel.SVG_NS, {
 				x: (mapArea.x + mapBOffset) + 'px',
@@ -87,7 +77,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
 				width: mapArea.width + 'px',
 				height: mapArea.height + 'px'
 			})
-		.attr(XLINK_NS, 'xlink:href', '#map');
+		.attr('xlink:href', '#' + worldMapAssetID);
 
 	var chartGroup = main
 		.child(Haeckel.SVG_NS, 'g')

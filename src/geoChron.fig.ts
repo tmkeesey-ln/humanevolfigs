@@ -1,5 +1,4 @@
-/// <reference path="../bower_components/dt-node/node.d.ts"/>
-/// <reference path="../bower_components/haeckel/lib/haeckel.d.ts"/>
+/// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
 
 var CONNECTION_THICKNESS = 3;
 
@@ -39,20 +38,22 @@ interface CellPosition
 	row: number;
 }
 
-var figure: Haeckel.Figure = 
+var FIGURE_TO_RENDER: Haeckel.Figure = 
 {
-	width: FIGURE_WIDTH + 'px',
-	height: FIGURE_HEIGHT + 'px',
+	height: FIGURE_HEIGHT,
+	width: FIGURE_WIDTH,
+
+	assets: {
+		png: ['assets/worldmap_popdensity.png'],
+		svg: ['assets/worldmap.svg']
+	},
 	sources: [
 		'data/compiled/characters.json',
 		'data/compiled/nomenclature.json',
 		'data/2012 - ICS.json'
 	],
-	assets: {
-		base64: ['assets/worldmap_popdensity.png'],
-		svg: ['assets/worldmap.svg']
-	},
-	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, assets: Haeckel.AssetData) =>
+
+	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: Haeckel.ElementBuilder) =>
 	{
 		function connect(builder: Haeckel.ElementBuilder, source: CellPosition, target: CellPosition,
 			offset: number = 0, strength: number = 1, sourceBlank: boolean = false)
@@ -139,7 +140,7 @@ var figure: Haeckel.Figure =
 						width: area.width + 'px',
 						height: area.height + 'px'
 					})
-				.attr(XLINK_NS, 'xlink:href', '#map');
+				.attr('xlink:href', '#assets/worldmap.svg');
 
 			var occGroup = chartGroup.child(SVG_NS, 'g'),
 				chart = new Haeckel.GeoChart();
@@ -285,20 +286,8 @@ var figure: Haeckel.Figure =
 			*/
 		}
 
-		var SVG_NS = Haeckel.SVG_NS,
-			defs = builder.child(SVG_NS, 'defs'),
+		var SVG_NS = Haeckel.SVG_NS;
 
-			xmldom: any = require('xmldom'),
-			parser = <DOMParser> new xmldom.DOMParser(),
-
-			mapDoc = parser.parseFromString(assets['assets/worldmap.svg'], 'image/svg+xml'),
-			mapSVG = new Haeckel.ElementBuilder(mapDoc, mapDoc.documentElement)
-				.attr(Haeckel.SVG_NS, 'id', 'map'),
-
-			defs = builder
-				.child(Haeckel.SVG_NS, 'defs');
-
-		defs.build().appendChild(mapSVG.build());
 		defs.child(SVG_NS, 'marker')
 			.attrs(SVG_NS, {
 					id: 'arrowhead',
@@ -402,16 +391,14 @@ var figure: Haeckel.Figure =
 					area = getMapArea(column, row);
 				if (column === columns - 1 && row === 0)
 				{
-					map.child(SVG_NS, 'image')
+					map.child(SVG_NS, 'use')
 						.attrs(SVG_NS, {
-								id: 'map_popdensity',
 								x: area.x + 'px',
 								y: area.y + 'px',
 								width: area.width + 'px',
-								height: area.height + 'px',
-								preserveAspectRatio: 'none'
+								height: area.height + 'px'
 							})
-						.attr(XLINK_NS, 'xlink:href', 'data:image/png;base64,' + assets['assets/worldmap_popdensity.png']);
+						.attr('xlink:href', '#assets/worldmap_popdensity.png');
 					map.child(SVG_NS, 'rect')
 						.attrs(SVG_NS, {
 								x: area.x + 'px',
@@ -423,12 +410,9 @@ var figure: Haeckel.Figure =
 								'stroke-width': '1px'
 							})
 				}
-				else
+				else if (!drawMap(mapID, map, getMapArea(column, row), taxa[column], times[row]))
 				{
-					if (!drawMap(mapID, map, getMapArea(column, row), taxa[column], times[row]))
-					{
-						map.detach();
-					}
+					map.detach();
 				}
 			}
 		}
@@ -459,4 +443,3 @@ var figure: Haeckel.Figure =
 		labelTimeRange(labels, 'Miocene', 6, 7);
 	}
 };
-figure;
