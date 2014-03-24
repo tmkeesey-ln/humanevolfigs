@@ -16,14 +16,14 @@ var MARGIN = 20;
 
 var TAXON_LABEL_SIZE = 15;
 
-var TEXT_MARGIN = 2;
+var TEXT_MARGIN = 4;
 
 var TIME_LABEL_SIZE = 12;
 
 var TIME_LABEL_ATTRS: { [name: string]: string; } = {
-	'text-anchor': 'middle',
 	'font-size': TIME_LABEL_SIZE + 'px',
-	'font-weight': 'bold'
+	'font-weight': 'bold',
+	"font-family": "Myriad Pro"
 };
 
 var XLINK_NS = "http://www.w3.org/1999/xlink";
@@ -53,7 +53,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		'data/2012 - ICS.json'
 	],
 
-	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: Haeckel.ElementBuilder) =>
+	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
 		function connect(builder: Haeckel.ElementBuilder, source: CellPosition, target: CellPosition,
 			offset: number = 0, strength: number = 1, sourceBlank: boolean = false)
@@ -216,12 +216,13 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				rightColumn = taxa.length - 1;
 			}
 			var area = Haeckel.rec.combine([ getMapArea(leftColumn, row), getMapArea(rightColumn, row)]),
-				text = builder
+				textGroup = builder.child(SVG_NS, 'g'),
+				y = area.top + TAXON_LABEL_SIZE,
+				text = textGroup
 					.child(SVG_NS, 'text')
 					.text(name)
 					.attrs(SVG_NS, {
-							x: area.centerX + 'px',
-							y: (area.top + TAXON_LABEL_SIZE / 2) + 'px',
+							y: (area.top + TAXON_LABEL_SIZE * 0.75) + 'px',
 							'text-anchor': 'middle',
 							'font-size': TAXON_LABEL_SIZE + 'px',
 							"font-family": "Myriad Pro"
@@ -230,65 +231,82 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			{
 				text.attrs(SVG_NS, textAttrs);
 			}
-			/*
-			// :TODO: Once I resolve this getBBox() issue.
-			var box = text.getBBox();
-			paper.path('M' + area.left + ' ' + area.top + 'v' + TAXON_LABEL_SIZE)
-				.attr(EXTENT_ATTRS);
-			paper.path('M' + area.right + ' ' + area.top + 'v' + TAXON_LABEL_SIZE)
-				.attr(EXTENT_ATTRS);
-			paper.path('M' + area.left + ' ' + (area.top + TAXON_LABEL_SIZE / 2) + 'H' + (box.x - TEXT_MARGIN))
-				.attr(EXTENT_ATTRS);
-			paper.path('M' + (box.x2 + TEXT_MARGIN) + ' ' + (area.top + TAXON_LABEL_SIZE / 2) + 'H' + area.right)
-				.attr(EXTENT_ATTRS);
-			*/
+
+			var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build()),
+				x = area.centerX - box.width / 2,
+				extent = textGroup.child(SVG_NS, 'g');
+
+			text.attr(SVG_NS, 'x', area.centerX + 'px');
+			box = Haeckel.rec.create(x + box.x, y + box.y, box.width, box.height);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + area.left + ' ' + area.top + 'v' + TAXON_LABEL_SIZE)
+				.attrs(SVG_NS, EXTENT_ATTRS);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + area.right + ' ' + area.top + 'v' + TAXON_LABEL_SIZE)
+				.attrs(SVG_NS, EXTENT_ATTRS);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + area.left + ' ' + (area.top + TAXON_LABEL_SIZE / 2) + 'H' + (box.left - TEXT_MARGIN))
+				.attrs(SVG_NS, EXTENT_ATTRS);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + (box.right + TEXT_MARGIN) + ' ' + (area.top + TAXON_LABEL_SIZE / 2) + 'H' + area.right)
+				.attrs(SVG_NS, EXTENT_ATTRS);
 		}
 
-		function labelTime(builder: Haeckel.ElementBuilder, name: string, row: number)
+		function labelTime(builder: Haeckel.ElementBuilder, name: string, row: number, isEpoch: boolean = false)
 		{
-			var area = getMapArea(0, row);
+			var area = getMapArea(0, row),
+				x = area.left - TIME_LABEL_SIZE / 2,
+				y = area.centerY;
+			if (isEpoch)
+			{
+				x -= TIME_LABEL_SIZE;
+			}
 			builder
 				.child(SVG_NS, 'text')
-				.text(name)
+				.text(isEpoch ? name.toUpperCase() : name)
 				.attrs(SVG_NS, {
-						x: (area.left - TIME_LABEL_SIZE / 2) + 'px',
-						y: area.centerY + 'px',
-						"font-family": "Myriad Pro",
-						'transform': 'rotate(-90)'
+						x: x + 'px',
+						y: y + 'px',
+						'text-anchor': 'middle',
+						'transform': 'rotate(-90,' + x + ',' + y + ')'
 					})
 				.attrs(SVG_NS, TIME_LABEL_ATTRS);
 		}
 
 		function labelTimeRange(builder: Haeckel.ElementBuilder, name: string, topRow: number, bottomRow: number)
 		{
-			var area = Haeckel.rec.combine([ getMapArea(0, topRow), getMapArea(0, bottomRow)]);
-			builder
-				.child(SVG_NS, 'text')
-				.text(name)
-				.attrs(SVG_NS, {
-						x: (area.left - TIME_LABEL_SIZE * 1.5) + 'px',
-						y: area.centerY + 'px',
-						"font-family": "Myriad Pro",
-						'transform': 'rotate(-90)'
-					})
-				.attrs(SVG_NS, TIME_LABEL_ATTRS);
-			/*
-			// :TODO: Once I resolve this getBBox() issue.
-			var box = text.getBBox();
-			paper.path('M' + (area.left - TIME_LABEL_SIZE * 2) + ' ' + area.top + 'h' + TIME_LABEL_SIZE)
-				.attr(EXTENT_ATTRS);
-			paper.path('M' + (area.left - TIME_LABEL_SIZE * 2) + ' ' + area.bottom + 'h' + TIME_LABEL_SIZE)
-				.attr(EXTENT_ATTRS);
-			paper.path('M' + (area.left - TIME_LABEL_SIZE * 1.5) + ' ' + area.top + 'V' + (box.y - TEXT_MARGIN))
-				.attr(EXTENT_ATTRS);
-			paper.path('M' + (area.left - TIME_LABEL_SIZE * 1.5) + ' ' + area.bottom + 'V' + (box.y2 + TEXT_MARGIN))
-				.attr(EXTENT_ATTRS);
-			*/
+			var area = Haeckel.rec.combine([ getMapArea(0, topRow), getMapArea(0, bottomRow)]),
+				x = area.left - TIME_LABEL_SIZE * 1.5,
+				y = area.centerY,
+				textGroup = builder.child(SVG_NS, 'g'),
+				text = textGroup.child(SVG_NS, 'text')
+					.text(name.toUpperCase())
+					.attrs(SVG_NS, {
+							'text-anchor': 'middle',
+							x: x + 'px',
+							y: y + 'px'
+						})
+					.attrs(SVG_NS, TIME_LABEL_ATTRS),
+				box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build()),
+				extent = textGroup.child(SVG_NS, 'g');
+			text.attr(SVG_NS, 'transform', 'rotate(-90,' + x + ',' + y + ')');
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + (area.left - TIME_LABEL_SIZE * 2.5) + ' ' + area.top + 'h' + TIME_LABEL_SIZE)
+				.attrs(SVG_NS, EXTENT_ATTRS);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + (area.left - TIME_LABEL_SIZE * 2.5) + ' ' + area.bottom + 'h' + TIME_LABEL_SIZE)
+				.attrs(SVG_NS, EXTENT_ATTRS);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + (area.left - TIME_LABEL_SIZE * 2) + ' ' + area.top + 'V' + (y - (box.width / 2) - TEXT_MARGIN))
+				.attrs(SVG_NS, EXTENT_ATTRS);
+			extent.child(SVG_NS, 'path')
+				.attr(SVG_NS, 'd', 'M' + (area.left - TIME_LABEL_SIZE * 2) + ' ' + area.bottom + 'V' + (y + (box.width / 2) + TEXT_MARGIN))
+				.attrs(SVG_NS, EXTENT_ATTRS);
 		}
 
 		var SVG_NS = Haeckel.SVG_NS;
 
-		defs.child(SVG_NS, 'marker')
+		defs().child(SVG_NS, 'marker')
 			.attrs(SVG_NS, {
 					id: 'arrowhead',
 	      			viewBox: "0 0 10 10",
@@ -391,14 +409,13 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					area = getMapArea(column, row);
 				if (column === columns - 1 && row === 0)
 				{
-					map.child(SVG_NS, 'use')
+					pngAssets.image(map, "assets/worldmap_popdensity.png")
 						.attrs(SVG_NS, {
 								x: area.x + 'px',
 								y: area.y + 'px',
 								width: area.width + 'px',
 								height: area.height + 'px'
-							})
-						.attr('xlink:href', '#assets/worldmap_popdensity.png');
+							});
 					map.child(SVG_NS, 'rect')
 						.attrs(SVG_NS, {
 								x: area.x + 'px',
@@ -431,12 +448,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		labelExtantTaxon(labels, 'gorillas & chimpanzees', 1);
 		labelExtantTaxon(labels, 'humans', 6);
 
-		labelTime(labels, 'Recent', 0);
+		labelTime(labels, 'Recent', 0, true);
 		labelTime(labels, 'Tarantian', 1);
 		labelTime(labels, 'Ionian', 2);
 		labelTime(labels, 'Calabrian', 3);
 		labelTime(labels, 'Gelasian', 4);
-		labelTime(labels, 'Pliocene', 5);
+		labelTime(labels, 'Pliocene', 5, true);
 		labelTime(labels, 'Messinian', 6);
 
 		labelTimeRange(labels, 'Pleistocene', 1, 4);
