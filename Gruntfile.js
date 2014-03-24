@@ -18,34 +18,28 @@ module.exports = function(grunt)
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-typescript');
-  grunt.loadNpmTasks('grunt-svg2png');
+  grunt.loadNpmTasks('grunt-mkdir');
 
-  grunt.registerMultiTask('svg', 'Generates an SVG file for a figure.', function()
+  grunt.registerMultiTask('render', 'Renders SVG and PNG files for a figure.', function()
   {
     var done = this.async(),
-      name = this.target;
+      name = this.target,
+      msg = 'Rendering "' + name + '"...';
+    grunt.verbose.write(msg);
     grunt.util.spawn({
-      cmd: 'node',
-      args: ['bower_components/haeckel/lib/haeckel.js', 'src/' + name + '.fig.js']
+      cmd: 'phantomjs',
+      args: ['bower_components/haeckel/bin/render.js', 'src/' + name + '.fig.js', 'bin/']
     }, function (error, result, code)
     {
       if (error)
       {
-        grunt.log.error('Error #' + code);
-        grunt.log.error(String(error));
+        grunt.verbose.or.write(msg).error().error('Error #' + code);
+        grunt.fail.warn('Error rendering "' + name + '".');
         done(false);
       }
       else
       {
-        try
-        {
-          grunt.file.write('bin/' + name + '.svg', result.stdout, {encoding: 'utf-8'});
-        }
-        catch (e)
-        {
-          grunt.log.error(String(e));
-          done(false);
-        }
+        grunt.verbose.ok();
         done(true);
       }
     });
@@ -54,7 +48,7 @@ module.exports = function(grunt)
   grunt.registerMultiTask('figure', 'Compiles and renders a figure', function()
   {
     grunt.task.run('typescript:' + this.target);
-    grunt.task.run('svg:' + this.target);
+    grunt.task.run('render:' + this.target);
   });
 
   // Project configuration.
@@ -62,10 +56,17 @@ module.exports = function(grunt)
   {
     clean:
     {
+      bin: ['bin/'],
       lib: ['src/*.js']
     },
     typescript:
     {
+      craniodentalDistance:
+      {
+        src: [ 'src/distanceChart.ts',  'src/craniodentalDistance.fig.ts' ],
+        dest: 'src/craniodentalDistance.fig.js',
+        options: TYPESCRIPT_OPTIONS
+      },
       geoChron:
       {
         src: [ 'src/geoChron.fig.ts' ],
@@ -85,21 +86,25 @@ module.exports = function(grunt)
         options: TYPESCRIPT_OPTIONS
       }
     },
-    svg2png:
+    mkdir:
     {
-      all:
-      {
-        files: [{ src: ['bin/*.svg'], dest: 'bin/' }]
+      bin: {
+        options:
+        {
+          create: ['bin']
+        }
       }
     },
-    svg:
+    render:
     {
+      craniodentalDistance: {},
       geoChron: {},
       mtDNA: {},
       YDNA: {}
     },
     figure:
     {
+      craniodentalDistance: {},
       geoChron: {},
       mtDNA: {},
       YDNA: {}
@@ -107,7 +112,5 @@ module.exports = function(grunt)
     // :TODO: watch tasks
   });
 
-  grunt.registerTask('vector', ['clean', 'figure']);
-
-  grunt.registerTask('default', ['vector', 'svg2png']);
+  grunt.registerTask('default', ['clean', 'mkdir', 'figure']);
 };
