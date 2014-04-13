@@ -8,18 +8,46 @@ interface NameEntry
 
 function distanceChart(builder: Haeckel.ElementBuilder,
 	nomenclature: Haeckel.Nomenclature,
+	defs: () => Haeckel.ElementBuilder,
 	characterMatrix: Haeckel.CharacterMatrix<Haeckel.Set>,
 	nameEntries: Haeckel.ExtSet<NameEntry>,
 	area: Haeckel.Rectangle): void
 {
+	function label(bar: Haeckel.ProximityBar, rectangle: Haeckel.Rectangle, builder: Haeckel.ElementBuilder): void
+	{
+		if (!bar || !bar.taxon)
+		{
+			return;
+		}
+		var nameEntry = nameEntryMap[bar.taxon.hash];
+		if (!nameEntry)
+		{
+			return;
+		}
+		var label = builder.child(Haeckel.SVG_NS, 'text')
+				.text(nameEntry.name)
+				.attrs(Haeckel.SVG_NS, {
+					'text-anchor': 'end',
+					x: rectangle.x + 'px',
+					y: rectangle.bottom + 'px',
+					transform: 'rotate(-45 ' + rectangle.x + ' ' + rectangle.bottom + ') translate(0 12)',
+					'font-size': '12px',
+					'font-family': "Myriad Pro"
+				});
+		if (nameEntry.scientific)
+		{
+			label.attr(Haeckel.SVG_NS, 'font-style', 'italic');
+		}
+	}
+
 	var taxaBuilder = new Haeckel.ExtSetBuilder<Haeckel.Taxic>(),
-		scientific: { [name: string]: boolean; } = {};
+		nameEntryMap: { [taxonHash: string]: NameEntry; } = {};
 	Haeckel.ext.each(nameEntries, (entry: NameEntry) =>
 	{
 		var taxon = nomenclature.nameMap[entry.name];
 		if (taxon)
 		{
-			scientific[entry.name] = !!entry.scientific;
+			nameEntryMap[taxon.hash] = entry;
 			taxaBuilder.add(taxon);
 		}
 	});
@@ -27,14 +55,15 @@ function distanceChart(builder: Haeckel.ElementBuilder,
 		distanceMatrix = Haeckel.chr.toDistanceMatrix(characterMatrix),
 		focus = nomenclature.nameMap["Homo sapiens"];
 	
-	var chart = new Haeckel.ProximityBarChart();
+	var chart = new Haeckel.ProximityBarChart('distanceChart');
 	chart.area = area;
 	chart.focus = focus;
+	chart.labeler = label;
 	chart.nomenclature = nomenclature;
 	chart.taxa = taxa;
 	chart.distanceMatrix = distanceMatrix;
 	chart.spacing = 8;
-	var chartGroup = chart.render(builder);
+	var chartGroup = chart.render(builder, defs);
 	
 	builder.child(Haeckel.SVG_NS, 'path')
 		.attrs(Haeckel.SVG_NS, {
@@ -47,23 +76,13 @@ function distanceChart(builder: Haeckel.ElementBuilder,
 				"stroke-linecap": "square"
 			});
 
-	/*
-	//:TODO:
-	var labeler = new H.BarLabeler();
-	labeler.nomenclature = sources.nomenclature;
-	labeler.degrees = -45;
-	labeler.end = 'bottom';
-	labeler.names = names;
-	var labels = labeler.label(bars);
-	labels.attr({'font-family': STYLE['font-family'], 'font-size': '16px'});
-	labels.forEach(function(label) {
-		var taxon = label.data("taxon");
-		var name = H.ext.singleMember(H.ext.intersect(names, H.names(taxon)));
-		console.log("Label", name);
-		if (name.charAt(0) === name.charAt(0).toUpperCase() && name != "Bornean orangutans" && name != "Philippine colugos") // :KLUDGE: Should have a better way of determining name format
-		{
-			label.attr('font-style', 'italic');
-		}
-	});
-	*/
+	builder.child(Haeckel.SVG_NS, 'text')
+		.text('100%')
+		.attrs(Haeckel.SVG_NS, {
+				'text-anchor': 'start',
+				x: area.right + 'px',
+				y: area.top + 'px',
+				'font-size': '12px',
+				'font-family': "Myriad Pro"
+			});
 }
