@@ -75,14 +75,4 @@ function distanceChart(builder: Haeckel.ElementBuilder,
 				"stroke-linejoin": "miter",
 				"stroke-linecap": "square"
 			});
-
-	builder.child(Haeckel.SVG_NS, 'text')
-		.text('100%')
-		.attrs(Haeckel.SVG_NS, {
-				'text-anchor': 'start',
-				x: area.right + 'px',
-				y: area.top + 'px',
-				'font-size': '12px',
-				'font-family': "Myriad Pro"
-			});
 }
