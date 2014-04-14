@@ -61,6 +61,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		cmBuilder.addMatrix(source.characterMatrices["AppendixC"]);
 		var characterMatrix = cmBuilder.build();
 
-		distanceChart(builder, sources.nomenclature, defs, cmBuilder.build(), NAME_ENTRIES, AREA);
+		distanceChart(builder, sources.nomenclature, defs, characterMatrix, NAME_ENTRIES, AREA);
 	}
 };

@@ -79,6 +79,12 @@ module.exports = function(grunt)
         dest: 'src/mtDNA.fig.js',
         options: TYPESCRIPT_OPTIONS
       },
+      softTissue:
+      {
+        src: [ 'src/distanceChart.ts',  'src/softTissue.fig.ts' ],
+        dest: 'src/softTissue.fig.js',
+        options: TYPESCRIPT_OPTIONS
+      },
       YDNA:
       {
         src: [ 'src/haploMap.ts', 'src/YDNA.fig.ts' ],
@@ -100,6 +106,7 @@ module.exports = function(grunt)
       craniodental: {},
       geoChron: {},
       mtDNA: {},
+      softTissue: {},
       YDNA: {}
     },
     figure:
@@ -107,6 +114,7 @@ module.exports = function(grunt)
       craniodental: {},
       geoChron: {},
       mtDNA: {},
+      softTissue: {},
       YDNA: {}
     }
     // :TODO: watch tasks
