@@ -61,10 +61,10 @@ module.exports = function(grunt)
     },
     typescript:
     {
-      craniodentalDistance:
+      craniodental:
       {
-        src: [ 'src/distanceChart.ts',  'src/craniodentalDistance.fig.ts' ],
-        dest: 'src/craniodentalDistance.fig.js',
+        src: [ 'src/distanceChart.ts',  'src/craniodental.fig.ts' ],
+        dest: 'src/craniodental.fig.js',
         options: TYPESCRIPT_OPTIONS
       },
       geoChron:
@@ -97,14 +97,14 @@ module.exports = function(grunt)
     },
     render:
     {
-      craniodentalDistance: {},
+      craniodental: {},
       geoChron: {},
       mtDNA: {},
       YDNA: {}
     },
     figure:
     {
-      craniodentalDistance: {},
+      craniodental: {},
       geoChron: {},
       mtDNA: {},
       YDNA: {}
