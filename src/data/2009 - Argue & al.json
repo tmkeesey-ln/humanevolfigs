@@ -1,0 +1,80 @@
+{
+	"metadata":
+	{
+		"authors": ["D. Argue", "M. J. Morwood", "T. Sutikna", "Jatmiko", "E. W. Saptomo"],
+		"year": 2009,
+		"journal": "J. Hum. Evol.",
+		"volume": 57,
+		"pages": [623, 639],
+		"title": "<i>Homo floresiensis</i>: a cladistic analysis",
+		"urn": "urn:doi:10.1016/j.jhevol.2009.05.002",
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"synonymies":
+			[
+				["Dmanisi", "Homo georgicus"],
+			]
+		},
+		"topologies": {
+			"Fig1Tree1": [
+				"Gorilla", "Pan troglodytes",
+				[
+					"Australopithecus afarensis",
+					[
+						"Australopithecus africanus",
+						[
+							"Homo rudolfensis",
+							[
+								"Homo habilis",
+								[
+									"Homo floresiensis",
+									[
+										"Dmanisi",
+										[
+											"Homo sapiens",
+											[
+												"Homo erectus",
+												[
+													"Homo ergaster",
+													"Homo rhodesiensis"
+												]
+											]
+										]
+									]
+								]
+							]
+						]
+					]
+				]
+			],
+			"Fig1Tree2": [
+				"Gorilla", "Pan troglodytes",
+				[
+					"Australopithecus afarensis",
+					[
+						"Australopithecus africanus",
+						[
+							"Homo rudolfensis",
+							[
+								"Homo floresiensis",
+								[
+									"Homo habilis",
+									[
+										[ "Dmanisi", "Homo ergaster" ],
+										[
+											"Homo erectus",
+											[ "Homo rhodesiensis", "Homo sapiens" ]
+										]
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		}
+	}
+}
