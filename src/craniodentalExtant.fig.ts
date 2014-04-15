@@ -3,7 +3,7 @@
 
 var FIGURE_HEIGHT = 400;
 
-var FIGURE_WIDTH = 600;
+var FIGURE_WIDTH = 300;
 
 var BOTTOM_MARGIN = 100;
 
@@ -15,25 +15,12 @@ var TOP_MARGIN = 10;
 
 var NAME_ENTRIES = Haeckel.ext.create<NameEntry>([
     { name: "Homo sapiens", scientific: true },
-    { name: "Homo ergaster", scientific: true },
-    { name: "Homo habilis", scientific: true },
-    { name: "Homo rudolfensis", scientific: true },
     { name: "guereza colobus monkeys" },
     { name: "common chimpanzees" },
     { name: "Bornean orangutans" },
     { name: "baboons" },
     { name: "western gorillas" },
-    { name: "Sahelanthropus tchadensis", scientific: true },
-    { name: "gibbons" },
-    { name: "Ardipithecus ramidus", scientific: true },
-    { name: "Australopithecus anamensis", scientific: true },
-    { name: "Australopithecus afarensis", scientific: true },
-    { name: "Australopithecus platyops", scientific: true },
-    { name: "Australopithecus africanus", scientific: true },
-    { name: "Australopithecus garhi", scientific: true },
-    { name: "Paranthropus aethiopicus", scientific: true },
-    { name: "Paranthropus robustus", scientific: true },
-    { name: "Paranthropus boisei", scientific: true }
+    { name: "gibbons" }
 ]);
 
 var FIGURE_TO_RENDER: Haeckel.Figure = 

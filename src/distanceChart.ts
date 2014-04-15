@@ -9,7 +9,7 @@ interface NameEntry
 function distanceChart(builder: Haeckel.ElementBuilder,
 	nomenclature: Haeckel.Nomenclature,
 	defs: () => Haeckel.ElementBuilder,
-	characterMatrix: Haeckel.CharacterMatrix<Haeckel.Set>,
+	distanceMatrix: Haeckel.DistanceMatrix<Haeckel.Taxic>,
 	nameEntries: Haeckel.ExtSet<NameEntry>,
 	area: Haeckel.Rectangle): void
 {
@@ -52,7 +52,6 @@ function distanceChart(builder: Haeckel.ElementBuilder,
 		}
 	});
 	var taxa = taxaBuilder.build(),
-		distanceMatrix = Haeckel.chr.toDistanceMatrix(characterMatrix),
 		focus = nomenclature.nameMap["Homo sapiens"];
 	
 	var chart = new Haeckel.ProximityBarChart('distanceChart');

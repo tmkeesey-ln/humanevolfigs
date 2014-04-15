@@ -1,33 +1,22 @@
 /// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
 /// <reference path="distanceChart.ts"/>
 
-var FIGURE_HEIGHT = 400;
+var FIGURE_HEIGHT = 300;
 
-var FIGURE_WIDTH = 600;
+var FIGURE_WIDTH = 300;
 
-var BOTTOM_MARGIN = 100;
+var BOTTOM_MARGIN = 70;
 
-var LEFT_MARGIN = 60;
+var LEFT_MARGIN = 30;
 
 var RIGHT_MARGIN = 10;
 
 var TOP_MARGIN = 10;
 
 var NAME_ENTRIES = Haeckel.ext.create<NameEntry>([
-    { name: "slender lorises" },
-    { name: "slow lorises" },
-    { name: "ring-tailed lemurs" },
-    { name: "sifakas" },
-    { name: "tarsiers" },
-    { name: "sakis" },
-    { name: "owl monkeys" },
-    { name: "marmosets" },
-    { name: "squirrel monkeys" },
     { name: "colobus monkeys" },
-    { name: "guenons" },
-    { name: "macaques" },
     { name: "baboons" },
-    { name: "common gibbons" },
+    { name: "gibbons" },
     { name: "orangutans" },
     { name: "gorillas" },
     { name: "chimpanzees" },
@@ -40,6 +29,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	width: FIGURE_WIDTH,
 
 	sources: [
+        'data/2004 - Strait & Grine.json',
         'data/2011 - Diogo & Wood.json',
         'data/compiled/nomenclature.json'
 	],
@@ -53,10 +43,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
             FIGURE_HEIGHT - TOP_MARGIN - BOTTOM_MARGIN
         );
 
-		var characterMatrix =
-                sources.sources["data/2011 - Diogo & Wood.json"]
-                    .characterMatrices["Table1"],
-            distanceMatrix = Haeckel.chr.toDistanceMatrix(characterMatrix)
+        var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>();
+        cmBuilder.addMatrix(sources.sources["data/2004 - Strait & Grine.json"].characterMatrices["Table3"]);
+        cmBuilder.addMatrix(sources.sources["data/2004 - Strait & Grine.json"].characterMatrices["AppendixC-modified"]);
+        cmBuilder.addMatrix(sources.sources["data/2011 - Diogo & Wood.json"].characterMatrices["Table1"]);
+        var characterMatrix = cmBuilder.build(),
+            distanceMatrix = Haeckel.chr.toDistanceMatrix(characterMatrix);
 
 		distanceChart(builder, sources.nomenclature, defs, distanceMatrix, NAME_ENTRIES, AREA);
 	}
