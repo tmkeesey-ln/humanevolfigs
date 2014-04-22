@@ -50,7 +50,7 @@
 								"Australopithecus praegens",
 								[
 									"Australopithecus anamensis",
-									"Hominina indet.",
+									"Hominina indet. A",
 									[
 										"Australopithecus aff. afarensis",
 										"Australopithecus afarensis",
@@ -59,30 +59,37 @@
 										"Australopithecus platyops",
 										[
 											"Paranthropus aethiopicus",
-											"Paranthropus boisei",
 											"Paranthropus indet.",
-											"Paranthropus robustus"
+											[
+												"Paranthropus boisei",
+												"Paranthropus robustus"
+											]
 										],
 										[
+											"Hominina indet. B",
 											"Australopithecus sediba",
 											[
 												"Homo aff. habilis",
 												"Homo floresiensis",
 												"Homo habilis",
 												"Homo rudolfensis",
-												"Homo indet.",
+												"Homo indet. A",
+												"Homo indet. B",
 												[
 													"Homo ergaster ergaster",
 													"Homo ergaster georgicus",
 													"Homo modjokertensis",
 													"Homo yuanmouensis",
+													"Homo indet. C",
+													"Homo indet. D",
+													"Homo indet. E",
+													"Homo indet. F",
 													[
 														"Homo erectus",
 														"Homo heidelbergensis daliensis",
 														"Homo heidelbergensis mabaensis"
 													],
 													[
-														"Homo ergaster ssp.",
 														"Homo heidelbergensis antecessor",
 														[
 															"Homo heidelbergensis cepranensis",

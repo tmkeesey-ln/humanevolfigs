@@ -1,0 +1,151 @@
+{
+	"metadata":
+	{
+		"authors": ["F. Mallegni", "E. Carnieri", "M. Bisconti", "G. Tartarelli", "S. Ricci", "I. Biddittu", "A. Segre "],
+		"year": 2003,
+		"journal": "Comptes Rendus Palevol",
+		"volume": 2,
+		"issue": 2,
+		"pages": [153, 159],
+		"title": "<i>Homo cepranensis sp. nov.</i> and the evolution of African-European Middle Pleistocene hominids",
+		"urn": "urn:doi:10.1016/S1631-0683(03)00015-0",
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"hyponymies":
+			[
+				["Homo ergaster ergaster", "ER3833"]
+				["Homo indet. F", "OH9"],
+				["Homo ergaster georgicus", "DMN2280"],
+				["Homo ergaster georgicus", "DMN2282"],
+				["Homo erectus pekinensis", "ZKD3"],
+				["Homo erectus pekinensis", "ZKD10"],
+				["Homo erectus pekinensis", "ZKD11"],
+				["Homo erectus pekinensis", "ZKD12"],
+				["Homo erectus pekinensis", "ZKD12"],
+				["Homo erectus palaeojavanicus", "SNG2"],
+				["Homo erectus palaeojavanicus", "SNG17"],
+				["Homo heidelbergensis heidelbergensis", "STEINHEIM"],
+				["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "AT-SH-CR 4"],
+				["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "AT-SH-CR 5"],
+				["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "AT-SH-CR 5"],
+				["Homo indet. F", "DAKA"],
+				["Homo heidelbergensis rhodesiensis", "KABWE"],
+				["Homo heidelbergensis heidelbergensis", "PETRALONA"],
+				["Homo heidelbergensis rhodesiensis", "SALDANHA"],
+				["Homo heidelbergensis rhodesiensis", "BODO"],
+				["Homo heidelbergensis heidelbergensis", "ARAGO"]
+			],
+			"synonymies":
+			[
+				["Homo heidelbergensis cepranensis", "CEPRANO"]
+			]
+		},
+		"topologies":
+		{
+			"Fig. 4b":
+			[
+				"ER3833",
+				[
+					"OH9",
+					[
+						"DMN2280",
+						"DMN2282"
+					]
+				],
+				[
+					[
+						"ZKD3",
+						[
+							"ZKD12",
+							[
+								"SNG2",
+								"SNG17"
+							],
+							[
+								"ZKD11",
+								"ZKD10"
+							]
+						]
+					],
+					[
+						[
+							"STEINHEIM",
+							[
+								"AT-SH-CR 5",
+								"AT-SH-CR 4"
+							]
+						],
+						[
+							[
+								"DAKA",
+								"CEPRANO"
+							],
+							[
+								"KABWE",
+								[
+									"PETRALONA",
+									[
+										"SALDANHA",
+										[
+											"BODO",
+											"ARAGO"
+										]
+									]
+								]
+							]
+						]
+					]
+				]
+			],
+			"Fig. 4b (simplified)":
+			[
+				"Homo ergaster ergaster",
+				[
+					"OH9",
+					"Homo ergaster georgicus"
+				],
+				[
+					[
+						"ZKD3",
+						[
+							"ZKD12",
+							"Homo erectus palaeojavanicus",
+							[
+								"ZKD11",
+								"ZKD10"
+							]
+						]
+					],
+					[
+						[
+							"STEINHEIM",
+							"Homo heidelbergensis heidelbergensis (Sima de los Huesos)"
+						],
+						[
+							[
+								"DAKA",
+								"Homo heidelbergensis cepranensis"
+							],
+							[
+								"Homo heidelbergensis rhodesiensis",
+								[
+									"PETRALONA",
+									[
+										"SALDANHA",
+										[
+											"BODO",
+											"ARAGO"
+										]
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		}
+	}
+}

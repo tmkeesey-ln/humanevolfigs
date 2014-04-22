@@ -550,7 +550,7 @@
 					}
 				}
 			],
-			"Hominina indet.":
+			"Hominina indet. A":
 			[
 				{
 					"count": 1,
@@ -605,6 +605,18 @@
 					},
 					"time": [-600000, -1000000],
 					"note": "SKX 19576, 22511, 27504, 33355, 35439, 35822, 36712"
+				}
+			],
+			"Hominina indet. B":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"StW 53 infill, Sterkfontein, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1800000, -1500000],
+					"note": "Stw 53 - Australopithecus or early Homo?"
 				}
 			],
 			"Homo aff. habilis":
@@ -737,21 +749,12 @@
 			"Homo ergaster ergaster":
 			[
 				{
-					"count": 1,
-					"geo":
-					{
-						"Swartkrans": [[-25.93, 27.79]]
-					},
-					"note": "SK 847",
-					"time": [-1800000, -1500000]
-				},
-				{
 					"count": 7,
 					"geo":
 					{
 						"Koobi Fora": [[4.31, 36.23]]
 					},
-					"note": "KNM ER specimens -- count is only the best specimens -- total may be higher",
+					"note": "KNM ER specimens (incl. 3833) -- count is only the best specimens -- total may be higher",
 					"time": [-1800000, -1400000]
 				},
 				{
@@ -782,45 +785,6 @@
 						"Dmanisi": [[41.32, 44.35]]
 					},
 					"time": [-1770000, -1770000]
-				}
-			],
-			"Homo ergaster ssp.":
-			[
-				{
-					"count": 1,
-					"geo":
-					{
-						"Olduvai Gorge": [[-2.99, 35.35]]
-					},
-					"note": "OH 9 - or H. heidelbergensis?",
-					"time": [-1200000, -1100000]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Middle Awash": [[10, 40]]
-					},
-					"note": "BOU-VP-2/66 - Daka skull - or H. heidelbergensis?",
-					"time": [-1050000, -950000]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Buia, Eritrea": [[15.2,39.9]]
-					},
-					"note": "UA 31 [cranium], 173, 222, 369, 405, 444 - or H. heidelbergensis?",
-					"time": [-1050000, -950000]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Olorgesailie": [[-1.58, 36.45]]
-					},
-					"note": "KNM-OL 45500 - or H. heidelbergensis?",
-					"time": [-970000, -900000]
 				}
 			],
 			"Homo floresiensis":
@@ -1122,6 +1086,57 @@
 					},
 					"time": [-600000, -1000000],
 					"note": "SKX 10924, 22741, 227431"
+				}
+			],
+			"Homo indet. E":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Swartkrans": [[-25.93, 27.79]]
+					},
+					"note": "SK 847 - often regarded as Homo ergaster",
+					"time": [-1800000, -1500000]
+				}
+			],
+			"Homo indet. F":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Olduvai Gorge": [[-2.99, 35.35]]
+					},
+					"note": "OH 9 - H. ergaster or H. heidelbergensis?",
+					"time": [-1200000, -1100000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Middle Awash": [[10, 40]]
+					},
+					"note": "BOU-VP-2/66 - Daka skull - H. ergaster or H. heidelbergensis?",
+					"time": [-1050000, -950000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Buia, Eritrea": [[15.2,39.9]]
+					},
+					"note": "UA 31 [cranium], 173, 222, 369, 405, 444 - H. ergaster or H. heidelbergensis?",
+					"time": [-1050000, -950000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Olorgesailie": [[-1.58, 36.45]]
+					},
+					"note": "KNM-OL 45500 - H. ergaster or H. heidelbergensis?",
+					"time": [-970000, -900000]
 				}
 			],
 			"Homo modjokertensis":

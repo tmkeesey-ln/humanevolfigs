@@ -1,0 +1,91 @@
+{
+	"metadata":
+	{
+		"authors": ["L. R. Berger", "D. J. de Ruiter", "S. E. Churchill", "P. Schmid", "K. J. Carlson", "P. H. G. M. Dirks", "J. M. Kibii"],
+		"year": 2010,
+		"journal": "Science",
+		"volume": 328,
+		"issue": 5975,
+		"pages": [195, 204],
+		"title": "<i>Australopithecus sediba</i>: a new species of <i>Homo</i>-like australopith from South Africa",
+		"urn": "urn:doi:10.1126/science.1184944",
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"synonymies":
+			[
+				["Stw 53", "Hominina indet. B"],
+				["SK 847", "Homo indet. E"]
+			]
+		},
+		"topologies":
+		{
+			"Figure S3":
+			[
+				"Australopithecus afarensis",
+				"Australopithecus garhi",
+				[
+					[
+						"Austalopithecus aethiopicus",
+						[
+							"Australopithecus robustus",
+							"Australopithecus boisei"
+						]
+					],
+					[
+						"Australopithecus africanus",
+						[
+							"Stw 53",
+							[
+								"Australopithecus sediba",
+								[
+									[
+										"Homo habilis",
+										"Homo rudolfensis"
+									],
+									[
+										"SK 847",
+										"Homo erectus"
+									]
+								]
+							]
+						]
+					]
+				]
+			],
+			"Figure S3 (ordered consensus)":
+			[
+				"Australopithecus afarensis",
+				"Australopithecus garhi",
+				[
+					[
+						"Austalopithecus aethiopicus",
+						[
+							"Australopithecus robustus",
+							"Australopithecus boisei"
+						]
+					],
+					[
+						"Australopithecus africanus",
+						[
+							"Stw 53",
+							[
+								"Australopithecus sediba",
+								[
+									"Homo habilis",
+									"Homo rudolfensis",
+									[
+										"SK 847",
+										"Homo ergaster"
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		}
+	}
+}

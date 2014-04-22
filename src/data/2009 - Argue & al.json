@@ -15,7 +15,7 @@
 		{
 			"synonymies":
 			[
-				["Dmanisi", "Homo georgicus"],
+				["Dmanisi", "Homo ergaster georgicus"],
 			]
 		},
 		"topologies": {
@@ -38,7 +38,7 @@
 											[
 												"Homo erectus",
 												[
-													"Homo ergaster",
+													"Homo ergaster ergaster",
 													"Homo rhodesiensis"
 												]
 											]
@@ -63,7 +63,7 @@
 								[
 									"Homo habilis",
 									[
-										[ "Dmanisi", "Homo ergaster" ],
+										[ "Dmanisi", "Homo ergaster ergaster" ],
 										[
 											"Homo erectus",
 											[ "Homo rhodesiensis", "Homo sapiens" ]
