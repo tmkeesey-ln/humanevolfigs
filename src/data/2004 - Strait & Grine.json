@@ -16,6 +16,34 @@
 			"Table3":
 			{
 				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "Projection of nasal bones above frontomaxillary suture",
+						"states": ["Projected, tapered", "Projected, expanded", "Not projected", "Variable"],
+						"type": "discrete"
+					},
+					{
+						"name": "Inferior orbital margin rounded laterally",
+						"states": ["No", "Variable", "Yes"],
+						"type": "range"
+					},
+					{
+						"name": "Infraorbital foramen location",
+						"states": ["High", "Variable", "Low"],
+						"type": "range"
+					},
+					{
+						"name": "Anterior pillars",
+						"states": ["Absent", "Variable", "Present"],
+						"type": "range"
+					},
+					{
+						"name": "Nasoalveolar clivus contour in coronal plane",
+						"states": ["Convex", "Straight", "Concave (gutter)"],
+						"type": "range"
+					}
+				],
 				"scores":
 				{
 					"Colobus guereza"           : [2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, null, 2, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
@@ -43,29 +71,57 @@
 			"Table3-modified":
 			{
 				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "Projection of nasal bones above frontomaxillary suture",
+						"states": ["Projected, tapered", "Projected, expanded", "Not projected"],
+						"type": "discrete"
+					},
+					{
+						"name": "Inferior orbital margin rounded laterally",
+						"states": ["No", "Yes"],
+						"type": "discrete"
+					},
+					{
+						"name": "Infraorbital foramen location",
+						"states": ["High", "Low"],
+						"type": "discrete"
+					},
+					{
+						"name": "Anterior pillars",
+						"states": ["Absent", "Present"],
+						"type": "discrete"
+					},
+					{
+						"name": "Nasoalveolar clivus contour in coronal plane",
+						"states": ["Convex", "Straight", "Concave (gutter)"],
+						"type": "range"
+					}
+				],
 				"scores":
 				{
-					"Colobus guereza"           : [2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, null, 2, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-					"Papio"                     : [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1, 1, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0],
-					"Hylobates"                 : [2, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, null, 3, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 3, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 4, 0],
-					"Pongo"                     : [3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 1, 0, 1, 3, 0, 0, 1, 1, 1, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 3, 2, 1, 1],
-					"Gorilla"                   : [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 1, 0, 2, 0, 2, 2, 0, 1, 1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0, 2, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1],
-					"Pan"                       : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 0, 0, 2, 1, 2, 1, 1, 1, 3, 0, 0, 0, 0, 2, 1, 1, 1, 2, 1, 1, 0, 1, 0, 1, 2, 1, 2, 0],
-					"Sahelanthropus tchadensis" : [null, 0, 2, 0, null, null, null, null, null, null, 0, null, 3, 0, 0, 0, null, null, 2, 0, 0, null, null, null, null, 0, 0, null, null, null, 0, 0, 0, 0, null, null, 0, 0, 0, 2, 1, null, null, 0, null, 0, null, 2, null, 0, 1, null, 1, 0, null, null, 1, null, 0, null, null, 0, null, null, null, 1, null, null, 0, null, null, null, null, null, null, null, null, 0, 2, 0, 2, 2, null, null, null, null, 0, 1, null, 3, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2, 3, null],
-					"Ardipithecus ramidus"      : [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 0, null, 0, 2, null, null, null, null, null, 1, null, 1, null, null, 0, 0, 0, null, 1, 1, null, 1, 0, 0, null, 2, 0, 0, null, 1, 0, null, null, 0, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, 1, 3, 0, 0, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
-					"Australopithecus anamensis": [null, null, null, null, null, null, null, 0, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null, 0, 0, 2, 0, 0, null, 1, 1, null, 1, 1, 1, null, 2, 0, 1, null, 1, 0, null, null, 0, 1, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 2, 3, 1, null, null, null, 2, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
-					"Australopithecus aff. afarensis"   : [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, null, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, null, 1, 1, 2, 1, 1, null, null, null, 1, 0, null, null, 2, 2, 0, 2, null, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
-					"Australopithecus afarensis": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, null, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, null, 1, 1, 2, 1, 1, null, null, null, 1, 0, null, null, 2, 2, 0, 2, null, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
-					"Australopithecus platyops" : [null, 0, null, 0, 1, 1, 0, 0, 0, null, 2, 2, 3, 1, null, 0, null, 0, 2, 0, 2, null, null, null, null, 1, null, 0, null, null, null, 2, null, 0, 0, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 0, null, null, null, null, 1, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-					"Australopithecus africanus": [3, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 2, 0, 3, 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 1, 1, 0, 0, 0, 1, 0, 3, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 1, 0, 3, 2, 1, 0, 3, 1, 0, 1, 1, 0, 0, 0, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 1, 1, 0, 1, 1, 2, 1, 2, 2, 2, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, 1, 3, null],
-					"Australopithecus garhi"    : [null, null, null, 0, 0, 0, 0, 0, 0, null, 0, 0, 1, null, 0, 0, null, null, 2, 0, null, null, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, 4, 2, null, null, 1, null, 1, null, 3, null, 0, 1, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, 0, 2, 2, null, null, null, null, 1, null, 2, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-					"Paranthropus aethiopicus"  : [1, 2, 2, 0, 2, 1, 1, 1, 1, 1, 3, 0, 1, 1, 2, 0, 0, 0, 3, 0, 0, 0, 1, 1, 2, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2, 3, 1, null, null, 2, 2, 2, 2, 2, null, 1, 1, null, 4, 3, 2, null, 4, 2, 2, null, 3, 1, 0, 0, 1, 0, 1, 1, 0, null, null, 1, null, null, null, null, null, null, null, 0, 2, 2, null, null, 1, null, null, null, 2, 3, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 1, null, null, null, null],
-					"Paranthropus robustus"     : [1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 0, 3, 1, 2, 0, 1, 2, 3, 0, null, 2, 0, null, 2, 0, 2, 1, 1, 3, 0, 2, 3, 1, 2, 2, 0, 2, 0, 3, 3, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, null, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, null, 0, 1, 2, 2, 3, 1, 1, 1, 0, 2, null, null, null, null, null, 1, 1, null, 0, 2, null, 1, 3, null],
-					"Paranthropus boisei"       : [1, 0, 1, 0, 2, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 0, 1, 2, 3, 0, 1, 2, 1, 1, 2, 0, 1, 1, 1, 3, 0, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 1, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 5, 3, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, 1, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 2, 1, 0, 2, 1, 0, 1, 2, 2, 3, 1, 1, 0, null, 2, null, null, null, null, null, 1, 1, null, 1, 1, null, null, 3, null],
-					"Homo habilis"              : [2, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0, 2, 1, 0, 0, 1, 1, 2, 0, 0, 3, 1, 2, 2, 1, 1, 1, 2, 2, 0, 3, 2, 1, 1, 0, 2, 2, 2, 1, null, 1, 1, 2, 1, 1, null, 0, 1, 2, 1, null, 3, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, 1, 1, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, null, 3, null],
-					"Homo rudolfensis"          : [2, 0, null, 0, 1, 1, null, 0, 0, null, 2, 2, 3, null, 0, 2, 1, 0, 0, 1, 3, 2, 0, 0, 0, 1, 2, 0, 0, null, 0, 2, 1, null, 0, null, null, 2, null, 3, null, null, null, 1, 2, 2, 1, 0, null, 1, 1, 2, 2, 2, null, 0, 1, 2, 1, 0, 3, 1, 1, 1, null, 0, null, null, null, 1, null, 1, null, null, null, null, null, null, 2, 0, 1, 0, null, null, null, null, 1, null, 2, 3, null, null, null, 0, null, null, null, null, null, null, null, null, null, 0, 1, null, 1, 2, null],
-					"Homo ergaster"             : [2, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 2, 4, 0, 0, 2, 1, null, 0, 1, 3, 2, 0, 0, 0, 1, 2, 0, 0, 3, 1, 1, 3, 1, 0, 2, 2, 2, 1, 3, 1, 2, 1, 0, 2, 2, 2, 0, 0, 1, 2, 2, 1, 0, 1, null, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, null, 1, 1, 1, null, 1, 1, null, null, null, null, 0, 2, 0, 2, 0, 0, 2, null, 2, 1, 2, 2, 3, 1, null, 0, 0, null, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
-					"Homo sapiens"              : [2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 4, 0, 0, 3, 1, 1, 0, 1, 3, 2, 0, 0, 0, 2, 2, 0, 0, 3, 1, 3, 3, 1, 0, 2, 2, 2, 0, 3, 1, 1, 1, 0, 2, 3, 2, 0, 0, 2, 2, 2, 0, 0, 1, 0, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2, 2, 1, 1, 0, 1, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 0, 1, 3, 1, 3, 0]
+					"Colobus guereza"           : [2,         0,      0,      0,      0,    0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, null, 2, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+					"Papio"                     : [0,         0,      0,      0,      0,    0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, 2, 0, 0, 2, 0, 0, 0, 1, 0, 1, 1, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0],
+					"Hylobates"                 : [2,         0,      0,      0,      0,    0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, null, 3, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 3, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 4, 0],
+					"Pongo"                     : [[0, 1, 2], 0,      0,      0,      0,    0, 1, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 1, 0, 1, 3, 0, 0, 1, 1, 1, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 3, 2, 1, 1],
+					"Gorilla"                   : [0,         [0, 1], 0,      0,      0,    0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 1, 0, 2, 0, 2, 2, 0, 1, 1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0, 2, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+					"Pan"                       : [0,         0,      0,      0,      0,    0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 0, 0, 2, 1, 2, 1, 1, 1, 3, 0, 0, 0, 0, 2, 1, 1, 1, 2, 1, 1, 0, 1, 0, 1, 2, 1, 2, 0],
+					"Sahelanthropus tchadensis" : [null,      0,      1,      0,      null, null, null, null, null, null, 0, null, 3, 0, 0, 0, null, null, 2, 0, 0, null, null, null, null, 0, 0, null, null, null, 0, 0, 0, 0, null, null, 0, 0, 0, 2, 1, null, null, 0, null, 0, null, 2, null, 0, 1, null, 1, 0, null, null, 1, null, 0, null, null, 0, null, null, null, 1, null, null, 0, null, null, null, null, null, null, null, null, 0, 2, 0, 2, 2, null, null, null, null, 0, 1, null, 3, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2, 3, null],
+					"Ardipithecus ramidus"      : [null,      null,   null,   null,   null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 0, null, 0, 2, null, null, null, null, null, 1, null, 1, null, null, 0, 0, 0, null, 1, 1, null, 1, 0, 0, null, 2, 0, 0, null, 1, 0, null, null, 0, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, 1, 3, 0, 0, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
+					"Australopithecus anamensis": [null,      null,   null,   null,   null, null, null, 0, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null, 0, 0, 2, 0, 0, null, 1, 1, null, 1, 1, 1, null, 2, 0, 1, null, 1, 0, null, null, 0, 1, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 2, 3, 1, null, null, null, 2, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
+					"Australopithecus aff. afarensis" : [1,   0,      0,      0,      0,    0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, null, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, null, 1, 1, 2, 1, 1, null, null, null, 1, 0, null, null, 2, 2, 0, 2, null, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
+					"Australopithecus afarensis": [1,         0,      0,      0,      0,    0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, null, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, null, 1, 1, 2, 1, 1, null, null, null, 1, 0, null, null, 2, 2, 0, 2, null, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
+					"Australopithecus platyops" : [null,      0,      null,   0,      1,    1, 0, 0, 0, null, 2, 2, 3, 1, null, 0, null, 0, 2, 0, 2, null, null, null, null, 1, null, 0, null, null, null, 2, null, 0, 0, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 0, null, null, null, null, 1, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+					"Australopithecus africanus": [[0, 1, 2], 0,      [0, 1], [0, 1], 1,    0, 0, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 2, 0, 3, 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 1, 1, 0, 0, 0, 1, 0, 3, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 1, 0, 3, 2, 1, 0, 3, 1, 0, 1, 1, 0, 0, 0, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 1, 1, 0, 1, 1, 2, 1, 2, 2, 2, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, 1, 3, null],
+					"Australopithecus garhi"    : [null,      null,   null,   0,      0,    0, 0, 0, 0, null, 0, 0, 1, null, 0, 0, null, null, 2, 0, null, null, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, 4, 2, null, null, 1, null, 1, null, 3, null, 0, 1, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, 0, 2, 2, null, null, null, null, 1, null, 2, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+					"Paranthropus aethiopicus"  : [1,         1,      1,      0,      2,    1, 1, 1, 1, 1, 3, 0, 1, 1, 2, 0, 0, 0, 3, 0, 0, 0, 1, 1, 2, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2, 3, 1, null, null, 2, 2, 2, 2, 2, null, 1, 1, null, 4, 3, 2, null, 4, 2, 2, null, 3, 1, 0, 0, 1, 0, 1, 1, 0, null, null, 1, null, null, null, null, null, null, null, 0, 2, 2, null, null, 1, null, null, null, 2, 3, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 1, null, null, null, null],
+					"Paranthropus robustus"     : [1,         1,      1,      1,      2,    1, 1, 1, 1, 1, 3, 0, 3, 1, 2, 0, 1, 2, 3, 0, null, 2, 0, null, 2, 0, 2, 1, 1, 3, 0, 2, 3, 1, 2, 2, 0, 2, 0, 3, 3, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, null, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, null, 0, 1, 2, 2, 3, 1, 1, 1, 0, 2, null, null, null, null, null, 1, 1, null, 0, 2, null, 1, 3, null],
+					"Paranthropus boisei"       : [1,         0,      [0, 1], 0,      2,    1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 0, 1, 2, 3, 0, 1, 2, 1, 1, 2, 0, 1, 1, 1, 3, 0, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 1, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 5, 3, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, 1, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 2, 1, 0, 2, 1, 0, 1, 2, 2, 3, 1, 1, 0, null, 2, null, null, null, null, null, 1, 1, null, 1, 1, null, null, 3, null],
+					"Homo habilis"              : [2,         0,      0,      [0, 1], 1,    0, 1, 0, 0, 0, 0, 1, 3, 0, 0, 1, 1, 0, 1, 0, 2, 1, 0, 0, 1, 1, 2, 0, 0, 3, 1, 2, 2, 1, 1, 1, 2, 2, 0, 3, 2, 1, 1, 0, 2, 2, 2, 1, null, 1, 1, 2, 1, 1, null, 0, 1, 2, 1, null, 3, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, 1, 1, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, null, 3, null],
+					"Homo rudolfensis"          : [2,         0,      null,   0,      1,    1, null, 0, 0, null, 2, 2, 3, null, 0, 2, 1, 0, 0, 1, 3, 2, 0, 0, 0, 1, 2, 0, 0, null, 0, 2, 1, null, 0, null, null, 2, null, 3, null, null, null, 1, 2, 2, 1, 0, null, 1, 1, 2, 2, 2, null, 0, 1, 2, 1, 0, 3, 1, 1, 1, null, 0, null, null, null, 1, null, 1, null, null, null, null, null, null, 2, 0, 1, 0, null, null, null, null, 1, null, 2, 3, null, null, null, 0, null, null, null, null, null, null, null, null, null, 0, 1, null, 1, 2, null],
+					"Homo ergaster"             : [2,         0,      0,      0,      1,    0, 1, 0, 0, 0, 0, 2, 4, 0, 0, 2, 1, null, 0, 1, 3, 2, 0, 0, 0, 1, 2, 0, 0, 3, 1, 1, 3, 1, 0, 2, 2, 2, 1, 3, 1, 2, 1, 0, 2, 2, 2, 0, 0, 1, 2, 2, 1, 0, 1, null, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, null, 1, 1, 1, null, 1, 1, null, null, null, null, 0, 2, 0, 2, 0, 0, 2, null, 2, 1, 2, 2, 3, 1, null, 0, 0, null, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
+					"Homo sapiens"              : [2,         0,      0,      0,      0,    0, 2, 0, 0, 0, 0, 2, 4, 0, 0, 3, 1, 1, 0, 1, 3, 2, 0, 0, 0, 2, 2, 0, 0, 3, 1, 3, 3, 1, 0, 2, 2, 2, 0, 3, 1, 1, 1, 0, 2, 3, 2, 0, 0, 2, 2, 2, 0, 0, 1, 0, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2, 2, 1, 1, 0, 1, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 0, 1, 3, 1, 3, 0]
 				}
 			},
 			"AppendixC":
