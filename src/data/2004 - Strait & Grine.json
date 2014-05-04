@@ -25,28 +25,23 @@
 					},
 					{
 						"name": "SG2. Inferior orbital margin rounded laterally",
-						"states": ["No", "Variable", "Yes"],
-						"type": "range"
+						"states": ["No", "Variable", "Yes"]
 					},
 					{
 						"name": "SG3. Infraorbital foramen location",
-						"states": ["High", "Variable", "Low"],
-						"type": "range"
+						"states": ["High", "Variable", "Low"]
 					},
 					{
 						"name": "SG4. Anterior pillars",
-						"states": ["Absent", "Variable", "Present"],
-						"type": "range"
+						"states": ["Absent", "Variable", "Present"]
 					},
 					{
 						"name": "SG5. Nasoalveolar clivus contour in coronal plane",
-						"states": ["Convex", "Straight", "Concave (gutter)"],
-						"type": "range"
+						"states": ["Convex", "Straight", "Concave (gutter)"]
 					},
 					{
 						"name": "SG6. Protrusion of incisor alveoli beyond bicanine line (basal view)",
-						"states": ["Yes", "No"],
-						"type": "range"
+						"states": ["Yes", "No"]
 					},
 					{
 						"name": "SG7. Nasal cavity entrance",
@@ -56,66 +51,432 @@
 					},
 					{
 						"name": "SG8. Palate thickness",
-						"states": ["Thin", "Thick"],
-						"type": "range"
+						"states": ["Thin", "Thick"]
 					},
 					{
 						"name": "SG9. Height of the masseter origin",
-						"states": ["Low", "High"],
-						"type": "range"
+						"states": ["Low", "High"]
 					},
 					{
 						"name": "SG10. M-L thickness of zygomatic arch at root of frontal process",
-						"states": ["Thin", "Thick"],
-						"type": "range"
+						"states": ["Thin", "Thick"]
 					},
 					{
 						"name": "SG11. Anterior projection of zygomatic bone relative to piriform aperture (dishing)",
-						"states": ["Posterior", "Variable post.-inter.", "Intermediate", "Anterior (dished)"],
-						"type": "range"
+						"states": ["Posterior", "Variable post.-inter.", "Intermediate", "Anterior (dished)"]
 					},
 					{
 						"name": "SG12. Anterior palatal depth",
 						"states": ["Shallow", "Variable", "Deep"],
-						"type": "range",
 						"notes": "=CW23"
 					},
 					{
 						"name": "SG13. Index of palate protrusion anterior to sellion (facial prognathism)",
-						"states": ["Hyperprognathic", "Prognathic", "Variable prog.-mesog.", "Mesognathic", "Orthognathic"],
-						"type": "range",
+						"states": ["Hyperprognathic", "Prognathic", "Variable prog.-mesog.", "Mesognathic", "Orthognathic"]
 					},
 					{
 						"name": "SG14. Masseteric position relative to sellion",
-						"states": ["At or posterior", "At or anterior"],
-						"type": "range"
+						"states": ["At or posterior", "At or anterior"]
 					},
 					{
 						"name": "SG15. Maxillary trigon (zygomatico-maxillary step)",
-						"states": ["Absent", "Variable", "Present"],
-						"type": "range"
+						"states": ["Absent", "Variable", "Present"]
 					},
 					{
 						"name": "SG16, Cranial capacity",
-						"states": ["Small", "Intermediate", "Large", "Very Large"],
-						"type": "range",
-						"notes": "=CW62"
+						"states": ["Small", "Intermediate", "Large", "Very Large"]
 					},
 					{
 						"name": "SG17. Cerebellar morphology",
-						"states": ["Lateral flare, posterior protrusion", "Tucked"],
-						"type": "range"
+						"states": ["Lateral flare, posterior protrusion", "Tucked"]
 					},
 					{
 						"name": "SG18. O-M sinus present in high frequency",
-						"states": ["No", "Intermediate", "Yes"],
-						"type": "range"
+						"states": ["No", "Intermediate", "Yes"]
 					},
 					{
 						"name": "SG19. Antero-medial incursion of the superior temporal lines",
 						"states": ["Weak", "Variable mod-weak", "Moderate", "Strong"],
-						"type": "range",
 						"notes": "=CW28,37"
+					},
+					{
+						"name": "SG20. Sagittal crest present, at least in presumptive males",
+						"states": ["No", "Yes"],
+						"notes": "=CW37"
+					},
+					{
+						"name": "SG21. Compound T/N crest, at least in presumptive males",
+						"states": ["Extensive", "Variable", "Partial", "Absent"]
+					},
+					{
+						"name": "SG22. Asterionic notch",
+						"states": ["Present", "Variable", "Absent"]
+					},
+					{
+						"name": "SG23. Parietal overlap of occipital at asterion, at least in males",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "SG24. Squamosal suture overlap extensive, at least in males",
+						"states": ["Not extensive", "Extensive"]
+					},
+					{
+						"name": "SG25. Lateral inflation of mastoid process relative to supramastoid crest",
+						"states": ["Not inflated", "Variable", "Inflated"]
+					},
+					{
+						"name": "SG26. Postorbital constriction",
+						"states": ["Marked", "Moderate", "Slight"]
+					},
+					{
+						"name": "SG27. Pneumatization of temporal squama",
+						"states": ["Extensive", "Variable", "Reduced"]
+					},
+					{
+						"name": "SG28. Facial hafting",
+						"states": ["Low", "High"],
+						"notes": "=CW28"
+					},
+					{
+						"name": "SG29. Supraglenoid gutter width",
+						"states": ["Narrow", "Wide"]
+					},
+					{
+						"name": "SG30. External cranial base flexion",
+						"states": ["Retroflexed", "Flat", "Moderate", "Flexed"],
+						"notes": "=CW12"
+					},
+					{
+						"name": "SG31. Horizontal distance between TMJ and M2/M3",
+						"states": ["Long", "Short"]
+					},
+					{
+						"name": "SG32. Relative depth of mandibular fossa",
+						"states": ["Shallow", "Variable shallow-inter.", "Intermediate", "Deep"]
+					},
+					{
+						"name": "SG33. Postglenoid process size and position",
+						"states": ["Large and anterior", "Mid-sized, fused or unfused", "Variable mid.-small", "Small and fused to tympanic"]
+					},
+					{
+						"name": "SG34. Configuration of tympanic",
+						"states": ["Tubular (or weak crest)", "Crest with vertical plate", "Crest with inclined plate"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG35. Medio-lateral position of external auditory meatus",
+						"states": ["Medial", "Variable", "Lateral"]
+					},
+					{
+						"name": "SG36. Vaginal process",
+						"states": ["Small or absent", "Variable", "Moderate to large"]
+					},
+					{
+						"name": "SG37. Eustachian process of tympanic",
+						"states": ["Present and prominent", "Variable", "Absent or slight"]
+					},
+					{
+						"name": "SG38. Petrous orientation",
+						"states": ["Sagittal", "Intermediate", "Coronal"]
+					},
+					{
+						"name": "SG39. Heart shaped foramen magnum",
+						"states": ["Absent", "Variable", "Present"]
+					},
+					{
+						"name": "SG40. Inclination nuchal plane",
+						"states": ["Extremely steep", "Steeply inclined", "Intermediate", "Weakly inclined"]
+					},
+					{
+						"name": "SG41. Position of foramen magnum relative to bitympanic line",
+						"states": ["Well posterior", "At bitympanic line", "Variable at or anterior", "Well anterior"]
+					},
+					{
+						"name": "SG42. Inclination of foramen magnum",
+						"states": ["Strongly inclined (posterior)", "Roughly horizontal", "trongly inclined (anterior)"]
+					},
+					{
+						"name": "SG43. Originof digastric muscle",
+						"states": ["Broad, shallow fossa", "Deep, narrow notch"]
+					},
+					{
+						"name": "SG44. Mandibular cross-sectional area at M1",
+						"states": ["Small", "Variable", "Large"],
+						"notes": "=CW77"
+					},
+					{
+						"name": "SG45. Orientation of mandibular symphysis",
+						"states": ["Receding", "Intermediate", "Vertical"]
+					},
+					{
+						"name": "SG46. Direction of mental foramen opening",
+						"states": ["Anterior", "Variable", "Lateral", "Posterior"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG47. Hollowing above and behind mental foramen",
+						"states": ["Present", "Variable", "Absent"]
+					},
+					{
+						"name": "SG48. Width of mandibular extramolar sulcus",
+						"states": ["Narrow", "Variable", "Wide"]
+					},
+					{
+						"name": "SG49. Mandibular deciduous canine shape",
+						"states": ["Apex central, mesial convexity low", "Apex mesial, mesial convexity high"]
+					},
+					{
+						"name": "SG50. Incisal reduction",
+						"states": ["No", "Moderate", "Yes"]
+					},
+					{
+						"name": "SG51. Canines reduced",
+						"states": ["No", "Somewhat", "Very"],
+						"notes": "=CW7"
+					},
+					{
+						"name": "SG52. Prominence of median lingual ridge of mandibular canine",
+						"states": ["Prominent", "Variable", "Weak"]
+					},
+					{
+						"name": "SG53. Premolar crown area",
+						"states": ["Smallest", "Smaller", "Small", "Large", "Larger", "Largest"]
+					},
+					{
+						"name": "SG54. Molar crown area",
+						"states": ["Smallest", "Small", "Large", "Largest"]
+					},
+					{
+						"name": "SG55. d M_1 mesial crown profile",
+						"states": ["MMR absent, protoconid anterior, fovea open", "MMR slight, protoconid anterior, fovea open", "MMR thick, protoconid even with metaconid, fovea closed"]
+					},
+					{
+						"name": "SG56. Distal marginal ridge of d M_2",
+						"states": ["Low", "High"]
+					},
+					{
+						"name": "SG57. Positions of buccal and lingual cusps relative to crown margin (states as for mandibular teeth; reverse for maxillary teeth)",
+						"states": ["Buccal and lingual cusps approximate crown margin",
+							"Lingual cusps approximate margin; buccal cusps slightly lingual to margin",
+							"Lingual cusps approximate margin; buccal cusps moderately lingual to margin",
+							"Lingual cusps slightly buccal to margin; buccal cusps moderately lingual to margin",
+							"Lingual cusps moderately buccal to margin; buccal cusps strongly lingual to margin"]
+					},
+					{
+						"name": "SG58. Frequency of well developed P_3 metaconid",
+						"states": ["Absent", "Infrequent", "Frequent"],
+						"notes": "=CW94"
+					},
+					{
+						"name": "SG59. Relative enamel thickness",
+						"states": ["Thin", "Thick", "Hyperthick"],
+						"notes": "=CW 57,73"
+					},
+					{
+						"name": "SG60. Dental development rate",
+						"states": ["Delayed", "Intermediate", "Accelerated"],
+						"type": "discrete",
+						"notes": "=CW87,88"
+					},
+					{
+						"name": "SG61. Mesiobuccal protrusion of P_3 crown base",
+						"states": ["Strong", "Moderate", "Variable", "Weak or absent"]
+					},
+					{
+						"name": "SG62. Orientation of mandibular premolar row (dental arcade shape)",
+						"states": ["Premolar row parasagittal (U-shaped arcade)", "Premolar row obliquely oriented (parabolic arcade)"],
+						"notes": "=CW86"
+					},
+					{
+						"name": "SG63. Parietal tuber",
+						"states": ["Absent", "Present"]
+					},
+					{
+						"name": "SG64. Parietomastoid angle",
+						"states": ["Strong", "Weak"]
+					},
+					{
+						"name": "SG65. External auditory meatus size",
+						"states": ["Small", "Large"]
+					},
+					{
+						"name": "SG66. Separation of mandibular tooth rows",
+						"states": ["Widely separated", "Narrow separation"]
+					},
+					{
+						"name": "SG67. Configuration of the superior orbital fissure",
+						"states": ["Foramen", "Comma-shaped"]
+					},
+					{
+						"name": "SG68. Size of *Longus capitis* insertion",
+						"states": ["Large", "Small"]
+					},
+					{
+						"name": "SG69. Height of articular eminence above occlusal plane",
+						"states": ["High above plane", "Near plane"]
+					},
+					{
+						"name": "SG70. Extensive mesial groove on upper canine",
+						"states": ["Yes", "No"],
+						"notes": "=CW38"
+					},
+					{
+						"name": "CW1. Depth of subarcuate fossa",
+						"states": ["Deep", "Moderately deep to shallow", "Very shallow to absent"]
+					},
+					{
+						"name": "CW2. Orientation and length of the post-incisive planum",
+						"states": ["Long, weakly inclined", "Intermediate", "Short, steeply inclined"]
+					},
+					{
+						"name": "CW3. Distinctiveness of angular process of mandible",
+						"states": ["Distinct, with posterior projection", "Not distinct"]
+					},
+					{
+						"name": "CW9. Depth of middle ear",
+						"states": ["Shallow", "Deep"]
+					},
+					{
+						"name": "CW10. Axis of ear bones",
+						"states": ["Right angle or more", "Acute angle"]
+					},
+					{
+						"name": "CW11. Area of inner ear",
+						"states": ["Low", "Higher"]
+					},
+					{
+						"name": "CW17. Presence/absence of frontal sinus",
+						"states": ["Absent", "Present"]
+					},
+					{
+						"name": "CW19. Position of infraorbital foramen relative to orbit",
+						"states": ["Foramen beneath middle third of orbital breadth", "Foramen beneath medial third of orbital breadth"]
+					},
+					{
+						"name": "CW20. Orientation of zygomatic bone",
+						"states": ["Frontal", "Variable", "Fronto-lateral"]
+					},
+					{
+						"name": "CW22. Glabellar prominence relative to sella",
+						"states": ["Strong, projects anterior to sella", "Intermediate, at the level of sella", "Weak, recessed behind sella"]
+					},
+					{
+						"name": "CW25. Supraorbital expression",
+						"states": ["Weak", "Intermediate", "Torus-like"]
+					},
+					{
+						"name": "CW26. Supraorbital contour",
+						"states": ["Arched", "Variable", "Less arched"]
+					},
+					{
+						"name": "CW32. Position of zygomatic foramina",
+						"states": ["At or below plane of orbital rim", "Above plane of orbital rim"]
+					},
+					{
+						"name": "CW35. Patency of premaxillary suture in adults from frontal view",
+						"states": ["Patent", "Variable", "Obliterated"]
+					},
+					{
+						"name": "CW36. Petrous apex ossified beyond spheno-occipital synchondrosis",
+						"states": ["Not ossified", "Ossified, with projection"]
+					},
+					{
+						"name": "CW40. I^2 similar in shape to I^1",
+						"states": ["Dissimilar", "Variable", "Similar"]
+					},
+					{
+						"name": "CW41. Robusticity of canines",
+						"states": ["Slender", "More robust"]
+					},
+					{
+						"name": "CW42. Basal keel of lower canine",
+						"states": ["Present", "Reduced", "Absent"]
+					},
+					{
+						"name": "CW43. Basal area of paracone of P^3",
+						"states": ["Paracone much larger than protocone", "Paracone larger than protocone", "Paracone equals protocone"]
+					},
+					{
+						"name": "CW44. Molar cingulum",
+						"states": ["-", "Reduced, incomplete", "Variable", "Fragmented or absent"]
+					},
+					{
+						"name": "CW46. Metaconid of dp_3",
+						"states": ["Absent or poorly defined", "Well defined"]
+					},
+					{
+						"name": "CW48. Talonid basin of dp_3",
+						"states": ["Open distally", "Closed distally"]
+					},
+					{
+						"name": "CW50. Distal trigonid crest on dp_4",
+						"states": ["Does not reach protoconid apex", "Reaches protoconid apex"]
+					},
+					{
+						"name": "CW52. Protocone dp^3, in occlusal view",
+						"states": ["Larger than paracone", "Smaller than paracone"]
+					},
+					{
+						"name": "CW54. Crista obliqua of dp^4",
+						"states": ["Weak", "Moderate", "Strong"]
+					},
+					{
+						"name": "CW55. Protocristid groove of lower molars",
+						"states": ["Prominent", "Barely visible"]
+					},
+					{
+						"name": "CW56. Lingual marginal ridges of molars",
+						"states": ["Hardly appreciable", "More prominent", "Very prominent"]
+					},
+					{
+						"name": "CW59. Insertion of genioglossus",
+						"states": ["Above inferior transverse torus", "On inferior transverse torus"]
+					},
+					{
+						"name": "CW60. Insertion of geniohyoideus",
+						"states": ["Basally on inferior transverse torus", "Higher on inferior transverse torus", "Above inferior transverse torus"]
+					},
+					{
+						"name": "CW61. Insertion of digastric",
+						"states": ["Posterior to inferior transverse torus", "Inferior transverse torus", "Not on sympysis"],
+						"type": "discrete"
+					},
+					{
+						"name": "CW64. Condylar canal",
+						"states": ["Absent or infrequent", "Frequently present"]
+					},
+					{
+						"name": "CW66. Molar dentine horns",
+						"states": ["High", "Low"]
+					},
+					{
+						"name": "CW69. Ethmolacrimal contact",
+						"states": ["c. 100%", "Variable"]
+					},
+					{
+						"name": "CW76. Fovea posterior",
+						"states": ["Absent or weak", "Well developed"]
+					},
+					{
+						"name": "CW78. Mandibular corpus depth along tooth row",
+						"states": ["Shallow mesially", "Constant", "Variable", "Deepens mesially"]
+					},
+					{
+						"name": "CW79. Ethmosphenoid contact",
+						"states": ["Usually absent (0-25%)", "Variable (c. 50%)", "Usually present (c. 75%)", "Present (c. 100%)"]
+					},
+					{
+						"name": "CW89. I^1 lingual crenulations",
+						"states": ["Absent", "Marginal", "Whole surface"]
+					},
+					{
+						"name": "CW92. Canine sexual dimorphism",
+						"states": ["Hyperdimorphic", "Strongly dimorphic", "Moderately dimorphic", "Monomorphic, small canines", "Monomorphic, large canines"],
+						"type": "discrete"
+					},
+					{
+						"name": "CW96. Sulcus obliquus",
+						"states": ["Weak to moderate", "Strong"]
 					}
 				],
 				"scores":
@@ -144,6 +505,7 @@
 			},
 			"Table3-modified":
 			{
+				"notes": "This is Table 3, but with variable characters converted to polymorphisms, orthogonal characters split, and 2-state range characters converted to discrete characters (for optimization).",
 				"characterType": "range",
 				"characters":
 				[
@@ -246,31 +608,71 @@
 						"name": "SG19. Antero-medial incursion of the superior temporal lines",
 						"states": ["Weak", "Moderate", "Strong"],
 						"type": "range"
+					},
+					{
+						"name": "SG20. Sagittal crest present, at least in presumptive males",
+						"states": ["No", "Yes"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG21. Compound T/N crest, at least in presumptive males",
+						"states": ["Extensive", "Partial", "Absent"],
+						"type": "range"
+					},
+					{
+						"name": "SG22. Asterionic notch",
+						"states": ["Present", "Absent"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG23. Parietal overlap of occipital at asterion, at least in males",
+						"states": ["No", "Yes"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG24. Squamosal suture overlap extensive, at least in males",
+						"states": ["Not extensive", "Extensive"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG25. Lateral inflation of mastoid process relative to supramastoid crest",
+						"states": ["Not inflated", "Inflated"],
+						"type": "discrete"
+					},
+					{
+						"name": "SG26. Postorbital constriction",
+						"states": ["Marked", "Moderate", "Slight"],
+						"type": "range"
+					},
+					{
+						"name": "SG27. Pneumatization of temporal squama",
+						"states": ["Extensive", "Reduced"],
+						"type": "discrete"
 					}
 				],
-				"guide":                          "1          2       3       4       5     6     7a    7b    8     9     10    11      12      13      14      15      16    17    18    19",
+				"guide":                          "1          2       3       4       5     6     7a    7b    8     9     10    11      12      13      14      15      16    17    18    19      20   21       22      23    24    25      26    27",
 				"scores":
 				{
-					"Colobus guereza"           : [2,         0,      0,      0,      0,    0,    0,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    null, 1, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-					"Papio"                     : [0,         0,      0,      0,      0,    0,    0,    1,    0,    0,    0,    0,      0,      0,      [0, 1], 0,      0,    0,    null, 1, 0, 0, 2, 0, 0, 0, 1, 0, 1, 1, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0],
-					"Hylobates"                 : [2,         0,      0,      0,      0,    0,    0,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    null, 2, 1, 2, 2, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 3, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 4, 0],
-					"Pongo"                     : [[0, 1, 2], 0,      0,      0,      0,    0,    1,    0,    0,    0,    0,    0,      1,      0,      [1, 2], 0,      0,    0,    0,    2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 1, 0, 1, 3, 0, 0, 1, 1, 1, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 3, 2, 1, 1],
-					"Gorilla"                   : [0,         [0, 1], 0,      0,      0,    0,    1,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    0,    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 1, 0, 2, 0, 2, 2, 0, 1, 1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0, 2, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1],
-					"Pan"                       : [0,         0,      0,      0,      0,    0,    1,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    0,    1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 0, 0, 2, 1, 2, 1, 1, 1, 3, 0, 0, 0, 0, 2, 1, 1, 1, 2, 1, 1, 0, 1, 0, 1, 2, 1, 2, 0],
-					"Sahelanthropus tchadensis" : [null,      0,      1,      0,      null, null, null, null, null, null, null, 0,      null,   2,      [0, 1], 0,      0,    null, null, 1, 0, 0, null, null, null, null, 0, 0, null, null, null, 0, 0, 0, 0, null, null, 0, 0, 0, 2, 1, null, null, 0, null, 0, null, 2, null, 0, 1, null, 1, 0, null, null, 1, null, 0, null, null, 0, null, null, null, 1, null, null, 0, null, null, null, null, null, null, null, null, 0, 2, 0, 2, 2, null, null, null, null, 0, 1, null, 3, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2, 3, null],
-					"Ardipithecus ramidus"      : [null,      null,   null,   null,   null, null, null, null, null, null, null, null,   null,   null,   null,   null,   null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 0, null, 0, 2, null, null, null, null, null, 1, null, 1, null, null, 0, 0, 0, null, 1, 1, null, 1, 0, 0, null, 2, 0, 0, null, 1, 0, null, null, 0, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, 1, 3, 0, 0, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
-					"Australopithecus anamensis": [null,      null,   null,   null,   null, null, null, null, 0,    null, null, null,   0,      null,   null,   null,   null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null, 0, 0, 2, 0, 0, null, 1, 1, null, 1, 1, 1, null, 2, 0, 1, null, 1, 0, null, null, 0, 1, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 2, 3, 1, null, null, null, 2, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
-					"Praeanthropus afarensis"   : [1,         0,      0,      0,      0,    0,    1,    1,    0,    0,    0,    0,      0,      1,      [1, 2], 0,      0,    0,    2,    1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, null, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, null, 1, 1, 2, 1, 1, null, null, null, 1, 0, null, null, 2, 2, 0, 2, null, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
-					"Kenyanthropus platyops"    : [null,      0,      null,   0,      1,    1,    1,    1,    0,    0,    null, 1,      1,      2,      [1, 2], null,   0,    null, 0,    1, 0, 2, null, null, null, null, 1, null, 0, null, null, null, 2, null, 0, 0, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 0, null, null, null, null, 1, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-					"Australopithecus africanus": [[0, 1, 2], 0,      [0, 1], [0, 1], 1,    0,    1,    1,    0,    1,    0,    [0, 1], 1,      [1, 2], [0, 1], 0,      0,    0,    1,    1, 0, 3, 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 1, 1, 0, 0, 0, 1, 0, 3, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 1, 0, 3, 2, 1, 0, 3, 1, 0, 1, 1, 0, 0, 0, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 1, 1, 0, 1, 1, 2, 1, 2, 2, 2, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, 1, 3, null],
-					"Australopithecus garhi"    : [null,      null,   null,   0,      0,    0,    1,    1,    0,    0,    null, 0,      0,      1,      null,   0,      0,    null, null, 1, 0, null, null, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, 4, 2, null, null, 1, null, 1, null, 3, null, 0, 1, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, 0, 2, 2, null, null, null, null, 1, null, 2, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-					"Paranthropus aethiopicus"  : [1,         1,      1,      0,      2,    1,    1,    0,    1,    1,    1,    2,      0,      1,      [1, 2], 1,      0,    0,    0,    2, 0, 0, 0, 1, 1, 2, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2, 3, 1, null, null, 2, 2, 2, 2, 2, null, 1, 1, null, 4, 3, 2, null, 4, 2, 2, null, 3, 1, 0, 0, 1, 0, 1, 1, 0, null, null, 1, null, null, null, null, null, null, null, 0, 2, 2, null, null, 1, null, null, null, 2, 3, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 1, null, null, null, null],
-					"Paranthropus robustus"     : [1,         1,      1,      1,      2,    1,    1,    0,    1,    1,    1,    2,      0,      2,      [1, 2], 1,      0,    1,    2,    2, 0, null, 2, 0, null, 2, 0, 2, 1, 1, 3, 0, 2, 3, 1, 2, 2, 0, 2, 0, 3, 3, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, null, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, null, 0, 1, 2, 2, 3, 1, 1, 1, 0, 2, null, null, null, null, null, 1, 1, null, 0, 2, null, 1, 3, null],
-					"Paranthropus boisei"       : [1,         0,      [0, 1], 0,      2,    1,    1,    0,    1,    1,    1,    2,      [0, 1], 2,      [1, 2], [0, 1], 0,    1,    2,    2, 0, 1, 2, 1, 1, 2, 0, 1, 1, 1, 3, 0, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 1, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 5, 3, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, 1, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 2, 1, 0, 2, 1, 0, 1, 2, 2, 3, 1, 1, 0, null, 2, null, null, null, null, null, 1, 1, null, 1, 1, null, null, 3, null],
-					"Homo habilis"              : [2,         0,      0,      [0, 1], 1,    0,    1,    0,    0,    0,    0,    0,      [0, 1], 2,      [0, 1], 0,      1,    1,    0,    [0, 1], 0, 2, 1, 0, 0, 1, 1, 2, 0, 0, 3, 1, 2, 2, 1, 1, 1, 2, 2, 0, 3, 2, 1, 1, 0, 2, 2, 2, 1, null, 1, 1, 2, 1, 1, null, 0, 1, 2, 1, null, 3, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, 1, 1, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, null, 3, null],
-					"Homo rudolfensis"          : [2,         0,      null,   0,      1,    1,    null, null, 0,    0,    null, 1,      1,      2,      null,   0,      2,    1,    0,    0, 1, 3, 2, 0, 0, 0, 1, 2, 0, 0, null, 0, 2, 1, null, 0, null, null, 2, null, 3, null, null, null, 1, 2, 2, 1, 0, null, 1, 1, 2, 2, 2, null, 0, 1, 2, 1, 0, 3, 1, 1, 1, null, 0, null, null, null, 1, null, 1, null, null, null, null, null, null, 2, 0, 1, 0, null, null, null, null, 1, null, 2, 3, null, null, null, 0, null, null, null, null, null, null, null, null, null, 0, 1, null, 1, 2, null],
-					"Homo ergaster"             : [2,         0,      0,      0,      1,    0,    1,    0,    0,    0,    0,    0,      1,      3,      [0, 1], 0,      2,    1,    null, 0, 1, 3, 2, 0, 0, 0, 1, 2, 0, 0, 3, 1, 1, 3, 1, 0, 2, 2, 2, 1, 3, 1, 2, 1, 0, 2, 2, 2, 0, 0, 1, 2, 2, 1, 0, 1, null, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, null, 1, 1, 1, null, 1, 1, null, null, null, null, 0, 2, 0, 2, 0, 0, 2, null, 2, 1, 2, 2, 3, 1, null, 0, 0, null, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
-					"Homo sapiens"              : [2,         0,      0,      0,      0,    0,    0,    0,    0,    0,    0,    0,      1,      3,      [0, 1], 0,      3,    1,    1,    0, 1, 3, 2, 0, 0, 0, 2, 2, 0, 0, 3, 1, 3, 3, 1, 0, 2, 2, 2, 0, 3, 1, 1, 1, 0, 2, 3, 2, 0, 0, 2, 2, 2, 0, 0, 1, 0, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2, 2, 1, 1, 0, 1, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 0, 1, 3, 1, 3, 0]
+					"Colobus guereza"           : [2,         0,      0,      0,      0,    0,    0,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    null, 1,      1,    1,      1,      0,    0,    0,      1,    1,      0, 0, 1, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 2, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+					"Papio"                     : [0,         0,      0,      0,      0,    0,    0,    1,    0,    0,    0,    0,      0,      0,      [0, 1], 0,      0,    0,    null, 1,      0,    0,      1,      0,    0,    0,      1,    0,      1, 1, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, null, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0],
+					"Hylobates"                 : [2,         0,      0,      0,      0,    0,    0,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    null, 2,      1,    1,      1,      0,    0,    0,      1,    1,      0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 3, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 4, 0],
+					"Pongo"                     : [[0, 1, 2], 0,      0,      0,      0,    0,    1,    0,    0,    0,    0,    0,      1,      0,      [1, 2], 0,      0,    0,    0,    2,      0,    0,      0,      0,    0,    0,      0,    0,      0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 1, 0, 1, 3, 0, 0, 1, 1, 1, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 3, 2, 1, 1],
+					"Gorilla"                   : [0,         [0, 1], 0,      0,      0,    0,    1,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    0,    1,      0,    0,      0,      0,    0,    0,      0,    0,      0, 1, 1, 0, 2, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 1, 0, 2, 0, 2, 2, 0, 1, 1, 0, 1, 0, 2, 1, 0, 0, 0, 0, 2, 0, 2, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1],
+					"Pan"                       : [0,         0,      0,      0,      0,    0,    1,    1,    0,    0,    0,    0,      0,      1,      [0, 1], 0,      0,    0,    0,    1,      1,    0,      0,      0,    0,    0,      1,    0,      0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 1, 1, 1, 0, 1, 1, 0, 2, 0, 2, 0, 0, 2, 1, 2, 1, 1, 1, 3, 0, 0, 0, 0, 2, 1, 1, 1, 2, 1, 1, 0, 1, 0, 1, 2, 1, 2, 0],
+					"Sahelanthropus tchadensis" : [null,      0,      1,      0,      null, null, null, null, null, null, null, 0,      null,   2,      [0, 1], 0,      0,    null, null, 1,      0,    0,      null,   null, null, null,   0,    0,      null, null, null, 0, 0, 0, 0, null, null, 0, 0, 0, 2, 1, null, null, 0, null, 0, null, 2, null, 0, 1, null, 1, 0, null, null, 1, null, 0, null, null, 0, null, null, null, 1, null, null, 0, null, null, null, null, null, null, null, null, 0, 2, 0, 2, 2, null, null, null, null, 0, 1, null, 3, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 2, 3, null],
+					"Ardipithecus ramidus"      : [null,      null,   null,   null,   null, null, null, null, null, null, null, null,   null,   null,   null,   null,   null, null, null, null,   null, null,   null,   null, null, null,   null, 0,      null, null, null, null, 0, null, 0, 2, null, null, null, null, null, 1, null, 1, null, null, 0, 0, 0, null, 1, 1, null, 1, 0, 0, null, 2, 0, 0, null, 1, 0, null, null, 0, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, 1, 3, 0, 0, null, null, null, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
+					"Australopithecus anamensis": [null,      null,   null,   null,   null, null, null, null, 0,    null, null, null,   0,      null,   null,   null,   null, null, null, null,   null, null,   null,   null, null, null,   null, 0,      null, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null, 0, 0, 2, 0, 0, null, 1, 1, null, 1, 1, 1, null, 2, 0, 1, null, 1, 0, null, null, 0, 1, null, null, null, 1, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, 2, 3, 1, null, null, null, 2, null, null, null, null, null, null, null, null, 0, null, null, null, 2, null],
+					"Praeanthropus afarensis"   : [1,         0,      0,      0,      0,    0,    1,    1,    0,    0,    0,    0,      0,      1,      [1, 2], 0,      0,    0,    2,    1,      0,    0,      0,      0,    0,    0,      1,    0,      0, 0, null, 0, 0, 0, 0, 0, 0, 2, 1, 0, 2, 1, null, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 0, 0, 1, 0, 0, null, 1, 1, 2, 1, 1, null, null, null, 1, 0, null, null, 2, 2, 0, 2, null, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
+					"Kenyanthropus platyops"    : [null,      0,      null,   0,      1,    1,    1,    1,    0,    0,    null, 1,      1,      2,      [1, 2], null,   0,    null, 0,    1,      0,    1,      null,   null, null, null,   1,    null,   0, null, null, null, 2, null, 0, 0, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 0, null, null, null, null, 1, null, null, null, null, null, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+					"Australopithecus africanus": [[0, 1, 2], 0,      [0, 1], [0, 1], 1,    0,    1,    1,    0,    1,    0,    [0, 1], 1,      [1, 2], [0, 1], 0,      0,    0,    1,    1,      0,    2,      1,      0,    0,    0,      1,    0,      0, 0, 2, 0, 2, 1, 1, 0, 0, 0, 1, 0, 3, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 1, 0, 3, 2, 1, 0, 3, 1, 0, 1, 1, 0, 0, 0, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 1, 1, 0, 1, 1, 2, 1, 2, 2, 2, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, 1, 3, null],
+					"Australopithecus garhi"    : [null,      null,   null,   0,      0,    0,    1,    1,    0,    0,    null, 0,      0,      1,      null,   0,      0,    null, null, 1,      0,    null,   null,   null, null, null,   1,    null,   0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, 4, 2, null, null, 1, null, 1, null, 3, null, 0, 1, null, null, null, null, null, 1, null, null, null, null, null, null, null, null, null, 0, 2, 2, null, null, null, null, 1, null, 2, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+					"Paranthropus aethiopicus"  : [1,         1,      1,      0,      2,    1,    1,    0,    1,    1,    1,    2,      0,      1,      [1, 2], 1,      0,    0,    0,    2,      0,    0,      0,      1,    1,    1,      0,    0,      1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2, 3, 1, null, null, 2, 2, 2, 2, 2, null, 1, 1, null, 4, 3, 2, null, 4, 2, 2, null, 3, 1, 0, 0, 1, 0, 1, 1, 0, null, null, 1, null, null, null, null, null, null, null, 0, 2, 2, null, null, 1, null, null, null, 2, 3, null, null, null, null, null, null, null, null, null, null, null, 1, null, null, 1, null, null, null, null],
+					"Paranthropus robustus"     : [1,         1,      1,      1,      2,    1,    1,    0,    1,    1,    1,    2,      0,      2,      [1, 2], 1,      0,    1,    2,    2,      0,    null,   1,      0,    null, 1,      0,    1,      1, 1, 3, 0, 2, 3, 1, 2, 2, 0, 2, 0, 3, 3, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 2, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, null, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, null, 0, 1, 2, 2, 3, 1, 1, 1, 0, 2, null, null, null, null, null, 1, 1, null, 0, 2, null, 1, 3, null],
+					"Paranthropus boisei"       : [1,         0,      [0, 1], 0,      2,    1,    1,    0,    1,    1,    1,    2,      [0, 1], 2,      [1, 2], [0, 1], 0,    1,    2,    2,      0,    [0, 1], 1,      1,    1,    1,      0,    [0, 1], 1, 1, 3, 0, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 1, 0, 2, 2, 2, 2, 2, 1, 2, 2, 2, 5, 3, 2, 1, 4, 2, 2, 2, 3, 1, 0, 1, 1, 0, 1, 1, 0, 1, 2, 1, 1, null, null, null, 1, 0, 1, 0, 2, 1, 0, 2, 1, 0, 1, 2, 2, 3, 1, 1, 0, null, 2, null, null, null, null, null, 1, 1, null, 1, 1, null, null, 3, null],
+					"Homo habilis"              : [2,         0,      0,      [0, 1], 1,    0,    1,    0,    0,    0,    0,    0,      [0, 1], 2,      [0, 1], 0,      1,    1,    0,    [0, 1], 0,    1,      [0, 1], 0,    0,    [0, 1], 1,    1,      0, 0, 3, 1, 2, 2, 1, 1, 1, 2, 2, 0, 3, 2, 1, 1, 0, 2, 2, 2, 1, null, 1, 1, 2, 1, 1, null, 0, 1, 2, 1, null, 3, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 1, 1, null, null, null, 1, 0, 2, 0, 2, 0, 0, 2, 1, 1, 1, 2, 2, 3, 1, 1, 0, 0, 2, null, null, null, null, null, 0, 0, null, 0, 1, null, null, 3, null],
+					"Homo rudolfensis"          : [2,         0,      null,   0,      1,    1,    null, null, 0,    0,    null, 1,      1,      2,      null,   0,      2,    1,    0,    0,      1,    2,      1,      0,    0,    0,      1,    1,      0, 0, null, 0, 2, 1, null, 0, null, null, 2, null, 3, null, null, null, 1, 2, 2, 1, 0, null, 1, 1, 2, 2, 2, null, 0, 1, 2, 1, 0, 3, 1, 1, 1, null, 0, null, null, null, 1, null, 1, null, null, null, null, null, null, 2, 0, 1, 0, null, null, null, null, 1, null, 2, 3, null, null, null, 0, null, null, null, null, null, null, null, null, null, 0, 1, null, 1, 2, null],
+					"Homo ergaster"             : [2,         0,      0,      0,      1,    0,    1,    0,    0,    0,    0,    0,      1,      3,      [0, 1], 0,      2,    1,    null, 0,      1,    2,      1,      0,    0,    0,      1,    1,      0, 0, 3, 1, 1, 3, 1, 0, 2, 2, 2, 1, 3, 1, 2, 1, 0, 2, 2, 2, 0, 0, 1, 2, 2, 1, 0, 1, null, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, null, 1, 1, 1, null, 1, 1, null, null, null, null, 0, 2, 0, 2, 0, 0, 2, null, 2, 1, 2, 2, 3, 1, null, 0, 0, null, null, null, null, null, null, 0, null, null, 0, 1, null, 1, 3, null],
+					"Homo sapiens"              : [2,         0,      0,      0,      0,    0,    0,    0,    0,    0,    0,    0,      1,      3,      [0, 1], 0,      3,    1,    1,    0,      1,    2,      1,      0,    0,    0,      2,    1,      0, 0, 3, 1, 3, 3, 1, 0, 2, 2, 2, 0, 3, 1, 1, 1, 0, 2, 3, 2, 0, 0, 2, 2, 2, 0, 0, 1, 0, 1, 2, 1, 1, 3, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2, 2, 1, 1, 0, 1, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 1, 2, 2, 3, 1, 1, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 0, 1, 3, 1, 3, 0]
 				}
 			},
 			"AppendixC":
