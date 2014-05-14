@@ -99,6 +99,12 @@ module.exports = function(grunt)
 				dest: 'src/craniodentalExtant.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			distanceDetails:
+			{
+				src: [ 'src/distanceDetails.sh.ts' ],
+				dest: 'src/distanceDetails.sh.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			extant:
 			{
 				src: [ 'src/distanceChart.ts',	'src/extant.fig.ts' ],
@@ -167,6 +173,7 @@ module.exports = function(grunt)
 		},
         analyze:
         {
+            distanceDetails: {},
             synapomorphies: {}
         }
 		// :TODO: watch tasks

@@ -60,7 +60,8 @@ for (filename in dataSources.sources)
 					var outStates = Haeckel.chr.states(matrix, outgroup, character);
 					if (!character.overlap(inStates, outStates))
 					{
-						taxonOutput[j + 1] = Haeckel.hash(inStates);
+						taxonOutput[character.label || String(j + 1)]
+							= character.labelStates ? character.labelStates(inStates) : Haeckel.hash(inStates);
 					}
 				}
 			}
