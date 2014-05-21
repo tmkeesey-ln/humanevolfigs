@@ -123,6 +123,18 @@ module.exports = function(grunt)
 				dest: 'src/mtDNA.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			phyloChron:
+			{
+				src: [ 'src/phyloChron.fig.ts' ],
+				dest: 'src/phyloChron.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			phylogeny:
+			{
+				src: [ 'src/phylogeny.fig.ts' ],
+				dest: 'src/phylogeny.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			softTissue:
 			{
 				src: [ 'src/distanceChart.ts',	'src/softTissue.fig.ts' ],
@@ -158,6 +170,7 @@ module.exports = function(grunt)
 			extant: {},
 			geoChron: {},
 			mtDNA: {},
+			phyloChron: {},
 			softTissue: {},
 			YDNA: {}
 		},
@@ -168,12 +181,14 @@ module.exports = function(grunt)
 			extant: {},
 			geoChron: {},
 			mtDNA: {},
+			phyloChron: {},
 			softTissue: {},
 			YDNA: {}
 		},
         analyze:
         {
             distanceDetails: {},
+            phylogeny: {},
             synapomorphies: {}
         }
 		// :TODO: watch tasks
