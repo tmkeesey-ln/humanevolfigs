@@ -57,8 +57,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>(),
 			source = sources.sources["data/2004 - Strait & Grine.json"];
-		cmBuilder.addMatrix(source.characterMatrices["Table3"]);
-		cmBuilder.addMatrix(source.characterMatrices["AppendixC-modified"]);
+		cmBuilder.addMatrix(source.characterMatrices["Table3-modified"]);
+		//cmBuilder.addMatrix(source.characterMatrices["AppendixC-modified"]);
 		var characterMatrix = cmBuilder.build(),
             distanceMatrix = Haeckel.chr.toDistanceMatrix(characterMatrix)
 		distanceChart(builder, sources.nomenclature, defs, distanceMatrix, NAME_ENTRIES, AREA);
