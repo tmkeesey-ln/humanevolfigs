@@ -44,8 +44,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         );
 
         var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>();
-        cmBuilder.addMatrix(sources.sources["data/2004 - Strait & Grine.json"].characterMatrices["Table3"]);
-        cmBuilder.addMatrix(sources.sources["data/2004 - Strait & Grine.json"].characterMatrices["AppendixC-modified"]);
+        cmBuilder.addMatrix(sources.sources["data/2004 - Strait & Grine.json"].characterMatrices["Table3-modified"]);
+        //cmBuilder.addMatrix(sources.sources["data/2004 - Strait & Grine.json"].characterMatrices["AppendixC-modified"]);
         cmBuilder.addMatrix(sources.sources["data/2011 - Diogo & Wood.json"].characterMatrices["Table1"]);
         var characterMatrix = cmBuilder.build(),
             distanceMatrix = Haeckel.chr.toDistanceMatrix(characterMatrix);

@@ -5,7 +5,7 @@ var NAMES: string[] = ['Pongo pygmaeus', 'Gorilla gorilla', 'Pan troglodytes', '
 
 var NAMES2: string[] = ['Hominidae', 'Homininae', 'Hominini', 'Homo sapiens'];
 
-var SOURCES: string[] = [ 'compiled/nomenclature.json', '2004 - Strait & Grine.json', '2011 - Diogo & Wood.json' ];
+var SOURCES: string[] = [ 'compiled/nomenclature.json', '2004 - Strait & Grine.json', '2011 - Diogo & Wood.json' , '2002 - Gibbs & al.json' ];
 
 var fs = require('fs');
 
