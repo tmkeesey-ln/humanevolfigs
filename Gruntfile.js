@@ -59,8 +59,8 @@ module.exports = function(grunt)
         grunt.verbose.write(msg);
         grunt.task.run('typescript:' + name);
         grunt.util.spawn({
-            cmd: 'cat',
-            args: ['bower_components/haeckel/bin/haeckel.js', 'src/' + name + '.sh.js', '|', 'node', '>', 'bin/' + name + '.json']
+            cmd: './analyze.sh',
+            args: [ name ]
         }, function (error, result, code)
         {
             if (error)
