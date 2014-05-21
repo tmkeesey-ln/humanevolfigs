@@ -8,7 +8,7 @@
 		"issue": 2,
 		"pages": [153, 159],
 		"title": "<i>Homo cepranensis sp. nov.</i> and the evolution of African-European Middle Pleistocene hominids",
-		"urn": "urn:doi:10.1016/S1631-0683(03)00015-0",
+		"urn": "urn:doi:10.1016/S1631-0683(03)00015-0"
 	},
 	"data":
 	{
@@ -16,7 +16,7 @@
 		{
 			"hyponymies":
 			[
-				["Homo ergaster ergaster", "ER3833"]
+				["Homo ergaster ergaster", "ER3833"],
 				["Homo indet. F", "OH9"],
 				["Homo ergaster georgicus", "DMN2280"],
 				["Homo ergaster georgicus", "DMN2282"],

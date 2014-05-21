@@ -65,6 +65,674 @@
 		{
 			"Table1": {
 				"characterType": "discrete",
+				"characters": [
+					{
+						"name": "1. Intermandibularis anterior is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "2. Digastricus anterior is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "3. Digastricus anterior is not in contact with its counterpart for most of its length",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "4. Digastricus anterior is not connected to the digastricus posterior by a well-defined intermediate tendon",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "5. Digastricus anterior attaches onto the angle of the mandible",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "6. Tensor tympani is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "7. Chorda tympani passes above the tensor tympani",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "8. Temporalis has a pars suprazygomatica",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "9. Pterygoideus lateralis has well differentiated inferior and superior heads",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "10. Stylohyoideus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "11. Stylohyoideus is partially pierced by the digastricus posterior and⁄or by the intermediate digastric tendon",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "12. Stylohyoideus is inserted near the midline",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "13. Stylolaryngeus is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "14. Digastricus posterior is directly attached onto the mandible",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "15. Jugulohyoideus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "16. Platysma cervicale is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "17. Platysma myoides is divided into a superior, superficial bundle, and an inferior, deep bundle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "18. ‘Cervico-auriculo-occipitalis’ is not a distinct bundle of the occipitalis",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "19. Auricularis posterior is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "20. Mandibulo-auricularis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "21. Zygomatico-auricularis is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "22. Risorius is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "23. Sphincter colli superficialis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "24. Sphincter colli profundus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "25. Sternofacialis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "26. Interscutularis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "27. ‘Zygomaticus’ is the only well developed zygomatic muscle in the cheek region",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "28. Anterior portion of zygomaticus major passes partially or completely deep to the levator anguli oris facialis",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "29. Zygomaticus major is almost completely covered by the platysma myoides and⁄or the platysma cervicale",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "30. Zygomaticus minor is directly originated from the ear",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "31. Zygomaticus major is not directly originated from the ear",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "32. Frontalis is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "33. Auricularis superior is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "34. Zygomatico-orbicularis is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "35. Depressor supercilii is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "36. Corrugator supercilii is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "37. Levator labii superioris runs mainly superoinferiorly from the region below the eye to the upper lip",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "38. Depressor septi nasi is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "39. Depressor anguli oris is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "40. Mentalis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "41. Stylopharyngeus originates from the stylomandibular ligament",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "42. Ceratohyoideus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "43. Spinotrapezius is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "44. Cleido-occipitalis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "45. Trapezius inserts onto the clavicle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "46. Trapezius inserts onto ‡ lateral 1⁄3 of the clavicle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "47. Trapezius does not insert onto the acromion",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "48. Trapezius does not originate from the cranium",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "49. Sternocleidomastoideus is hypertrophied",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "50. Pars ceratopharyngea of the constrictor pharyngis medius is absent",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "51. Presence of a distinct pars recta and pars obliqua of the cricothyroideus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "52. Thyroideus transversus is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "53. Pterygopharyngeus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "54. Thyroarytenoideus is not differentiated into a pars superior and a pars inferior",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "55. Arytenoideus obliquus is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "56. Cricoarytenoideus posterior does not meet its counterpart at the dorsal midline",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "57. Geniohyoideus fused to its counterpart in the midline",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "58. Chondroglossus is present as a distinct bundle of the hyoglossus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "59. Hyoglossus is partially or completely fused with the thyrohyoideus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "60. Styloglossus originates from the stylomandibular ligament",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "61. Styloglossus has a distinct oblique slip running anteroinferiorly to blend with the lateral portion of the hyoglossus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "62. Sternohyoideus is divided into two bundles",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "63. Sternohyoideus does not contact nor lie against its counterpart for most of its length",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "64. Anterior portion of sternothyroideus extends anteriorly to the posterior portion of the thyrohyoideus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "65. Omohyoideus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "66. Omohyoideus has an intermediate tendon",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "67. Omohyoideus occasionally has three bellies",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "68. Serratus anterior and levator scapulae are separated",
+						"states": ["Deeply blended", "Less blended distally, more blended proximally", "More separated"],
+						"characterType": "range",
+						"note": "ordered multistate character in paper"
+					},
+					{
+						"name": "69. Rhomboideus major and rhomboideus minor are not distinct muscles",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "70. Rhomboideus occipitalis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "71. Levator scapulae does not extend to C5",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "72. Levator claviculae is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "73. Atlantoscapularis posticus is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "74. Levator claviculae inserts onto the clavicle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "75. Levator claviculae inserts deep to the insertion of the trapezius",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "76. Levator claviculae inserts onto a more medial portion of the clavicle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "77. Subclavius originates from the third rib",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "78. Pectoralis major has no clavicular origin",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "79. ‘Pectoralis tertius’ a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "80. Pectoralis major inserts onto the coracoid process",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "81. Pectoralis major is blended with the biceps brachii",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "82. Pectoralis major has a pars capsularis in at least some specimens",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "83. Pectoralis minor inserts onto the coracoid process",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "84. Pectoralis minor inserts onto the clavicle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "85. Panniculus carnosus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "86. Deltoideus is a single, continuous muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "87. Teres minor is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "88. Subscapularis has a distinct pars posterioris",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "89. Latissimus dorsi and teres major are fused",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "90. Dorsoepitrochlearis has two distinct proximal heads originating from the latissimus dorsi and the teres major",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "91. Dorsoepitrochlearis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "92. Dorsoepitrochlearis does not insert onto the olecranon process of the ulna",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "93. Dorsoepitrochlearis is blended with the biceps brachii",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "94. Strong fascial connection between the dorsoepitrochlearis and the subscapular fascia and⁄or the scapula is present",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "95. Long head of triceps brachii is divided into a thinner, deep bundle and a broader, superficial bundle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "96. Triceps brachii has a posterior head",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "97. Long head of triceps brachii originates from half or more than half of the lateral border of the scapula",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "98. Strong fascial connection between the triceps brachii and the scapular spine and⁄or the axillary region is present",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "99. Brachialis does not originate from the surgical neck of the humerus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "100. Biceps brachii has no short head",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "101. Short and long heads of biceps brachii are completely separated",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "102. Short head of biceps brachii originates from the humerus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "103. Biceps brachii is blended with the flexor digitorum superficialis",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "104. Biceps brachii does not insert onto the ulna",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "105. Biceps brachii has no bicipital aponeurosis",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "106. Bicipital aponeurosis (of biceps brachii) forms a ‘lacertus carnosus’",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "107. Coracobrachialis profundus is not present as a distinct head of the coracobrachialis",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "108. Pronator quadratus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "109. Flexor pollicis longus is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "110. Flexor digitorum profundus is not originated from the medial epicondyle of the humerus or from the common flexor tendon",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "111. Flexor digitorum profundus is not innervated by the ulnar nerve",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "112. Tendon of flexor digitorum profundus to digit 1 is vestigial or absent",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "113. Flexor digitorum superficialis originates from the radius",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "114. Flexor digitorum superficialis originates from the ulna",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "115. Flexor digitorum superficialis inserts onto digit 5",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "116. Flexor digitorum superficialis does not insert onto digit 2",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "117. Palmaris longus is hypertrophied",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "118. Palmaris longus is absent in >5% of the cases",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "119. Flexor carpi ulnaris does not originate from the humerus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "120. Epitrochleoanconeus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "121. Flexor carpi radialis inserts onto the metacarpals II and III",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "122. Flexor carpi radialis does not insert onto the metacarpal II or the metacarpal III",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "123. Flexor carpi radialis originates from the radius",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "124. Pronator teres originates from the ulna",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "125. Palmaris brevis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "126. Palmaris brevis is hypertrophied",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "127. Flexor digitorum brevis manus is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "128. Lumbricales originate from thin flexor digitorum profundus tendons",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "129. There are frequently three, or instead usually seven, lumbricales",
+						"states": ["Four", "Fourth frequently missing", "Seven"]
+					},
+					{
+						"name": "130. Lumbricales originate from the dorsal surfaces of the tendons of the flexor digitorum profundus",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "131. Contrahentes digitorum are missing",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "132. Two sets of contrahentes digitorum are present",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "133. There are more than two contrahentes digitorum",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "134. There are contrahentes digitorum to digits 2, 3, 4 and 5",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "135. Contrahentes digitorum have a peculiar configuration",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "136. Thin, deep additional slip of adductor pollicis (TDAS-AD, or ‘interosseous volaris primus of Henle’ of modern human anatomy) is present (ordered multistate character)",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "137.Main body of adductor pollicis inserts onto much of metacarpal I",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "138. Adductor pollicis has transverse and oblique heads (ordered multistate character)",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "139. Flexor brevis profundus 2 is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "140. Flexores breves profundi is fused with the intermetacarpales, forming the dorsal interossei",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "141. Digit 4 is functional axis of intermetacarpales⁄dorsal interossei",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "142. Interossei accessorii are present",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "143. Opponens pollicis is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "144. Opponens pollicis reaches the distal portion of metacarpal I",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "145. Opponens pollicis inserts onto the proximal and⁄or the distal phalanges of the thumb",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "146. Flexor digiti minimi brevis is partly originated from the pisiform",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "147. Flexor digiti minimi brevis inserts onto the middle phalanx and⁄or the distal phalanx of digit 5",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "148. Opponens digiti minimi is a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "149. Opponens digiti minimi is divided into superficial and deep bundles (ordered multistate character)",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "150. Insertion of opponens digiti minimi extends proximally to the distal part of metacarpal V",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "151. Abductor digiti minimi is divided into two well differentiated heads",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "152. Brachioradialis often inserts onto the trapezium",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "153. Extensor carpi radialis longus does not insert onto the metacarpal II",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "154. Brachioradialis is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "155. Supinator has no ulnar head",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "156. Extensor carpi ulnaris does not originate from the ulna",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "157. Anconeus is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "158. Extensor digiti quarti is not a distinct muscle",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "159. Extensor digiti minimi inserts onto digit 5 only",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "160. Extensor digiti minimi is partially inserted onto digit 3",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "161. Extensor digiti minimi originates from the radius",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "162. Extensor indicis usually inserts onto digits 1–3, digits 2–4 or digit 2 only",
+						"states": ["Usually inserts onto digits 2 and 3", "commonly inserted onto digits 1, 2 and 3", "commonly inserted onto digits 2, 3 and 4", "commonly inserted onto digit 2 only"]
+					},
+					{
+						"name": "163. Extensor pollicis longus is deeply blended with the extensor indicis",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "164. Extensor pollicis longus plus extensor indicis send two tendons to digit 2",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "165. Abductor pollicis longus extends to the proximal phalanx of the thumb",
+						"states": ["No", "Yes"]
+					},
+					{
+						"name": "166. Extensor pollicis brevis is a distinct muscle",
+						"states": ["No", "Yes"]
+					}
+				],
 				"scores":
 				{
 					"Rattus":        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, [], 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [], 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [], [], 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, null, 0],
