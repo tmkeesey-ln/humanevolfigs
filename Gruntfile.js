@@ -5,9 +5,9 @@ module.exports = function(grunt)
 	var TYPESCRIPT_OPTIONS =
 	{
 		target: 'es5',
-		base_path: 'src',
+		basePath: 'src',
 		declaration: false,
-		sourcemap: false,
+		sourceMap: false,
 		noImplicitAny: true
 	};
 
@@ -16,9 +16,6 @@ module.exports = function(grunt)
 
 	// Load all grunt tasks
 	require('load-grunt-tasks')(grunt);
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-typescript');
-	grunt.loadNpmTasks('grunt-mkdir');
 
 	grunt.registerMultiTask('render', 'Renders SVG and PNG files for a figure.', function()
 	{
