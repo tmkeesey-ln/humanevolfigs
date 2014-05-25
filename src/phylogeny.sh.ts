@@ -1,10 +1,6 @@
 /// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
 /// <reference path="../bower_components/dt-node/node.d.ts"/>
 
-var NAMES: string[] = ['Pongo pygmaeus', 'Gorilla gorilla', 'Pan troglodytes', 'Homo sapiens'];
-
-var NAMES2: string[] = ['Hominidae', 'Homininae', 'Hominini', 'Homo sapiens'];
-
 var SOURCE_LIST: string[][] = [
 	['data/compiled/nomenclature.json'],
 	['data/2002 - Gibbs & al.json', 'Fig1'],
@@ -25,7 +21,8 @@ var OTU_NAMES = [
 	"Sivapithecus",
 	"Khoratpithecus",
 	'Pongo',
-	'Gorilla',
+	'Gorilla beringei',
+	'Gorilla gorilla',
 	"Chororapithecus",
 	"Nakalipithecus",
 	"Orrorin",
@@ -36,7 +33,8 @@ var OTU_NAMES = [
 	"Ardipithecus",
 	"Orrorin",
 	"Sahelanthropus",
-	"Gorilla",
+	"Gorilla beringei",
+	"Gorilla gorilla",
 	'Pan troglodytes',
 	'Pan paniscus',
 	'Pan sp.',
@@ -51,7 +49,7 @@ var OTU_NAMES = [
 	'Homo heidelbergensis',
 	'Homo neanderthalensis',
 	'Homo sp. (Denisova)',
-	'Homo sapiens',
+	'Homo sapiens'
 	// :TODO: Population X?
 ];
 
@@ -64,7 +62,6 @@ var files: Haeckel.FileCache = {
 		text: {}
 	};
 
-SOURCE_LIST.map((source: string[]) => console.log('>', source));
 SOURCE_LIST.map((source: string[]) => files.text[source[0]] = fs.readFileSync('./src/' + source[0], "utf8"));
 
 var dataSources: Haeckel.DataSources = new Haeckel.DataSourcesReader().read(files, SOURCE_LIST.map((source: string[]) => source[0]));
@@ -78,8 +75,6 @@ for (var i = 0, n = OTU_NAMES.length; i < n; ++i)
 
 var OTUS = otusBuilder.build();
 
-var HOMINIDAE = dataSources.nomenclature.nameMap['Hominidae'];
-
 var builder = new Haeckel.PhyloBuilder();
 
 for (i = 0, n = SOURCE_LIST.length; i < n; ++i)
@@ -91,9 +86,9 @@ for (i = 0, n = SOURCE_LIST.length; i < n; ++i)
 	}
 }
 
-builder.mergePredecessors(HOMINIDAE);
-
-// :TODO: Remove non-hominids
+var UNIVERSAL = Haeckel.tax.union(Haeckel.ext.list(builder.build().vertices));
+var HOMINIDAE = dataSources.nomenclature.nameMap['Hominidae'];
+builder.removeTaxon(Haeckel.tax.setDiff(UNIVERSAL, HOMINIDAE));
 
 var phylogeny = builder.buildCoarser(OTUS);
 
@@ -123,12 +118,12 @@ var getName = (taxon: Haeckel.Taxic) =>
 		{
 			return tempNames[hash] = Haeckel.ext.list(canonical)[0];
 		}
-		return tempNames[hash] = Haeckel.ext.list(canonical).join('/');
+		return tempNames[hash] = Haeckel.ext.list(names).join('/');
 	}
 	names = Haeckel.nom.forSubtaxa(dataSources.nomenclature, taxon);
 	if (!names.empty)
 	{
-		return tempNames[hash] = Haeckel.ext.list(canonical).join('/');
+		return tempNames[hash] = Haeckel.ext.list(names).join('|');
 	}
 	return tempNames[hash] = String(nextNameIndex++);
 };
