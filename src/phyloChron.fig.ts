@@ -23,7 +23,11 @@ interface TaxonEntry extends NameEntry
 	name: string;
 }
 
-var NAME_ENTRIES: { [name: string]: NameEntry; } = {
+var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
+	
+}
+
+var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Hominidae*": {
 		column: 2,
 		ancestral: true
@@ -37,7 +41,7 @@ var NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		ancestral: true
 	},
 	"Hominina*": {
-		column: 4,
+		column: 5,
 		ancestral: true
 	},
 	"Hominina2*": {
@@ -45,7 +49,11 @@ var NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		ancestral: true
 	},
 	"Homo*": {
-		column: 9,
+		column: 10,
+		ancestral: true
+	},
+	"Homo2*": {
+		column: 13,
 		ancestral: true
 	},
 	"orangutans": {
@@ -59,37 +67,37 @@ var NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		italic: true
 	},
 	"gorillas": {
-		column: 2
-	},
-	"chimpanzees": {
 		column: 3
 	},
-	"Sahelanthropus": {
-		column: 4,
-		italic: true
+	"chimpanzees": {
+		column: 4
 	},
-	"Ardipithecus": {
+	"Sahelanthropus": {
 		column: 5,
 		italic: true
 	},
-	"Australopithecus": {
-		column: 7,
-		italic: true
-	},
-	"Paranthropus": {
+	"Ardipithecus": {
 		column: 6,
 		italic: true
 	},
-	"Homo floresiensis": {
+	"Australopithecus": {
+		column: 8,
+		italic: true
+	},
+	"Paranthropus": {
+		column: 7,
+		italic: true
+	},
+	"Floresian \"hobbits\"": {
+		column: 11,
+		italic: false
+	},
+	"Homo habilis": {
 		column: 10,
 		italic: true
 	},
-	"Homo habilis": {
-		column: 9,
-		italic: true
-	},
 	"Homo rudolfensis": {
-		column: 8,
+		column: 9,
 		italic: true
 	},
 	"Homo ergaster": {
@@ -97,21 +105,21 @@ var NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		italic: true
 	},
 	"Homo erectus": {
-		column: 11,
+		column: 13,
 		italic: true
 	},
 	"Homo heidelbergensis": {
-		column: 14,
+		column: 16,
 		italic: true
 	},
 	"Denisovans": {
-		column: 13
+		column: 14
 	},
 	"Neandertals": {
 		column: 15
 	},
 	"humans": {
-		column: 16
+		column: 17
 	}
 };
 
@@ -134,7 +142,10 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		var taxonEntries: { [taxonHash: string]: TaxonEntry; } = {};
 		var maxColumn = 1;
 		var name: string;
-		var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['morphology'];
+		var phylogenyBuilder = new Haeckel.DAGBuilder<Haeckel.Taxic>();
+		phylogenyBuilder.addGraph(sources.sources['data/compiled/phylogeny.json'].phylogenies['morphology']);
+		phylogenyBuilder.addVertex(sources.nomenclature.nameMap["Denisovans"]);
+		var phylogeny = phylogenyBuilder.build();
 		var solver = new Haeckel.PhyloSolver(phylogeny);
 		var chart = new Haeckel.PhyloChart();
 		var defaultVertexRenderer = chart.vertexRenderer;
@@ -160,12 +171,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					{
 						clade = taxon;
 					}
-					for (name in NAME_ENTRIES)
+					for (name in MORPH_NAME_ENTRIES)
 					{
 						var subtaxon = sources.nomenclature.nameMap[name];
 						if (subtaxon && Haeckel.tax.includes(clade, subtaxon))
 						{
-							column += NAME_ENTRIES[name].column;
+							column += MORPH_NAME_ENTRIES[name].column;
 							++total;
 						}
 					}
@@ -198,21 +209,11 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						transform: 'translate(' + (rectangle.centerX + 3) + ', ' + (rectangle.top - 6) + ') rotate(-90)'
 					});
 			}
-			else
-			{
-				builder
-					.child(Haeckel.SVG_NS, 'path')
-					.attrs(Haeckel.SVG_NS, {
-							fill: 'none', 
-							d: 'M' + rectangle.centerX + ' ' + rectangle.top + 'v' + rectangle.height,
-							stroke: Haeckel.BLACK.hex
-						});
-			}
 		}
 
-		for (name in NAME_ENTRIES)
+		for (name in MORPH_NAME_ENTRIES)
 		{
-			var entry = NAME_ENTRIES[name];
+			var entry = MORPH_NAME_ENTRIES[name];
 			maxColumn = Math.max(maxColumn, entry.column);
 			var taxon = sources.nomenclature.nameMap[name];
 			taxonEntries[Haeckel.hash(taxon)] = {

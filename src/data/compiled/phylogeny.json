@@ -40,8 +40,9 @@
 				["Homo*", "Homo habilis"],
 				["Homo*", "Homo rudolfensis"],
 				["Homo*", "Homo ergaster"],
-				["Homo ergaster", "Homo erectus"],
-				["Homo ergaster", "Homo heidelbergensis"],
+				["Homo ergaster", "Homo2*"],
+				["Homo2*", "Homo erectus"],
+				["Homo2*", "Homo heidelbergensis"],
 				["Homo heidelbergensis", "Homo neanderthalensis"],
 				["Homo heidelbergensis", "Homo sapiens"]
 			],

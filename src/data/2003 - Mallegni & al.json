@@ -17,7 +17,7 @@
 			"hyponymies":
 			[
 				["Homo ergaster ergaster", "ER3833"],
-				["Homo indet. F", "OH9"],
+				["Homo ergaster ergaster", "OH9"],
 				["Homo ergaster georgicus", "DMN2280"],
 				["Homo ergaster georgicus", "DMN2282"],
 				["Homo erectus pekinensis", "ZKD3"],
@@ -31,7 +31,7 @@
 				["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "AT-SH-CR 4"],
 				["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "AT-SH-CR 5"],
 				["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "AT-SH-CR 5"],
-				["Homo indet. F", "DAKA"],
+				["Homo heidelbergensis (Daka)", "DAKA"],
 				["Homo heidelbergensis rhodesiensis", "KABWE"],
 				["Homo heidelbergensis heidelbergensis", "PETRALONA"],
 				["Homo heidelbergensis rhodesiensis", "SALDANHA"],
