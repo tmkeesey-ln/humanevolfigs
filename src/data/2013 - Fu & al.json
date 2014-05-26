@@ -1,0 +1,32 @@
+{
+	"metadata":
+	{
+		"authors": ["Qiaomei Fu", "Alissa Mittnik", "Philip L. F. Johnson", "Kirsten Bos", "Martina Lari", "Ruth Bollongino", "Chengkai Sun", "Liane Giemsch", "Ralf Schmitz", "Joachim Burger", "Anna Maria Ronchitelli", "Fabio Martini", "Renata G. Cremonesi", "Jirí Svoboda", "Peter Bauer", "David Caramelli", "Sergi Castellano", "David Reich", "Svante Pääbo", "Johannes Krause"],
+		"year": 2013,
+		"title": "A revised timescale for human evolution based on ancient mitochondrial genomes",
+		"journal": "Current Biology",
+		"volume": 23,
+		"pages": [553, 559],
+	    "uri": "urn:doi:10.1016/j.cub.2013.02.044"
+	},
+	"data":
+	{
+	    "datings":
+	    {
+	    	"Fig1": [
+	    		{
+	    			"taxa": ["Homo sp. (Denisova)", "Homo sapiens"],
+	    			"time": [-973000, -657000]
+	    		},
+	    		{
+	    			"taxa": ["Homo neanderthalensis neanderthalensis", "Homo sapiens"],
+	    			"time": [-482000, -3260000]
+	    		},
+	    		{
+	    			"taxa": ["mt-MRCA"],
+	    			"time": [-188000, -134000]
+	    		}
+	    	]
+	    }
+	}
+}
