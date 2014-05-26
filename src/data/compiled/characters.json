@@ -83,6 +83,18 @@
 		},
 		"occurrences":
 		{
+			"Ankarapithecus meteai":
+			[
+				{
+					"count": 6,
+					"note": "number and time approximate", 
+					"time": [-11000000, -9000000],
+					"geo":
+					{
+						"Central Turkey": [[40, 33]]
+					}
+				}
+			],
 			"Ardipithecus kadabba":
 			[
 				{

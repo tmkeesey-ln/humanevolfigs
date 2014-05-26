@@ -11,15 +11,11 @@
 		{
 			"hyponymies":
 			[
-				["Pongo (fossil)", "Pongo hooijeri"],
-				["Pongo (fossil)", "Pongo ciochoni"],
-				["Pongo (fossil)", "Pongo devosi"],
-				["Pongo (fossil)", "Pongo fromageti"],
-				["Pongo (fossil)", "Pongo hooijeri"],
-				["Pongo (fossil)", "Pongo khalkei"],
-				["Pongo (fossil)", "Pongo palaeosumatrensis"],
-				["Pongo (fossil)", "Pongo weidenreichi"],
-				["Pongo (fossil)", "Pongo (Pongo) indet."]
+				["stem-orangutans", "Ankarapithecus"],
+				["stem-orangutans", "Gigantopithecus"],
+				["stem-orangutans", "Khoratpithecus"],
+				["stem-orangutans", "Lufengpithecus"],
+				["stem-orangutans", "Sivapithecus"]
 			]
 		},
 		"phyloGraphs":
@@ -27,29 +23,14 @@
 			"morphology":
 			[
 				["Hominidae*", "Dryopithecinae"],
-				["Hominidae*", "Ponginae*"],
+				["Hominidae*", "stem-orangutans"],
 				["Hominidae*", "Homininae*"],
-				["Ponginae*", "Lufengpithecus"],
-				["Ponginae*", "Pongini*"],
-				["Pongini*", "Ankarapithecus"],
-				["Pongini*", "Gigantopithecus"],
-				["Pongini*", "Sivapithecus"],
-				["Pongini*", "Pongina*"],
-				["Pongina*", "Khoratpithecus"],
-				["Pongina*", "Pongo (fossil)"],
-				["Pongo (fossil)", "Pongo abelii"],
-				["Pongo sp.", "Pongo pygmaeus"],
-				["Homininae*", "Gorilla*"],
+				["stem-orangutans", "Pongo"],
+				["Homininae*", "Gorilla"],
 				["Homininae*", "Hominini*"],
-				["Gorilla*", "Gorilla beringei"],
-				["Gorilla*", "Gorilla gorilla"],
-				["Hominini*", "Pan*"],
+				["Hominini*", "Pan"],
 				["Hominini*", "Hominina*"],
-				["Pan*", "Pan sp."],
-				["Pan*", "Pan paniscus"],
-				["Pan*", "Pan troglodytes"],
 				["Hominina*", "Sahelanthropus"],
-				["Hominina*", "Orrorin"],
 				["Hominina*", "Hominina2*"],
 				["Hominina2*", "Ardipithecus"],
 				["Hominina2*", "Australopithecus"],
@@ -63,6 +44,20 @@
 				["Homo ergaster", "Homo heidelbergensis"],
 				["Homo heidelbergensis", "Homo neanderthalensis"],
 				["Homo heidelbergensis", "Homo sapiens"]
+			],
+			"mtDNA": [
+				["Hominidae*", "Pongo"],
+				["Hominidae*", "Homininae*"],
+				["Homininae*", "Gorilla"],
+				["Homininae*", "Hominini*"],
+				["Hominini*", "Pan"],
+				["Hominini*", "Homo*"],
+				["Homo*", "Homo1*"],
+				["Homo*", "Homo2*"],
+				["Homo1*", "Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+				["Homo1*", "Homo sp. (Denisova)"],
+				["Homo2*", "Homo neanderthalensis neanderthalensis"],
+				["Homo2*", "mt-MRCA"]
 			]
 		},
 		"topologies":
