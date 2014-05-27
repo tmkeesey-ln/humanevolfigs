@@ -1,0 +1,86 @@
+{
+	"metadata":
+	{
+		"authors": ["Matthias Meyer", "Qiaomei Fu", "Ayinuer Aximu-Petri", "Isabelle Glocke", "Birgit Nickel", "Juan-Luis Arsuaga",
+			"Ignacio Martínez", "Ana Gracia", "José María Bermúdez de Castro", "Eudald Carbonell", "Svante Pääbo"],
+		"year": 2014,
+		"title": "A mitochondrial genome sequence of a hominin from Sima de los Huesos",
+		"journal": "Nature",
+		"volume": 505,
+		"pages": [403, 406],
+	    "uri": "urn:doi:10.1038/nature12788"
+	},
+	"data":
+	{
+		"topologies": {
+			"Fig4-abridged":
+			[
+				"Pan",
+				[
+					["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+					["Homo neanderthalensis neanderthalensis", "mt-MRCA"]
+				]
+			]
+		},
+	    "datings":
+	    {
+	    	"Table1-strict": [
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+	    			"time": [-600000, -180000]
+	    		},
+	    		{
+	    			"taxa": ["Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-690000, -350000]
+	    		},
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)",
+	    				"Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-1330000, -700000]
+	    		},
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+	    			"time": [-1010000, -500000]
+	    		}
+	    	],
+	    	"Table1-inclusive": [
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+	    			"time": [-590000, -160000]
+	    		},
+	    		{
+	    			"taxa": ["Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-720000, -360000]
+	    		},
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)",
+	    				"Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-1410000, -720000]
+	    		},
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+	    			"time": [-1060000, -510000]
+	    		}
+	    	],
+	    	"Table1-strict-enriched": [
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+	    			"time": [-640000, -150000]
+	    		},
+	    		{
+	    			"taxa": ["Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-610000, -290000]
+	    		},
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)",
+	    				"Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-1110000, -540000]
+	    		},
+	    		{
+	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+	    			"time": [-920000, -400000]
+	    		}
+	    	]
+	    }
+	}
+}

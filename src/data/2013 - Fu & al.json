@@ -15,12 +15,22 @@
 	    {
 	    	"Fig1": [
 	    		{
-	    			"taxa": ["Homo sp. (Denisova)", "Homo sapiens"],
+	    			"taxa": ["Homo sp. (Denisova)", "mt-MRCA"],
 	    			"time": [-973000, -657000]
 	    		},
 	    		{
-	    			"taxa": ["Homo neanderthalensis neanderthalensis", "Homo sapiens"],
-	    			"time": [-482000, -3260000]
+	    			"taxa": ["Homo neanderthalensis neanderthalensis", "mt-MRCA"],
+	    			"time": [-482000, -326000]
+	    		},
+	    		{
+	    			"taxa": ["mt-MRCA"],
+	    			"time": [-188000, -134000]
+	    		}
+	    	],
+	    	"Fig1-abridged": [
+	    		{
+	    			"taxa": ["Homo sp. (Denisova)", "mt-MRCA"],
+	    			"time": [-973000, -657000]
 	    		},
 	    		{
 	    			"taxa": ["mt-MRCA"],

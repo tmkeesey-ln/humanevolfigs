@@ -1,0 +1,26 @@
+{
+	"metadata":
+	{
+		"authors": ["Lu Zhi", "William B. Karesh", "Dianne N. Janczewski", "Harmony Frazier-Taylor", "Dondin Sajuthi",
+			"Francis Gombek", "Mahedi Andau", "Janice S. Martenson", "Stephen J. O'Brien"],
+		"year": 1996,
+		"title": "Genomic differentiation among natural populations of orang-utan (Pongo pygmaeus)",
+		"journal": "Current Biology",
+		"volume": 6,
+		"issue": 10,
+		"pages": [1326, 1336],
+	    "uri": "urn:doi:10.1016/S0960-9822(02)70719-7"
+	},
+	"data":
+	{
+	    "datings":
+	    {
+	    	"Abstract": [
+	    		{
+	    			"taxa": ["Pongo abelii", "Pongo pygmaeus"],
+	    			"time": [-1700000, -1500000]
+	    		}
+	    	]
+	    }
+	}
+}
