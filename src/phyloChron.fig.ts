@@ -38,7 +38,7 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 5
 	},
 	"mt-Hominidae*": {
-		column: 15,
+		column: 8,
 		ancestral: true
 	},
 	"Gorilla gorilla": {
@@ -46,7 +46,7 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 8
 	},
 	"mt-Homininae*": {
-		column: 15,
+		column: 10,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
@@ -58,11 +58,11 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 10
 	},
 	"mt-Hominini*": {
-		column: 25,
+		column: 13,
 		ancestral: true
 	},
 	"mt-Pan*": {
-		column: 15,
+		column: 13,
 		ancestral: true
 	},
 	"Pan paniscus": {
@@ -74,15 +74,15 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 15
 	},
 	"mt-Homo*": {
-		column: 25,
+		column: 23,
 		ancestral: true
 	},
 	"mt-HomoA*": {
-		column: 25,
+		column: 23,
 		ancestral: true
 	},
 	"mt-HomoB*": {
-		column: 29,
+		column: 27,
 		ancestral: true
 	},
 	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
@@ -231,22 +231,29 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		'data/1996 - Zhi & al.json',
 		'data/2012 - ICS.json',
 		'data/2012 - Langergraber & al.json',
-		'data/2013 - Fu & al.json'
-		//'data/2012 - van Oven.json'
+		'data/2013 - Fu & al.json',
+		'data/2014 - Meyer & al.json'
 	],
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
+		var AREA = Haeckel.rec.create(MARGIN, TOP_MARGIN, FIGURE_WIDTH - MARGIN * 2, FIGURE_HEIGHT - MARGIN - TOP_MARGIN);
+		var TIME = Haeckel.rng.create(-20000000, 0);
+
 		try
 		{
 			var maxColumn = 1;
 			var morphTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(MORPH_NAME_ENTRIES);
 			var mtTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(MT_NAME_ENTRIES);
 
-			var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['morphology'];
-			var solver = new Haeckel.PhyloSolver(phylogeny);
-			var chart = new Haeckel.PhyloChart();
-			var defaultVertexRenderer = chart.vertexRenderer;
+			function addToCharacterMatrix(builder: Haeckel.CharacterMatrixBuilder<Haeckel.Range>, solver: Haeckel.PhyloSolver, datingSources: string[][])
+			{
+				Haeckel.arr.each(datingSources, (source: string[]) =>
+				{
+					builder.addMatrix(Haeckel.dat.toCharacterMatrixBuilder(sources.sources[source[0]].datings[source[1]], solver).build());
+				});
+				return builder;
+			}
 
 			function toTaxonEntries(nameEntries: { [name: string]: NameEntry; }): { [taxonHash: string]: TaxonEntry; }
 			{
@@ -311,82 +318,181 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				};
 			}
 
-			function createVertexRenderer(taxonEntries: { [hash: string]: TaxonEntry; })
+			function labelTaxon(group: Haeckel.ElementBuilder, entry: TaxonEntry, rectangle: Haeckel.Rectangle)
 			{
-				return (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
+				group.child(Haeckel.SVG_NS, 'text')
+					.text(entry.name)
+					.attrs(Haeckel.SVG_NS, {
+						'font-style': entry.italic ? 'italic' : 'normal',
+						'font-size': '12px',
+						'font-family': "Myriad Pro",
+						transform: 'translate(' + (rectangle.centerX + 3) + ',' + (rectangle.top - 6) + ') rotate(-90)'
+					});
+			}
+
+			function morphChart()
+			{
+				var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['morphology'];
+				var solver = new Haeckel.PhyloSolver(phylogeny);
+				var chart = new Haeckel.PhyloChart();
+
+				var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
+				addToCharacterMatrix(cmBuilder, solver, [
+					['data/2012 - Langergraber & al.json', 'synthesis-apes']
+				]);
+				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
+				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
 				{
-					var entry = taxonEntries[Haeckel.hash(taxon)];
+					cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
+				});
+
+				chart.area = AREA;
+				chart.time = TIME;
+				chart.minPrcTime = Haeckel.rng.create(-250000, -250000);
+				chart.characterMatrix = cmBuilder.build();
+				chart.horizontalRatioMap = createHorizontalRatioMap(morphTaxonEntries, solver);
+				chart.phylogeny = phylogeny;
+				chart.arcRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
+				{
+					var data = 'M';
+					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
+					{
+						data += [sourceRect.centerX, sourceRect.bottom].join(' ')
+							+ 'V' + targetRect.bottom;
+					}
+					else
+					{
+						var sourceY = Math.max(sourceRect.top, (targetRect.bottom + sourceRect.bottom) / 2);
+						data += [sourceRect.centerX, sourceRect.bottom].join(' ')
+							+ 'V' + sourceY
+							+ 'H' + targetRect.centerX
+							+ 'V' + targetRect.centerY;
+					}
+					builder.child(Haeckel.SVG_NS, 'path')
+						.attrs(Haeckel.SVG_NS, {
+							'd': data,
+							'stroke': Haeckel.BLACK.hex,
+							'stroke-linejoin': 'round',
+							'stroke-width': '2px',
+							'fill': 'none'
+						});
+				};
+				chart.vertexRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
+				{
+					var entry = morphTaxonEntries[Haeckel.hash(taxon)];
 					if (entry !== undefined && !entry.ancestral)
 					{
 						var group = builder.child(Haeckel.SVG_NS, 'g');
-						defaultVertexRenderer(group, taxon, rectangle);
-						group.child(Haeckel.SVG_NS, 'text')
-							.text(entry.name)
+						group.child(Haeckel.SVG_NS, 'rect')
 							.attrs(Haeckel.SVG_NS, {
-								'font-style': entry.italic ? 'italic' : 'normal',
-								'font-size': '12px',
-								'font-family': "Myriad Pro",
-								transform: 'translate(' + (rectangle.centerX + 3) + ', ' + (rectangle.top - 6) + ') rotate(-90)'
+								'x': rectangle.left + 'px',
+								'y': rectangle.top + 'px',
+								'width': rectangle.width + 'px',
+								'height': rectangle.height + 'px',
+								'fill': Haeckel.BLACK.hex,
+								'stroke': 'none'
+							});
+						labelTaxon(group, entry, rectangle);
+					}
+				};
+
+				chart.render(builder.child(Haeckel.SVG_NS, 'g'));
+			}
+
+			function mtChart()
+			{
+				var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['mtDNA'];
+				var solver = new Haeckel.PhyloSolver(phylogeny);
+				var chart = new Haeckel.PhyloChart();
+
+				var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
+				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
+				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
+				{
+					cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
+				});
+				addToCharacterMatrix(cmBuilder, solver, [
+					['data/2012 - Langergraber & al.json', 'synthesis'],
+					['data/1996 - Zhi & al.json', 'Abstract'],
+					['data/2013 - Fu & al.json', 'Fig1-abridged']
+				]);
+
+				chart.area = AREA;
+				chart.time = TIME;
+				chart.minPrcTime = Haeckel.rng.create(-10000, -10000);
+				chart.phylogeny = phylogeny;
+				chart.characterMatrix = cmBuilder.build();
+				chart.horizontalRatioMap = createHorizontalRatioMap(mtTaxonEntries, solver);
+				chart.arcRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
+				{
+					var data = 'M';
+					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
+					{
+						data += [sourceRect.centerX, sourceRect.top].join(' ')
+							+ 'V' + targetRect.bottom;
+					}
+					else
+					{
+						data += [targetRect.centerX < sourceRect.centerX ? sourceRect.left : sourceRect.right, sourceRect.centerY].join(' ')
+							+ 'Q' + [targetRect.centerX, sourceRect.centerY, targetRect.centerX, targetRect.bottom]
+					}
+					builder.child(Haeckel.SVG_NS, 'path')
+						.attrs(Haeckel.SVG_NS, {
+							'd': data,
+							'stroke': '#808080',
+							'fill': 'none'
+						});
+				};
+				chart.vertexRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
+				{
+					var entry = mtTaxonEntries[Haeckel.hash(taxon)];
+					if (entry !== undefined && !entry.ancestral)
+					{
+						var group = builder.child(Haeckel.SVG_NS, 'g');
+						group.child(Haeckel.SVG_NS, 'rect')
+							.attrs(Haeckel.SVG_NS, {
+								'x': rectangle.left + 'px',
+								'y': rectangle.top + 'px',
+								'width': rectangle.width + 'px',
+								'height': rectangle.height + 'px',
+								'fill': '#808080',
+								'stroke': 'none'
+							});
+						labelTaxon(group, entry, rectangle);
+					}
+					else
+					{
+						var data = 'M' + [rectangle.centerX, rectangle.top].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.right, rectangle.centerY].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.bottom].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
+							+ 'Z';
+						builder.child(Haeckel.SVG_NS, 'path')
+							.attrs(Haeckel.SVG_NS, {
+								'd': data,
+								'fill': '#808080',
+								'stroke': '#808080',
+								'stroke-width': '1px',
+								'stroke-linejoin': 'miter'
 							});
 					}
 				};
+
+				chart.render(builder.child(Haeckel.SVG_NS, 'g'));
 			}
 
-			function addToCharacterMatrix(builder: Haeckel.CharacterMatrixBuilder<Haeckel.Range>, solver: Haeckel.PhyloSolver, datingSources: string[][])
-			{
-				Haeckel.arr.each(datingSources, (source: string[]) =>
-				{
-					builder.addMatrix(Haeckel.dat.toCharacterMatrixBuilder(sources.sources[source[0]].datings[source[1]], solver).build());
+			builder.child(Haeckel.SVG_NS, 'rect')
+				.attrs(Haeckel.SVG_NS, {
+					fill: Haeckel.WHITE.hex,
+					stroke: 'none',
+					x: '0px',
+					y: '0px',
+					width: FIGURE_WIDTH + 'px',
+					height: FIGURE_HEIGHT + 'px'
 				});
-				return builder;
-			}
-
-			var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
-			addToCharacterMatrix(cmBuilder, solver, [
-				['data/2012 - Langergraber & al.json', 'synthesis-apes'],
-				['data/1996 - Zhi & al.json', 'Abstract']
-			]);
-			var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
-			Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
-			{
-				cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
-			});
-
-			chart.area = Haeckel.rec.create(MARGIN, TOP_MARGIN, FIGURE_WIDTH - MARGIN * 2, FIGURE_HEIGHT - MARGIN - TOP_MARGIN);
-			chart.time = Haeckel.rng.create(-20000000, 0);
-
-			chart.minPrcTime = Haeckel.rng.create(-250000, -250000);
-			chart.characterMatrix = cmBuilder.build();
-			chart.horizontalRatioMap = createHorizontalRatioMap(morphTaxonEntries, solver);
-			chart.phylogeny = phylogeny;
-			chart.vertexRenderer = createVertexRenderer(morphTaxonEntries);
-			chart.render(builder.child(Haeckel.SVG_NS, 'g'));
-
-			phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['mtDNA'];
-			solver = new Haeckel.PhyloSolver(phylogeny);
-			cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
-			var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
-			Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
-			{
-				cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
-			});
-			addToCharacterMatrix(cmBuilder, solver, [
-				['data/2012 - Langergraber & al.json', 'synthesis'],
-				['data/1996 - Zhi & al.json', 'Abstract'],
-				['data/2013 - Fu & al.json', 'Fig1-abridged']
-			]);
-
-			chart.pathStyle =  {
-				fill: "none",
-				stroke: Haeckel.BLACK.hex,
-				"stroke-opacity": "0.5"
-			};
-			chart.minPrcTime = Haeckel.rng.create(-10000, -10000);
-			chart.phylogeny = phylogeny;
-			chart.characterMatrix = cmBuilder.build();
-			chart.horizontalRatioMap = createHorizontalRatioMap(mtTaxonEntries, solver);
-			chart.vertexRenderer = createVertexRenderer(mtTaxonEntries);
-			chart.render(builder.child(Haeckel.SVG_NS, 'g'));
+			morphChart()
+			mtChart();
 		}
 		catch (e)
 		{
