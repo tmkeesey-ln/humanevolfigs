@@ -1,0 +1,24 @@
+{
+	"metadata":
+	{
+		"authors": ["M. E. Steiper", "N. M. Young"],
+		"year": 2006,
+		"title": "Primate molecular divergence dates",
+		"journal": "Molecular Phylogenetics and Evolution",
+		"volume": 41,
+		"pages": [384, 394],
+	    "uri": "urn:pmid:16815047"
+	},
+	"data":
+	{
+	    "datings":
+	    {
+	    	"Fig1-abridged": [
+	    		{
+	    			"taxa": ["Pongo pygmaeus", "mt-MRCA"],
+	    			"time": [-20800000, -16300000]
+	    		}
+	    	]
+	    }
+	}
+}

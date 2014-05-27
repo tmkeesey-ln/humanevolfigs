@@ -6,9 +6,9 @@ var FIGURE_HEIGHT = 1100;
 
 var FIGURE_WIDTH = 850;
 
-var MARGIN = 50;
+var MARGIN = 25;
 
-var TOP_MARGIN = 150;
+var TOP_MARGIN = 175;
 
 interface NameEntry
 {
@@ -27,15 +27,15 @@ interface TaxonEntry extends NameEntry
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Pongo pygmaeus": {
 		name: "Bornean orangutan mtDNA",
-		column: 1
+		column: 3
 	},
 	"mt-Pongo*": {
-		column: 3,
+		column: 3.5,
 		ancestral: true
 	},
 	"Pongo abelii": {
 		name: "Sumatran orangutan mtDNA",
-		column: 5
+		column: 4
 	},
 	"mt-Hominidae*": {
 		column: 8,
@@ -46,56 +46,56 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 8
 	},
 	"mt-Homininae*": {
-		column: 10,
+		column: 12,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
-		column: 10,
+		column: 8.5,
 		ancestral: true
 	},
 	"Gorilla beringei": {
 		name: "eastern gorilla mtDNA",
-		column: 10
+		column: 9
 	},
 	"mt-Hominini*": {
-		column: 13,
-		ancestral: true
-	},
-	"mt-Pan*": {
-		column: 13,
+		column: 15.5,
 		ancestral: true
 	},
 	"Pan paniscus": {
 		name: "bonobo chimpanzee mtDNA",
 		column: 13
 	},
+	"mt-Pan*": {
+		column: 13.5,
+		ancestral: true
+	},
 	"Pan troglodytes": {
 		name: "common chimpanzee mtDNA",
-		column: 15
+		column: 14
 	},
 	"mt-Homo*": {
-		column: 23,
+		column: 27.5,
 		ancestral: true
 	},
 	"mt-HomoA*": {
-		column: 23,
+		column: 26.5,
 		ancestral: true
 	},
 	"mt-HomoB*": {
-		column: 27,
+		column: 28.5,
 		ancestral: true
 	},
 	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
 		name: "mtDNA from Sima de los Huesos",
-		column: 25
+		column: 26
 	},
 	"Homo sp. (Denisova)": {
 		name: "Denisovan mtDNA",
-		column: 23
+		column: 27
 	},
 	"Homo neanderthalensis neanderthalensis": {
 		name: "Neandertal mtDNA",
-		column: 27
+		column: 28
 	},
 	"mt-MRCA": {
 		column: 29,
@@ -108,52 +108,52 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 0
 	},
 	"fossil orangutans": {
-		column: 2
+		column: 1
 	},
 	"Sumatran orangutans": {
-		column: 4
+		column: 2
 	},
 	"stem-orangutans": {
-		column: 6
+		column: 5
 	},
 	"Hominidae*": {
-		column: 7,
+		column: 6,
 		ancestral: true
 	},
 	"Dryopithecinae": {
-		column: 7,
+		column: 6,
 		italic: true
 	},
 	"western gorillas": {
-		column: 7
+		column: 6
 	},
 	"Homininae*": {
-		column: 9,
+		column: 7,
 		ancestral: true
 	},
 	"Gorilla*": {
-		column: 9,
+		column: 7,
 		ancestral: true
 	},
 	"eastern gorillas": {
-		column: 9
+		column: 7
 	},
 	"Hominini*": {
-		column: 11,
+		column: 10,
 		ancestral: true
 	},
 	"Pan*": {
-		column: 11,
+		column: 10,
 		ancestral: true
 	},
 	"fossil chimpanzees": {
-		column: 11
+		column: 10
 	},
 	"bonobo chimpanzees": {
-		column: 12
+		column: 11
 	},
 	"common chimpanzees": {
-		column: 14
+		column: 12
 	},
 	"Hominina*": {
 		column: 14,
@@ -208,14 +208,14 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		italic: true
 	},
 	"Neandertals": {
-		column: 26
+		column: 23
 	},
 	"Homo heidelbergensis": {
 		column: 24,
 		italic: true
 	},
 	"humans": {
-		column: 28
+		column: 25
 	}
 };
 
@@ -229,6 +229,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		'data/compiled/nomenclature.json',
 		'data/compiled/phylogeny.json',
 		'data/1996 - Zhi & al.json',
+		'data/2006 - Steiper & Young.json',
 		'data/2012 - ICS.json',
 		'data/2012 - Langergraber & al.json',
 		'data/2013 - Fu & al.json',
@@ -318,11 +319,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				};
 			}
 
-			function labelTaxon(group: Haeckel.ElementBuilder, entry: TaxonEntry, rectangle: Haeckel.Rectangle)
+			function labelTaxon(group: Haeckel.ElementBuilder, entry: TaxonEntry, rectangle: Haeckel.Rectangle, color: string = '#000000')
 			{
 				group.child(Haeckel.SVG_NS, 'text')
 					.text(entry.name)
 					.attrs(Haeckel.SVG_NS, {
+						'fill': color,
 						'font-style': entry.italic ? 'italic' : 'normal',
 						'font-size': '12px',
 						'font-family': "Myriad Pro",
@@ -336,11 +338,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var solver = new Haeckel.PhyloSolver(phylogeny);
 				var chart = new Haeckel.PhyloChart();
 
+				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
 				var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
 				addToCharacterMatrix(cmBuilder, solver, [
-					['data/2012 - Langergraber & al.json', 'synthesis-apes']
+					['data/2012 - Langergraber & al.json', 'synthesis-apes'],
+					['data/2006 - Steiper & Young.json', 'Fig1-abridged']
 				]);
-				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
 				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
 				{
 					cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
@@ -348,7 +351,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 				chart.area = AREA;
 				chart.time = TIME;
-				chart.minPrcTime = Haeckel.rng.create(-250000, -250000);
+				chart.minPrcTime = Haeckel.rng.create(-100000, -100000);
 				chart.characterMatrix = cmBuilder.build();
 				chart.horizontalRatioMap = createHorizontalRatioMap(morphTaxonEntries, solver);
 				chart.phylogeny = phylogeny;
@@ -362,7 +365,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					}
 					else
 					{
-						var sourceY = Math.max(sourceRect.top, (targetRect.bottom + sourceRect.bottom) / 2);
+						var sourceY = Math.max(sourceRect.centerY, targetRect.bottom);
 						data += [sourceRect.centerX, sourceRect.bottom].join(' ')
 							+ 'V' + sourceY
 							+ 'H' + targetRect.centerX
@@ -373,7 +376,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'd': data,
 							'stroke': Haeckel.BLACK.hex,
 							'stroke-linejoin': 'round',
-							'stroke-width': '2px',
+							'stroke-width': '1px',
 							'fill': 'none'
 						});
 				};
@@ -407,14 +410,26 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 				var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
 				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
-				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
+				var fossilTaxa = [
+					sources.nomenclature.nameMap['Homo sp. (Denisova)'],
+					sources.nomenclature.nameMap['Homo neanderthalensis neanderthalensis'],
+					sources.nomenclature.nameMap['Pan paniscus'],
+					sources.nomenclature.nameMap['Pan troglodytes'],
+					sources.nomenclature.nameMap['Gorilla beringei'],
+					sources.nomenclature.nameMap['Gorilla gorilla'],
+					sources.nomenclature.nameMap['Pongo abelii'],
+					sources.nomenclature.nameMap['Pongo pygmaeus']
+				];
+				Haeckel.arr.each(fossilTaxa, (taxon: Haeckel.Taxic) => 
 				{
 					cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
 				});
 				addToCharacterMatrix(cmBuilder, solver, [
 					['data/2012 - Langergraber & al.json', 'synthesis'],
 					['data/1996 - Zhi & al.json', 'Abstract'],
-					['data/2013 - Fu & al.json', 'Fig1-abridged']
+					['data/2013 - Fu & al.json', 'Fig1-abridged'],
+					['data/2014 - Meyer & al.json', 'Table1-strict-enriched'],
+					['data/2006 - Steiper & Young.json', 'Fig1-abridged']
 				]);
 
 				chart.area = AREA;
@@ -434,13 +449,15 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					else
 					{
 						data += [targetRect.centerX < sourceRect.centerX ? sourceRect.left : sourceRect.right, sourceRect.centerY].join(' ')
-							+ 'Q' + [targetRect.centerX, sourceRect.centerY, targetRect.centerX, targetRect.bottom]
+							+ 'Q' + [targetRect.centerX, sourceRect.centerY, targetRect.centerX, Math.min(targetRect.bottom, sourceRect.centerY)]
 					}
 					builder.child(Haeckel.SVG_NS, 'path')
 						.attrs(Haeckel.SVG_NS, {
 							'd': data,
 							'stroke': '#808080',
-							'fill': 'none'
+							'fill': 'none',
+							'stroke-dasharray': '3 2',
+							'stroke-width': '1.5px'
 						});
 				};
 				chart.vertexRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
@@ -458,7 +475,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 								'fill': '#808080',
 								'stroke': 'none'
 							});
-						labelTaxon(group, entry, rectangle);
+						labelTaxon(group, entry, rectangle, '#808080');
 					}
 					else
 					{
@@ -491,8 +508,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					width: FIGURE_WIDTH + 'px',
 					height: FIGURE_HEIGHT + 'px'
 				});
-			morphChart()
 			mtChart();
+			morphChart();
 		}
 		catch (e)
 		{
@@ -500,7 +517,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				.attrs(Haeckel.SVG_NS, 
 				{
 					'font-size': '12px',
-					'color': 'red'
+					'fill': 'red'
 				})
 				.text("ERROR!\n" + String(e));
 		}
