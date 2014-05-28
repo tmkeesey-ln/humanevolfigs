@@ -50,7 +50,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	sources: [
 		'data/compiled/characters.json',
 		'data/compiled/nomenclature.json',
-		'data/2012 - ICS.json'
+		'data/2014 - ICS.json'
 	],
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>

@@ -2,9 +2,9 @@
 	"metadata":
 	{
 		"authors": ["International Commission on Stratigraphy"],
-		"year": 2012,
+		"year": 2014,
 		"title": "International Chronostratigraphic Chart",
-	    "uri": "http://www.stratigraphy.org/column.php?id=Chart/Time%20Scale"
+	    "uri": "http://www.stratigraphy.org/index.php/ics-chart-timescale"
 	},
 	"data":
 	{
@@ -16,8 +16,8 @@
 				"b": -11700,
 				"c": -126000,
 				"d": -781000,
-				"e": -1806000,
-				"f": -2588000,
+				"e": -1800000,
+				"f": -2580000,
 				"g": -3600000,
 				"h": -5333000,
 				"i": -7246000,

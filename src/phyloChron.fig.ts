@@ -8,7 +8,7 @@ var FIGURE_WIDTH = 850;
 
 var MARGIN = 25;
 
-var TOP_MARGIN = 175;
+var TOP_MARGIN = 200;
 
 interface NameEntry
 {
@@ -22,6 +22,7 @@ interface TaxonEntry extends NameEntry
 {
 	taxon: Haeckel.Taxic;
 	name: string;
+	showName?: boolean;
 }
 
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
@@ -99,7 +100,8 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	},
 	"mt-MRCA": {
 		column: 29,
-		name: "mitochondrial \"Eve\""
+		name: "mitochondrial \"Eve\"",
+		ancestral: true
 	}
 };
 
@@ -156,11 +158,11 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 12
 	},
 	"Hominina*": {
-		column: 14,
+		column: 13,
 		ancestral: true
 	},
 	"Sahelanthropus": {
-		column: 14,
+		column: 13,
 		italic: true
 	},
 	"Hominina2*": {
@@ -230,7 +232,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		'data/compiled/phylogeny.json',
 		'data/1996 - Zhi & al.json',
 		'data/2006 - Steiper & Young.json',
-		'data/2012 - ICS.json',
+		'data/2014 - ICS.json',
 		'data/2012 - Langergraber & al.json',
 		'data/2013 - Fu & al.json',
 		'data/2014 - Meyer & al.json'
@@ -270,6 +272,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						column: entry.column,
 						name: entry.name || name,
 						italic: !!entry.italic,
+						showName: !!entry.name || !entry.ancestral,
 						taxon: taxon
 					};
 				}
@@ -319,17 +322,30 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				};
 			}
 
-			function labelTaxon(group: Haeckel.ElementBuilder, entry: TaxonEntry, rectangle: Haeckel.Rectangle, color: string = '#000000')
+			function labelTaxon(group: Haeckel.ElementBuilder, entry: TaxonEntry, rectangle: Haeckel.Rectangle, bold?: boolean)
 			{
-				group.child(Haeckel.SVG_NS, 'text')
+				//var rect = group.child(Haeckel.SVG_NS, 'rect');
+				var text = group.child(Haeckel.SVG_NS, 'text')
 					.text(entry.name)
 					.attrs(Haeckel.SVG_NS, {
-						'fill': color,
+						'fill': Haeckel.BLACK.hex,
 						'font-style': entry.italic ? 'italic' : 'normal',
-						'font-size': '12px',
+						'font-size': '14px',
+						'font-weight': bold ? 'bolder' : 'lighter',
 						'font-family': "Myriad Pro",
-						transform: 'translate(' + (rectangle.centerX + 3) + ',' + (rectangle.top - 6) + ') rotate(-90)'
+						transform: 'translate(' + (rectangle.centerX + 4) + ',' + (rectangle.top - 6) + ') rotate(-90)'
 					});
+				/*
+				var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+				rect.attrs(Haeckel.SVG_NS, {
+					fill: '#FFFFFF',
+					stroke: 'none',
+					x: rectangle.left + 'px',
+					y: (rectangle.top - 6 - box.width) + 'px',
+					width: rectangle.width + 'px',
+					height: (box.width + 6) + 'px'
+				});
+				*/
 			}
 
 			function morphChart()
@@ -376,7 +392,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'd': data,
 							'stroke': Haeckel.BLACK.hex,
 							'stroke-linejoin': 'round',
-							'stroke-width': '1px',
+							'stroke-width': '2px',
 							'fill': 'none'
 						});
 				};
@@ -395,7 +411,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 								'fill': Haeckel.BLACK.hex,
 								'stroke': 'none'
 							});
-						labelTaxon(group, entry, rectangle);
+						labelTaxon(group, entry, rectangle, true);
 					}
 				};
 
@@ -457,15 +473,15 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'stroke': '#808080',
 							'fill': 'none',
 							'stroke-dasharray': '3 2',
-							'stroke-width': '1.5px'
+							'stroke-width': '2px'
 						});
 				};
 				chart.vertexRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
 				{
 					var entry = mtTaxonEntries[Haeckel.hash(taxon)];
+					var group = builder.child(Haeckel.SVG_NS, 'g');
 					if (entry !== undefined && !entry.ancestral)
 					{
-						var group = builder.child(Haeckel.SVG_NS, 'g');
 						group.child(Haeckel.SVG_NS, 'rect')
 							.attrs(Haeckel.SVG_NS, {
 								'x': rectangle.left + 'px',
@@ -475,7 +491,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 								'fill': '#808080',
 								'stroke': 'none'
 							});
-						labelTaxon(group, entry, rectangle, '#808080');
+						labelTaxon(group, entry, rectangle);
 					}
 					else
 					{
@@ -485,18 +501,80 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
 							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
 							+ 'Z';
-						builder.child(Haeckel.SVG_NS, 'path')
+						group.child(Haeckel.SVG_NS, 'path')
 							.attrs(Haeckel.SVG_NS, {
 								'd': data,
 								'fill': '#808080',
 								'stroke': '#808080',
-								'stroke-width': '1px',
+								'stroke-width': '2px',
 								'stroke-linejoin': 'miter'
 							});
+						if (entry.showName)
+						{
+							labelTaxon(group, entry, rectangle);
+						}
 					}
 				};
 
 				chart.render(builder.child(Haeckel.SVG_NS, 'g'));
+			}
+
+			function times()
+			{
+				var group = builder.child(Haeckel.SVG_NS, 'g');
+				var chart = new Haeckel.ChronoChart();
+				chart.area = AREA;
+				chart.time = TIME;
+				var top = chart.getTimeY(Haeckel.RANGE_0);
+				group.child(Haeckel.SVG_NS, 'rect')
+					.attrs({
+						fill: '#000000',
+						'fill-opacity': '0.25',
+						stroke: 'none',
+						x: '0px',
+						y: (top.min - 1) + 'px',
+						width: FIGURE_WIDTH + 'px',
+						height: '1px'
+					});
+				Haeckel.ext.each(sources.sources['data/2014 - ICS.json'].strata, (stratum: Haeckel.Stratum) =>
+				{
+					if (stratum && stratum.type === 'series/epoch')
+					{
+						var startY = chart.getTimeY(stratum.start);
+						var endY = chart.getTimeY(stratum.end);
+						if (endY.mean <= FIGURE_HEIGHT && (startY.mean - endY.mean) > 2)
+						{
+							group.child(Haeckel.SVG_NS, 'rect')
+								.attrs({
+									fill: '#000000',
+									'fill-opacity': '0.25',
+									stroke: 'none',
+									x: '0px',
+									y: (startY.mean - 0.5) + 'px',
+									width: FIGURE_WIDTH + 'px',
+									height: '1px'
+								});
+							var text = group.child(Haeckel.SVG_NS, 'text')
+								.text(stratum.name.toUpperCase())
+								.attrs(Haeckel.SVG_NS, {
+									'fill': Haeckel.BLACK.hex,
+									'fill-opacity': '0.333',
+									'font-size': '16px',
+									'font-weight': 'bold',
+									'font-family': "Myriad Pro",
+									'text-anchor': 'middle'
+								});
+							var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+							var y = (startY.mean + endY.mean) / 2;
+							if (y + box.width / 2 > FIGURE_HEIGHT - MARGIN)
+							{
+								y = FIGURE_HEIGHT - MARGIN - box.width / 2;
+							}
+							text.attr(Haeckel.SVG_NS, 'transform',
+								'translate(' + (MARGIN + 8) + ',' + y + ') rotate(-90)');
+						}
+					}
+				});
 			}
 
 			builder.child(Haeckel.SVG_NS, 'rect')
@@ -508,6 +586,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					width: FIGURE_WIDTH + 'px',
 					height: FIGURE_HEIGHT + 'px'
 				});
+			times();
 			mtChart();
 			morphChart();
 		}
@@ -517,7 +596,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				.attrs(Haeckel.SVG_NS, 
 				{
 					'font-size': '12px',
-					'fill': 'red'
+					fill: 'red',
+					x: '10px',
+					y: '10px'
 				})
 				.text("ERROR!\n" + String(e));
 		}
