@@ -82,18 +82,10 @@
 	    			"time": [-781000, -423000]
 	    		}
 	    	],
-	    	"synthesis-apes": [
-	    		{
-	    			"taxa": ["Gorilla gorilla", "Homo sapiens sapiens"],
-	    			"time": [-17200000, -8310000]
-	    		},
+	    	"synthesis-ape-genera": [
 	    		{
 	    			"taxa": ["Gorilla gorilla", "Gorilla beringei"],
 	    			"time": [-3010000, -1200000]
-	    		},
-	    		{
-	    			"taxa": ["Pan troglodytes", "Homo sapiens sapiens"],
-	    			"time": [-11600000, -6780000]
 	    		},
 	    		{
 	    			"taxa": ["Pan troglodytes", "Pan paniscus"],

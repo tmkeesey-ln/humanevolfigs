@@ -12,6 +12,7 @@
 			"hyponymies":
 			[
 				["Ankarapithecus", "Ankarapithecus meteai"],
+				["Anoiapithecus", "Anoiapithecus brevirostris"],
 				["Ardipithecus", "Ardipithecus kadabba"],
 				["Ardipithecus", "Ardipithecus ramidus"],
 				["Australopithecus", "Australopithecus afarensis"],
@@ -28,6 +29,7 @@
 				["Australopithecus afarensis", "Australopithecus afarensis sspp."],
 				["Chororapithecus", "Chororapithecus abyssinicus"],
 				["Colobus", "Colobus guereza"],
+				["Dryopithecinae", "Anoiapithecus"],
 				["Dryopithecinae", "Dryopithecini"],
 				["Dryopithecinae", "Oreopithecus"],
 				["Dryopithecinae", "Pierolapithecus"],
@@ -46,7 +48,7 @@
 				["Gorilla beringei", "Gorilla beringei graueri"],
 				["Gorilla gorilla", "Gorilla gorilla diehli"],
 				["Gorilla gorilla", "Gorilla gorilla gorilla"],
-				["Graecopithecus", "Graecopithecus ferybergi"],
+				["Graecopithecus", "Graecopithecus freybergi"],
 				["Hispanopithecus", "Hispanopithecus crusafonti"],
 				["Hispanopithecus", "Hispanopithecus laietanus"],
 				["Khoratpithecus", "Khoratpithecus ayeyarwadyensis"],
@@ -140,6 +142,7 @@
 				["Orrorin", "Orrorin tugenensis"],
 				["Oreopithecus", "Oreopithecus bambolii"],
 				["Ouranopithecus", "Ouranopithecus macedoniensis"],
+				["Ouranopithecus", "Ouranopithecus turkae"],
 				["Pan", "Pan sp."],
 				["Pan", "Pan paniscus"],
 				["Pan", "Pan troglodytes"],

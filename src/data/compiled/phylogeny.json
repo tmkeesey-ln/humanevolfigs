@@ -24,7 +24,13 @@
 				["fossil orangutans", "Pongo khalkei"],
 				["fossil orangutans", "Pongo palaeosumatrensis"],
 				["fossil orangutans", "Pongo weidenreichi"],
-				["fossil orangutans", "Pongo (Pongo) indet."]
+				["fossil orangutans", "Pongo (Pongo) indet."],
+				["stem-African great apes", "Chororapithecus"],
+				["stem-African great apes", "Graecopithecus"],
+				["stem-African great apes", "Nakalipithecus"],
+				["stem-African great apes", "Ouranopithecus"],
+				["stem-African great apes", "Samburupithecus"],
+				["stem-African great apes", "Udabnopithecus"]
 			]
 		},
 		"phyloGraphs":
@@ -33,14 +39,14 @@
 			[
 				["Hominidae*", "Dryopithecinae"],
 				["Hominidae*", "stem-orangutans"],
-				["Hominidae*", "Homininae*"],
+				["Hominidae*", "stem-African great apes"],
 				["stem-orangutans", "fossil orangutans"],
 				["fossil orangutans", "Pongo abelii"],
 				["fossil orangutans", "Pongo pygmaeus"],
-				["Homininae*", "Gorilla*"],
+				["stem-African great apes", "Gorilla*"],
+				["stem-African great apes", "Hominini*"],
 				["Gorilla*", "Gorilla beringei"],
 				["Gorilla*", "Gorilla gorilla"],
-				["Homininae*", "Hominini*"],
 				["Hominini*", "Pan*"],
 				["Hominini*", "Hominina*"],
 				["Pan*", "Pan sp."],

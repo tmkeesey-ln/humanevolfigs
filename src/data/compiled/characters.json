@@ -95,6 +95,17 @@
 					}
 				}
 			],
+			"Anoiapithecus brevirostris":
+			[
+				{
+					"count": 1,
+					"time": [-12000000, -11800000],
+					"geo":
+					{
+						"Anoia River, Catalonia": [[41.6, 1.5]]
+					}
+				}
+			],
 			"Ardipithecus kadabba":
 			[
 				{
@@ -421,6 +432,17 @@
 					}
 				}
 			],
+			"Chororapithecus abyssinicus":
+			[
+				{
+					"count": 3,
+					"time": [-10500000, -10000000],
+					"geo":
+					{
+						"southern Afar Depression": [[10, 42]]
+					}
+				}
+			],
 			"Dryopithecus fontani": 
 			[
 				{
@@ -571,6 +593,17 @@
 					"geo":
 					{
 						"West Central Africa": [[3.43, 9.67], [5.23, 13.86], [3.61, 18.61], [-0.61, 17.73], [-2.15, 16.23], [-1.31, 14.48], [-3.11, 13.82], [-3.29, 13.03], [-4.87, 13.12], [-5.04, 12.77], [-2.46, 11.58], [-4.08, 11.05], [-0.74, 8.24]]
+					}
+				}
+			],
+			"Graecopithecus freybergi":
+			[
+				{
+					"count": 1,
+					"time": [-8769000, -7140000],
+					"geo":
+					{
+						"Pyrgos Vassilissis": [[3.43, 9.67], [5.23, 13.86], [3.61, 18.61], [-0.61, 17.73], [-2.15, 16.23], [-1.31, 14.48], [-3.11, 13.82], [-3.29, 13.03], [-4.87, 13.12], [-5.04, 12.77], [-2.46, 11.58], [-4.08, 11.05], [-0.74, 8.24]]
 					}
 				}
 			],
@@ -2057,6 +2090,100 @@
 					"time": [-1900000, -1900000]
 				}
 			],
+			"Nakalipithecus nakayamai":
+			[
+				{
+					"count": [2, 12],
+					"geo":
+					{
+						"Nakali, Kenya": [[1.2, 36.4]]
+					},
+					"time": [-9900000, -9800000]
+				}
+			],
+			"Oreopithecus bambolii":
+			[
+				{
+					"count": [1, 13],
+					"note": "not sure of minimum count",
+					"geo":
+					{
+						"Monte Bamboli, Tuscany": [[43.077,10.811]]
+					},
+					"time": [-7000000, -7000000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Baccinello F1, Tuscany": [[42.8, 11.4]]
+					},
+					"time": [-9000000, -9000000]
+				},
+				{
+					"count": 10,
+					"note": "not sure of count, but 'a large number'",
+					"geo":
+					{
+						"Baccinello V-1, Tuscany": [[42.8, 11.4]]
+					},
+					"time": [-9000000, -9000000]
+				},
+				{
+					"count": [1, 7],
+					"note": "not sure of minimum count",
+					"geo":
+					{
+						"Baccinello V-2, Tuscany": [[42.8, 11.4]]
+					},
+					"time": [-7000000, -7000000]
+				},
+				{
+					"count": 1,
+					"note": "fragmentary right malar",
+					"geo":
+					{
+						"Baccinello Great Trasubbie outcrop, Tuscany": [[42.8, 11.4]]
+					},
+					"time": [-9000000, -7000000]
+				},
+				{
+					"count": 1,
+					"note": "not sure of count",
+					"geo":
+					{
+						"Casteani, Tuscany": [[42.98,10.99]]
+					},
+					"time": [-9000000, -7000000]
+				},
+				{
+					"count": 1,
+					"note": "not sure of count",
+					"geo":
+					{
+						"Ribolla, Tuscany": [[42.97,11.03]]
+					},
+					"time": [-9000000, -7000000]
+				},
+				{
+					"count": 1,
+					"note": "not sure of count",
+					"geo":
+					{
+						"Montemassi, Tuscany": [[42.99,11.06]]
+					},
+					"time": [-9000000, -7000000]
+				},
+				{
+					"count": 1,
+					"note": "isolated teeth, not sure of count",
+					"geo":
+					{
+						"Fiume Santo, Sardinia": [[40.85,8.30]]
+					},
+					"time": [-9000000, -7000000]
+				}
+			],
 			"Orrorin tugenensis":
 			[
 				{
@@ -2066,6 +2193,47 @@
 						"Tugen Hills": [[0.67, 36]]
 					},
 					"time": [-6100000, -5800000]
+				}
+			],
+			"Ouranopithecus macedoniensis":
+			[
+				{
+					"count": 1,
+					"note": "Not sure of count",
+					"geo":
+					{
+						"Ravin de la Pluie, Greece": [[41, 23]]
+					},
+					"time": [-9409000, -9312000]
+				},
+				{
+					"count": 1,
+					"note": "Not sure of count",
+					"geo":
+					{
+						"Chalkidiki, Greece": [[40.37, 23.29]]
+					},
+					"time": [-9717000, -8769000]
+				},
+				{
+					"count": 1,
+					"note": "Not sure of count",
+					"geo":
+					{
+						"Xirochori, Greece": [[40.80, 22.78]]
+					},
+					"time": [-9717000, -9656000]
+				}
+			],
+			"Ouranopithecus turkae":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Corakyerler, Turkey": [[0.67, 36]]
+					},
+					"time": [-8700000, -7400000]
 				}
 			],
 			"Pan paniscus":
@@ -2659,6 +2827,17 @@
 					"note": "count approximate"
 				}
 			],
+			"Pierolapithecus catalaunicus":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Barranc de Can Vila 1 (Barcelona, Spain)": [[41, 2]]
+					},
+					"time": [-13000000, -12500000]
+				}
+			],
 			"Ponginae indet.":
 			[
 				{
@@ -2834,6 +3013,17 @@
 					"time": [-7000000, -6000000]
 				}
 			],
+			"Samburupithecus kiptalami":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Samburu Hills": [[1.4, 35.8]]
+					},
+					"time": [-9600000, -9500000]
+				}
+			],
 			"Sivapithecus sp.":
 			[
 				{
@@ -2888,7 +3078,7 @@
 					{
 						"Udabno, Georgia": [[41.51, 45.38]]
 					},
-					"time": [-9000000, -9000000]
+					"time": [-9098000, -8769000]
 				}
 			]
 		}

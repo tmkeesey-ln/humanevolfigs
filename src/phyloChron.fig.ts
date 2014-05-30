@@ -30,80 +30,74 @@ interface TaxonEntry extends NameEntry
 }
 
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
-	"Pongo pygmaeus": {
-		name: "Bornean orangutan mtDNA",
-		column: 19
-	},
-	"mt-Pongo*": {
-		column: 19.5,
-		ancestral: true
-	},
-	"Pongo abelii": {
-		name: "Sumatran orangutan mtDNA",
+	"Bornean orangutans": {
 		column: 20
 	},
-	"mt-Hominidae*": {
-		column: 21.375,
+	"mt-Pongo*": {
+		column: 20.5,
 		ancestral: true
 	},
-	"Gorilla gorilla": {
-		name: "western gorilla mtDNA",
+	"Sumatran orangutans": {
 		column: 21
 	},
+	"mt-Hominidae*": {
+		column: 22.375,
+		ancestral: true
+	},
+	"western gorillas": {
+		column: 22
+	},
 	"mt-Homininae*": {
-		column: 23.25,
+		column: 24.25,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
-		column: 21.5,
+		column: 22.5,
 		ancestral: true
 	},
-	"Gorilla beringei": {
-		name: "eastern gorilla mtDNA",
-		column: 22
-	},
-	"mt-Hominini*": {
-		column: 25,
-		ancestral: true
-	},
-	"Pan paniscus": {
-		name: "bonobo chimpanzee mtDNA",
+	"eastern gorillas": {
 		column: 23
 	},
-	"mt-Pan*": {
-		column: 23.5,
+	"mt-Hominini*": {
+		column: 26,
 		ancestral: true
 	},
-	"Pan troglodytes": {
-		name: "common chimpanzee mtDNA",
+	"bonobo chimpanzees": {
 		column: 24
 	},
+	"mt-Pan*": {
+		column: 24.5,
+		ancestral: true
+	},
+	"common chimpanzees": {
+		column: 25
+	},
 	"mt-Homo*": {
-		column: 26.5,
-		ancestral: true
-	},
-	"mt-HomoA*": {
-		column: 25.5,
-		ancestral: true
-	},
-	"mt-HomoB*": {
 		column: 27.5,
 		ancestral: true
 	},
-	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
-		name: "mtDNA from Sima de los Huesos",
-		column: 25
+	"mt-HomoA*": {
+		column: 26.5,
+		ancestral: true
 	},
-	"Homo sp. (Denisova)": {
-		name: "Denisovan mtDNA",
+	"mt-HomoB*": {
+		column: 28.5,
+		ancestral: true
+	},
+	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
+		name: "Sima de los Huesos",
 		column: 26
 	},
-	"Homo neanderthalensis neanderthalensis": {
-		name: "Neandertal mtDNA",
+	"Homo sp. (Denisova)": {
+		name: "Denisova",
 		column: 27
 	},
+	"Homo neanderthalensis neanderthalensis": {
+		name: "Neandertals",
+		column: 28
+	},
 	"mt-MRCA": {
-		column: 28,
+		column: 29,
 		name: "mitochondrial \"Eve\"",
 		ancestral: true
 	}
@@ -133,9 +127,8 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"western gorillas": {
 		column: 4
 	},
-	"Homininae*": {
-		column: 5,
-		ancestral: true
+	"stem-African great apes": {
+		column: 6
 	},
 	"Gorilla*": {
 		column: 5,
@@ -145,83 +138,83 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 5
 	},
 	"Hominini*": {
-		column: 6,
+		column: 7,
 		ancestral: true
 	},
 	"Pan*": {
-		column: 6,
+		column: 7,
 		ancestral: true
 	},
 	"fossil chimpanzees": {
-		column: 6
-	},
-	"bonobo chimpanzees": {
 		column: 7
 	},
-	"common chimpanzees": {
+	"bonobo chimpanzees": {
 		column: 8
 	},
+	"common chimpanzees": {
+		column: 9
+	},
 	"Hominina*": {
-		column: 7,
+		column: 8,
 		ancestral: true
 	},
 	"Sahelanthropus": {
-		column: 7,
+		column: 8,
 		italic: true
 	},
 	"Hominina2*": {
-		column: 8,
+		column: 9,
 		ancestral: true
 	},
 	"Ardipithecus": {
-		column: 8,
-		italic: true
-	},
-	"Paranthropus": {
 		column: 9,
 		italic: true
 	},
-	"Australopithecus": {
+	"Paranthropus": {
 		column: 10,
 		italic: true
 	},
-	"Homo rudolfensis": {
+	"Australopithecus": {
 		column: 11,
 		italic: true
 	},
-	"Homo*": {
+	"Homo rudolfensis": {
 		column: 12,
+		italic: true
+	},
+	"Homo*": {
+		column: 13,
 		ancestral: true
 	},
 	"Homo habilis": {
-		column: 12,
+		column: 13,
 		italic: true
 	},
 	"Floresian \"hobbits\"": {
-		column: 13,
+		column: 14,
 		italic: false
 	},
 	"Homo ergaster": {
-		column: 14,
+		column: 15,
 		italic: true
 	},
 	"Homo2*": {
-		column: 15,
+		column: 16,
 		ancestral: true
 	},
 	"Homo erectus": {
-		column: 15,
+		column: 16,
 		italic: true
 	},
 	"Neandertals": {
-		column: 16
+		column: 17
 	},
 	"Homo heidelbergensis": {
-		column: 17,
+		column: 18,
 		italic: true
 	},
 	"humans": {
-		column: 18
+		column: 19
 	}
 };
 
@@ -361,7 +354,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
 				var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
 				addToCharacterMatrix(cmBuilder, solver, [
-					['data/2012 - Langergraber & al.json', 'synthesis-apes'],
+					['data/2012 - Langergraber & al.json', 'synthesis-ape-genera'],
 					['data/2006 - Steiper & Young.json', 'Fig1-abridged']
 				]);
 				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
@@ -371,11 +364,11 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 				chart.area = AREA;
 				chart.time = TIME;
-				chart.minPrcTime = Haeckel.rng.create(-100000, -100000);
+				chart.minPrcTime = Haeckel.rng.create(-350000, -350000);
 				chart.characterMatrix = cmBuilder.build();
 				chart.horizontalRatioMap = createHorizontalRatioMap(morphTaxonEntries, solver);
 				chart.phylogeny = phylogeny;
-				chart.arcRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
+				chart.arcRenderer = (builder: Haeckel.ElementBuilder, arc: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
 				{
 					var data = 'M';
 					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
