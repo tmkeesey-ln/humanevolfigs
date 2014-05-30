@@ -10,6 +10,10 @@ var MARGIN = 25;
 
 var TOP_MARGIN = 200;
 
+var KEY_WIDTH = 600;
+
+var KEY_HEIGHT = 600;
+
 interface NameEntry
 {
 	ancestral?: boolean;
@@ -28,78 +32,78 @@ interface TaxonEntry extends NameEntry
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Pongo pygmaeus": {
 		name: "Bornean orangutan mtDNA",
-		column: 3
+		column: 19
 	},
 	"mt-Pongo*": {
-		column: 3.5,
+		column: 19.5,
 		ancestral: true
 	},
 	"Pongo abelii": {
 		name: "Sumatran orangutan mtDNA",
-		column: 4
+		column: 20
 	},
 	"mt-Hominidae*": {
-		column: 8,
+		column: 21.375,
 		ancestral: true
 	},
 	"Gorilla gorilla": {
 		name: "western gorilla mtDNA",
-		column: 8
+		column: 21
 	},
 	"mt-Homininae*": {
-		column: 12,
+		column: 23.25,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
-		column: 8.5,
+		column: 21.5,
 		ancestral: true
 	},
 	"Gorilla beringei": {
 		name: "eastern gorilla mtDNA",
-		column: 9
+		column: 22
 	},
 	"mt-Hominini*": {
-		column: 15.5,
+		column: 25,
 		ancestral: true
 	},
 	"Pan paniscus": {
 		name: "bonobo chimpanzee mtDNA",
-		column: 13
+		column: 23
 	},
 	"mt-Pan*": {
-		column: 13.5,
+		column: 23.5,
 		ancestral: true
 	},
 	"Pan troglodytes": {
 		name: "common chimpanzee mtDNA",
-		column: 14
+		column: 24
 	},
 	"mt-Homo*": {
-		column: 27.5,
-		ancestral: true
-	},
-	"mt-HomoA*": {
 		column: 26.5,
 		ancestral: true
 	},
+	"mt-HomoA*": {
+		column: 25.5,
+		ancestral: true
+	},
 	"mt-HomoB*": {
-		column: 28.5,
+		column: 27.5,
 		ancestral: true
 	},
 	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
 		name: "mtDNA from Sima de los Huesos",
-		column: 26
+		column: 25
 	},
 	"Homo sp. (Denisova)": {
 		name: "Denisovan mtDNA",
-		column: 27
+		column: 26
 	},
 	"Homo neanderthalensis neanderthalensis": {
 		name: "Neandertal mtDNA",
-		column: 28
+		column: 27
 	},
 	"mt-MRCA": {
-		column: 29,
+		column: 28,
 		name: "mitochondrial \"Eve\"",
 		ancestral: true
 	}
@@ -116,108 +120,108 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 2
 	},
 	"stem-orangutans": {
-		column: 5
+		column: 3
 	},
 	"Hominidae*": {
-		column: 6,
+		column: 4,
 		ancestral: true
 	},
 	"Dryopithecinae": {
-		column: 6,
+		column: 4,
 		italic: true
 	},
 	"western gorillas": {
-		column: 6
+		column: 4
 	},
 	"Homininae*": {
-		column: 7,
+		column: 5,
 		ancestral: true
 	},
 	"Gorilla*": {
-		column: 7,
+		column: 5,
 		ancestral: true
 	},
 	"eastern gorillas": {
-		column: 7
+		column: 5
 	},
 	"Hominini*": {
-		column: 10,
+		column: 6,
 		ancestral: true
 	},
 	"Pan*": {
-		column: 10,
+		column: 6,
 		ancestral: true
 	},
 	"fossil chimpanzees": {
-		column: 10
+		column: 6
 	},
 	"bonobo chimpanzees": {
-		column: 11
+		column: 7
 	},
 	"common chimpanzees": {
-		column: 12
+		column: 8
 	},
 	"Hominina*": {
-		column: 13,
+		column: 7,
 		ancestral: true
 	},
 	"Sahelanthropus": {
-		column: 13,
+		column: 7,
 		italic: true
 	},
 	"Hominina2*": {
-		column: 15,
+		column: 8,
 		ancestral: true
 	},
 	"Ardipithecus": {
-		column: 15,
+		column: 8,
 		italic: true
 	},
 	"Paranthropus": {
-		column: 16,
+		column: 9,
 		italic: true
 	},
 	"Australopithecus": {
-		column: 17,
+		column: 10,
 		italic: true
 	},
 	"Homo rudolfensis": {
-		column: 18,
+		column: 11,
 		italic: true
 	},
 	"Homo*": {
-		column: 19,
+		column: 12,
 		ancestral: true
 	},
 	"Homo habilis": {
-		column: 19,
+		column: 12,
 		italic: true
 	},
 	"Floresian \"hobbits\"": {
-		column: 20,
+		column: 13,
 		italic: false
 	},
 	"Homo ergaster": {
-		column: 21,
+		column: 14,
 		italic: true
 	},
 	"Homo2*": {
-		column: 22,
+		column: 15,
 		ancestral: true
 	},
 	"Homo erectus": {
-		column: 22,
+		column: 15,
 		italic: true
 	},
 	"Neandertals": {
-		column: 23
+		column: 16
 	},
 	"Homo heidelbergensis": {
-		column: 24,
+		column: 17,
 		italic: true
 	},
 	"humans": {
-		column: 25
+		column: 18
 	}
 };
 
