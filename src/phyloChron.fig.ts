@@ -668,8 +668,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'fill': Haeckel.BLACK.hex,
 						'stroke': 'none'
 					});
-				rectangle = Haeckel.rec.create(area.left + area.width / 16, area.top + area.height * 9 / 16,
-						area.width / 8, area.height / 8)
+				rectangle = Haeckel.rec.create(area.left + area.width * 3 / 32, area.top + area.height * 17 / 32,
+						area.width / 16, area.height * 3 / 16)
 				group.child(Haeckel.SVG_NS, 'path')
 					.attrs(Haeckel.SVG_NS, {
 						'd': 'M' + [rectangle.centerX, rectangle.top].join(' ')
