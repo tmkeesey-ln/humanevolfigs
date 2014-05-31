@@ -345,6 +345,42 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				*/
 			}
 
+			function getSourceY(sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle)
+			{
+				return Math.max(sourceRect.centerY, targetRect.bottom);
+			}
+
+			function createArcRenderer(useSides?: boolean)
+			{
+				return (builder: Haeckel.ElementBuilder, taxon: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
+				{
+					var data = 'M';
+					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
+					{
+						data += [sourceRect.centerX, useSides ? sourceRect.top : sourceRect.centerY].join(' ')
+							+ 'V' + targetRect.bottom;
+					}
+					else
+					{
+						var startX = useSides
+							? (targetRect.centerX < sourceRect.centerX ? sourceRect.left : sourceRect.right)
+							: sourceRect.centerX;
+						var sourceY = getSourceY(sourceRect, targetRect);
+						data += [startX, sourceY].join(' ')
+							+ 'Q' + [targetRect.centerX, sourceY, targetRect.centerX, Math.min(targetRect.bottom, sourceY)];
+					}
+					builder.child(Haeckel.SVG_NS, 'path')
+						.attrs(Haeckel.SVG_NS, {
+							'd': data,
+							'stroke': Haeckel.BLACK.hex,
+							'fill': 'none',
+							'stroke-linecap': 'round',
+							'stroke-dasharray': '2 4',
+							'stroke-width': '2px'
+						});
+				};
+			}
+
 			function morphChart()
 			{
 				var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['morphology'];
@@ -368,47 +404,43 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				chart.characterMatrix = cmBuilder.build();
 				chart.horizontalRatioMap = createHorizontalRatioMap(morphTaxonEntries, solver);
 				chart.phylogeny = phylogeny;
-				chart.arcRenderer = (builder: Haeckel.ElementBuilder, arc: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
-				{
-					var data = 'M';
-					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
-					{
-						data += [sourceRect.centerX, sourceRect.bottom].join(' ')
-							+ 'V' + targetRect.bottom;
-					}
-					else
-					{
-						var sourceY = Math.max(sourceRect.centerY, targetRect.bottom);
-						data += [sourceRect.centerX, sourceRect.bottom].join(' ')
-							+ 'V' + sourceY
-							+ 'H' + targetRect.centerX
-							+ 'V' + targetRect.centerY;
-					}
-					builder.child(Haeckel.SVG_NS, 'path')
-						.attrs(Haeckel.SVG_NS, {
-							'd': data,
-							'stroke': Haeckel.BLACK.hex,
-							'stroke-linejoin': 'round',
-							'stroke-width': '2px',
-							'fill': 'none'
-						});
-				};
+				chart.arcRenderer = createArcRenderer();
 				chart.vertexRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
 				{
 					var entry = morphTaxonEntries[Haeckel.hash(taxon)];
-					if (entry !== undefined && !entry.ancestral)
+					if (entry)
 					{
-						var group = builder.child(Haeckel.SVG_NS, 'g');
-						group.child(Haeckel.SVG_NS, 'rect')
-							.attrs(Haeckel.SVG_NS, {
-								'x': rectangle.left + 'px',
-								'y': rectangle.top + 'px',
-								'width': rectangle.width + 'px',
-								'height': rectangle.height + 'px',
-								'fill': Haeckel.BLACK.hex,
-								'stroke': 'none'
+						if (entry.ancestral)
+						{
+							var sourceY = rectangle.centerY;
+							Haeckel.ext.each(solver.dagSolver.imSucs(taxon), (imSuc: Haeckel.Taxic) =>
+							{
+								sourceY = Math.max(sourceY, getSourceY(rectangle, chart.getTaxonRect(imSuc)));
 							});
-						labelTaxon(group, entry, rectangle, true);
+							builder.child(Haeckel.SVG_NS, 'path')
+								.attrs(Haeckel.SVG_NS, {
+									'd': 'M' + rectangle.centerX + ' ' + rectangle.bottom + 'V' + sourceY,
+									'stroke': Haeckel.BLACK.hex,
+									'stroke-dasharray': '2 4',
+									'stroke-width': '2px',
+									'stroke-linecap': 'round',
+									'fill': 'none'
+								});
+						}
+						else
+						{
+							var group = builder.child(Haeckel.SVG_NS, 'g');
+							group.child(Haeckel.SVG_NS, 'rect')
+								.attrs(Haeckel.SVG_NS, {
+									'x': rectangle.left + 'px',
+									'y': rectangle.top + 'px',
+									'width': rectangle.width + 'px',
+									'height': rectangle.height + 'px',
+									'fill': Haeckel.BLACK.hex,
+									'stroke': 'none'
+								});
+							labelTaxon(group, entry, rectangle, true);
+						}
 					}
 				};
 
@@ -451,28 +483,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				chart.phylogeny = phylogeny;
 				chart.characterMatrix = cmBuilder.build();
 				chart.horizontalRatioMap = createHorizontalRatioMap(mtTaxonEntries, solver);
-				chart.arcRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
-				{
-					var data = 'M';
-					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
-					{
-						data += [sourceRect.centerX, sourceRect.top].join(' ')
-							+ 'V' + targetRect.bottom;
-					}
-					else
-					{
-						data += [targetRect.centerX < sourceRect.centerX ? sourceRect.left : sourceRect.right, sourceRect.centerY].join(' ')
-							+ 'Q' + [targetRect.centerX, sourceRect.centerY, targetRect.centerX, Math.min(targetRect.bottom, sourceRect.centerY)]
-					}
-					builder.child(Haeckel.SVG_NS, 'path')
-						.attrs(Haeckel.SVG_NS, {
-							'd': data,
-							'stroke': '#808080',
-							'fill': 'none',
-							'stroke-dasharray': '3 2',
-							'stroke-width': '2px'
-						});
-				};
+				chart.arcRenderer = createArcRenderer(true);
 				chart.vertexRenderer = (builder: Haeckel.ElementBuilder, taxon: Haeckel.Taxic, rectangle: Haeckel.Rectangle) =>
 				{
 					var entry = mtTaxonEntries[Haeckel.hash(taxon)];
@@ -485,7 +496,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 								'y': rectangle.top + 'px',
 								'width': rectangle.width + 'px',
 								'height': rectangle.height + 'px',
-								'fill': '#808080',
+								'fill': Haeckel.BLACK.hex,
 								'stroke': 'none'
 							});
 						labelTaxon(group, entry, rectangle);
@@ -501,9 +512,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						group.child(Haeckel.SVG_NS, 'path')
 							.attrs(Haeckel.SVG_NS, {
 								'd': data,
-								'fill': '#808080',
-								'stroke': '#808080',
-								'stroke-width': '2px',
+								'fill': Haeckel.BLACK.hex,
+								'stroke': Haeckel.BLACK.hex,
+								'stroke-width': '1px',
 								'stroke-linejoin': 'miter'
 							});
 						if (entry.showName)
