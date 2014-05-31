@@ -29,6 +29,8 @@ interface TaxonEntry extends NameEntry
 	showName?: boolean;
 }
 
+var DIVIDER_COLUMN = 20;
+
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Bornean orangutans": {
 		column: 20
@@ -242,6 +244,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		try
 		{
+			var bgGroup: Haeckel.ElementBuilder;
+			var dividerX: number;
 			var maxColumn = 1;
 			var morphTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(MORPH_NAME_ENTRIES);
 			var mtTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(MT_NAME_ENTRIES);
@@ -499,7 +503,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 								'fill': Haeckel.BLACK.hex,
 								'stroke': 'none'
 							});
-						labelTaxon(group, entry, rectangle);
+						labelTaxon(group, entry, rectangle, true);
 					}
 					else
 					{
@@ -519,7 +523,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							});
 						if (entry.showName)
 						{
-							labelTaxon(group, entry, rectangle);
+							labelTaxon(group, entry, rectangle, true);
 						}
 					}
 				};
@@ -536,7 +540,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var top = chart.getTimeY(Haeckel.RANGE_0);
 				group.child(Haeckel.SVG_NS, 'rect')
 					.attrs({
-						fill: '#000000',
+						fill: Haeckel.BLACK.hex,
 						'fill-opacity': '0.25',
 						stroke: 'none',
 						x: '0px',
@@ -554,7 +558,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						{
 							group.child(Haeckel.SVG_NS, 'rect')
 								.attrs({
-									fill: '#000000',
+									fill: Haeckel.BLACK.hex,
 									'fill-opacity': '0.25',
 									stroke: 'none',
 									x: '0px',
@@ -585,18 +589,165 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				});
 			}
 
-			builder.child(Haeckel.SVG_NS, 'rect')
-				.attrs(Haeckel.SVG_NS, {
-					fill: Haeckel.WHITE.hex,
-					stroke: 'none',
-					x: '0px',
-					y: '0px',
-					width: FIGURE_WIDTH + 'px',
-					height: FIGURE_HEIGHT + 'px'
-				});
+			function legend()
+			{
+				var height = FIGURE_HEIGHT / 8;
+				var width = height * 1.618034; // :TODO: Add golden ratio to Haeckel
+				var area = Haeckel.rec.create((FIGURE_WIDTH - width) / 2, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
+				var group = builder.child(Haeckel.SVG_NS, 'g');
+				group.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						'x': area.left + 'px',
+						'y': area.top + 'px',
+						'width': area.width + 'px',
+						'height': area.height + 'px',
+						'fill': Haeckel.WHITE.hex,
+						'stroke': Haeckel.BLACK.hex,
+						'stroke-width': '2px',
+						'stroke-linejoin': 'miter'
+					});
+				group.child(Haeckel.SVG_NS, 'text')
+					.text('LEGEND')
+					.attrs(Haeckel.SVG_NS, {
+						'x': area.centerX + 'px',
+						'y': (area.top + height * 3 / 16) + 'px',
+						'text-anchor': 'middle',
+						'font-weight': 'bolder',
+						'font-family': 'Myriad Pro',
+						'font-size': (height / 8) + 'px'
+					});
+				var rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + area.height * 5 / 16,
+						area.width / 12, area.height / 8);
+				group.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						'x': rectangle.left + 'px',
+						'y': rectangle.top + 'px',
+						'width': rectangle.width + 'px',
+						'height': rectangle.height + 'px',
+						'fill': Haeckel.BLACK.hex,
+						'stroke': 'none'
+					});
+				rectangle = Haeckel.rec.create(area.left + area.width / 16, area.top + area.height * 9 / 16,
+						area.width / 8, area.height / 8)
+				group.child(Haeckel.SVG_NS, 'path')
+					.attrs(Haeckel.SVG_NS, {
+						'd': 'M' + [rectangle.centerX, rectangle.top].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.right, rectangle.centerY].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.bottom].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
+							+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
+							+ 'Z',
+						'fill': Haeckel.BLACK.hex,
+						'stroke': Haeckel.BLACK.hex,
+						'stroke-width': '1px',
+						'stroke-linejoin': 'miter'
+					});
+				group.child(Haeckel.SVG_NS, 'path')
+					.attrs(Haeckel.SVG_NS, {
+						'd': 'M' + [area.left + area.width / 8, area.top + area.height * 13 / 16].join(' ')
+							+ 'V' + (area.top + area.height * 15 / 16),
+						'stroke': Haeckel.BLACK.hex,
+						'fill': 'none',
+						'stroke-linecap': 'round',
+						'stroke-dasharray': '2 4',
+						'stroke-width': '2px'
+					});
+				group.child(Haeckel.SVG_NS, 'text')
+					.text('specimen')
+					.attrs(Haeckel.SVG_NS, {
+						'x': (area.left + area.width / 4) + 'px',
+						'y': (area.top + height * 13 / 32) + 'px',
+						'text-anchor': 'left',
+						'font-family': 'Myriad Pro',
+						'font-size': (height / 8) + 'px'
+					});
+				group.child(Haeckel.SVG_NS, 'text')
+					.text('inferred ancestor')
+					.attrs(Haeckel.SVG_NS, {
+						'x': (area.left + area.width / 4) + 'px',
+						'y': (area.top + height * 21 / 32) + 'px',
+						'text-anchor': 'left',
+						'font-family': 'Myriad Pro',
+						'font-size': (height / 8) + 'px'
+					});
+				group.child(Haeckel.SVG_NS, 'text')
+					.text('inferred lineage')
+					.attrs(Haeckel.SVG_NS, {
+						'x': (area.left + area.width / 4) + 'px',
+						'y': (area.top + height * 29 / 32) + 'px',
+						'text-anchor': 'left',
+						'font-family': 'Myriad Pro',
+						'font-size': (height / 8) + 'px'
+					});
+			}
+
+			function background()
+			{
+				bgGroup = builder.child(Haeckel.SVG_NS, 'g');
+				bgGroup.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						fill: Haeckel.WHITE.hex,
+						stroke: 'none',
+						x: '0px',
+						y: '0px',
+						width: FIGURE_WIDTH + 'px',
+						height: FIGURE_HEIGHT + 'px'
+					});
+			}
+
+			function divider()
+			{
+				bgGroup.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						'x': dividerX + 'px',
+						'y': '0px',
+						'width': (FIGURE_WIDTH - dividerX) + 'px',
+						'height': FIGURE_HEIGHT + 'px',
+						'fill': Haeckel.BLACK.hex,
+						'opacity': '0.1',
+						'stroke': 'none'
+					});
+				/*
+				bgGroup.child(Haeckel.SVG_NS, 'line')
+					.attrs(Haeckel.SVG_NS, {
+						x1: dividerX + 'px',
+						x2: dividerX + 'px',
+						y1: '0px',
+						y2: FIGURE_HEIGHT + 'px',
+						'stroke': Haeckel.BLACK.hex,
+						'stroke-linecap': 'square',
+						'stroke-width': '0.5px'
+					});
+				*/
+			}
+
+			function sectionTitles()
+			{
+				var STYLE: { [name: string]: string; } = {
+					'text-anchor': 'middle',
+					'font-size': '20px',
+					'font-weight': 'bolder',
+					'font-family': 'Myriad Pro',
+					y: '40px'
+				};
+				bgGroup.child(Haeckel.SVG_NS, 'text')
+					.text('ANATOMY')
+					.attr(Haeckel.SVG_NS, 'x', (dividerX / 2) + 'px')
+					.attrs(Haeckel.SVG_NS, STYLE);
+				bgGroup.child(Haeckel.SVG_NS, 'text')
+					.text('MITOCHONDRIAL DNA')
+					.attr(Haeckel.SVG_NS, 'x', ((dividerX + FIGURE_WIDTH) / 2) + 'px')
+					.attrs(Haeckel.SVG_NS, STYLE);
+			}
+
+			background();
 			times();
 			mtChart();
 			morphChart();
+			dividerX = AREA.left + AREA.width * (DIVIDER_COLUMN + 0.5) / (maxColumn + 2);
+			divider();
+			sectionTitles();
+			legend();
 		}
 		catch (e)
 		{
