@@ -549,45 +549,55 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						width: FIGURE_WIDTH + 'px',
 						height: '1px'
 					});
+				var strata = Haeckel.ext.list(sources.sources['data/2014 - ICS.json'].strata);
+				strata.sort((a: Haeckel.Stratum, b: Haeckel.Stratum) =>
+				{
+					return b.start.mean - a.start.mean;
+				});
+				var fillStratum = false;
 				Haeckel.ext.each(sources.sources['data/2014 - ICS.json'].strata, (stratum: Haeckel.Stratum) =>
 				{
 					if (stratum && stratum.type === 'series/epoch')
 					{
 						var startY = chart.getTimeY(stratum.start);
 						var endY = chart.getTimeY(stratum.end);
-						if (endY.mean <= FIGURE_HEIGHT)
+						if (fillStratum)
 						{
-							group.child(Haeckel.SVG_NS, 'rect')
-								.attrs({
-									fill: Haeckel.BLACK.hex,
-									'fill-opacity': '0.25',
-									stroke: 'none',
-									x: '0px',
-									y: (startY.mean - 0.5) + 'px',
-									width: dividerX + 'px',
-									height: '1px'
-								});
-							if ((startY.mean - endY.mean) > 2)
+							if (endY.mean <= FIGURE_HEIGHT)
 							{
-								var text = group.child(Haeckel.SVG_NS, 'text')
-									.text(stratum.name.toUpperCase())
-									.attrs(Haeckel.SVG_NS, {
-										'fill': Haeckel.BLACK.hex,
-										'fill-opacity': '0.333',
-										'font-size': '16px',
-										'font-weight': 'bold',
-										'font-family': "Myriad Pro",
-										'text-anchor': 'middle'
+								group.child(Haeckel.SVG_NS, 'rect')
+									.attrs({
+										fill: Haeckel.BLACK.hex,
+										'fill-opacity': '0.1',
+										stroke: 'none',
+										x: '0px',
+										y: endY.mean + 'px',
+										width: FIGURE_WIDTH + 'px',
+										height: (startY.mean - endY.mean) + 'px'
 									});
-								var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
-								var y = (startY.mean + endY.mean) / 2;
-								if (y + box.width / 2 > FIGURE_HEIGHT - MARGIN)
-								{
-									y = FIGURE_HEIGHT - MARGIN - box.width / 2;
-								}
-								text.attr(Haeckel.SVG_NS, 'transform',
-									'translate(' + (MARGIN + 8) + ',' + y + ') rotate(-90)');
 							}
+						}
+						fillStratum = !fillStratum;
+						if ((startY.mean - endY.mean) > 16)
+						{
+							var text = group.child(Haeckel.SVG_NS, 'text')
+								.text(stratum.name.toUpperCase())
+								.attrs(Haeckel.SVG_NS, {
+									'fill': Haeckel.BLACK.hex,
+									'fill-opacity': '0.5',
+									'font-size': '16px',
+									'font-weight': 'bold',
+									'font-family': "Myriad Pro",
+									'text-anchor': 'middle'
+								});
+							var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+							var y = (startY.mean + endY.mean) / 2;
+							if (y + box.width / 2 > FIGURE_HEIGHT - MARGIN)
+							{
+								y = FIGURE_HEIGHT - MARGIN - box.width / 2;
+							}
+							text.attr(Haeckel.SVG_NS, 'transform',
+								'translate(' + (MARGIN + 8) + ',' + y + ') rotate(-90)');
 						}
 					}
 				});
@@ -600,9 +610,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							fill: Haeckel.BLACK.hex,
 							'fill-opacity': '0.15',
 							stroke: 'none',
-							x: dividerX + 'px',
-							y: y + 'px',
-							width: (FIGURE_WIDTH - dividerX) + 'px',
+							x: '0px',
+							y: (y - 0.5) + 'px',
+							width: FIGURE_WIDTH + 'px',
 							height: '1px'
 						});
 					group.child(Haeckel.SVG_NS, 'text')
