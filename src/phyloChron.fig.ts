@@ -29,77 +29,77 @@ interface TaxonEntry extends NameEntry
 	showName?: boolean;
 }
 
-var DIVIDER_COLUMN = 20;
+var DIVIDER_COLUMN = 20.5;
 
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Bornean orangutans": {
-		column: 20
+		column: 21
 	},
 	"mt-Pongo*": {
-		column: 20.5,
+		column: 21.5,
 		ancestral: true
 	},
 	"Sumatran orangutans": {
-		column: 21
+		column: 22
 	},
 	"mt-Hominidae*": {
-		column: 22.375,
+		column: 23.375,
 		ancestral: true
 	},
 	"western gorillas": {
-		column: 22
+		column: 23
 	},
 	"mt-Homininae*": {
-		column: 24.25,
+		column: 25.25,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
-		column: 22.5,
+		column: 23.5,
 		ancestral: true
 	},
 	"eastern gorillas": {
-		column: 23
+		column: 24
 	},
 	"mt-Hominini*": {
-		column: 26,
+		column: 27,
 		ancestral: true
 	},
 	"bonobo chimpanzees": {
-		column: 24
+		column: 25
 	},
 	"mt-Pan*": {
-		column: 24.5,
+		column: 25.5,
 		ancestral: true
 	},
 	"common chimpanzees": {
-		column: 25
+		column: 26
 	},
 	"mt-Homo*": {
-		column: 27.5,
+		column: 28.5,
 		ancestral: true
 	},
 	"mt-HomoA*": {
-		column: 26.5,
+		column: 27.5,
 		ancestral: true
 	},
 	"mt-HomoB*": {
-		column: 28.5,
+		column: 29.5,
 		ancestral: true
 	},
 	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
 		name: "Sima de los Huesos",
-		column: 26
+		column: 27
 	},
 	"Homo sp. (Denisova)": {
 		name: "Denisova",
-		column: 27
+		column: 28
 	},
 	"Homo neanderthalensis neanderthalensis": {
 		name: "Neandertals",
-		column: 28
+		column: 29
 	},
 	"mt-MRCA": {
-		column: 29,
+		column: 30,
 		name: "mitochondrial \"Eve\"",
 		ancestral: true
 	}
@@ -245,6 +245,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		try
 		{
 			var bgGroup: Haeckel.ElementBuilder;
+			var timesGroup: Haeckel.ElementBuilder;
 			var dividerX: number;
 			var maxColumn = 1;
 			var morphTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(MORPH_NAME_ENTRIES);
@@ -533,7 +534,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 			function times()
 			{
-				var group = builder.child(Haeckel.SVG_NS, 'g');
+				var group = timesGroup;
 				var chart = new Haeckel.ChronoChart();
 				chart.area = AREA;
 				chart.time = TIME;
@@ -541,7 +542,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				group.child(Haeckel.SVG_NS, 'rect')
 					.attrs({
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.25',
+						'fill-opacity': '0.333',
 						stroke: 'none',
 						x: '0px',
 						y: (top.min - 1) + 'px',
@@ -554,7 +555,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					{
 						var startY = chart.getTimeY(stratum.start);
 						var endY = chart.getTimeY(stratum.end);
-						if (endY.mean <= FIGURE_HEIGHT && (startY.mean - endY.mean) > 2)
+						if (endY.mean <= FIGURE_HEIGHT)
 						{
 							group.child(Haeckel.SVG_NS, 'rect')
 								.attrs({
@@ -563,30 +564,60 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 									stroke: 'none',
 									x: '0px',
 									y: (startY.mean - 0.5) + 'px',
-									width: FIGURE_WIDTH + 'px',
+									width: dividerX + 'px',
 									height: '1px'
 								});
-							var text = group.child(Haeckel.SVG_NS, 'text')
-								.text(stratum.name.toUpperCase())
-								.attrs(Haeckel.SVG_NS, {
-									'fill': Haeckel.BLACK.hex,
-									'fill-opacity': '0.333',
-									'font-size': '16px',
-									'font-weight': 'bold',
-									'font-family': "Myriad Pro",
-									'text-anchor': 'middle'
-								});
-							var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
-							var y = (startY.mean + endY.mean) / 2;
-							if (y + box.width / 2 > FIGURE_HEIGHT - MARGIN)
+							if ((startY.mean - endY.mean) > 2)
 							{
-								y = FIGURE_HEIGHT - MARGIN - box.width / 2;
+								var text = group.child(Haeckel.SVG_NS, 'text')
+									.text(stratum.name.toUpperCase())
+									.attrs(Haeckel.SVG_NS, {
+										'fill': Haeckel.BLACK.hex,
+										'fill-opacity': '0.333',
+										'font-size': '16px',
+										'font-weight': 'bold',
+										'font-family': "Myriad Pro",
+										'text-anchor': 'middle'
+									});
+								var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+								var y = (startY.mean + endY.mean) / 2;
+								if (y + box.width / 2 > FIGURE_HEIGHT - MARGIN)
+								{
+									y = FIGURE_HEIGHT - MARGIN - box.width / 2;
+								}
+								text.attr(Haeckel.SVG_NS, 'transform',
+									'translate(' + (MARGIN + 8) + ',' + y + ') rotate(-90)');
 							}
-							text.attr(Haeckel.SVG_NS, 'transform',
-								'translate(' + (MARGIN + 8) + ',' + y + ') rotate(-90)');
 						}
 					}
 				});
+				var TIME_INCREMENT = -1000000;
+				for (var time = TIME.max + TIME_INCREMENT; time > TIME.min; time += TIME_INCREMENT)
+				{
+					var y = chart.getTimeY(Haeckel.rng.create(time, time)).mean;
+					group.child(Haeckel.SVG_NS, 'rect')
+						.attrs({
+							fill: Haeckel.BLACK.hex,
+							'fill-opacity': '0.15',
+							stroke: 'none',
+							x: dividerX + 'px',
+							y: y + 'px',
+							width: (FIGURE_WIDTH - dividerX) + 'px',
+							height: '1px'
+						});
+					group.child(Haeckel.SVG_NS, 'text')
+						.text(Math.round(time / -1000000) + ' Mya')
+						.attrs(Haeckel.SVG_NS, {
+							x: (FIGURE_WIDTH - MARGIN) + 'px',
+							y: (y - 1) + 'px',
+							'font-weight': 'bold',
+							'fill': Haeckel.BLACK.hex,
+							'fill-opacity': '0.5',
+							'font-size': '12px',
+							'font-family': "Myriad Pro",
+							'text-anchor': 'end'
+						});
+				}
 			}
 
 			function legend()
@@ -707,18 +738,17 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'opacity': '0.1',
 						'stroke': 'none'
 					});
-				/*
 				bgGroup.child(Haeckel.SVG_NS, 'line')
 					.attrs(Haeckel.SVG_NS, {
 						x1: dividerX + 'px',
 						x2: dividerX + 'px',
 						y1: '0px',
 						y2: FIGURE_HEIGHT + 'px',
+						'opacity': '0.25',
 						'stroke': Haeckel.BLACK.hex,
 						'stroke-linecap': 'square',
-						'stroke-width': '0.5px'
+						'stroke-width': '2px'
 					});
-				*/
 			}
 
 			function sectionTitles()
@@ -741,10 +771,11 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			}
 
 			background();
-			times();
+			timesGroup = builder.child(Haeckel.SVG_NS, 'g');
 			mtChart();
 			morphChart();
 			dividerX = AREA.left + AREA.width * (DIVIDER_COLUMN + 0.5) / (maxColumn + 2);
+			times();
 			divider();
 			sectionTitles();
 			legend();
