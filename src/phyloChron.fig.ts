@@ -602,7 +602,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					}
 				});
 				var TIME_INCREMENT = -1000000;
-				for (var time = TIME.max + TIME_INCREMENT; time > TIME.min; time += TIME_INCREMENT)
+				for (var time = TIME.max + TIME_INCREMENT; time >= TIME.min; time += TIME_INCREMENT)
 				{
 					var y = chart.getTimeY(Haeckel.rng.create(time, time)).mean;
 					group.child(Haeckel.SVG_NS, 'rect')
@@ -768,7 +768,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					'font-size': '20px',
 					'font-weight': 'bolder',
 					'font-family': 'Myriad Pro',
-					y: '40px'
+					y: MARGIN + 'px'
 				};
 				bgGroup.child(Haeckel.SVG_NS, 'text')
 					.text('ANATOMY')
