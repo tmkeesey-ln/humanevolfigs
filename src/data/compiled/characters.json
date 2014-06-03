@@ -660,7 +660,7 @@
 					{
 						"Member 3, Swartkrans Cave, South Africa": [[-25.93, 27.79]]
 					},
-					"time": [-600000, -1000000],
+					"time": [-1600000, -1000000],
 					"note": "SKX 19576, 22511, 27504, 33355, 35439, 35822, 36712"
 				}
 			],
@@ -1960,29 +1960,17 @@
 				},
 				{
 					"count": 100,
-					"geo":
-					{
-						"name": "Africa"
-					},
-					"note": ":TODO: Provisional - need to split out.",
+					"note": "Africa :TODO: Provisional - need to split out.",
 					"time": [-80000, -6000]
 				},
 				{
 					"count": 200,
-					"geo":
-					{
-						"name": "Old World & Australasia"
-					},
-					"note": ":TODO: Need to split out.",
+					"note": "Old World & Australasia :TODO: Need to split out.",
 					"time": [-45000, -6000]
 				},
 				{
 					"count": 50,
-					"geo":
-					{
-						"name": "Americas"
-					},
-					"note": ":TODO: Need to split out.",
+					"note": "Americas :TODO: Need to split out.",
 					"time": [-20000, -6000]
 				}
 			],

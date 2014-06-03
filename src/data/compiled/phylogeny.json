@@ -112,85 +112,87 @@
 					]
 				],
 				[
+					"Chororapithecus",
 					"Graecopithecus",
 					"Nakalipithecus",
 					"Ouranopithecus",
 					"Samburupithecus",
 					"Udabnopithecus",
 					[
+						"Gorilla",
 						[
-							"Chororapithecus",
-							"Gorilla"
-						],
-						[
-							"Ardipithecus kadabba",
-							"Orrorin",
-							"Sahelanthropus",
 							"Pan",
 							[
-								"Ardipithecus ramidus",
-								"Australopithecus praegens",
+								"Orrorin",
+								"Sahelanthropus",
 								[
-									"Australopithecus anamensis",
-									"Hominina indet. A",
+									"Ardipithecus",
+									"Australopithecus praegens",
 									[
-										"Australopithecus aff. afarensis",
-										"Australopithecus afarensis",
-										"Australopithecus garhi",
-										"Australopithecus africanus",
-										"Australopithecus platyops",
+										"Australopithecus anamensis",
 										[
-											"Paranthropus aethiopicus",
-											"Paranthropus indet.",
+											"Australopithecus aff. afarensis",
+											"Australopithecus afarensis",
 											[
-												"Paranthropus boisei",
-												"Paranthropus robustus"
-											]
-										],
-										[
-											"Hominina indet. B",
-											"Australopithecus sediba",
-											[
-												"Homo aff. habilis",
-												"Homo floresiensis",
-												"Homo habilis",
-												"Homo rudolfensis",
-												"Homo indet. A",
-												"Homo indet. B",
+												"Australopithecus garhi",
 												[
-													"Homo ergaster ergaster",
-													"Homo ergaster georgicus",
-													"Homo modjokertensis",
-													"Homo yuanmouensis",
-													"Homo indet. C",
-													"Homo indet. D",
-													"Homo indet. E",
-													"Homo indet. F",
+													"Australopithecus africanus",
+													"Australopithecus platyops",
+													"Australopithecus sp.",
+													"Hominina indet. A",
 													[
-														"Homo erectus",
-														"Homo heidelbergensis daliensis",
-														"Homo heidelbergensis mabaensis"
+														"Paranthropus aethiopicus",
+														"Paranthropus indet.",
+														[
+															"Paranthropus boisei",
+															"Paranthropus robustus"
+														]
 													],
 													[
-														"Homo heidelbergensis antecessor",
+														"Australopithecus indet.",
+														"Australopithecus sediba",
 														[
-															"Homo heidelbergensis cepranensis",
-															"Homo heidelbergensis narmadensis",
-															"Homo heidelbergensis ssp.",
+															"Homo aff. habilis",
+															"Homo floresiensis",
+															"Homo habilis",
+															"Homo rudolfensis",
+															"Homo indet. A",
+															"Homo indet. B",
 															[
-																"Homo heidelbergensis daliensis",
-																"Homo heidelbergensis mabaensis",
-																"Homo heidelbergensis rhodesiensis",
-																"Homo sapiens"
-															],
-															[
-																"Homo heidelbergensis heidelbergensis",
-																"Homo sp. (Denisova)",
+																"Homo ergaster ergaster",
+																"Homo ergaster georgicus",
+																"Homo modjokertensis",
+																"Homo yuanmouensis",
+																"Homo indet. C",
+																"Homo indet. D",
+																"Homo indet. E",
+																"Homo indet. F",
 																[
-																	"Homo neanderthalensis paleohungaricus",
+																	"Homo erectus",
 																	[
-																		"Homo neanderthalensis ssp. (Transitional)",
-																		"Homo neanderthalensis neanderthalensis"
+																		"Homo heidelbergensis antecessor",
+																		[
+																			"Homo heidelbergensis cepranensis",
+																			"Homo heidelbergensis narmadensis",
+																			"Homo heidelbergensis ssp.",
+																			[
+																				"Homo heidelbergensis daliensis",
+																				"Homo heidelbergensis mabaensis",
+																				"Homo heidelbergensis rhodesiensis",
+																				"Homo sapiens"
+																			],
+																			[
+																				"Homo heidelbergensis heidelbergensis",
+																				"Homo sp. (Denisova)",
+																				[
+																					"Homo neanderthalensis paleohungaricus",
+																					[
+																						"Homo neanderthalensis ssp. (Transitional)",
+																						"Homo neanderthalensis neanderthalensis"
+																					]
+																				]
+																			]
+																		]
 																	]
 																]
 															]

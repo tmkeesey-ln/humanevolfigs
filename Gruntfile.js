@@ -90,6 +90,12 @@ module.exports = function(grunt)
 				dest: 'src/craniodental.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			craniodentalChron:
+			{
+				src: [ 'src/craniodentalChron.fig.ts' ],
+				dest: 'src/craniodentalChron.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			craniodentalExtant:
 			{
 				src: [ 'src/distanceChart.ts',	'src/craniodentalExtant.fig.ts' ],
@@ -163,6 +169,7 @@ module.exports = function(grunt)
 		render:
 		{
 			craniodental: {},
+			craniodentalChron: {},
 			craniodentalExtant: {},
 			extant: {},
 			geoChron: {},
@@ -174,6 +181,7 @@ module.exports = function(grunt)
 		figure:
 		{
 			craniodental: {},
+			craniodentalChron: {},
 			craniodentalExtant: {},
 			extant: {},
 			geoChron: {},
