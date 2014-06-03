@@ -133,11 +133,11 @@
 										[
 											"Australopithecus aff. afarensis",
 											"Australopithecus afarensis",
+											"Australopithecus platyops",
 											[
 												"Australopithecus garhi",
 												[
 													"Australopithecus africanus",
-													"Australopithecus platyops",
 													"Australopithecus sp.",
 													"Hominina indet. A",
 													[
@@ -159,6 +159,7 @@
 															"Homo indet. A",
 															"Homo indet. B",
 															[
+																"Homo erectus",
 																"Homo ergaster ergaster",
 																"Homo ergaster georgicus",
 																"Homo modjokertensis",
@@ -168,28 +169,25 @@
 																"Homo indet. E",
 																"Homo indet. F",
 																[
-																	"Homo erectus",
+																	"Homo heidelbergensis antecessor",
 																	[
-																		"Homo heidelbergensis antecessor",
+																		"Homo heidelbergensis cepranensis",
+																		"Homo heidelbergensis narmadensis",
+																		"Homo heidelbergensis ssp.",
 																		[
-																			"Homo heidelbergensis cepranensis",
-																			"Homo heidelbergensis narmadensis",
-																			"Homo heidelbergensis ssp.",
+																			"Homo heidelbergensis daliensis",
+																			"Homo heidelbergensis mabaensis",
+																			"Homo heidelbergensis rhodesiensis",
+																			"Homo sapiens"
+																		],
+																		[
+																			"Homo heidelbergensis heidelbergensis",
+																			"Homo sp. (Denisova)",
 																			[
-																				"Homo heidelbergensis daliensis",
-																				"Homo heidelbergensis mabaensis",
-																				"Homo heidelbergensis rhodesiensis",
-																				"Homo sapiens"
-																			],
-																			[
-																				"Homo heidelbergensis heidelbergensis",
-																				"Homo sp. (Denisova)",
+																				"Homo neanderthalensis paleohungaricus",
 																				[
-																					"Homo neanderthalensis paleohungaricus",
-																					[
-																						"Homo neanderthalensis ssp. (Transitional)",
-																						"Homo neanderthalensis neanderthalensis"
-																					]
+																					"Homo neanderthalensis ssp. (Transitional)",
+																					"Homo neanderthalensis neanderthalensis"
 																				]
 																			]
 																		]

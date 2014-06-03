@@ -39,7 +39,7 @@
 												"Homo erectus",
 												[
 													"Homo ergaster ergaster",
-													"Homo rhodesiensis"
+													"Homo heidelbergensis rhodesiensis"
 												]
 											]
 										]
@@ -66,7 +66,7 @@
 										[ "Dmanisi", "Homo ergaster ergaster" ],
 										[
 											"Homo erectus",
-											[ "Homo rhodesiensis", "Homo sapiens" ]
+											[ "Homo heidelbergensis rhodesiensis", "Homo sapiens" ]
 										]
 									]
 								]

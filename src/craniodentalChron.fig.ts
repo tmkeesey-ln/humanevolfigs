@@ -97,6 +97,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	        var distance = getCraniodentalDistance(sources);
 	        var nameMap = sources.nomenclature.nameMap;
 
+	        builder.child(Haeckel.SVG_NS, 'clipPath')
+	        	.attr(Haeckel.SVG_NS, 'id', 'chart-area')
+	        	.child(Haeckel.SVG_NS, 'rect')
+	        	.attrs(Haeckel.SVG_NS, {
+	        		x: AREA.left + 'px',
+	        		y: AREA.top + 'px',
+	        		width: AREA.width + 'px',
+	        		height: AREA.height + 'px'
+	        	});
+
 			var chart = new Haeckel.OccurrencePlotChart();
 			chart.area = AREA;
 			chart.characterMatrix = sources.sources["data/compiled/characters.json"].occurrences;
@@ -107,7 +117,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			chart.random = Haeckel.seedRandom(1);
 			chart.radius = 1.5;
 			chart.time = Haeckel.rng.create(TIME_START, 0);
-			chart.render(builder);
+			chart.render(builder)
+				.attr(Haeckel.SVG_NS, 'clip-path', 'url(#chart-area)');
 		}
 		catch (e)
 		{
