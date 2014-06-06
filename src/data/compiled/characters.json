@@ -432,6 +432,18 @@
 					}
 				}
 			],
+			"Bodvapithecus altipalatus":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Rudabanya, Hungary": [[48.37, 20.62]]
+					},
+					"note": ":TODO: Not sure of count.",
+					"time": [-10000000, -9500000]
+				}
+			],
 			"Chororapithecus abyssinicus":
 			[
 				{
