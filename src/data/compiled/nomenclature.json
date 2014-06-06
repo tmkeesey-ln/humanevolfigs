@@ -27,6 +27,7 @@
 				["Australopithecus afarensis", "Australopithecus afarensis afarensis"],
 				["Australopithecus afarensis", "Australopithecus afarensis antiquus"],
 				["Australopithecus afarensis", "Australopithecus afarensis sspp."],
+				["Bodvapithecus", "Bodvapithecus altipalatus"]
 				["Chororapithecus", "Chororapithecus abyssinicus"],
 				["Colobus", "Colobus guereza"],
 				["Dryopithecinae", "Anoiapithecus"],
@@ -156,6 +157,7 @@
 				["Paranthropus", "Paranthropus robustus"],
 				["Pierolapithecus", "Pierolapithecus catalaunicus"],
 				["Ponginae", "Ankarapithecus"],
+				["Ponginae", "Bodvapithecus"],
 				["Ponginae", "Gigantopithecus"],
 				["Ponginae", "Khoratpithecus"],
 				["Ponginae", "Lufengpithecus"],
