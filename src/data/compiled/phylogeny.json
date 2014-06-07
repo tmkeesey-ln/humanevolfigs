@@ -12,7 +12,6 @@
 			"hyponymies":
 			[
 				["stem-orangutans", "Ankarapithecus"],
-				["stem-orangutans", "Bodvapithecus"],
 				["stem-orangutans", "Gigantopithecus"],
 				["stem-orangutans", "Khoratpithecus"],
 				["stem-orangutans", "Lufengpithecus"],
@@ -94,6 +93,7 @@
 		{
 			"allTaxa":
 			[
+				"Bodvapithecus",
 				"Hispanopithecus",
 				[
 					"Pierolapithecus",
@@ -104,7 +104,6 @@
 					"Ponginae indet.",
 					[
 						"Ankarapithecus",
-						"Bodvapithecus",
 						"Gigantopithecus",
 						"Sivapithecus",
 						[
