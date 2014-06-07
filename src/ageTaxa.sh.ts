@@ -5,6 +5,7 @@ interface TaxonEntry
 {
   names: string[];
   count: number[];
+  timeRatio: number[];
 }
 
 interface Entry
@@ -14,7 +15,7 @@ interface Entry
   taxa: TaxonEntry[];
 }
 
-var MIN_COUNT = 0.1;
+var MIN_COUNT = 0.5;
 
 var SOURCE_LIST: string[] = [
   'data/compiled/characters.json',
@@ -38,6 +39,14 @@ var output: Entry[] = [];
 var ages = Haeckel.ext.list(dataSources.sources['data/2014 - ICS.json'].strata)
   .filter((stratum: Haeckel.Stratum) => stratum.type === 'stage/age')
   .sort((a: Haeckel.Stratum, b: Haeckel.Stratum) => b.start.mean - a.start.mean);
+
+ages.unshift({
+  name: 'Recent',
+  start: ages[0].end,
+  end: Haeckel.RANGE_0,
+  type: 'stage/age',
+  hash: '(stratum:stage/age:Recent)'
+});
   
 var occurrences = dataSources.sources['data/compiled/characters.json'].occurrences;
 
@@ -64,19 +73,27 @@ Haeckel.arr.each(ages, (age: Haeckel.Stratum) =>
     {
       var names = Haeckel.ext.list(Haeckel.nom.forTaxon(dataSources.nomenclature, unit)).sort();
       var counts: Haeckel.Range[] = [];
+      var times: Haeckel.Range[] = [];
       Haeckel.arr.each(ageOccurrences, (occurrence: Haeckel.Occurrence) =>
       {
         var intersectTime = Haeckel.rng.intersect(ageTime, occurrence.time);
         var ratio = occurrence.time.size === 0 ? 1.0 : intersectTime.size / occurrence.time.size;
         counts.push(Haeckel.rng.multiply(occurrence.count, ratio));
+        times.push(intersectTime);
       });
-      var count = Haeckel.rng.sum(counts);
-      if (count.max > MIN_COUNT)
+      if (times.length > 0)
       {
-        entry.taxa.push({
-          names: names,
-          count: [count.min, count.max]
-        });
+        var count = Haeckel.rng.sum(counts);
+        if (count.max >= MIN_COUNT)
+        {
+          var time = Haeckel.rng.combine(times);
+          var timeRatio = Haeckel.rng.multiply(Haeckel.rng.add(time, -ageTime.min), 1 / ageTime.size);
+          entry.taxa.push({
+            names: names,
+            count: [count.min, count.max],
+            timeRatio: [timeRatio.min, timeRatio.max]
+          });
+        }
       }
     }
   });

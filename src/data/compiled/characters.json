@@ -945,7 +945,7 @@
 					"note": "placement provisional"
 				}
 			],
-			"Homo heidelbergensis heidelbergensis":
+			"Homo heidelbergensis heidelbergensis (general)":
 			[
 				{
 					"count": [1, 6],
@@ -1786,7 +1786,7 @@
 					"time": [-132000, -88000]
 				}
 			],
-			"Homo sapiens sapiens":
+			"Homo sapiens sapiens (fossil)":
 			[
 				{
                     "count": 15,
@@ -1966,11 +1966,6 @@
 					}
 				},
 				{
-					"count": 100000000000,
-					"note": "worldwide",
-					"time": [-6000, 0]
-				},
-				{
 					"count": 100,
 					"note": "Africa :TODO: Provisional - need to split out.",
 					"time": [-80000, -6000]
@@ -1984,6 +1979,14 @@
 					"count": 50,
 					"note": "Americas :TODO: Need to split out.",
 					"time": [-20000, -6000]
+				}
+			],
+			"Homo sapiens sapiens (living)":
+			[
+				{
+					"count": 100000000000,
+					"note": "worldwide",
+					"time": [-6000, 0]
 				}
 			],
 			"Homo sapiens ssp.":
