@@ -84,6 +84,12 @@ module.exports = function(grunt)
 		},
 		typescript:
 		{
+			ageTaxa:
+			{
+				src: [ 'src/ageTaxa.sh.ts' ],
+				dest: 'src/ageTaxa.sh.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			craniodental:
 			{
 				src: [ 'src/distanceChart.ts',	'src/craniodental.fig.ts' ],
@@ -192,6 +198,7 @@ module.exports = function(grunt)
 		},
         analyze:
         {
+            ageTaxa: {},
             distanceDetails: {},
             phylogeny: {},
             synapomorphies: {}
