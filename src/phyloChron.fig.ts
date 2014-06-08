@@ -555,7 +555,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					return b.start.mean - a.start.mean;
 				});
 				var fillStratum = false;
-				Haeckel.ext.each(sources.sources['data/2014 - ICS.json'].strata, (stratum: Haeckel.Stratum) =>
+				Haeckel.arr.each(strata, (stratum: Haeckel.Stratum) =>
 				{
 					if (stratum && stratum.type === 'series/epoch')
 					{

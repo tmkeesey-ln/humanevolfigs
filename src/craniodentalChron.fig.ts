@@ -16,7 +16,7 @@ function getCraniodentalDistance(sources: Haeckel.DataSources): Haeckel.Distance
 {
 	var nameMap = sources.nomenclature.nameMap;
 	var solver = new Haeckel.PhyloSolver(sources.sources["data/compiled/phylogeny.json"].phylogenies["allTaxa"]);
-	var specifiers = Haeckel.tax.union([ nameMap["Homo sapiens sapiens"], nameMap["Pongo pygmaeus"] ]);
+	var specifiers = Haeckel.tax.union([ nameMap["Homo sapiens sapiens (living)"], nameMap["Pongo pygmaeus"] ]);
 	var outgroup = Haeckel.tax.union([ nameMap['Colobus guereza'], nameMap['Papio'] ]);
 	var source = sources.sources["data/2004 - Strait & Grine.json"];
 	var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>();
@@ -68,19 +68,13 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
-		function regionTaxon(taxonName: string, typeName?: string): Haeckel.RegionTaxon
-		{
-			var rt: Haeckel.RegionTaxon = {
-				taxon: sources.nomenclature.nameMap[taxonName]
-			};
-			if (typeof typeName === 'string')
-			{
-				rt.type = sources.nomenclature.nameMap[typeName];
-			}
-			return rt;
-		}
+        var AREA = Haeckel.rec.createFromCoords(MARGIN, MARGIN, FIGURE_WIDTH - MARGIN, FIGURE_HEIGHT - MARGIN);
+        var TIME = Haeckel.rng.create(TIME_START, 0);
+		var chart = new Haeckel.ChronoChart();
+		chart.area = AREA;
+		chart.time = TIME;
 
-		try
+		function drawBackground()
 		{
 			builder.child(Haeckel.SVG_NS, 'rect')
 				.attrs(Haeckel.SVG_NS, {
@@ -91,13 +85,123 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					width: FIGURE_WIDTH + 'px',
 					height: FIGURE_HEIGHT + 'px'
 				});
+		}
 
-	        var AREA = Haeckel.rec.createFromCoords(MARGIN, MARGIN, FIGURE_WIDTH - MARGIN * 2, FIGURE_HEIGHT - MARGIN * 2);
+		function drawStrata()
+		{
+			var group = builder.child(Haeckel.SVG_NS, 'g');
+			var top = chart.getTimeY(Haeckel.RANGE_0);
+			group.child(Haeckel.SVG_NS, 'rect')
+				.attrs({
+					fill: Haeckel.BLACK.hex,
+					'fill-opacity': '0.333',
+					stroke: 'none',
+					x: '0px',
+					y: (top.min - 1) + 'px',
+					width: FIGURE_WIDTH + 'px',
+					height: '1px'
+				});
+			var strata = Haeckel.ext.list(sources.sources['data/2014 - ICS.json'].strata);
+			strata.sort((a: Haeckel.Stratum, b: Haeckel.Stratum) => b.start.mean - a.start.mean);
+			var stages = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'stage/age');
+			var series = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'series/epoch');
+			var fillStratum = false;
+			Haeckel.arr.each(stages, (stratum: Haeckel.Stratum) =>
+			{
+				if (fillStratum)
+				{
+					var startY = chart.getTimeY(stratum.start);
+					var endY = chart.getTimeY(stratum.end);
+					if (endY.mean <= FIGURE_HEIGHT)
+					{
+						group.child(Haeckel.SVG_NS, 'rect')
+							.attrs({
+								fill: Haeckel.BLACK.hex,
+								'fill-opacity': '0.1',
+								stroke: 'none',
+								x: '0px',
+								y: endY.mean + 'px',
+								width: FIGURE_WIDTH + 'px',
+								height: (startY.mean - endY.mean) + 'px'
+							});
+					}
+				}
+				fillStratum = !fillStratum;
+			});
+			Haeckel.arr.each(series, (stratum: Haeckel.Stratum) =>
+			{
+				var startY = chart.getTimeY(stratum.start);
+				var endY = chart.getTimeY(stratum.end);
+				group.child(Haeckel.SVG_NS, 'rect')
+						.attrs({
+							fill: Haeckel.BLACK.hex,
+							'fill-opacity': '0.75',
+							stroke: 'none',
+							x: '0px',
+							y: endY.mean + 'px',
+							width: FIGURE_WIDTH + 'px',
+							height: '1px'
+						});
+				if ((startY.mean - endY.mean) > 16)
+				{
+					var text = group.child(Haeckel.SVG_NS, 'text')
+						.text(stratum.name.toUpperCase())
+						.attrs(Haeckel.SVG_NS, {
+							'fill': Haeckel.BLACK.hex,
+							'fill-opacity': '0.5',
+							'font-size': '16px',
+							'font-weight': 'bold',
+							'font-family': "Myriad Pro",
+							'text-anchor': 'middle'
+						});
+					var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+					var y = Math.min((startY.mean + endY.mean) / 2, FIGURE_HEIGHT - MARGIN - box.width / 2);
+					text.attr(Haeckel.SVG_NS, 'transform',
+						'translate(' + (MARGIN + 8) + ',' + y + ') rotate(-90)');
+				}
+			});
+		}
 
+		/*
+		function drawTimes()
+		{
+			var group = builder.child(Haeckel.SVG_NS, 'g');
+			var TIME_INCREMENT = -1000000;
+			for (var time = TIME.max + TIME_INCREMENT; time >= TIME.min; time += TIME_INCREMENT)
+			{
+				var y = chart.getTimeY(Haeckel.rng.create(time, time)).mean;
+				group.child(Haeckel.SVG_NS, 'rect')
+					.attrs({
+						fill: Haeckel.BLACK.hex,
+						'fill-opacity': '0.15',
+						stroke: 'none',
+						x: '0px',
+						y: (y - 0.5) + 'px',
+						width: FIGURE_WIDTH + 'px',
+						height: '1px'
+					});
+				group.child(Haeckel.SVG_NS, 'text')
+					.text(Math.round(time / -1000000) + ' Mya')
+					.attrs(Haeckel.SVG_NS, {
+						x: (FIGURE_WIDTH - MARGIN) + 'px',
+						y: (y - 1) + 'px',
+						'font-weight': 'bold',
+						'fill': Haeckel.BLACK.hex,
+						'fill-opacity': '0.5',
+						'font-size': '12px',
+						'font-family': "Myriad Pro",
+						'text-anchor': 'end'
+					});
+			}
+		}
+		*/
+
+		function plotOccurrences()
+		{
 	        var distance = getCraniodentalDistance(sources);
 	        var nameMap = sources.nomenclature.nameMap;
 
-	        builder.child(Haeckel.SVG_NS, 'clipPath')
+	        defs().child(Haeckel.SVG_NS, 'clipPath')
 	        	.attr(Haeckel.SVG_NS, 'id', 'chart-area')
 	        	.child(Haeckel.SVG_NS, 'rect')
 	        	.attrs(Haeckel.SVG_NS, {
@@ -112,13 +216,70 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			chart.characterMatrix = sources.sources["data/compiled/characters.json"].occurrences;
 			chart.horizontalRatioMap = distanceMatrixToRatioMap(distance,
 				nameMap["Pongo pygmaeus"],
-				nameMap["Homo sapiens sapiens"],
+				nameMap["Homo sapiens sapiens (living)"],
 				Haeckel.rng.create(MIN_RANGE_SIZE, MAX_RANGE_SIZE));
+			chart.drawArea = (builder: Haeckel.ElementBuilder, area: Haeckel.Rectangle, taxon: Haeckel.Taxic) =>
+			{
+				var left = area.left;
+				var width = area.width;
+				var top = area.top;
+				var height = area.height;
+				if (width < 2)
+				{
+					left = area.centerX - 1;
+					width = 2;
+				}
+				if (height < 2)
+				{
+					top = area.centerY - 1;
+					height = 2;
+				}
+				builder.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						x: left + 'px',
+						y: top + 'px',
+						width: width + 'px',
+						height: height + 'px',
+						fill: Haeckel.BLACK.hex,
+						stroke: 'none'
+					});
+			};
+			chart.drawPoint = (builder: Haeckel.ElementBuilder, point: Haeckel.Point, taxon: Haeckel.Taxic) =>
+			{
+				builder.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						x: (point.x - 1) + 'px',
+						y: (point.y - 1) + 'px',
+						width: '2px',
+						height: '2px',
+						fill: Haeckel.BLACK.hex,
+						stroke: 'none'
+					});
+			};
 			chart.random = Haeckel.seedRandom(1);
-			chart.radius = 1.5;
-			chart.time = Haeckel.rng.create(TIME_START, 0);
+			chart.time = TIME;
 			chart.render(builder)
 				.attr(Haeckel.SVG_NS, 'clip-path', 'url(#chart-area)');
+		}
+
+		function regionTaxon(taxonName: string, typeName?: string): Haeckel.RegionTaxon
+		{
+			var rt: Haeckel.RegionTaxon = {
+				taxon: sources.nomenclature.nameMap[taxonName]
+			};
+			if (typeof typeName === 'string')
+			{
+				rt.type = sources.nomenclature.nameMap[typeName];
+			}
+			return rt;
+		}
+
+		try
+		{
+			drawBackground();
+			drawStrata();
+			//drawTimes();
+			plotOccurrences();
 		}
 		catch (e)
 		{
