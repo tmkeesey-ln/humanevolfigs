@@ -121,9 +121,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				return false;
 			}
 
-			builder.child(SVG_NS, 'clipPath')
-				.attr(SVG_NS, 'id', id + '-mask')
-				.child(SVG_NS, 'rect')
+			var clipPath = builder.child(SVG_NS, 'clipPath')
+				.attr(SVG_NS, 'id', id + '-mask');
+			clipPath.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
 						x: area.x + 'px',
 						y: area.y + 'px',
@@ -150,6 +150,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			chart.render(occGroup);
 			if (!(occGroup.build().childNodes.length > 0))
 			{
+				clipPath.detach();
+				chartGroup.detach();
 				return false;
 			}
 
@@ -179,7 +181,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		function getStratumTime(name: string): Haeckel.Range
 		{
 			var stratum: Haeckel.Stratum;
-			Haeckel.ext.each(sources.sources['data/2012 - ICS.json'].strata, (candidate: Haeckel.Stratum) =>
+			Haeckel.ext.each(sources.sources['data/2014 - ICS.json'].strata, (candidate: Haeckel.Stratum) =>
 			{
 				if (candidate.name === name)
 				{

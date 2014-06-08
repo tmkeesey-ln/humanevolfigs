@@ -379,7 +379,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						stroke: 'none'
 					});
 			};
-			chart.random = Haeckel.seedRandom(4);
+			chart.random = Haeckel.seedRandom(0);
 			chart.time = TIME;
 			chart.render(builder)
 				.attr(Haeckel.SVG_NS, 'clip-path', 'url(#chart-area)');
