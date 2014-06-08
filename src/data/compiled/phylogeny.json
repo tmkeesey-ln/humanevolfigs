@@ -11,6 +11,8 @@
 		{
 			"hyponymies":
 			[
+				["Australopithecus & Praeanthropus", "Australopithecus"],
+				["Australopithecus & Praeanthropus", "Praeanthropus"],
 				["stem-orangutans", "Ankarapithecus"],
 				["stem-orangutans", "Gigantopithecus"],
 				["stem-orangutans", "Khoratpithecus"],
@@ -25,12 +27,12 @@
 				["fossil orangutans", "Pongo palaeosumatrensis"],
 				["fossil orangutans", "Pongo weidenreichi"],
 				["fossil orangutans", "Pongo (Pongo) indet."],
-				["stem-African great apes", "Chororapithecus"],
-				["stem-African great apes", "Graecopithecus"],
-				["stem-African great apes", "Nakalipithecus"],
-				["stem-African great apes", "Ouranopithecus"],
-				["stem-African great apes", "Samburupithecus"],
-				["stem-African great apes", "Udabnopithecus"]
+				["stem African great apes", "Chororapithecus"],
+				["stem African great apes", "Graecopithecus"],
+				["stem African great apes", "Nakalipithecus"],
+				["stem African great apes", "Ouranopithecus"],
+				["stem African great apes", "Samburupithecus"],
+				["stem African great apes", "Udabnopithecus"]
 			]
 		},
 		"phyloGraphs":
@@ -39,12 +41,12 @@
 			[
 				["Hominidae*", "Dryopithecinae"],
 				["Hominidae*", "stem-orangutans"],
-				["Hominidae*", "stem-African great apes"],
+				["Hominidae*", "stem African great apes"],
 				["stem-orangutans", "fossil orangutans"],
 				["fossil orangutans", "Pongo abelii"],
 				["fossil orangutans", "Pongo pygmaeus"],
-				["stem-African great apes", "Gorilla*"],
-				["stem-African great apes", "Hominini*"],
+				["stem African great apes", "Gorilla*"],
+				["stem African great apes", "Hominini*"],
 				["Gorilla*", "Gorilla beringei"],
 				["Gorilla*", "Gorilla gorilla"],
 				["Hominini*", "Pan*"],
@@ -55,9 +57,12 @@
 				["Hominina*", "Sahelanthropus"],
 				["Hominina*", "Hominina2*"],
 				["Hominina2*", "Ardipithecus"],
-				["Hominina2*", "Australopithecus"],
-				["Australopithecus", "Paranthropus"],
-				["Australopithecus", "Homo*"],
+				["Hominina2*", "Australopithecus & Praeanthropus"],
+				["Australopithecus & Praeanthropus", "Hominina3*"],
+				["Hominina3*", "Hominina4*"],
+				["Hominina3*", "Homo*"],
+				["Hominina4*", "Kenyanthropus"],
+				["Hominina4*", "Paranthropus"],
 				["Homo*", "Homo floresiensis"],
 				["Homo*", "Homo habilis"],
 				["Homo*", "Homo rudolfensis"],

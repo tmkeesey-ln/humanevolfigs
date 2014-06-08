@@ -29,77 +29,77 @@ interface TaxonEntry extends NameEntry
 	showName?: boolean;
 }
 
-var DIVIDER_COLUMN = 20.5;
+var DIVIDER_COLUMN = 21.5;
 
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Bornean orangutans": {
-		column: 21
+		column: 22
 	},
 	"mt-Pongo*": {
-		column: 21.5,
+		column: 22.5,
 		ancestral: true
 	},
 	"Sumatran orangutans": {
-		column: 22
+		column: 23
 	},
 	"mt-Hominidae*": {
-		column: 23.375,
+		column: 24.375,
 		ancestral: true
 	},
 	"western gorillas": {
-		column: 23
+		column: 24
 	},
 	"mt-Homininae*": {
-		column: 25.25,
+		column: 26.25,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
-		column: 23.5,
+		column: 24.5,
 		ancestral: true
 	},
 	"eastern gorillas": {
-		column: 24
+		column: 25
 	},
 	"mt-Hominini*": {
-		column: 27,
+		column: 28,
 		ancestral: true
 	},
 	"bonobo chimpanzees": {
-		column: 25
+		column: 26
 	},
 	"mt-Pan*": {
-		column: 25.5,
+		column: 26.5,
 		ancestral: true
 	},
 	"common chimpanzees": {
-		column: 26
+		column: 27
 	},
 	"mt-Homo*": {
-		column: 28.5,
+		column: 29.5,
 		ancestral: true
 	},
 	"mt-HomoA*": {
-		column: 27.5,
+		column: 28.5,
 		ancestral: true
 	},
 	"mt-HomoB*": {
-		column: 29.5,
+		column: 30.5,
 		ancestral: true
 	},
 	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
 		name: "Sima de los Huesos",
-		column: 27
+		column: 28
 	},
 	"Homo sp. (Denisova)": {
 		name: "Denisova",
-		column: 28
+		column: 29
 	},
 	"Homo neanderthalensis neanderthalensis": {
 		name: "Neandertals",
-		column: 29
+		column: 30
 	},
 	"mt-MRCA": {
-		column: 30,
+		column: 31,
 		name: "mitochondrial \"Eve\"",
 		ancestral: true
 	}
@@ -129,7 +129,7 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"western gorillas": {
 		column: 4
 	},
-	"stem-African great apes": {
+	"stem African great apes": {
 		column: 6
 	},
 	"Gorilla*": {
@@ -172,51 +172,63 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 9,
 		italic: true
 	},
-	"Paranthropus": {
+	"Australopithecus & Praeanthropus": {
 		column: 10,
 		italic: true
 	},
-	"Australopithecus": {
+	"Paranthropus": {
 		column: 11,
 		italic: true
 	},
-	"Homo rudolfensis": {
+	"Hominina4*": {
+		column: 11.5,
+		ancestral: true
+	},
+	"Hominina3*": {
+		column: 12,
+		ancestral: true
+	},
+	"Kenyanthropus": {
 		column: 12,
 		italic: true
 	},
-	"Homo*": {
+	"Homo rudolfensis": {
 		column: 13,
+		italic: true
+	},
+	"Homo*": {
+		column: 14,
 		ancestral: true
 	},
 	"Homo habilis": {
-		column: 13,
+		column: 14,
 		italic: true
 	},
 	"Floresian \"hobbits\"": {
-		column: 14,
+		column: 15,
 		italic: false
 	},
 	"Homo ergaster": {
-		column: 15,
+		column: 16,
 		italic: true
 	},
 	"Homo2*": {
-		column: 16,
+		column: 17,
 		ancestral: true
 	},
 	"Homo erectus": {
-		column: 16,
+		column: 17,
 		italic: true
 	},
 	"Neandertals": {
-		column: 17
+		column: 18
 	},
 	"Homo heidelbergensis": {
-		column: 18,
+		column: 19,
 		italic: true
 	},
 	"humans": {
-		column: 19
+		column: 20
 	}
 };
 

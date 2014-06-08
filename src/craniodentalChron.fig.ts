@@ -65,6 +65,14 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.TOP
 	},
+	"Praeanthropus": {
+		italic: true,
+		position: LabelPosition.LEFT
+	},
+	"Kenyanthropus": {
+		italic: true,
+		position: LabelPosition.RIGHT
+	},
 	"Homo": {
 		italic: true,
 		position: LabelPosition.BOTTOM
