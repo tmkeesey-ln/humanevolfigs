@@ -99,23 +99,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				occurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(matrix, taxon, Haeckel.OCCURRENCE_CHARACTER);
 			occurrences = Haeckel.occ.timeSlice(time, occurrences);
 
-			/*
-			var taxonBuilder = new Haeckel.TaxonBuilder();
-			Haeckel.ext.each(taxon.units, function(unit: Haeckel.Taxic)
-			{
-				var unitTime = <Haeckel.Range> Haeckel.chr.states(matrix, unit, Haeckel.TIME_CHARACTER);
-				if (!unitTime)
-				{
-					return;
-				}
-				if (Haeckel.rng.overlap(unitTime, time))
-				{
-					taxonBuilder.add(unit);
-				}
-			})
-			console.log('taxa:', Haeckel.ext.list(Haeckel.nom.forSubtaxa(nomenclature, taxonBuilder.build())).join(', '));
-			*/
-
 			if (occurrences.empty)
 			{
 				return false;
@@ -148,7 +131,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			chart.occurrences = occurrences;
 			chart.area = area;
 			chart.render(occGroup);
-			if (!(occGroup.build().childNodes.length > 0))
+			if (!(occGroup.build().firstChild.childNodes.length > 0))
 			{
 				clipPath.detach();
 				chartGroup.detach();
