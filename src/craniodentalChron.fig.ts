@@ -5,7 +5,11 @@ enum LabelPosition
 	LEFT,
 	RIGHT,
 	TOP,
-	BOTTOM
+	TOP_LEFT,
+	TOP_RIGHT,
+	BOTTOM,
+	BOTTOM_LEFT,
+	BOTTOM_RIGHT
 }
 
 interface LabelInfo
@@ -16,9 +20,9 @@ interface LabelInfo
 	area?: Haeckel.Rectangle;
 }
 
-var MIN_RANGE_SIZE = 0.05;
+var MIN_RANGE_SIZE = 0.025;
 
-var MAX_RANGE_SIZE = 0.2;
+var MAX_RANGE_SIZE = 0.25;
 
 var TIME_START = -7246000;//-23030000;
 
@@ -28,18 +32,20 @@ var FIGURE_WIDTH = 800;
 
 var MARGIN = 25;
 
+var TOP_MARGIN = 75;
+
 var LABELS: { [name: string]: LabelInfo; } = {
 	"Ponginae": {
-		text: "orangutans &\nstem-orangutans",
-		position: LabelPosition.RIGHT
-	},
-	"Oreopithecus": {
 		italic: true,
 		position: LabelPosition.TOP
 	},
+	"Oreopithecus": {
+		italic: true,
+		position: LabelPosition.RIGHT
+	},
 	"Gorilla": {
 		text: 'gorillas',
-		position: LabelPosition.BOTTOM
+		position: LabelPosition.BOTTOM_LEFT
 	},
 	"Pan": {
 		text: 'chimpanzees',
@@ -59,11 +65,11 @@ var LABELS: { [name: string]: LabelInfo; } = {
 	},
 	"Australopithecus": {
 		italic: true,
-		position: LabelPosition.RIGHT
+		position: LabelPosition.LEFT
 	},
 	"Paranthropus": {
 		italic: true,
-		position: LabelPosition.TOP
+		position: LabelPosition.TOP_LEFT
 	},
 	"Praeanthropus": {
 		italic: true,
@@ -75,9 +81,93 @@ var LABELS: { [name: string]: LabelInfo; } = {
 	},
 	"Homo": {
 		italic: true,
-		position: LabelPosition.BOTTOM
+		position: LabelPosition.TOP_RIGHT
 	}
 };
+
+function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInfo, area: Haeckel.Rectangle)
+{
+	var anchor: string;
+	var x: number;
+	var y: number;
+	switch (info.position)
+	{
+		case LabelPosition.BOTTOM:
+		case LabelPosition.TOP:
+			anchor = "middle";
+			break;
+		case LabelPosition.LEFT:
+		case LabelPosition.BOTTOM_RIGHT:
+		case LabelPosition.TOP_RIGHT:
+			anchor = "end"
+			break;
+		case LabelPosition.RIGHT:
+		case LabelPosition.BOTTOM_LEFT:
+		case LabelPosition.TOP_LEFT:
+			anchor = "start"
+			break;
+		default:
+			throw new Error("Invalid position: " + info.position);
+	}
+	switch (info.position)
+	{
+		case LabelPosition.BOTTOM:
+		case LabelPosition.TOP:
+			x = area.centerX;
+			break;
+		case LabelPosition.LEFT:
+			x = area.left - 4;
+			break;
+		case LabelPosition.RIGHT:
+			x = area.right + 4;
+			break;
+		case LabelPosition.BOTTOM_RIGHT:
+		case LabelPosition.TOP_RIGHT:
+			x = area.right - 10;
+			break;
+		case LabelPosition.BOTTOM_LEFT:
+		case LabelPosition.TOP_LEFT:
+			x = area.left + 10;
+			break;
+		default:
+			throw new Error("Invalid position: " + info.position);
+	}
+	switch (info.position)
+	{
+		case LabelPosition.BOTTOM:
+		case LabelPosition.BOTTOM_LEFT:
+		case LabelPosition.BOTTOM_RIGHT:
+			y = area.bottom + 18;
+			break;
+		case LabelPosition.TOP:
+		case LabelPosition.TOP_LEFT:
+		case LabelPosition.TOP_RIGHT:
+			y = area.top - 4;
+			break;
+		case LabelPosition.LEFT:
+		case LabelPosition.RIGHT:
+			y = area.centerY + 9;
+			break;
+		default:
+			throw new Error("Invalid position: " + info.position);
+	}
+	var text = builder.child(Haeckel.SVG_NS, 'text')
+		.text(info.text || name)
+		.attrs({
+			'fill': Haeckel.BLACK.hex,
+			'fill-opacity': '0.5',
+			'font-size': '18px',
+			'font-weight': 'bold',
+			'font-family': "Myriad Pro",
+			'text-anchor': anchor,
+			x: x + 'px',
+			y: y + 'px'
+		});
+	if (info.italic)
+	{
+		text.attr(Haeckel.SVG_NS, 'font-style', 'italic');
+	}
+}
 
 function getCraniodentalDistance(sources: Haeckel.DataSources): Haeckel.DistanceMatrix<Haeckel.Taxic>
 {
@@ -137,7 +227,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
-        var AREA = Haeckel.rec.createFromCoords(MARGIN + 24, MARGIN, FIGURE_WIDTH - MARGIN, FIGURE_HEIGHT);
+        var AREA = Haeckel.rec.createFromCoords(MARGIN + 24, TOP_MARGIN, FIGURE_WIDTH - MARGIN, FIGURE_HEIGHT);
         var TIME = Haeckel.rng.create(TIME_START, 0);
 		var chart = new Haeckel.ChronoChart();
 		chart.area = AREA;
@@ -206,49 +296,53 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							stroke: Haeckel.BLACK.hex,
 							'stroke-opacity': '0.5',
 							'stroke-width': '1px',
+							'stroke-dasharray': '4 2',
 							x1: '0px',
-							y1: endY.mean + 'px',
+							y1: startY.mean + 'px',
 							x2: FIGURE_WIDTH + 'px',
-							y2: endY.mean + 'px'
+							y2: startY.mean + 'px'
 						});
-				boundaries.add(endY);
-				if ((startY.mean - endY.mean) > 16)
+				boundaries.add(startY);
+				var yRange = Haeckel.rng.create(endY.mean, Math.min(FIGURE_HEIGHT, startY.mean));
+				var text = group.child(Haeckel.SVG_NS, 'text')
+					.text(stratum.name === 'Miocene' ? 'MESSINIAN' : stratum.name.toUpperCase())
+					.attrs(Haeckel.SVG_NS, {
+						'fill': Haeckel.BLACK.hex,
+						'fill-opacity': '0.5',
+						'font-size': '24px',
+						'font-weight': 'bold',
+						'font-family': "Myriad Pro",
+						'text-anchor': 'middle',
+						'letter-spacing': '0.25em'
+					});
+				var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+				if (box.width > yRange.size)
 				{
-					var text = group.child(Haeckel.SVG_NS, 'text')
-						.text(stratum.name === 'Miocene' ? 'MESSINIAN' : stratum.name.toUpperCase())
-						.attrs(Haeckel.SVG_NS, {
-							'fill': Haeckel.BLACK.hex,
-							'fill-opacity': '0.5',
-							'font-size': '24px',
-							'font-weight': 'bold',
-							'font-family': "Myriad Pro",
-							'text-anchor': 'middle',
-							'letter-spacing': '0.25em'
-						});
-					var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
-					var y = Math.min((startY.mean + endY.mean) / 2, FIGURE_HEIGHT - MARGIN - box.width / 2);
+					text.detach();
+				}
+				else
+				{
 					text.attr(Haeckel.SVG_NS, 'transform',
-						'translate(' + (MARGIN + 12) + ',' + y + ') rotate(-90)');
+						'translate(' + (MARGIN + 12) + ',' + yRange.mean + ') rotate(-90)');
 				}
 			});
 			Haeckel.arr.each(stages, (stratum: Haeckel.Stratum) =>
 			{
-				var endY = chart.getTimeY(stratum.end);
-				if (boundaries.contains(endY))
+				var startY = chart.getTimeY(stratum.start);
+				if (boundaries.contains(startY))
 				{
 					return;
 				}
-				//var startY = chart.getTimeY(stratum.start);
 				group.child(Haeckel.SVG_NS, 'line')
 						.attrs({
 							stroke: Haeckel.BLACK.hex,
-							'stroke-opacity': '0.25',
-							'stroke-dasharray': '4 2',
+							'stroke-opacity': '0.125',
+							'stroke-dasharray': '2 4',
 							'stroke-width': '1px',
 							x1: '0px',
-							y1: endY.mean + 'px',
+							y1: startY.mean + 'px',
 							x2: FIGURE_WIDTH + 'px',
-							y2: endY.mean + 'px'
+							y2: startY.mean + 'px'
 						});
 			});
 		}
@@ -299,22 +393,51 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					throw new Error('No area for ' + name + '.');
 				}
 
-				// :TODO: text labels
+				var rect = Haeckel.rec.create(labelInfo.area.x - 10, labelInfo.area.y - 10, labelInfo.area.width + 20, labelInfo.area.height + 20);
+
 				group.child(Haeckel.SVG_NS, 'rect')
 					.attrs(Haeckel.SVG_NS, {
-						x: (labelInfo.area.x - 10) + 'px',
-						y: (labelInfo.area.y - 10) + 'px',
-						width: (labelInfo.area.width + 20) + 'px',
-						height: (labelInfo.area.height + 20) + 'px',
+						x: rect.left + 'px',
+						y: rect.top + 'px',
+						width: rect.width + 'px',
+						height: (rect.bottom >= FIGURE_HEIGHT - MARGIN ? (FIGURE_HEIGHT - rect.top + 20) : rect.height) + 'px',
 						rx: '10px',
 						ry: '10px',
-						fill: 'none',//Haeckel.BLACK.hex,
-						//'fill-opacity': '0.05',
+						fill: 'none',
 						'stroke': Haeckel.BLACK.hex,
 						'stroke-opacity': '0.5',
 						'stroke-dasharray': '1 3'
 					});
+
+				drawLabel(group, name, labelInfo, rect);
 			}
+		}
+
+		function labelXAxis()
+		{
+			var group = builder.child(Haeckel.SVG_NS, 'g');
+			group.child(Haeckel.SVG_NS, 'text')
+				.text('← skull and teeth more orangutan-like')
+				.attrs(Haeckel.SVG_NS, {
+					'fill': Haeckel.BLACK.hex,
+					'fill-opacity': '1',
+					'font-size': '14px',
+					'font-family': "Myriad Pro",
+					'text-anchor': 'start',
+					x: (MARGIN + 24) + 'px',
+					y: MARGIN + 'px'
+				});
+			group.child(Haeckel.SVG_NS, 'text')
+				.text('skull and teeth more human-like →')
+				.attrs(Haeckel.SVG_NS, {
+					'fill': Haeckel.BLACK.hex,
+					'fill-opacity': '1',
+					'font-size': '14px',
+					'font-family': "Myriad Pro",
+					'text-anchor': 'end',
+					x: (FIGURE_WIDTH - MARGIN) + 'px',
+					y: MARGIN + 'px'
+				});
 		}
 
 		function plotOccurrences()
@@ -379,7 +502,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						stroke: 'none'
 					});
 			};
-			chart.random = Haeckel.seedRandom(0);
+			chart.random = Haeckel.seedRandom(1);
 			chart.time = TIME;
 			chart.render(builder)
 				.attr(Haeckel.SVG_NS, 'clip-path', 'url(#chart-area)');
@@ -392,6 +515,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			//drawTimes();
 			plotOccurrences();
 			labelTaxa();
+			labelXAxis();
 		}
 		catch (e)
 		{
@@ -409,210 +533,3 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		return builder;
 	}
 };
-
-/*
-
-		
-		var strata = sources.getDataSource("2012 - ICS").strata;
-		
-		var stratChart = new Haeckel.StratChart();
-		stratChart.copyFrom(chart);
-		stratChart.strata = strata;
-		stratChart.type = "series/epoch";
-		var stratLines = stratChart.render(paper);
-		console.log('STRAT LINES', stratLines);
-		stratLines.forEach(function(element: raphaeljs.Element)
-		{
-			if ((<Haeckel.Range> element.data('yRange')).mean === area.top)
-			{
-				element.remove();
-				return false;
-			}
-		});
-		
-		var coreLufengpithecus = Haeckel.tax.setDiff(Haeckel.taxon('Lufengpithecus'), Haeckel.taxon('Lufengpithecus wushanensis'));
-
-		var regionChart = new Haeckel.RegionChart();
-		regionChart.copyFrom(chart);
-		regionChart.labels = function(taxon: Haeckel.Taxic): Haeckel.RegionLabel
-		{
-			if (Haeckel.equal(taxon, Haeckel.taxon('Homo')))
-			{
-				return { angle: Haeckel.degrees(110), attrs: {'font-size': '24px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Homo'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Paranthropus')))
-			{
-				return { angle: Haeckel.degrees(-90), attrs: {'font-size': '20px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Paranthropus'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Australopithecus')))
-			{
-				return { angle: Haeckel.degrees(55), attrs: {'font-size': '20px', 'font-style': 'italic', 'text-anchor': 'start'}, label: 'Australopithecus'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Ardipithecus')))
-			{
-				return { angle: Haeckel.degrees(65), attrs: {'font-size': '18px', 'font-style': 'italic', 'text-anchor': 'start'}, label: 'Ardipithecus'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Orrorin')))
-			{
-				return { angle: 0, attrs: {'font-size': '14px', 'font-style': 'italic', 'text-anchor': 'start'}, label: 'Orrorin'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Sahelanthropus')))
-			{
-				return { angle: 0, attrs: {'font-size': '12px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Sahelanthropus'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Pan')))
-			{
-				return { angle: Haeckel.degrees(90), attrs: {'font-size': '16px', 'text-anchor': 'middle'}, label: 'chimpanzees'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Gorilla')))
-			{
-				return { angle: Haeckel.degrees(90), attrs: {'font-size': '16px', 'text-anchor': 'middle'}, label: 'gorillas'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Pongo')))
-			{
-				return { angle: Haeckel.degrees(10), attrs: {'font-size': '16px', 'text-anchor': 'middle'}, label: 'orangutans'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Gigantopithecus blacki')))
-			{
-				return { angle: Haeckel.degrees(90), attrs: {'font-size': '14px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Gigantopithecus\nblacki'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Lufengpithecus wushanensis')))
-			{
-				return { angle: Haeckel.degrees(90), attrs: {'font-size': '12px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Lufengpithecus?\nwushanensis'};
-			}
-			if (Haeckel.equal(taxon, coreLufengpithecus))
-			{
-				return { angle: Haeckel.degrees(-90), attrs: {'font-size': '14px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Lufengpithecus'};
-			}
-			if (Haeckel.equal(taxon, Haeckel.taxon('Khoratpithecus')))
-			{
-				return { angle: Haeckel.degrees(-90), attrs: {'font-size': '14px', 'font-style': 'italic', 'text-anchor': 'middle'}, label: 'Khoratpithecus'};
-			}
-		};
-		regionChart.minPointDistance = 4;
-		regionChart.pointsPerRegion = 720;
-		regionChart.smoothing = 12;
-		regionChart.margin = 12;
-		regionChart.taxa = [regionTaxon('Homo', 'Homo sapiens sapiens'), regionTaxon('Paranthropus', 'Paranthropus robustus'),
-			regionTaxon('Australopithecus', 'Australopithecus africanus'), regionTaxon('Ardipithecus', 'Ardipithecus ramidus'),
-			regionTaxon('Orrorin'), regionTaxon('Sahelanthropus'), regionTaxon('Pan', 'Pan troglodytes troglodytes'), regionTaxon('Gorilla', 'Gorilla gorilla gorilla'),
-			regionTaxon('Gigantopithecus blacki'), regionTaxon('Lufengpithecus wushanensis'), { taxon: coreLufengpithecus, type: Haeckel.taxon('Lufengpithecus lufengensis') },
-			regionTaxon('Khoratpithecus', 'Khoratpithecus piriyai'), regionTaxon('Pongo', 'Pongo pygmaeus')];
-		regionChart.render(paper)
-			.attr('font-family', humevolfigs.STYLE['font-family']);
-		
-		var stratLabeler = new Haeckel.StratLabeler();
-		stratLabeler.chart = stratChart;
-		stratLabeler.fontSize = 24;
-		stratChart.type = "series/epoch";
-		var stratLabels = stratLabeler.render(paper);
-		stratLabels.attr({/*'fill-opacity': 0.5,*/ /*'font-family': humevolfigs.STYLE['font-family']});
-
-		stratLabeler.fontSize = 12;
-		stratLabeler.margin += 20;
-		stratChart.type = "stage/age";
-		stratLabels = stratLabeler.render(paper);
-		stratLabels.forEach(function(element: raphaeljs.Element)
-		{
-			if (String(element.attr('text')) !== 'Messinian')
-			{
-				element.remove();
-			}
-			else
-			{
-				element.attr('text', '(Messinian)');
-			}
-		});
-		stratLabels.attr({/*'fill-opacity': 0.5,*/ /*'font-family': humevolfigs.STYLE['font-family']});
-
-		var plots = chart.render(paper);
-		plots.forEach(function(element: raphaeljs.Element)
-		{
-			if (!element.data("withinMinimum"))
-			{
-				element.remove();
-			}
-			else
-			{
-				var taxon = element.data('taxon');
-				var name = Haeckel.list(Haeckel.names(taxon)).join("/");
-				element.attr('title', name);
-				$(element.node).mouseover(function()
-				{
-					console.log('TAXON', name);
-				});
-			}
-		});
-		console.log("Plots:", plots);
-		
-		/*
-		var names = Haeckel.set("Homo", "Homo floresiensis", "chimpanzees", "Australopithecus",
-			"Paranthropus", "Ardipithecus", "Orrorin", "Sahelanthropus");
-		
-		var labeler = new Haeckel.VectorChronoLabeler();
-		labeler.chart = chart;
-		var labelVectors =
-		{
-			"Homo": Haeckel.vector(0, 120),
-			"Homo floresiensis": Haeckel.vector(Haeckel.degrees(45), 15),
-			"chimpanzees": Haeckel.vector(0, 0),
-			"Paranthropus": Haeckel.vector(Haeckel.degrees(-90), 100),
-			"Australopithecus": Haeckel.vector(Haeckel.degrees(22.5), 125),
-			"Ardipithecus": Haeckel.vector(Haeckel.degrees(-70), 50),
-			"Orrorin": Haeckel.vector(0, 50),
-			"Sahelanthropus": Haeckel.vector(0, 75)
-		};
-		labeler.nameVectorMap = function(name: string)
-		{
-			return <Haeckel.Vector> labelVectors[name];
-		};
-		labeler.names = names;
-		labeler.nomenclature = nomenclature;
-		labeler.sizeMap = function(area: number): number
-		{
-			console.log("AREA", area);
-			return Math.min(32, Math.max(14, area / 275));
-		};
-		var taxonLabels = labeler.render(paper);
-		taxonLabels.attr('font-family', humevolfigs.STYLE['font-family']);
-		taxonLabels.forEach(function(element: raphaeljs.Element)
-		{
-			var name = element.data("name");
-			var c = name.charAt(0);
-			if (c == c.toUpperCase())
-			{
-				element.attr('font-style', 'italic');
-			}
-		});
-		console.log("Taxon labels:", taxonLabels);
-		*/
-		/*
-		chart = null;
-		
-		// border
-		paper.rect(0, 0, paper.width, area.y)
-			.attr({'fill': '#FFFFFF', 'stroke-opacity': 0});
-		paper.rect(0, area.bottom, paper.width, paper.height - area.bottom)
-			.attr({'fill': '#FFFFFF', 'stroke-opacity': 0});
-		paper.rect(0, 0, area.x, paper.height)
-			.attr({'fill': '#FFFFFF', 'stroke-opacity': 0});
-		paper.rect(area.right, 0, paper.width - area.right, paper.height)
-			.attr({'fill': '#FFFFFF', 'stroke-opacity': 0});
-		paper.rect(area.x - 1, area.y - 1, area.width + 2, area.height + 2)
-			.attr({'fill-opacity': 0, 'stroke-opacity': 1, 'stroke-linejoin': 'miter', 'stroke-linecap': 'square', 'stroke-width': 2});
-
-		//outer labels
-		var bottomLabelAttrs = { 'font-size': '12px', 'font-family': humevolfigs.STYLE['font-family'] };
-		paper.text(area.left, area.bottom + 12, '\u2190 skull & teeth more orangutan-like')
-			.attr(bottomLabelAttrs)
-			.attr('text-anchor', 'start');
-		paper.text(area.right, area.bottom + 12, 'skull & teeth more human-like \u2192')
-			.attr(bottomLabelAttrs)
-			.attr('text-anchor', 'end');
-
-		console.log("Completed Craniodental Chronology figure.")
-	};
-}
-
-humevolfigs.setFigure("craniodentalChronology", humevolfigs.figs.craniodentalChronology);
-*/
