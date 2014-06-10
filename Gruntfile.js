@@ -90,6 +90,12 @@ module.exports = function(grunt)
 				dest: 'src/ageTaxa.sh.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			ccChron:
+			{
+				src: [ 'src/ccChron.fig.ts' ],
+				dest: 'src/ccChron.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			craniodental:
 			{
 				src: [ 'src/distanceChart.ts',	'src/craniodental.fig.ts' ],
@@ -174,6 +180,7 @@ module.exports = function(grunt)
 		},
 		render:
 		{
+			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},
 			craniodentalExtant: {},
@@ -186,6 +193,7 @@ module.exports = function(grunt)
 		},
 		figure:
 		{
+			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},
 			craniodentalExtant: {},
