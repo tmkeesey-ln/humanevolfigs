@@ -630,12 +630,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					group.child(Haeckel.SVG_NS, 'text')
 						.text(Math.round(time / -1000000) + ' Mya')
 						.attrs(Haeckel.SVG_NS, {
-							x: (FIGURE_WIDTH - MARGIN) + 'px',
+							x: (FIGURE_WIDTH - MARGIN + 7) + 'px',
 							y: (y - 1) + 'px',
 							'font-weight': 'bold',
 							'fill': Haeckel.BLACK.hex,
 							'fill-opacity': '0.5',
-							'font-size': '12px',
+							'font-size': '14px',
 							'font-family': "Myriad Pro",
 							'text-anchor': 'end'
 						});
