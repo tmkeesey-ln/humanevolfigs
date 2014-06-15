@@ -64,11 +64,10 @@
 				["Hominidae", "Udabnopithecus"],
 				["Homininae", "Hominini"],
 				["Homininae", "Gorilla"],
-				["Hominini", "Ardipithecus"],
 				["Hominini", "Hominina"],
-				["Hominini", "Orrorin"],
 				["Hominini", "Pan"],
-				["Hominini", "Sahelanthropus"],
+				["Hominina", "Sahelanthropus"],
+				["Hominina", "Orrorin"],
 				["Hominina", "Ardipithecus"],
 				["Hominina", "Australopithecus"],
 				["Hominina", "Australopithecus praegens"],
@@ -188,7 +187,17 @@
 				["Sivapithecus", "Sivapithecus parvada"],
 				["Sivapithecus", "Sivapithecus sivalensis"],
 				["Sivapithecus", "Sivapithecus sp."],
-				["Udabnopithecus", "Udabnopithecus garedziensis"]
+				["Udabnopithecus", "Udabnopithecus garedziensis"],
+
+				["living chimpanzees", "Pan troglodytes"],
+				["living chimpanzees", "Pan paniscus"],
+
+				["Homo habilis & rudolfensis", "Homo habilis"],
+				["Homo habilis & rudolfensis", "Homo rudolfensis"],
+				["Praeanthropus & Kenyanthropus", "Praeanthropus"],
+				["Praeanthropus & Kenyanthropus", "Kenyanthropus"],
+				["Australopithecus & Paranthropus", "Australopithecus"],
+				["Australopithecus & Paranthropus", "Paranthropus"]
 			],
 			"synonymies":
 			[

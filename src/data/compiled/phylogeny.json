@@ -165,7 +165,6 @@
 															"Homo indet. A",
 															"Homo indet. B",
 															[
-																"Homo erectus",
 																"Homo ergaster ergaster",
 																"Homo ergaster georgicus",
 																"Homo modjokertensis",
@@ -175,20 +174,27 @@
 																"Homo indet. E",
 																"Homo indet. F",
 																[
-																	"Homo heidelbergensis antecessor",
+																	"Homo erectus",
 																	[
-																		"Homo heidelbergensis cepranensis",
-																		"Homo heidelbergensis narmadensis",
-																		"Homo heidelbergensis ssp.",
+																		"Homo heidelbergensis antecessor",
 																		[
+																			"Homo heidelbergensis cepranensis",
+																			"Homo heidelbergensis narmadensis",
+																			"Homo heidelbergensis ssp.",
 																			"Homo heidelbergensis daliensis",
 																			"Homo heidelbergensis mabaensis",
-																			"Homo heidelbergensis rhodesiensis",
-																			"Homo sapiens"
-																		],
-																		[
 																			"Homo heidelbergensis heidelbergensis",
 																			"Homo sp. (Denisova)",
+																			[
+																				"Homo heidelbergensis rhodesiensis",
+																				[
+																					"Homo sapiens helmei",
+																					"Homo sapiens idaltu",
+																					"Homo sapiens njarasensis",
+																					"Homo sapiens sapiens",
+																					"Homo sapiens ssp."
+																				]
+																			],
 																			[
 																				"Homo neanderthalensis paleohungaricus",
 																				[

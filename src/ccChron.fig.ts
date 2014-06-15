@@ -20,10 +20,6 @@ interface LabelInfo
 	area?: Haeckel.Rectangle;
 }
 
-var MIN_RANGE_SIZE = 0.025;
-
-var MAX_RANGE_SIZE = 0.25;
-
 var TIME_START = -7000000;
 
 var FIGURE_HEIGHT = 1050;
@@ -35,14 +31,6 @@ var MARGIN = 25;
 var TOP_MARGIN = 75;
 
 var LABELS: { [name: string]: LabelInfo; } = {
-	"Gorilla": {
-		text: 'gorillas',
-		position: LabelPosition.BOTTOM_LEFT
-	},
-	"Pan": {
-		text: 'chimpanzees',
-		position: LabelPosition.BOTTOM
-	},
 	"Sahelanthropus": {
 		italic: true,
 		position: LabelPosition.RIGHT
@@ -55,25 +43,41 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
-	"Australopithecus": {
+	"Australopithecus & Paranthropus": {
 		italic: true,
 		position: LabelPosition.LEFT
 	},
-	"Paranthropus": {
-		italic: true,
-		position: LabelPosition.TOP_LEFT
-	},
-	"Praeanthropus": {
-		italic: true,
-		position: LabelPosition.LEFT
-	},
-	"Kenyanthropus": {
+	"Praeanthropus & Kenyanthropus": {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
-	"Homo": {
+	"Homo floresiensis": {
 		italic: true,
-		position: LabelPosition.TOP_RIGHT
+		position: LabelPosition.BOTTOM
+	},
+	"Homo habilis & rudolfensis": {
+		italic: true,
+		position: LabelPosition.BOTTOM_LEFT
+	},
+	"Homo ergaster": {
+		italic: true,
+		position: LabelPosition.RIGHT
+	},
+	"Homo erectus": {
+		italic: true,
+		position: LabelPosition.LEFT
+	},
+	"Homo heidelbergensis": {
+		italic: true,
+		position: LabelPosition.RIGHT
+	},
+	"Homo neanderthalensis": {
+		text: "Neandertals",
+		position: LabelPosition.BOTTOM_RIGHT
+	},
+	"Homo sapiens": {
+		text: "humans",
+		position: LabelPosition.TOP
 	}
 };
 
@@ -129,16 +133,16 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 		case LabelPosition.BOTTOM:
 		case LabelPosition.BOTTOM_LEFT:
 		case LabelPosition.BOTTOM_RIGHT:
-			y = area.bottom + 18;
+			y = area.bottom + 12;
 			break;
 		case LabelPosition.TOP:
 		case LabelPosition.TOP_LEFT:
 		case LabelPosition.TOP_RIGHT:
-			y = area.top - 4;
+			y = area.top - 2;
 			break;
 		case LabelPosition.LEFT:
 		case LabelPosition.RIGHT:
-			y = area.centerY + 9;
+			y = area.centerY + 6;
 			break;
 		default:
 			throw new Error("Invalid position: " + info.position);
@@ -148,7 +152,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 		.attrs({
 			'fill': Haeckel.BLACK.hex,
 			'fill-opacity': '0.5',
-			'font-size': '18px',
+			'font-size': '12px',
 			'font-weight': 'bold',
 			'font-family': "Myriad Pro",
 			'text-anchor': anchor,
@@ -161,24 +165,33 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 	}
 }
 
-function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haeckel.CharacterMatrix<Haeckel.Range>
+function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haeckel.CharacterMatrix<Haeckel.Set>
 {
 	var solver = new Haeckel.PhyloSolver(sources.sources["data/compiled/phylogeny.json"].phylogenies["allTaxa"]);
-	var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
-	cmBuilder.addMatrix(<Haeckel.CharacterMatrix<Haeckel.Range>> sources.sources["data/compiled/characters.json"].characterMatrices["cranialCapacity"]);
-	cmBuilder.inferStates(solver.dagSolver, Haeckel.EMPTY_SET);
+	var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>();
+	var source = sources.sources["data/compiled/characters.json"];
+	cmBuilder.addMatrix(source.characterMatrices["cranialCapacity"]);
+	cmBuilder.inferStates(solver.dagSolver, sources.nomenclature.nameMap['Pongo']);
+	cmBuilder.addMatrix(source.occurrences);
 	cmBuilder.removeTaxon(Haeckel.tax.setDiff(cmBuilder.taxon, taxon));
 	return cmBuilder.build();
 }
 
-function getCCRatioMap(sources: Haeckel.DataSources, matrix: Haeckel.CharacterMatrix<Haeckel.Range>, taxon: Haeckel.Taxic): (vertex: Haeckel.Taxic) => Haeckel.Range
+function getCCRange(matrix: Haeckel.CharacterMatrix<Haeckel.Set>)
 {
 	var ccChar = matrix.characterList[0];
-	var ccRange = Haeckel.chr.states(matrix, taxon, ccChar);
+	var ccRange = <Haeckel.Range> Haeckel.chr.states(matrix, matrix.taxon, ccChar);
+	return Haeckel.rng.create(0, Math.ceil(ccRange.max / 100) * 100);
+}
+
+function getCCRatioMap(matrix: Haeckel.CharacterMatrix<Haeckel.Set>, range: Haeckel.Range): (vertex: Haeckel.Taxic) => Haeckel.Range
+{
+	var ccChar = matrix.characterList[0];
+	var ccRange = range;
 
 	return (vertex: Haeckel.Taxic) =>
 	{
-		var range = Haeckel.chr.states(matrix, vertex, ccChar);
+		var range = <Haeckel.Range> Haeckel.chr.states(matrix, vertex, ccChar);
 		if (range && !range.empty)
 		{
 			range = Haeckel.rng.multiply(Haeckel.rng.add(range, -ccRange.min), 1 / ccRange.size);
@@ -201,12 +214,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
-        var AREA = Haeckel.rec.createFromCoords(MARGIN + 24, TOP_MARGIN, FIGURE_WIDTH - MARGIN, FIGURE_HEIGHT);
+        var AREA = Haeckel.rec.createFromCoords(MARGIN + 24, TOP_MARGIN, FIGURE_WIDTH - MARGIN - 24, FIGURE_HEIGHT);
         var TIME = Haeckel.rng.create(TIME_START, 0);
 		var chart = new Haeckel.ChronoChart();
 		chart.area = AREA;
 		chart.time = TIME;
 		var nameMap = sources.nomenclature.nameMap;
+        var taxon = nameMap['Hominina'];
+        var matrix = getCCMatrix(sources, taxon);
+        var ccRange = getCCRange(matrix);
+        var horizontalRatioMap = getCCRatioMap(matrix, ccRange);
 
 		function addToLabelRect(taxon: Haeckel.Taxic, rect: Haeckel.Rectangle)
 		{
@@ -242,6 +259,47 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				});
 		}
 
+		function drawGoalposts()
+		{
+			function drawRange(taxonName: string, label: string)
+			{
+				var range = <Haeckel.Range> Haeckel.chr.states(matrix, nameMap[taxonName], ccChar);
+				range = Haeckel.rng.multiply(Haeckel.rng.add(range, -ccRange.min), 1 / ccRange.size);
+
+				g.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						fill: Haeckel.BLACK.hex,
+						'fill-opacity': '0.05',
+						stroke: 'none',/*Haeckel.BLACK.hex,
+						'stroke-opacity': '0.1',
+						'stroke-width': '2px',
+						'stroke-dasharray': '2 6',*/
+						x: (AREA.left + range.min * AREA.width) + 'px',
+						y: '-1px',
+						width: (range.size * AREA.width) + 'px',
+						height: (FIGURE_HEIGHT + 2) + 'px'
+					});
+				g.child(Haeckel.SVG_NS, 'text')
+					.text(label)
+					.attrs(Haeckel.SVG_NS, {
+						fill: Haeckel.BLACK.hex,
+						'fill-opacity': '0.333',
+						x: (AREA.left + range.mean * AREA.width) + 'px',
+						y: (MARGIN + 8) + 'px',
+						'text-anchor': 'middle',
+						'font-size': '16px',
+						'font-family': 'Myriad Pro',
+						'font-weight': 'bold'
+					});
+			}
+
+			var g = builder.child(Haeckel.SVG_NS, 'g');
+			var matrix = sources.sources['data/compiled/characters.json'].characterMatrices['cranialCapacity'];
+			var ccChar = matrix.characterList[0];
+			drawRange('Pan', 'chimpanzee range');
+			drawRange('Homo sapiens sapiens', 'human range');
+		}
+
 		function drawStrata()
 		{
 			var group = builder.child(Haeckel.SVG_NS, 'g');
@@ -260,7 +318,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			strata.sort((a: Haeckel.Stratum, b: Haeckel.Stratum) => b.start.mean - a.start.mean);
 			var stages = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'stage/age');
 			var series = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'series/epoch');
-			var boundaries = new Haeckel.ExtSetBuilder<Haeckel.Range>();
+			//var boundaries = new Haeckel.ExtSetBuilder<Haeckel.Range>();
 			Haeckel.arr.each(series, (stratum: Haeckel.Stratum) =>
 			{
 				var startY = chart.getTimeY(stratum.start);
@@ -270,13 +328,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							stroke: Haeckel.BLACK.hex,
 							'stroke-opacity': '0.5',
 							'stroke-width': '1px',
-							'stroke-dasharray': '4 2',
 							x1: '0px',
 							y1: startY.mean + 'px',
 							x2: FIGURE_WIDTH + 'px',
 							y2: startY.mean + 'px'
 						});
-				boundaries.add(startY);
+				//boundaries.add(startY);
 				var yRange = Haeckel.rng.create(endY.mean, Math.min(FIGURE_HEIGHT, startY.mean));
 				var text = group.child(Haeckel.SVG_NS, 'text')
 					.text(stratum.name === 'Miocene' ? 'MESSINIAN' : stratum.name.toUpperCase())
@@ -300,33 +357,33 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'translate(' + (MARGIN + 12) + ',' + yRange.mean + ') rotate(-90)');
 				}
 			});
+			var fillStratum = true;
 			Haeckel.arr.each(stages, (stratum: Haeckel.Stratum) =>
 			{
 				var startY = chart.getTimeY(stratum.start);
-				if (boundaries.contains(startY))
+				var endY = chart.getTimeY(stratum.end);
+				if (fillStratum)
 				{
-					return;
+					group.child(Haeckel.SVG_NS, 'rect')
+							.attrs({
+								stroke: 'none',
+								fill: Haeckel.BLACK.hex,
+								'fill-opacity': '0.1',
+								x: '0px',
+								y: endY.mean + 'px',
+								width: FIGURE_WIDTH + 'px',
+								height: (startY.mean - endY.mean) + 'px'
+							});
 				}
-				group.child(Haeckel.SVG_NS, 'line')
-						.attrs({
-							stroke: Haeckel.BLACK.hex,
-							'stroke-opacity': '0.125',
-							'stroke-dasharray': '2 4',
-							'stroke-width': '1px',
-							x1: '0px',
-							y1: startY.mean + 'px',
-							x2: FIGURE_WIDTH + 'px',
-							y2: startY.mean + 'px'
-						});
+				fillStratum = !fillStratum;
 			});
 		}
 
-		/*
 		function drawTimes()
 		{
 			var group = builder.child(Haeckel.SVG_NS, 'g');
 			var TIME_INCREMENT = -1000000;
-			for (var time = TIME.max + TIME_INCREMENT; time >= TIME.min; time += TIME_INCREMENT)
+			for (var time = Math.ceil(TIME.max / TIME_INCREMENT) * TIME_INCREMENT; time >= TIME.min; time += TIME_INCREMENT)
 			{
 				var y = chart.getTimeY(Haeckel.rng.create(time, time)).mean;
 				group.child(Haeckel.SVG_NS, 'rect')
@@ -340,7 +397,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						height: '1px'
 					});
 				group.child(Haeckel.SVG_NS, 'text')
-					.text(Math.round(time / -1000000) + ' Mya')
+					.text(time === 0 ? 'present' : Math.round(time / -1000000) + ' Mya')
 					.attrs(Haeckel.SVG_NS, {
 						x: (FIGURE_WIDTH - MARGIN) + 'px',
 						y: (y - 1) + 'px',
@@ -353,7 +410,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					});
 			}
 		}
-		*/
 
 		function labelTaxa()
 		{
@@ -374,11 +430,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						x: rect.left + 'px',
 						y: rect.top + 'px',
 						width: rect.width + 'px',
-						height: (rect.bottom >= FIGURE_HEIGHT - MARGIN ? (FIGURE_HEIGHT - rect.top + 20) : rect.height) + 'px',
+						height: rect.height + 'px',
 						rx: '10px',
 						ry: '10px',
-						fill: 'none',
-						'stroke': Haeckel.BLACK.hex,
+						fill: 'none',//Haeckel.BLACK.hex,
+						//'fill-opacity': '0.05',
+						stroke: Haeckel.BLACK.hex,
 						'stroke-opacity': '0.5',
 						'stroke-dasharray': '1 3'
 					});
@@ -389,16 +446,38 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		function labelXAxis()
 		{
-			// :TODO:
-			//var group = builder.child(Haeckel.SVG_NS, 'g');
+			var group = builder.child(Haeckel.SVG_NS, 'g');
+			for (var cc = 0; cc < ccRange.max; cc += 100)
+			{
+				var x = AREA.left + cc * AREA.width / ccRange.max;
+				group.child(Haeckel.SVG_NS, 'line')
+					.attrs(Haeckel.SVG_NS, {
+						x1: x + 'px',
+						y1: '0px',
+						x2: x + 'px',
+						y2: FIGURE_HEIGHT + 'px',
+						stroke: Haeckel.BLACK.hex,
+						'stroke-width': '0.5px',
+						'stroke-opacity': '0.2'
+					});
+				group.child(Haeckel.SVG_NS, 'text')
+					.text(cc + 'cc')
+					.attrs(Haeckel.SVG_NS, {
+						x: x + 'px',
+						y: '16px',
+						fill: Haeckel.BLACK.hex,
+						'fill-opacity': '0.333',
+						'font-family': 'Myriad Pro',
+						'font-size': '11px',
+						'text-anchor': 'middle',
+						'font-weight': 'bold'
+					});
+				// :TODO: text;
+			}
 		}
 
 		function plotOccurrences()
 		{
-	        var nameMap = sources.nomenclature.nameMap;
-	        var taxon = nameMap['Homininae'];
-	        var matrix = getCCMatrix(sources, taxon);
-
 	        defs().child(Haeckel.SVG_NS, 'clipPath')
 	        	.attr(Haeckel.SVG_NS, 'id', 'chart-area')
 	        	.child(Haeckel.SVG_NS, 'rect')
@@ -412,7 +491,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			var chart = new Haeckel.OccurrencePlotChart();
 			chart.area = AREA;
 			chart.characterMatrix = matrix;
-			chart.horizontalRatioMap = getCCRatioMap(sources, matrix, taxon);
+			chart.horizontalRatioMap = horizontalRatioMap;
 			chart.drawArea = (builder: Haeckel.ElementBuilder, area: Haeckel.Rectangle, taxon: Haeckel.Taxic) =>
 			{
 				addToLabelRect(taxon, area);
@@ -463,7 +542,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		{
 			drawBackground();
 			drawStrata();
-			//drawTimes();
+			drawGoalposts();
+			drawTimes();
 			plotOccurrences();
 			labelTaxa();
 			labelXAxis();

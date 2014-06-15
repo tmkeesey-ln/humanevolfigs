@@ -12,14 +12,15 @@
 			"cranialCapacity":
 			{
 				"characterType": "range",
+				"source": "http://www.columbia.edu/~rlh2/PartII.pdf",
 				"scores":
 				{
 					"Ardipithecus ramidus":
 						[[300, 350]],
-					"Australopithecus afarensis antiquus":
-						[[375, 550]],
+					"Australopithecus afarensis":
+						[[387, 550]],
 					"Australopithecus africanus":
-						[[425, 515]],
+						[[400, 560]],
 					"Australopithecus garhi":
 						[[450, 450]],
 					"Australopithecus sediba":
@@ -27,53 +28,55 @@
 					"Gorilla":
 						[[340, 750]],
 					"Homo erectus erectus":
-						[[900, 940]],
+						[[813, 1059]],
 					"Homo erectus hexianensis":
 						[[1025, 1025]],
+					"Homo erectus lantianensis":
+						[[780, 780]],
 					"Homo erectus pekinensis":
-						[[900, 1300]],
+						[[915, 1200]],
 					"Homo erectus soloensis":
-						[[1013, 1251]],
+						[[870, 1251]],
 					"Homo ergaster ergaster":
-						[[700, 900]],
+						[[727, 1067]],
 					"Homo ergaster georgicus":
-						[[600, 775]],
+						[[650, 780]],
 					"Homo floresiensis":
 						[[380, 380]],
 					"Homo habilis":
-						[[500, 800]],
+						[[509, 687]],
 					"Homo heidelbergensis antecessor":
-						[[900, 1100]],
+						[[1125, 1390]],
 					"Homo heidelbergensis cepranensis":
-						[[1180, 1220]],
+						[[995, 1165]],
 					"Homo heidelbergensis daliensis":
-						[[1100, 1200]],
+						[[1120, 1390]],
 					"Homo heidelbergensis heidelbergensis":
-						[[1100, 1400]],
+						[[1166, 1430]],
+					"Homo heidelbergensis narmadensis":
+						[[1260, 1260]],
 					"Homo heidelbergensis rhodesiensis":
-						[[1090, 1400]],
+						[[880, 1325]],
 					"Homo neanderthalensis neanderthalensis":
-						[[1200, 1900]],
+						[[1172, 1640]],
 					"Homo neanderthalensis paleohungaricus":
-						[[1400, 1500]],
-					"Homo neanderthalensis ssp. (Transitional)":
-						[[1300, 1700]],
-					"Homo rudolfensis":
-						[[700, 700]],
-					"Homo sapiens idaltu":
 						[[1450, 1450]],
-					"Homo sapiens sapiens":
-						[[1000, 1850]],
+					"Homo neanderthalensis ssp. (Transitional)":
+						[[1205, 1740]],
+					"Homo rudolfensis":
+						[[752, 825]],
+					"Homo sapiens":
+						[[1090, 1650]],
 					"Pan paniscus":
 						[[275, 380]],
 					"Pan troglodytes":
 						[[275, 450]],
 					"Paranthropus aethiopicus":
-						[[410, 410]],
+						[[400, 490]],
 					"Paranthropus boisei":
-						[[390, 530]],
+						[[475, 545]],
 					"Paranthropus robustus":
-						[[505, 555]],
+						[[450, 530]],
 					"Pongo":
 						[[275, 500]],
 					"Sahelanthropus tchadensis":
