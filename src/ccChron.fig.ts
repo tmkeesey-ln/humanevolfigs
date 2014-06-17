@@ -20,7 +20,7 @@ interface LabelInfo
 	area?: Haeckel.Rectangle;
 }
 
-var TIME_START = -7000000;
+var TIME_START = -7246000;
 
 var FIGURE_HEIGHT = 1050;
 
@@ -63,6 +63,11 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
+	"Homo erectus & heidelbergensis": {
+		italic: true,
+		position: LabelPosition.RIGHT
+	},
+	/*
 	"Homo erectus": {
 		italic: true,
 		position: LabelPosition.LEFT
@@ -71,12 +76,18 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
+	*/
+	/*
 	"Homo neanderthalensis": {
 		text: "Neandertals",
 		position: LabelPosition.BOTTOM_RIGHT
 	},
 	"Homo sapiens": {
 		text: "humans",
+		position: LabelPosition.TOP
+	}
+	*/
+	"humans & Neandertals": {
 		position: LabelPosition.TOP
 	}
 };
@@ -436,8 +447,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						fill: 'none',//Haeckel.BLACK.hex,
 						//'fill-opacity': '0.05',
 						stroke: Haeckel.BLACK.hex,
-						'stroke-opacity': '0.5',
-						'stroke-dasharray': '1 3'
+						'stroke-opacity': '0.333',
+						'stroke-dasharray': '6 3'
 					});
 
 				drawLabel(group, name, labelInfo, rect);
@@ -543,7 +554,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			drawBackground();
 			drawStrata();
 			drawGoalposts();
-			drawTimes();
+			//drawTimes();
 			plotOccurrences();
 			labelTaxa();
 			labelXAxis();

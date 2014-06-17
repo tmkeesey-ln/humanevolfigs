@@ -1,0 +1,267 @@
+{
+	"metadata":
+	{
+		"authors": ["Ralph L. Holloway", "Douglas C. Broadfield", "Michael S. Yuan"],
+		"year": 2004,
+		"title": "The Human Fossil Record: Brain Endocasts: The Paleoneurological Evidence",
+		"publisher": "John Wiley & Sons",
+		"location": "New York",
+	    "uri": {
+	    	"cover": "http://www.columbia.edu/~rlh2/cover.PDF",
+	    	"part 1": "http://www.columbia.edu/~rlh2/Part1.pdf",
+	    	"part 2": "http://www.columbia.edu/~rlh2/PartII.pdf"
+	    }
+	},
+	"data":
+	{
+		"nomenclature": {
+			"note": "Revised to match taxonomic decisions in chapter.",
+
+			"hyponymies": [
+				["Australopithecus afarensis antiquus", "AL 162-28"],
+				["Australopithecus afarensis antiquus", "AL 288-1"],
+				["Australopithecus afarensis antiquus", "AL 333-105"],
+				["Australopithecus afarensis antiquus", "AL 333-45"],
+				["Australopithecus afarensis antiquus", "AL 444-2"],
+
+				["Australopithecus aethiopicus", "KNM-WT 17000"],
+				["Australopithecus aethiopicus", "KNM-WT 17400"],
+				["Australopithecus aethiopicus", "KNM-WT 23000"],
+				["Australopithecus aethiopicus", "Omo L338y-6"],
+
+				["Australopithecus boisei", "KNM-ER 406"],
+				["Australopithecus boisei", "KNM-ER 407"],
+				["Australopithecus boisei", "KNM-ER 732"],
+				["Australopithecus boisei", "KNM-WT 13750"],
+				["Australopithecus boisei", "Konso (KGA-10-525)"],
+				["Australopithecus boisei", "OH 5"],
+
+				["Australopithecus robustus", "SK 54"],
+				["Australopithecus robustus", "SK 859"],
+				["Australopithecus robustus", "SK 1585"],
+
+				["Australopithecus africanus", "MLD 1"],
+				["Australopithecus africanus", "MLD 37/38"],
+				["Australopithecus africanus", "Sts 5"],
+				["Australopithecus africanus", "Sts 19/58"],
+				["Australopithecus africanus", "Sts 60"],
+				["Australopithecus africanus", "Sts 71"],
+				["Australopithecus africanus", "Stw 505"],
+				["Australopithecus africanus", "Taung"],
+				["Australopithecus africanus", "Type 2"],
+
+				["Australopithecus garhi", "Bouri (Bou-VP-12/130)"],
+
+				["Homo habilis", "KNM-ER 1805"],
+				["Homo habilis", "KNM-ER 1813"],
+				["Homo habilis", "OH 7"],
+				["Homo habilis", "OH 13"],
+				["Homo habilis", "OH 16"],
+				["Homo habilis", "OH 24"],
+
+				["Homo ergaster ergaster", "KNM-ER 3732"],
+				["Homo ergaster ergaster", "KNM-ER 3733"],
+				["Homo ergaster ergaster", "KNM-ER 3883"],
+
+				["Homo rudolfensis", "KNM-ER 1470"],
+				["Homo rudolfensis", "KNM-ER 1590"],
+
+				["Homo ergaster georgicus", "Dmanisi D2280"],
+				["Homo ergaster georgicus", "Dmanisi D2282"],
+
+				["Homo heidelbergensis cepranensis", "Daka, Ethiopia"],
+
+				["Homo erectus hexianensis", "Hexian"],
+
+				["Homo heidelbergensis daliensis", "Jinniushan"],
+
+				["Homo ergaster ergaster", "KNM-WT 15000"],
+
+				["Homo erectus lantianensis", "Lantian (Gongwang 1)"],
+
+				["Homo heidelbergensis narmadensis", "Narmada"]
+
+				["Homo erectus soloensis", "Ngawi"]
+
+				["Homo ergaster ergaster", "OH 9"],
+
+				["Homo heidelbergensis rhodesiensis", "OH 12"],
+				["Homo heidelbergensis rhodesiensis", "Sale"],
+
+				["Homo erectus soloensis", "Sambungmacan 1"],
+				["Homo erectus soloensis", "Sambungmacan 3"],
+				["Homo erectus soloensis", "Sambungmacan 4"],
+
+				["Homo erectus erectus", "Sangiran 2"],
+				["Homo erectus erectus", "Sangiran 3"],
+				["Homo erectus erectus", "Sangiran 4"],
+				["Homo erectus erectus", "Sangiran 10"],
+				["Homo erectus erectus", "Sangiran 12"],
+				["Homo erectus erectus", "Sangiran 17"],
+				["Homo erectus erectus", "Trinil 2"],
+
+				["Homo erectus pekinensis", "Yunxian (1 and 2)"],
+				["Homo erectus pekinensis", "Zhoukoudian III, E (Z 2)"],
+				["Homo erectus pekinensis", "Zhoukoudian (Z11)"],
+				["Homo erectus pekinensis", "Zhoukoudian I, L (Z 10)"],
+				["Homo erectus pekinensis", "Zhoukoudian III, L (Z 12)"],
+
+				["Homo heidelbergensis antecessor", "Atapuerca 4"],
+				["Homo heidelbergensis antecessor", "Atapuerca 5"],
+				["Homo heidelbergensis antecessor", "Atapuerca 6"],
+
+				["Homo heidelbergensis daliensis", "Dali 1"],
+
+				["Homo erectus soloensis", "Ngandong 1 (Solo I)"],
+				["Homo erectus soloensis", "Ngandong 6 (Solo V)"],
+				["Homo erectus soloensis", "Ngandong 7 (Solo VI)"],
+				["Homo erectus soloensis", "Ngandong (Solo IX)"],
+				["Homo erectus soloensis", "Ngandong 13 (Solo X)"],
+				["Homo erectus soloensis", "Ngandong 14 (Solo XI)"],
+
+
+				["Homo heidelbergensis heidelbergensis", "Arago"],
+
+				["Homo neanderthalensis ssp. (Early)", "Biache"],
+
+				["Homo heidelbergensis rhodesiensis", "Bodo"],
+
+				["Homo heidelbergensis cepranensis", "Ceprano"],
+
+				["Homo neanderthalensis ssp. (Early)", "Ehringsdorf"],
+
+				["Homo heidelbergensis rhodesiensis", "Kabwe"],
+
+				["Homo neanderthalensis ssp. (Early)", "Lazaret"],
+
+				["Homo heidelbergensis heidelbergensis", "Petralona"],
+
+				["Homo heidelbergensis steinheimensis", "Reilingen"],
+
+				["Homo heidelbergensis rhodesiensis", "Saldanha"],
+
+				["Homo heidelbergensis steinheimensis", "Steinheim"],
+				["Homo heidelbergensis steinheimensis", "Swanscombe"],
+			]
+		},
+		"characterScores":
+		{
+			"Appendix I Part 1":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume"
+					},
+					{
+						"name": "MYA"
+					}
+				],
+				"scores": {
+					"AL 162-28":	[400, 3.18],
+					"AL 288-1":		[387, 3],
+					"AL 333-105":	[400, 3.18],
+					"AL 333-45":	[492, 3.18],
+					"AL 444-2":		[550, 3],
+
+					"KNM-WT 17000": [410, 2.5],
+					"KNM-WT 17400": [400, 1.77],
+					"KNM-ER 23000": [490, 1.7],
+					"Omo L338y-6":  [427, 2.39],
+
+					"KNM-ER 406":         [500, 1.5],
+					"KNM-ER 407":         [510, 1.85],
+					"KNM-ER 732":         [500, 1.7],
+					"KNM-WT 13750":       [475, 1.7],
+					"Konso (KGA-10-525)": [545, 1.4],
+					"OH 5":               [520, 1.8],
+
+					"SK 54":   [500, 1.5], 
+					"SK 859":  [450, 1.5],
+					"SK 1585": [530, 1.5],
+
+					"MLD 1":     [510, 3.1],
+					"MLD 37/38": [435, 3.1],
+					"Sts 5":     [485, 2.5],
+					"Sts 19/58": [436, 2.5],
+					"Sts 60":    [400, 2.5],
+					"Sts 71":    [428, 2.5],
+					"Stw 505":   [560, 2.6],
+					"Taung":     [440, 2.6],
+					"Type 2":    [457, 2.5],
+
+					"Bouri (Bou-VP-12/130)": [450, 2.5],
+
+					"KNM-ER 1805": [582, 1.85],
+					"KNM-ER 1813": [509, 1.88],
+					"OH 7":        [687, 1.8],
+					"OH 13":       [650, 1.5],
+					"OH 16":       [638, 1.7],
+					"OH 24":       [590, 1.8],
+
+					"KNM-ER 3732": [750, 1.88],
+					"KNM-ER 3733": [848, 1.78],
+					"KNM-ER 3883": [804, 1.57],
+
+					"KNM-ER 1470": [752, 1.88],
+					"KNM-ER 1590": [825, 1.85],
+
+					"Dmanisi D2280": [650, 1.7],
+					"Dmanisi D2282": [780, 1.7],
+
+					"Daka, Ethiopia":            [995, 1],
+					"Hexian":                    [1025, 0.412],
+					"Jinniushan":                [1390, 0.28],
+					"KNM-WT 15000":              [900, 1.5],
+					"Lantian (Gongwang 1)":      [780, 0.7],
+					"Narmada":				     [1260, 0.236],
+					"Ngawi": 				     [870, null],
+					"OH 9":                      [1067, 1.2],
+					"OH 12":                     [727, 0.6],
+					"Sale":                      [880, 0.24],
+					"Sambungmacan 1":            [1035, 0.8],
+					"Sambungmacan 3":            [917, 0.4],
+					"Sambungmacan 4":            [1006, 0.8],
+					"Sangiran 2":                [813, 0.98],
+					"Sangiran 3":                [950, 1],
+					"Sangiran 4":                [908, 1.1],
+					"Sangiran 10":               [855, 1.2],
+					"Sangiran 12":               [1059, 0.9],
+					"Sangiran 17":               [1004, 1],
+					"Trinil 2":                  [940, 0.9],
+					"Yunxian (1 and 2)":         [1200, 0.4],
+					"Zhoukoudian III, E (Z 2)":  [915, 0.4],
+					"Zhoukoudian (Z11)":         [1015, 0.4],
+					"Zhoukoudian I, L (Z 10)":   [1225, 0.4],
+					"Zhoukoudian III, L (Z 12)": [1030, 0.4],
+
+					"Atapuerca 4": [1390, 0.35],
+					"Atapuerca 5": [1125, 0.35],
+					"Atapuerca 6": [1140, 0.35],
+
+					"Dali 1":                [1120, 0.209],
+					"Ngandong 1 (Solo I)":   [1172, 0.031],
+					"Ngandong 6 (Solo V)":   [1251, 0.031],
+					"Ngandong 7 (Solo VI)":  [1013, 0.031],
+					"Ngandong (Solo IX)":    [1135, 0.031],
+					"Ngandong 13 (Solo X)":  [1231, 0.031],
+					"Ngandong 14 (Solo XI)": [1090, 0.031],
+
+					"Arago":       [1166, 0.4],
+					"Biache":      [1200, null],
+					"Bodo":        [1250, 0.6],
+					"Ceprano":     [1165, 0.8],
+					"Ehringsdorf": [1450, 0.23],
+					"Kabwe":       [1325, 0.18],
+					"Lazaret":     [1250, 0.13],
+					"Petralona":   [1230, 0.21],
+					"Reilingen":   [1430, 0.2],
+					"Saldanha":    [1225, 0.5],
+					"Steinheim":   [1200, 0.225],
+					"Swanscombe":  [1325, 0.25]
+				}
+			}
+		}
+	}
+}

@@ -52,15 +52,17 @@
 					"Homo heidelbergensis daliensis":
 						[[1120, 1390]],
 					"Homo heidelbergensis heidelbergensis":
-						[[1166, 1430]],
+						[[1166, 1230]],
 					"Homo heidelbergensis narmadensis":
 						[[1260, 1260]],
 					"Homo heidelbergensis rhodesiensis":
 						[[880, 1325]],
+					"Homo heidelbergensis steinheimensis":
+						[[1200, 1430]],
 					"Homo neanderthalensis neanderthalensis":
 						[[1172, 1640]],
-					"Homo neanderthalensis paleohungaricus":
-						[[1450, 1450]],
+					"Homo neanderthalensis ssp. (Early)":
+						[[1200, 1450]],
 					"Homo neanderthalensis ssp. (Transitional)":
 						[[1205, 1740]],
 					"Homo rudolfensis":
@@ -804,6 +806,15 @@
 					},
 					"time": [-612000, -143000],
 					"note": "subspecific placement provisional"
+				},
+				{
+					"count": 1,
+					"geo": 
+					{
+						"near Selopuro, Java": [[-8.14, 112.3]]
+					},
+					"time": [-612000, -143000],
+					"note": "Ngawi calvaria: age of specimen is not known -- just using the maximum range from other specimens in the subspecies"
 				}
 			],
 			"Homo ergaster ergaster":
@@ -841,7 +852,7 @@
 					{
 						"Olduvai Gorge": [[-2.99, 35.35]]
 					},
-					"note": "OH 9 - H. ergaster or H. heidelbergensis?",
+					"note": "OH 9 (\"Chellean Man\") - H. ergaster or H. heidelbergensis?",
 					"time": [-1200000, -1100000]
 				}
 			],
@@ -948,7 +959,7 @@
 					"note": "placement provisional"
 				}
 			],
-			"Homo heidelbergensis heidelbergensis (general)":
+			"Homo heidelbergensis heidelbergensis":
 			[
 				{
 					"count": [1, 6],
@@ -1008,9 +1019,53 @@
 					"count": 3,
 					"geo":
 					{
-						"Tautavel": [[42.82, 2.74]]
+						"Tautavel (Arago)": [[42.82, 2.74]]
 					},
 					"time": [-455000, -445000]
+				}
+			],
+			"Homo heidelbergensis steinheimensis (general)":
+			[
+				{
+					"count": [1, 3],
+					"time": [-450000, -200000],
+					"note": "I^2 (Aubesier 4), maxillary molar (Aubesier 10), partial mandible (Aubesier 11)",
+					"geo": {
+						"Bau de l'Aubesier, Vaucluse": [[44.1, 5.4]]
+					}
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Apidima": [[36.6, 22.4]]
+					},
+					"note": "two crania",
+					"time": [-400000, -105000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Altamura": [[40.8, 16.6]]
+					},
+					"time": [-400000, -100000]
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Bilzingsleben": [[51.28, 11.07]]
+					},
+					"time": [-370000, -370000]
+				},
+				{
+					"count": [2, 3],
+					"time": [-350000, -350000],
+					"note": "'Samu' - type of Homo erectus paleohungaricus (occipital bone), and 2 juvenile teeth",
+					"geo": {
+						"Vertesszolos": [[47.63, 18.38]]
+					}
 				},
 				{
 					"count": 1,
@@ -1019,9 +1074,25 @@
 						"Steinheim an der Murr": [[48.97, 9.28]]
 					},
 					"time": [-350000, -250000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Swanscombe": [[51.45, 0.30]]
+					},
+					"time": [-300000, -300000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Reilingen": [[49.29, 8.57]]
+					},
+					"time": [-200000, -200000]
 				}
 			],
-			"Homo heidelbergensis heidelbergensis (Sima de los Huesos)":
+			"Homo heidelbergensis steinheimensis (Sima de los Huesos)":
 			[
 				{
 					"count": 28,
@@ -1066,6 +1137,15 @@
 					"count": 1,
 					"geo":
 					{
+						"Olduvai Gorge": [[-2.99, 35.35]]
+					},
+					"note": "OH 12 (\"Pinhead\"). Date from Holloway & al. (2004) -- other sources give older dates.",
+					"time": [-600000, -600000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
 						"Elandsfontein, Saldanha Bay": [[-33, 18]]
 					},
 					"time": [-500000, -200000]
@@ -1075,6 +1155,14 @@
 					"geo":
 					{
 						"Lake Ndutu": [[-3.00, 35.00]]
+					},
+					"time": [-410000, -390000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Salé": [[34.0, -6.8]]
 					},
 					"time": [-410000, -390000]
 				},
@@ -1211,41 +1299,8 @@
 					"note": "maximum date from https://edocs.uis.edu/druez2/www/publications/MojokertoDiscoveryJHE.pdf [O.F. Huffman et al. / Journal of Human Evolution 50 (2006) 431e451]; minimum date unknown -- some tentative support for Early-Middle Pleistocene boundary"
 				}
 			],
-			"Homo neanderthalensis paleohungaricus":
+			"Homo neanderthalensis ssp. (Early)":
 			[
-				{
-					"count": 3,
-					"time": [-450000, -200000],
-					"note": "I^2 (Aubesier 4), maxillary molar (Aubesier 10), partial mandible (Aubesier 11)",
-					"geo": {
-						"Bau de l'Aubesier, Vaucluse": [[44.1, 5.4]]
-					}
-				},
-				{
-					"count": 2,
-					"geo":
-					{
-						"Apidima": [[36.6, 22.4]]
-					},
-					"note": "two crania",
-					"time": [-400000, -105000]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Altamura": [[40.8, 16.6]]
-					},
-					"time": [-400000, -100000]
-				},
-				{
-					"count": [2, 3],
-					"time": [-350000, -350000],
-					"note": "'Samu' - type of Homo erectus paleohungaricus (occipital bone), and 2 juvenile teeth",
-					"geo": {
-						"Vertesszolos": [[47.63, 18.38]]
-					}
-				},
 				{
 					"count": 1,
 					"time": [-300000, -200000],
@@ -1356,6 +1411,13 @@
 						"Sveduv Stul": [[49,16]]
 					}
 				},
+				{
+					"count": 2,
+					"time": [-129000, -12200],
+					"geo": {
+						"Saccopastore": [[42, 13]]
+					}
+				},
 				{			
 					"count": 1,
 					"note": "mtDNA fragment recovered, clades with Neandertals but outside the variation of later ones",
@@ -1395,7 +1457,7 @@
 				},
 				{
 					"count": 18,
-					"time": [-61000, -45000],
+					"time": [-61000, -41000],
 					"geo": {
 						"Amud": [[32.9, 35.5]]
 					}
@@ -1453,13 +1515,6 @@
 					"time": [-51000, -41000],
 					"geo": {
 						"Pech de l'Aze I": [[44.88,1.25]]
-					}
-				},
-				{
-					"count": 2,
-					"time": [-129000, -12200],
-					"geo": {
-						"Saccopastore": [[42, 13]]
 					}
 				},
 				{

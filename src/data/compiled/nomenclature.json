@@ -115,10 +115,11 @@
 				["Homo heidelbergensis", "Homo heidelbergensis mabaensis"],
 				["Homo heidelbergensis", "Homo heidelbergensis narmadensis"],
 				["Homo heidelbergensis", "Homo heidelbergensis rhodesiensis"],
+				["Homo heidelbergensis", "Homo heidelbergensis steinheimensis"],
 				["Homo heidelbergensis", "Homo heidelbergensis ssp."],
-				["Homo heidelbergensis heidelbergensis", "Homo heidelbergensis heidelbergensis (general)"],
-				["Homo heidelbergensis heidelbergensis", "Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
-				["Homo neanderthalensis", "Homo neanderthalensis paleohungaricus"],
+				["Homo heidelbergensis steinheimensis", "Homo heidelbergensis steinheimensis (general)"],
+				["Homo heidelbergensis steinheimensis", "Homo heidelbergensis steinheimensis (Sima de los Huesos)"],
+				["Homo neanderthalensis", "Homo neanderthalensis ssp. (Early)"],
 				["Homo neanderthalensis", "Homo neanderthalensis ssp. (Transitional)"],
 				["Homo neanderthalensis", "Homo neanderthalensis neanderthalensis"],
 				["Homo sapiens", "Homo sapiens helmei"],
@@ -192,12 +193,16 @@
 				["living chimpanzees", "Pan troglodytes"],
 				["living chimpanzees", "Pan paniscus"],
 
+				["Homo erectus & heidelbergensis", "Homo erectus"],
+				["Homo erectus & heidelbergensis", "Homo heidelbergensis"],
 				["Homo habilis & rudolfensis", "Homo habilis"],
 				["Homo habilis & rudolfensis", "Homo rudolfensis"],
 				["Praeanthropus & Kenyanthropus", "Praeanthropus"],
 				["Praeanthropus & Kenyanthropus", "Kenyanthropus"],
 				["Australopithecus & Paranthropus", "Australopithecus"],
-				["Australopithecus & Paranthropus", "Paranthropus"]
+				["Australopithecus & Paranthropus", "Paranthropus"],
+				["humans & Neandertals", "Homo neanderthalensis"],
+				["humans & Neandertals", "Homo sapiens"]
 			],
 			"synonymies":
 			[
