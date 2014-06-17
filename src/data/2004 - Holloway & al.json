@@ -259,7 +259,37 @@
 					"Reilingen":   [1430, 0.2],
 					"Saldanha":    [1225, 0.5],
 					"Steinheim":   [1200, 0.225],
-					"Swanscombe":  [1325, 0.25]
+					"Swanscombe":  [1325, 0.25],
+					
+					"Amud":                  [1740, 0.041],
+					"Engis 2":               [1362, 0.06],
+					"Ganovce":               [1320, 0.09],
+					"Gibraltar (Devil's)":   [1400, 0.05],
+					"Gibraltar (Forbe's)":   [1200, 0.05],
+					"Jebel Irhoud 1":        [1305, 0.1],
+					"Jebel Irhoud 2":        [1400, 0.1],
+					"Krapina B":             [1450, 0.13],
+					"Krapina 3 (Cranium C)": [1255, 0.13],
+					"Krapina 6 (Cranium E)": [1205, 0.13],
+					"La Chapelle":           [1625, 0.05],
+					"La Ferrassie":          [1640, 0.07],
+					"La Quina 5":            [1172, 0.065],
+					"La Quina 18":           [1200, 0.06],
+					"Le Moustier":           [1565, 0.041],
+					"Monte Circeo (Guat1)":  [1360, 0.052],
+					"Neanderthal":           [1525, 0.04],
+					"Saccopastore 1":        [1245, 0.125],
+					"Saccopastore 2":        [1300, 0.125],
+					"Shanidar 1":            [1600, 0.06],
+					"Shanidar 5":            [1550, 0.06],
+					"Skhul 1":               [1450, 0.1],
+					"Skhul 4":               [1554, 0.1],
+					"Skhul 5":               [1520, 0.1],
+					"Skhul 9":               [1590, 0.1],
+					"Spy I":                 [1305, 0.068],
+					"Spy II":                [1553, 0.068],
+					"Tabun 1":               [1271, 0.11],
+					"Teshik-Tash":           [1525, 0.07]
 				}
 			}
 		}
