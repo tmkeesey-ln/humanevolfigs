@@ -59,24 +59,24 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.BOTTOM_LEFT
 	},
+	"Homo erectus & ergaster": {
+		italic: true,
+		position: LabelPosition.BOTTOM_RIGHT
+	},
+	/*
 	"Homo ergaster": {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
-	"Homo erectus & heidelbergensis": {
-		italic: true,
-		position: LabelPosition.RIGHT
-	},
-	/*
 	"Homo erectus": {
 		italic: true,
 		position: LabelPosition.LEFT
 	},
+	*/
 	"Homo heidelbergensis": {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
-	*/
 	/*
 	"Homo neanderthalensis": {
 		text: "Neandertals",
