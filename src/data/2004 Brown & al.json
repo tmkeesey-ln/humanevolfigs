@@ -1,0 +1,47 @@
+{
+	"metadata":
+	{
+		"authors": ["P. Brown", "T. Sutikna", "M. J. Morwood", "R. P. Soejono", "Jatmiko", "E. Wayhu Saptomo", "Rokus Awe Due"],
+		"year": 2004,
+		"title": "A new small-bodied hominin from the Late Pleistocene of Flores, Indonesia",
+		"journal": "Nature ",
+		"volume": 431,
+		"pages": [1055, 1061],
+		"uri": "urn:doi:10.1038/nature02999"
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"hyponymies":
+			[
+				["Homo", "Homo floresiensis"],
+				["Homo floresiensis", "Liang Bua 1"],
+				["Homo floresiensis", "Liang Bua 2"],
+				["Homo floresiensis", "Liang Bua 3"],
+				["Homo floresiensis", "Liang Bua 4"],
+				["Homo floresiensis", "Liang Bua 5"],
+				["Homo floresiensis", "Liang Bua 6"],
+				["Homo floresiensis", "Liang Bua 7"],
+				["Homo floresiensis", "Liang Bua 8"],
+				["Homo floresiensis", "Liang Bua 9"]
+			]
+		},
+		"characterScores":
+		{
+			"Abstract":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume (cc)"
+					}
+				],
+				"scores": {
+					"Liang Bua 1": [380]
+				}
+			}
+		}
+	}
+}
