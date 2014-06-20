@@ -1,45 +1,452 @@
 {
 	"metadata":
 	{
-		"authors": ["P. Brown", "T. Sutikna", "M. J. Morwood", "R. P. Soejono", "Jatmiko", "E. Wayhu Saptomo", "Rokus Awe Due"],
+		"authors": ["Ralph L. Holloway", "Douglas C. Broadfield", "Michael S. Yuan"],
 		"year": 2004,
-		"title": "A new small-bodied hominin from the Late Pleistocene of Flores, Indonesia",
-		"journal": "Nature ",
-		"volume": 431,
-		"pages": [1055, 1061],
-		"uri": "urn:doi:10.1038/nature02999"
+		"title": "The Human Fossil Record: Brain Endocasts: The Paleoneurological Evidence",
+		"publisher": "John Wiley & Sons",
+		"location": "New York",
+	    "uri": {
+	    	"cover": "http://www.columbia.edu/~rlh2/cover.PDF",
+	    	"part 1": "http://www.columbia.edu/~rlh2/Part1.pdf",
+	    	"part 2": "http://www.columbia.edu/~rlh2/PartII.pdf"
+	    }
 	},
 	"data":
 	{
-		"nomenclature":
-		{
-			"hyponymies":
-			[
-				["Homo", "Homo floresiensis"],
-				["Homo floresiensis", "Liang Bua 1"],
-				["Homo floresiensis", "Liang Bua 2"],
-				["Homo floresiensis", "Liang Bua 3"],
-				["Homo floresiensis", "Liang Bua 4"],
-				["Homo floresiensis", "Liang Bua 5"],
-				["Homo floresiensis", "Liang Bua 6"],
-				["Homo floresiensis", "Liang Bua 7"],
-				["Homo floresiensis", "Liang Bua 8"],
-				["Homo floresiensis", "Liang Bua 9"]
+		"nomenclature": {
+			"note": "Revised to match taxonomic decisions in chapter.",
+
+			"hyponymies": [
+				["Australopithecus afarensis antiquus", "AL 162-28"],
+				["Australopithecus afarensis antiquus", "AL 288-1"],
+				["Australopithecus afarensis antiquus", "AL 333-105"],
+				["Australopithecus afarensis antiquus", "AL 333-45"],
+				["Australopithecus afarensis antiquus", "AL 444-2"],
+
+				["Australopithecus aethiopicus", "KNM-WT 17000"],
+				["Australopithecus aethiopicus", "KNM-WT 17400"],
+				["Australopithecus aethiopicus", "KNM-WT 23000"],
+				["Australopithecus aethiopicus", "Omo L338y-6"],
+
+				["Australopithecus boisei", "KNM-ER 406"],
+				["Australopithecus boisei", "KNM-ER 407"],
+				["Australopithecus boisei", "KNM-ER 732"],
+				["Australopithecus boisei", "KNM-WT 13750"],
+				["Australopithecus boisei", "Konso (KGA-10-525)"],
+				["Australopithecus boisei", "OH 5"],
+
+				["Australopithecus robustus", "SK 54"],
+				["Australopithecus robustus", "SK 859"],
+				["Australopithecus robustus", "SK 1585"],
+
+				["Australopithecus africanus", "MLD 1"],
+				["Australopithecus africanus", "MLD 37/38"],
+				["Australopithecus africanus", "Sts 5"],
+				["Australopithecus africanus", "Sts 19/58"],
+				["Australopithecus africanus", "Sts 60"],
+				["Australopithecus africanus", "Sts 71"],
+				["Australopithecus africanus", "Stw 505"],
+				["Australopithecus africanus", "Taung"],
+				["Australopithecus africanus", "Type 2"],
+
+				["Australopithecus garhi", "Bouri (Bou-VP-12/130)"],
+
+				["Homo habilis", "KNM-ER 1805"],
+				["Homo habilis", "KNM-ER 1813"],
+				["Homo habilis", "OH 7"],
+				["Homo habilis", "OH 13"],
+				["Homo habilis", "OH 16"],
+				["Homo habilis", "OH 24"],
+
+				["Homo ergaster ergaster", "KNM-ER 3732"],
+				["Homo ergaster ergaster", "KNM-ER 3733"],
+				["Homo ergaster ergaster", "KNM-ER 3883"],
+
+				["Homo rudolfensis", "KNM-ER 1470"],
+				["Homo rudolfensis", "KNM-ER 1590"],
+
+				["Homo ergaster georgicus", "Dmanisi D2280"],
+				["Homo ergaster georgicus", "Dmanisi D2282"],
+
+				["Homo heidelbergensis cepranensis", "Daka, Ethiopia"],
+
+				["Homo erectus hexianensis", "Hexian"],
+
+				["Homo heidelbergensis daliensis", "Jinniushan"],
+
+				["Homo ergaster ergaster", "KNM-WT 15000"],
+
+				["Homo erectus lantianensis", "Lantian (Gongwang 1)"],
+
+				["Homo heidelbergensis narmadensis", "Narmada"]
+
+				["Homo erectus soloensis", "Ngawi"]
+
+				["Homo ergaster ergaster", "OH 9"],
+
+				["Homo heidelbergensis rhodesiensis", "OH 12"],
+				["Homo heidelbergensis rhodesiensis", "Sale"],
+
+				["Homo erectus soloensis", "Sambungmacan 1"],
+				["Homo erectus soloensis", "Sambungmacan 3"],
+				["Homo erectus soloensis", "Sambungmacan 4"],
+
+				["Homo erectus erectus", "Sangiran 2"],
+				["Homo erectus erectus", "Sangiran 3"],
+				["Homo erectus erectus", "Sangiran 4"],
+				["Homo erectus erectus", "Sangiran 10"],
+				["Homo erectus erectus", "Sangiran 12"],
+				["Homo erectus erectus", "Sangiran 17"],
+				["Homo erectus erectus", "Trinil 2"],
+
+				["Homo erectus pekinensis", "Yunxian (1 and 2)"],
+				["Homo erectus pekinensis", "Zhoukoudian III, E (Z 2)"],
+				["Homo erectus pekinensis", "Zhoukoudian (Z11)"],
+				["Homo erectus pekinensis", "Zhoukoudian I, L (Z 10)"],
+				["Homo erectus pekinensis", "Zhoukoudian III, L (Z 12)"],
+
+				["Homo heidelbergensis antecessor", "Atapuerca 4"],
+				["Homo heidelbergensis antecessor", "Atapuerca 5"],
+				["Homo heidelbergensis antecessor", "Atapuerca 6"],
+
+				["Homo heidelbergensis daliensis", "Dali 1"],
+
+				["Homo erectus soloensis", "Ngandong 1 (Solo I)"],
+				["Homo erectus soloensis", "Ngandong 6 (Solo V)"],
+				["Homo erectus soloensis", "Ngandong 7 (Solo VI)"],
+				["Homo erectus soloensis", "Ngandong (Solo IX)"],
+				["Homo erectus soloensis", "Ngandong 13 (Solo X)"],
+				["Homo erectus soloensis", "Ngandong 14 (Solo XI)"],
+
+
+				["Homo heidelbergensis heidelbergensis", "Arago"],
+
+				["Homo neanderthalensis ssp. (Early)", "Biache"],
+
+				["Homo heidelbergensis rhodesiensis", "Bodo"],
+
+				["Homo heidelbergensis cepranensis", "Ceprano"],
+
+				["Homo neanderthalensis ssp. (Early)", "Ehringsdorf"],
+
+				["Homo heidelbergensis rhodesiensis", "Kabwe"],
+
+				["Homo neanderthalensis ssp. (Early)", "Lazaret"],
+
+				["Homo heidelbergensis heidelbergensis", "Petralona"],
+
+				["Homo heidelbergensis steinheimensis", "Reilingen"],
+
+				["Homo heidelbergensis rhodesiensis", "Saldanha"],
+
+				["Homo heidelbergensis steinheimensis", "Steinheim"],
+				["Homo heidelbergensis steinheimensis", "Swanscombe"],
+				
+				["Homo neanderthalensis ssp. (Transitional)", "Amud"],
+				["Homo neanderthalensis ssp. (Transitional)", "Engis 2"],
+				
+				["Homo neanderthalensis neanderthalensis", "Ganovce"],
+				["Homo neanderthalensis neanderthalensis","Gibraltar (Devil's)"],
+				["Homo neanderthalensis neanderthalensis","Gibraltar (Forbe's)"],
+				
+				["Homo sapiens sapiens (fossil)", "Jebel Irhoud 1"],
+				["Homo sapiens sapiens (fossil)", "Jebel Irhoud 2"],
+				
+				["Homo neanderthalensis ssp. (Transitional)", "Krapina B"],
+				["Homo neanderthalensis ssp. (Transitional)", "Krapina 3 (Cranium C)"],
+				["Homo neanderthalensis ssp. (Transitional)", "Krapina 6 (Cranium E)"],
+				
+				["Homo neanderthalensis neanderthalensis", "La Chapelle"],
+				["Homo neanderthalensis neanderthalensis", "La Ferrassie"],
+				["Homo neanderthalensis neanderthalensis", "La Quina 5"],
+				["Homo neanderthalensis neanderthalensis", "La Quina 18"],
+				["Homo neanderthalensis neanderthalensis", "Le Moustier"],
+				["Homo neanderthalensis neanderthalensis", "Monte Circeo (Guat1)"],
+				["Homo neanderthalensis neanderthalensis", "Neanderthal"]
+				
+				["Homo neanderthalensis ssp. (Transitional)", "Saccopastore 1"],
+				["Homo neanderthalensis ssp. (Transitional)", "Saccopastore 2"],
+				["Homo neanderthalensis ssp. (Transitional)", "Shanidar 1"],
+				["Homo neanderthalensis ssp. (Transitional)", "Shanidar 5"],
+				
+				["Homo sapiens sapiens (fossil)", "Skhul 1"],
+				["Homo sapiens sapiens (fossil)", "Skhul 4"],
+				["Homo sapiens sapiens (fossil)", "Skhul 5"],
+				["Homo sapiens sapiens (fossil)", "Skhul 9"],
+				
+				["Homo neanderthalensis neanderthalensis", "Spy I"],
+				["Homo neanderthalensis neanderthalensis", "Spy II"],
+				["Homo neanderthalensis neanderthalensis", "Tabun 1"],
+				["Homo neanderthalensis neanderthalensis", "Teshik-Tash"],
+				
+				["Homo sapiens idaltu", "Herto 1/16"],
+				
+				["Homo sapiens sapiens (fossil)","Brno I"],
+				["Homo sapiens sapiens (fossil)","Brno II"],
+				["Homo sapiens sapiens (fossil)","Brno III"],
+				["Homo sapiens sapiens (fossil)","Border Cave"],
+				["Homo sapiens sapiens (fossil)","Bruniqul 2"],
+				["Homo sapiens sapiens (fossil)","Cap Blanc 1"],
+				["Homo sapiens sapiens (fossil)","Chancelade"],
+				["Homo sapiens sapiens (fossil)","Combe Capelle"],
+				["Homo sapiens sapiens (fossil)","Cro-Magnon 1"],
+				["Homo sapiens sapiens (fossil)","Cro-Magnon 3"],
+				["Homo sapiens sapiens (fossil)","Dolni Vestonice 3"],
+				["Homo sapiens sapiens (fossil)","Dolni Vestonice 14"],
+				["Homo sapiens sapiens (fossil)","Dolni Vestonice 18"],
+				["Homo sapiens sapiens (fossil)","Dolni Vestonice 20"],
+				["Homo sapiens sapiens (fossil)","Dolni Vestonice 21"],
+				["Homo sapiens sapiens (fossil)","Grotte des Infants 4"],
+				["Homo sapiens sapiens (fossil)","Grotte des Infants 5"]
+				["Homo sapiens sapiens (fossil)","Grotte des Infants 6"],,
+				["Homo sapiens sapiens (fossil)","Kostenki 2"],
+				["Homo sapiens sapiens (fossil)","Kostenki 14"],
+				["Homo sapiens sapiens (fossil)","Laetoli 18"],
+				["Homo sapiens sapiens (fossil)","Liujiang"],
+				["Homo sapiens sapiens (fossil)","Minatogawa 1"],
+				["Homo sapiens sapiens (fossil)","Minatogawa 2"],
+				["Homo sapiens sapiens (fossil)","Minatogawa 4"],
+				["Homo sapiens sapiens (fossil)","Mladec 1"],
+				["Homo sapiens sapiens (fossil)","Mladec 2"],
+				["Homo sapiens sapiens (fossil)","Mladec 5"],
+				["Homo sapiens sapiens (fossil)","Nazlet Khater 2"],
+				["Homo sapiens sapiens (fossil)","Obercassel 1"],
+				["Homo sapiens sapiens (fossil)","Obercassel 2"],
+				
+				["Homo sapiens ssp.","Omo 2 (Kibbish)"],
+				
+				["Homo sapiens sapiens (fossil)","Pataud 1"],
+				["Homo sapiens sapiens (fossil)","Pavlov1"],
+				["Homo sapiens sapiens (fossil)","Predmosti 3"],
+				["Homo sapiens sapiens (fossil)","Predmosti 4"],
+				["Homo sapiens sapiens (fossil)","Predmosti 9"],
+				["Homo sapiens sapiens (fossil)","Predmosti 10"],
+				["Homo sapiens sapiens (fossil)","Qafzeh 6"],
+				["Homo sapiens sapiens (fossil)","Qafzeh 9"],
+				["Homo sapiens sapiens (fossil)","Qafzeh 11"],
+				["Homo sapiens sapiens (fossil)","San Teodoro 1"],
+				["Homo sapiens sapiens (fossil)","San Teodoro 2"],
+				["Homo sapiens sapiens (fossil)","San Teodoro 3"],
+				["Homo sapiens sapiens (fossil)","San Teodoro 5"],
+				["Homo sapiens sapiens (fossil)","Singa 1"],
+				["Homo sapiens sapiens (fossil)","St. Germain-la-Rivie"],
+				["Homo sapiens sapiens (fossil)","Sungir 1"],
+				["Homo sapiens sapiens (fossil)","Sungir 2"],
+				["Homo sapiens sapiens (fossil)","Sungir 3"],
+				["Homo sapiens sapiens (fossil)","Sungir 5"],
+				["Homo sapiens sapiens (fossil)","Veyrier 1"],
+				["Homo sapiens sapiens (fossil)","Yinkou"],
+				["Homo sapiens sapiens (fossil)","Zhoukoudian (Upper Cave) 1"],
+				["Homo sapiens sapiens (fossil)","Zhoukoudian (Upper Cave) 2"],
+				["Homo sapiens sapiens (fossil)","Zhoukoudian (Upper Cave) 3"]
 			]
 		},
 		"characterScores":
 		{
-			"Abstract":
+			"Appendix I Part 1":
 			{
 				"characterType": "range",
 				"characters":
 				[
 					{
-						"name": "endocranial volume (cc)"
+						"name": "endocranial volume"
+					},
+					{
+						"name": "MYA"
 					}
 				],
 				"scores": {
-					"Liang Bua 1": [380]
+					"AL 162-28":	[400, 3.18],
+					"AL 288-1":		[387, 3],
+					"AL 333-105":	[400, 3.18],
+					"AL 333-45":	[492, 3.18],
+					"AL 444-2":		[550, 3],
+
+					"KNM-WT 17000": [410, 2.5],
+					"KNM-WT 17400": [400, 1.77],
+					"KNM-ER 23000": [490, 1.7],
+					"Omo L338y-6":  [427, 2.39],
+
+					"KNM-ER 406":         [500, 1.5],
+					"KNM-ER 407":         [510, 1.85],
+					"KNM-ER 732":         [500, 1.7],
+					"KNM-WT 13750":       [475, 1.7],
+					"Konso (KGA-10-525)": [545, 1.4],
+					"OH 5":               [520, 1.8],
+
+					"SK 54":   [500, 1.5], 
+					"SK 859":  [450, 1.5],
+					"SK 1585": [530, 1.5],
+
+					"MLD 1":     [510, 3.1],
+					"MLD 37/38": [435, 3.1],
+					"Sts 5":     [485, 2.5],
+					"Sts 19/58": [436, 2.5],
+					"Sts 60":    [400, 2.5],
+					"Sts 71":    [428, 2.5],
+					"Stw 505":   [560, 2.6],
+					"Taung":     [440, 2.6],
+					"Type 2":    [457, 2.5],
+
+					"Bouri (Bou-VP-12/130)": [450, 2.5],
+
+					"KNM-ER 1805": [582, 1.85],
+					"KNM-ER 1813": [509, 1.88],
+					"OH 7":        [687, 1.8],
+					"OH 13":       [650, 1.5],
+					"OH 16":       [638, 1.7],
+					"OH 24":       [590, 1.8],
+
+					"KNM-ER 3732": [750, 1.88],
+					"KNM-ER 3733": [848, 1.78],
+					"KNM-ER 3883": [804, 1.57],
+
+					"KNM-ER 1470": [752, 1.88],
+					"KNM-ER 1590": [825, 1.85],
+
+					"Dmanisi D2280": [650, 1.7],
+					"Dmanisi D2282": [780, 1.7],
+
+					"Daka, Ethiopia":            [995, 1],
+					"Hexian":                    [1025, 0.412],
+					"Jinniushan":                [1390, 0.28],
+					"KNM-WT 15000":              [900, 1.5],
+					"Lantian (Gongwang 1)":      [780, 0.7],
+					"Narmada":				     [1260, 0.236],
+					"Ngawi": 				     [870, null],
+					"OH 9":                      [1067, 1.2],
+					"OH 12":                     [727, 0.6],
+					"Sale":                      [880, 0.24],
+					"Sambungmacan 1":            [1035, 0.8],
+					"Sambungmacan 3":            [917, 0.4],
+					"Sambungmacan 4":            [1006, 0.8],
+					"Sangiran 2":                [813, 0.98],
+					"Sangiran 3":                [950, 1],
+					"Sangiran 4":                [908, 1.1],
+					"Sangiran 10":               [855, 1.2],
+					"Sangiran 12":               [1059, 0.9],
+					"Sangiran 17":               [1004, 1],
+					"Trinil 2":                  [940, 0.9],
+					"Yunxian (1 and 2)":         [1200, 0.4],
+					"Zhoukoudian III, E (Z 2)":  [915, 0.4],
+					"Zhoukoudian (Z11)":         [1015, 0.4],
+					"Zhoukoudian I, L (Z 10)":   [1225, 0.4],
+					"Zhoukoudian III, L (Z 12)": [1030, 0.4],
+
+					"Atapuerca 4": [1390, 0.35],
+					"Atapuerca 5": [1125, 0.35],
+					"Atapuerca 6": [1140, 0.35],
+
+					"Dali 1":                [1120, 0.209],
+					"Ngandong 1 (Solo I)":   [1172, 0.031],
+					"Ngandong 6 (Solo V)":   [1251, 0.031],
+					"Ngandong 7 (Solo VI)":  [1013, 0.031],
+					"Ngandong (Solo IX)":    [1135, 0.031],
+					"Ngandong 13 (Solo X)":  [1231, 0.031],
+					"Ngandong 14 (Solo XI)": [1090, 0.031],
+
+					"Arago":       [1166, 0.4],
+					"Biache":      [1200, null],
+					"Bodo":        [1250, 0.6],
+					"Ceprano":     [1165, 0.8],
+					"Ehringsdorf": [1450, 0.23],
+					"Kabwe":       [1325, 0.18],
+					"Lazaret":     [1250, 0.13],
+					"Petralona":   [1230, 0.21],
+					"Reilingen":   [1430, 0.2],
+					"Saldanha":    [1225, 0.5],
+					"Steinheim":   [1200, 0.225],
+					"Swanscombe":  [1325, 0.25],
+					
+					"Amud":                  [1740, 0.041],
+					"Engis 2":               [1362, 0.06],
+					"Ganovce":               [1320, 0.09],
+					"Gibraltar (Devil's)":   [1400, 0.05],
+					"Gibraltar (Forbe's)":   [1200, 0.05],
+					"Jebel Irhoud 1":        [1305, 0.1],
+					"Jebel Irhoud 2":        [1400, 0.1],
+					"Krapina B":             [1450, 0.13],
+					"Krapina 3 (Cranium C)": [1255, 0.13],
+					"Krapina 6 (Cranium E)": [1205, 0.13],
+					"La Chapelle":           [1625, 0.05],
+					"La Ferrassie":          [1640, 0.07],
+					"La Quina 5":            [1172, 0.065],
+					"La Quina 18":           [1200, 0.06],
+					"Le Moustier":           [1565, 0.041],
+					"Monte Circeo (Guat1)":  [1360, 0.052],
+					"Neanderthal":           [1525, 0.04],
+					"Saccopastore 1":        [1245, 0.125],
+					"Saccopastore 2":        [1300, 0.125],
+					"Shanidar 1":            [1600, 0.06],
+					"Shanidar 5":            [1550, 0.06],
+					"Skhul 1":               [1450, 0.1],
+					"Skhul 4":               [1554, 0.1],
+					"Skhul 5":               [1520, 0.1],
+					"Skhul 9":               [1590, 0.1],
+					"Spy I":                 [1305, 0.068],
+					"Spy II":                [1553, 0.068],
+					"Tabun 1":               [1271, 0.11],
+					"Teshik-Tash":           [1525, 0.07],
+					
+					"Herto 1/16": [1450, 0.16],
+					
+					"Brno I":                     [1600, 0.026],
+					"Brno II":                    [1500, 0.026],
+					"Brno III":                   [1304, 0.026],
+					"Border Cave":                [1510, 0.07],
+					"Bruniqul 2":                 [1555, null],
+					"Cap Blanc 1":                [1434, null],
+					"Chancelade":                 [1530, null],
+					"Combe Capelle":              [1570, 0.028],
+					"Cro-Magnon 1":               [1730, 0.03],
+					"Cro-Magnon 3":               [1590, 0.03],
+					"Dolni Vestonice 3":          [1285, 0.0275],
+					"Dolni Vestonice 14":         [1538, 0.0275],
+					"Dolni Vestonice 18":         [1481, 0.0275],
+					"Dolni Vestonice 20":         [1378, 0.0275],
+					"Dolni Vestonice 21":         [1547, 0.0275],
+					"Grotte des Infants 4":       [1775, null],
+					"Grotte des Infants 5":       [1375, null],
+					"Grotte des Infants 6":       [1580, null],
+					"Kostenki 2":                 [1605, 0.02],
+					"Kostenki 14":                [1222, null],
+					"Laetoli 18":                 [1367, 0.12],
+					"Liujiang":                   [1480, 0.04],
+					"Minatogawa 1":               [1390, 0.018],
+					"Minatogawa 2":               [1170, null],
+					"Minatogawa 4":               [1090, null],
+					"Mladec 1":                   [1540, 0.03],
+					"Mladec 2":                   [1390, null],
+					"Mladec 5":                   [1650, null],
+					"Nazlet Khater 2":            [1420, 0.037],
+					"Obercassel 1":               [1500, null],
+					"Obercassel 2":               [1370, null],
+					"Omo 2 (Kibbish)":            [1435, 0.12],
+					"Pataud 1":                   [1380, null],
+					"Pavlov1":                    [1472, 0.026],
+					"Predmosti 3":                [1580, 0.026],
+					"Predmosti 4":                [1250, 0.026],
+					"Predmosti 9":                [1555, 0.026],
+					"Predmosti 10":               [1452, 0.026],
+					"Qafzeh 6":                   [1568, 0.09],
+					"Qafzeh 9":                   [1531, null],
+					"Qafzeh 11":                  [1280, null],
+					"San Teodoro 1":              [1565, null],
+					"San Teodoro 2":              [1569, null],
+					"San Teodoro 3":              [1560, null],
+					"San Teodoro 5":              [1484, null],
+					"Singa 1":                    [1550, 0.133],
+					"St. Germain-la-Rivie":       [1354, null],
+					"Sungir 1":                   [1464, 0.024],
+					"Sungir 2":                   [1267, null],
+					"Sungir 3":                   [1361, null],
+					"Sungir 5":                   [1453, null],
+					"Veyrier 1":                  [1430, null],
+					"Yinkou":                     [1390, 0.13],
+					"Zhoukoudian (Upper Cave) 1": [1500, 0.015],
+					"Zhoukoudian (Upper Cave) 2": [1380, null],
+					"Zhoukoudian (Upper Cave) 3": [1290, null]
 				}
 			}
 		}
