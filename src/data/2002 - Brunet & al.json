@@ -1,0 +1,31 @@
+{
+	"metadata":
+	{
+		"authors": ["Michel Brunet", "Franck Guy", "(36 others)"],
+		"year": 2002,
+		"title": "A new hominid from the Upper Miocene of Chad, Central Africa",
+		"journal": "Nature",
+		"volume": 418,
+		"pages": [145, 151],
+		"uri": "urn:doi:10.1038/nature00879"
+	},
+	"data":
+	{
+		"characterScores":
+		{
+			"Differential diagnosis":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume (cc)"
+					}
+				],
+				"scores": {
+					"Sahelanthropus tchadensis": [320, 380]
+				}
+			}
+		}
+	}
+}
