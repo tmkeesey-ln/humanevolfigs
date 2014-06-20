@@ -1,0 +1,48 @@
+{
+	"metadata":
+	{
+		"authors": ["David R. Begun", "László Kordos"],
+		"year": 2004,
+		"title": "Cranial evidence of the evolution of intelligence in fossil apes",
+		"in": {
+			"editors": ["A. E. Russon", "D. R. Begun"],
+			"title": "The Evolution of Thought: Evolutionary Origins of Great Ape Intelligence",
+			"publisher": "Cambridge University Press"
+		},
+		"pages": [260, 279]
+	},
+	"data":
+	{
+		"characterScores":
+		{
+			"Table 14.2":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "brain mass (g)", 
+						"note": "cranial capacity (cm^3) / 1.14 = brain mass (g)"
+					}
+				],
+				"scores": {
+					"Callitrichidae": [[9.5, 17.6]],
+					"Aegyptopithecus": [29],
+					"Cebidae": [[24.8, 118.4]],
+					"Cercopithecidae": [[41.1, 119.4]],
+					"Hylobatidae": [[87.5, 133]],
+					"Oreopithecus": [112],
+					"Papionina": [[116, 179]],
+					"Symphalangus syndactylus": [133],
+					"Proconsul": [146],
+					"Papio": [[179, 222]],
+					"Pongo": [[288, 395]],
+					"Dryopithecus": [289],
+					"Pan troglodytes": [[325, 440]],
+					"Pan paniscus": [[314, 334]],
+					"Gorilla": [[426, 570]]
+				}
+			}
+		}
+	}
+}
