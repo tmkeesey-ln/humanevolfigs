@@ -14,11 +14,32 @@
 	{
 		"nomenclature":
 		{
+			"hyponymies":
+			[
+				["Australopithecus sediba", "Malapa Hominid 1"],
+				["Australopithecus sediba", "Malapa Hominid 2"]
+			],
 			"synonymies":
 			[
 				["Stw 53", "Hominina indet. B"],
 				["SK 847", "Homo indet. E"]
 			]
+		},
+		"characterScores":
+		{
+			"Discussion":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume"
+					}
+				],
+				"scores": {
+					"Malapa Hominid 1": [400]
+				}
+			}
 		},
 		"topologies":
 		{
