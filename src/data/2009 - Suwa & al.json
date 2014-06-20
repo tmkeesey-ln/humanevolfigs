@@ -1,0 +1,39 @@
+{
+	"metadata":
+	{
+		"authors": ["Gen Suwa", "Berhane Asfaw", "Reiko T. Kono", "Daisuke Kubo", "C. Owen Lovejoy", "Tim D. White"],
+		"year": 2009,
+		"title": "The Ardipithecus ramidus skull and its implications for hominid origins",
+		"journal": "Science",
+		"volume": 326,
+		"issue": 5949,
+		"pages": [68, ["68e1", "68e7"]],
+		"uri": "urn:doi:10.1126/science.1175825"
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"hyponymies":
+			[
+				["Ardipithecus ramidus", "ARA-VP-6/500"]
+			]
+		},
+		"characterScores":
+		{
+			"Discussion":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume (cc)"
+					}
+				],
+				"scores": {
+					"ARA-VP-6/500": [280, 350]
+				}
+			}
+		}
+	}
+}
