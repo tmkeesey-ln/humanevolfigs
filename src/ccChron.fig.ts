@@ -178,12 +178,34 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 
 function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haeckel.CharacterMatrix<Haeckel.Set>
 {
+	function addFromMatrix(matrix: Haeckel.CharacterMatrix<Haeckel.Set>, factor: number = 1, characterIndex: number = 0)
+	{
+		var char = matrix.characterList[characterIndex];
+		Haeckel.ext.each(matrix.taxon.units, (unit: Haeckel.Taxic) =>
+		{
+			var range = <Haeckel.Range> Haeckel.chr.states(matrix, unit, char);
+			if (factor === 1)
+			{
+				cmBuilder.states(unit, ccChar, range);
+			}
+			else
+			{
+				cmBuilder.states(unit, ccChar, Haeckel.rng.multiply(range, factor));
+			}
+		});
+	}
+
 	var solver = new Haeckel.PhyloSolver(sources.sources["data/compiled/phylogeny.json"].phylogenies["allTaxa"]);
 	var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>();
-	var source = sources.sources["data/compiled/characters.json"];
-	cmBuilder.addMatrix(source.characterMatrices["cranialCapacity"]);
-	cmBuilder.inferStates(solver.dagSolver, sources.nomenclature.nameMap['Pongo']);
-	cmBuilder.addMatrix(source.occurrences);
+	var ccChar = Haeckel.chr.createRange(Haeckel.rng.create(0, 2000), true, true, "Endocranial Volume (cc)");
+	addFromMatrix(sources.sources['data/2002 - Brunet & al.json'].characterMatrices['Differential diagnosis']);
+	addFromMatrix(sources.sources['data/2004 - Begun & Kordos.json'].characterMatrices['Table 14.2']);
+	addFromMatrix(sources.sources['data/2004 - Brown & al.json'].characterMatrices['Abstract']);
+	addFromMatrix(sources.sources['data/2004 - Holloway & al.json'].characterMatrices['Appendix I Part 1']);
+	addFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion']);
+	addFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion']);
+	cmBuilder.inferStates(solver.dagSolver, sources.nomenclature.nameMap['Hylobatidae']);
+	cmBuilder.addMatrix(sources.sources["data/compiled/characters.json"].occurrences);
 	cmBuilder.removeTaxon(Haeckel.tax.setDiff(cmBuilder.taxon, taxon));
 	return cmBuilder.build();
 }
@@ -220,6 +242,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         'data/compiled/characters.json',
         'data/compiled/nomenclature.json',
         'data/compiled/phylogeny.json',
+        'data/2002 - Brunet & al.json',
+        'data/2004 - Begun & Kordos.json',
+        'data/2004 - Brown & al.json',
+        'data/2004 - Holloway & al.json',
+        'data/2009 - Suwa & al.json',
+        'data/2010 - Berger & al.json',
         'data/2014 - ICS.json'
 	],
 
@@ -232,9 +260,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		chart.time = TIME;
 		var nameMap = sources.nomenclature.nameMap;
         var taxon = nameMap['Hominina'];
-        var matrix = getCCMatrix(sources, taxon);
-        var ccRange = getCCRange(matrix);
-        var horizontalRatioMap = getCCRatioMap(matrix, ccRange);
+        var matrix: Haeckel.CharacterMatrix<Haeckel.Set>;
+        var ccRange: Haeckel.Range;
+        var horizontalRatioMap: (vertex: Haeckel.Taxic) => Haeckel.Range;
 
 		function addToLabelRect(taxon: Haeckel.Taxic, rect: Haeckel.Rectangle)
 		{
@@ -551,7 +579,11 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		try
 		{
-			drawBackground();
+        	matrix = getCCMatrix(sources, taxon);
+        	ccRange = getCCRange(matrix);
+        	horizontalRatioMap = getCCRatioMap(matrix, ccRange);
+
+        	drawBackground();
 			drawStrata();
 			drawGoalposts();
 			//drawTimes();
