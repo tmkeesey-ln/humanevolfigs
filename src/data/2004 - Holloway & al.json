@@ -79,9 +79,9 @@
 
 				["Homo erectus lantianensis", "Lantian (Gongwang 1)"],
 
-				["Homo heidelbergensis narmadensis", "Narmada"]
+				["Homo heidelbergensis narmadensis", "Narmada"],
 
-				["Homo erectus soloensis", "Ngawi"]
+				["Homo erectus soloensis", "Ngawi"],
 
 				["Homo ergaster ergaster", "OH 9"],
 
@@ -163,7 +163,7 @@
 				["Homo neanderthalensis neanderthalensis", "La Quina 18"],
 				["Homo neanderthalensis neanderthalensis", "Le Moustier"],
 				["Homo neanderthalensis neanderthalensis", "Monte Circeo (Guat1)"],
-				["Homo neanderthalensis neanderthalensis", "Neanderthal"]
+				["Homo neanderthalensis neanderthalensis", "Neanderthal"],
 				
 				["Homo neanderthalensis ssp. (Transitional)", "Saccopastore 1"],
 				["Homo neanderthalensis ssp. (Transitional)", "Saccopastore 2"],
@@ -198,8 +198,8 @@
 				["Homo sapiens sapiens (fossil)","Dolni Vestonice 20"],
 				["Homo sapiens sapiens (fossil)","Dolni Vestonice 21"],
 				["Homo sapiens sapiens (fossil)","Grotte des Infants 4"],
-				["Homo sapiens sapiens (fossil)","Grotte des Infants 5"]
-				["Homo sapiens sapiens (fossil)","Grotte des Infants 6"],,
+				["Homo sapiens sapiens (fossil)","Grotte des Infants 5"],
+				["Homo sapiens sapiens (fossil)","Grotte des Infants 6"],
 				["Homo sapiens sapiens (fossil)","Kostenki 2"],
 				["Homo sapiens sapiens (fossil)","Kostenki 14"],
 				["Homo sapiens sapiens (fossil)","Laetoli 18"],
