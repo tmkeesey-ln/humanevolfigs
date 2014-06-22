@@ -1,0 +1,42 @@
+{
+	"metadata":
+	{
+		"authors": ["David Lordkipanidze", "Marcia S. Ponce de León", "Ann Margvelashvili", "Yoel Rak", "G. Philip Rightmire", "Abesalom Vekua", "Christoph P. E. Zollikofer"],
+		"year": 2013,
+		"title": "A complete skull from Dmanisi, Georgia, and the evolutionary biology of early Homo",
+		"journal": "Science",
+		"volume": 342,
+		"issue": 6156,
+		"pages": [326, 331],
+		"uri": "urn:doi:10.1126/science.1238484"
+	},
+	"data":
+	{
+		"nomenclature":
+		{
+			"hyponymies":
+			[
+				["Homo ergaster georgicus", "Dmanisi 2600/4500"]
+			]
+		},
+		"characterScores":
+		{
+			"Abstract":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume (cc)"
+					},
+					{
+						"name": "Mya"
+					}
+				],
+				"scores": {
+					"Dmanisi 2600/4500": [546, 1.8]
+				}
+			}
+		}
+	}
+}

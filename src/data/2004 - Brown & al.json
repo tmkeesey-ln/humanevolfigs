@@ -11,35 +11,22 @@
 	},
 	"data":
 	{
-		"nomenclature":
-		{
-			"hyponymies":
-			[
-				["Homo", "Homo floresiensis"],
-				["Homo floresiensis", "Liang Bua 1"],
-				["Homo floresiensis", "Liang Bua 2"],
-				["Homo floresiensis", "Liang Bua 3"],
-				["Homo floresiensis", "Liang Bua 4"],
-				["Homo floresiensis", "Liang Bua 5"],
-				["Homo floresiensis", "Liang Bua 6"],
-				["Homo floresiensis", "Liang Bua 7"],
-				["Homo floresiensis", "Liang Bua 8"],
-				["Homo floresiensis", "Liang Bua 9"]
-			]
-		},
 		"characterScores":
 		{
-			"Abstract":
+			"Description":
 			{
 				"characterType": "range",
 				"characters":
 				[
 					{
 						"name": "endocranial volume (cc)"
+					},
+					{
+						"name": "kyr"
 					}
 				],
 				"scores": {
-					"Liang Bua 1": [380]
+					"Homo floresiensis": [380, -18]
 				}
 			}
 		}

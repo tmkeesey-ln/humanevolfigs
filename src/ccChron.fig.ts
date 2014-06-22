@@ -178,34 +178,84 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 
 function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haeckel.CharacterMatrix<Haeckel.Set>
 {
-	function addFromMatrix(matrix: Haeckel.CharacterMatrix<Haeckel.Set>, factor: number = 1, characterIndex: number = 0)
+	function addFromMatrix(matrix: Haeckel.CharacterMatrix<Haeckel.Set>,
+		character: Haeckel.Character<Haeckel.Set>,
+		factor: number = 1,
+		characterIndex: number = 0)
 	{
 		var char = matrix.characterList[characterIndex];
 		Haeckel.ext.each(matrix.taxon.units, (unit: Haeckel.Taxic) =>
 		{
 			var range = <Haeckel.Range> Haeckel.chr.states(matrix, unit, char);
-			if (factor === 1)
+			cmBuilder.states(unit, character, Haeckel.rng.multiply(range, factor));
+		});
+	}
+
+	function addOccurrenceFromMatrix(matrix: Haeckel.CharacterMatrix<Haeckel.Set>,
+		timeCharacterIndex: number = 0,
+		timeFactor: number = 1)
+	{
+		function getHigherTaxonTime(taxon: Haeckel.Taxic): Haeckel.Range
+		{
+			var imPrcsList: Haeckel.ExtSet<Haeckel.Taxic>[] = [];
+			Haeckel.ext.each(taxon.units, (unit: Haeckel.Taxic) =>
 			{
-				cmBuilder.states(unit, ccChar, range);
-			}
-			else
+				imPrcsList.push(solver.dagSolver.imPrcs(unit));
+			});
+			var imPrcs = Haeckel.ext.union(imPrcsList);
+			var higherTaxon = solver.sucUnion(Haeckel.tax.union(Haeckel.ext.list(imPrcs)));
+			var time = <Haeckel.Range> Haeckel.chr.states(matrix, higherTaxon, char);
+			if (!time && !Haeckel.equal(taxon, higherTaxon))
 			{
-				cmBuilder.states(unit, ccChar, Haeckel.rng.multiply(range, factor));
+				return getHigherTaxonTime(higherTaxon);
 			}
+			return time;
+		}
+
+		var char = matrix.characterList[timeCharacterIndex];
+		Haeckel.ext.each(matrix.taxon.units, (unit: Haeckel.Taxic) =>
+		{
+			var time = <Haeckel.Range> Haeckel.chr.states(matrix, unit, char);
+			if (!time)
+			{
+				time = getHigherTaxonTime(unit);
+			}
+			if (time && timeFactor !== 1)
+			{
+				time = Haeckel.rng.multiply(time, timeFactor);
+			}
+			cmBuilder.states(unit, Haeckel.TIME_CHARACTER, time);
+			cmBuilder.states(unit, Haeckel.COUNT_CHARACTER, Haeckel.RANGE_1);
+			var occurrence = Haeckel.occ.create(Haeckel.RANGE_1, null, time);
+			cmBuilder.states(unit, Haeckel.OCCURRENCE_CHARACTER, Haeckel.ext.create<Haeckel.Occurrence>([ occurrence ]));
 		});
 	}
 
 	var solver = new Haeckel.PhyloSolver(sources.sources["data/compiled/phylogeny.json"].phylogenies["allTaxa"]);
 	var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Set>();
 	var ccChar = Haeckel.chr.createRange(Haeckel.rng.create(0, 2000), true, true, "Endocranial Volume (cc)");
-	addFromMatrix(sources.sources['data/2002 - Brunet & al.json'].characterMatrices['Differential diagnosis']);
-	addFromMatrix(sources.sources['data/2004 - Begun & Kordos.json'].characterMatrices['Table 14.2']);
-	addFromMatrix(sources.sources['data/2004 - Brown & al.json'].characterMatrices['Abstract']);
-	addFromMatrix(sources.sources['data/2004 - Holloway & al.json'].characterMatrices['Appendix I Part 1']);
-	addFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion']);
-	addFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion']);
-	cmBuilder.inferStates(solver.dagSolver, sources.nomenclature.nameMap['Hylobatidae']);
-	cmBuilder.addMatrix(sources.sources["data/compiled/characters.json"].occurrences);
+	cmBuilder.addListed(ccChar);
+	cmBuilder.addListed(Haeckel.TIME_CHARACTER);
+	cmBuilder.addListed(Haeckel.COUNT_CHARACTER);
+
+	addFromMatrix(sources.sources['data/2002 - Brunet & al.json'].characterMatrices['Differential diagnosis'], ccChar);
+	addFromMatrix(sources.sources['data/2004 - Begun & Kordos.json'].characterMatrices['Table 14.2'], ccChar, 1.14);
+	addFromMatrix(sources.sources['data/2004 - Brown & al.json'].characterMatrices['Description'], ccChar);
+	addFromMatrix(sources.sources['data/2004 - Holloway & al.json'].characterMatrices['Appendix I Part 1'], ccChar);
+	addFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion'], ccChar);
+	addFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion'], ccChar);
+	addFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], ccChar);
+
+	addOccurrenceFromMatrix(sources.sources['data/2002 - Brunet & al.json'].characterMatrices['Abstract'], 0, 1000000);
+	addOccurrenceFromMatrix(sources.sources['data/2004 - Brown & al.json'].characterMatrices['Description'], 1, 1000);
+	addOccurrenceFromMatrix(sources.sources['data/2004 - Holloway & al.json'].characterMatrices['Appendix I Part 1'], 1, -1000000);
+	addOccurrenceFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion'], 1, 1000000);
+	addOccurrenceFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion'], 1, 1000000);
+	addOccurrenceFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], 1, -1000000);
+
+	//cmBuilder.inferStates(solver.dagSolver, sources.nomenclature.nameMap['Hylobatidae']);
+
+	//cmBuilder.addMatrix(sources.sources["data/compiled/characters.json"].occurrences);
 	cmBuilder.removeTaxon(Haeckel.tax.setDiff(cmBuilder.taxon, taxon));
 	return cmBuilder.build();
 }
@@ -248,6 +298,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         'data/2004 - Holloway & al.json',
         'data/2009 - Suwa & al.json',
         'data/2010 - Berger & al.json',
+        'data/2013 - Lordkipanidze & al.json',
         'data/2014 - ICS.json'
 	],
 
@@ -303,6 +354,10 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			function drawRange(taxonName: string, label: string)
 			{
 				var range = <Haeckel.Range> Haeckel.chr.states(matrix, nameMap[taxonName], ccChar);
+				if (!range)
+				{
+					throw new Error("No range for " + taxonName + ".");
+				}
 				range = Haeckel.rng.multiply(Haeckel.rng.add(range, -ccRange.min), 1 / ccRange.size);
 
 				g.child(Haeckel.SVG_NS, 'rect')
@@ -333,7 +388,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			}
 
 			var g = builder.child(Haeckel.SVG_NS, 'g');
-			var matrix = sources.sources['data/compiled/characters.json'].characterMatrices['cranialCapacity'];
 			var ccChar = matrix.characterList[0];
 			drawRange('Pan', 'chimpanzee range');
 			drawRange('Homo sapiens sapiens', 'human range');
@@ -459,6 +513,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var labelInfo = LABELS[name];
 				if (!labelInfo.area)
 				{
+					continue;
 					throw new Error('No area for ' + name + '.');
 				}
 
@@ -579,7 +634,13 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		try
 		{
-        	matrix = getCCMatrix(sources, taxon);
+        	matrix = getCCMatrix(sources, nameMap['Hominini']);
+
+        	//var writer = new Haeckel.CharacterScoresWriter();
+        	//writer.nomenclature = sources.nomenclature;
+        	//var data = writer.write(matrix);
+        	//throw new Error(JSON.stringify(data));
+
         	ccRange = getCCRange(matrix);
         	horizontalRatioMap = getCCRatioMap(matrix, ccRange);
 

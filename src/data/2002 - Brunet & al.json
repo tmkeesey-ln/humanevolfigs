@@ -13,6 +13,19 @@
 	{
 		"characterScores":
 		{
+			"Abstract":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "Mya"
+					}
+				],
+				"scores": {
+					"Sahelanthropus tchadensis": [[-7, -6]]
+				}
+			},
 			"Differential diagnosis":
 			{
 				"characterType": "range",

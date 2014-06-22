@@ -34,10 +34,13 @@
 				[
 					{
 						"name": "endocranial volume"
+					},
+					{
+						"name": "Mya"
 					}
 				],
 				"scores": {
-					"Malapa Hominid 1": [400]
+					"Malapa Hominid 1": [400, [-1.95, -1.78]]
 				}
 			}
 		},

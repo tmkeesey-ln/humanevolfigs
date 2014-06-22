@@ -28,10 +28,14 @@
 				[
 					{
 						"name": "endocranial volume (cc)"
+					},
+					{
+						"name": "Mya",
+						"note": "Actually in an accompanying paper -- placed here for convenience."
 					}
 				],
 				"scores": {
-					"ARA-VP-6/500": [[280, 350]]
+					"ARA-VP-6/500": [[280, 350], -4.4]
 				}
 			}
 		}
