@@ -420,10 +420,10 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			drawRange('Homo sapiens', 'human range');
 		}
 
-		function drawStrata(g: Haeckel.ElementBuilder)
+		function drawStrata(guides: Haeckel.ElementBuilder, labels: Haeckel.ElementBuilder)
 		{
 			var top = chart.getTimeY(Haeckel.RANGE_0);
-			g.child(Haeckel.SVG_NS, 'rect')
+			guides.child(Haeckel.SVG_NS, 'rect')
 				.attrs({
 					fill: Haeckel.BLACK.hex,
 					'fill-opacity': '0.333',
@@ -438,11 +438,12 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			var stages = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'stage/age');
 			var series = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'series/epoch');
 			//var boundaries = new Haeckel.ExtSetBuilder<Haeckel.Range>();
+			var fillStratum = false;
 			Haeckel.arr.each(series, (stratum: Haeckel.Stratum) =>
 			{
 				var startY = chart.getTimeY(stratum.start);
 				var endY = chart.getTimeY(stratum.end);
-				g.child(Haeckel.SVG_NS, 'line')
+				guides.child(Haeckel.SVG_NS, 'line')
 						.attrs({
 							stroke: Haeckel.BLACK.hex,
 							'stroke-opacity': '0.5',
@@ -454,8 +455,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						});
 				//boundaries.add(startY);
 				var yRange = Haeckel.rng.create(endY.mean, Math.min(FIGURE_HEIGHT, startY.mean));
-				var text = g.child(Haeckel.SVG_NS, 'text')
-					.text(stratum.name === 'Miocene' ? 'MESSINIAN' : stratum.name.toUpperCase())
+				var text = labels.child(Haeckel.SVG_NS, 'text')
+					.text(stratum.name.toUpperCase())
 					.attrs(Haeckel.SVG_NS, {
 						'fill': Haeckel.BLACK.hex,
 						'fill-opacity': '0.5',
@@ -465,6 +466,18 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'text-anchor': 'middle',
 						'letter-spacing': '0.25em'
 					});
+				if (stratum.name === 'Miocene')
+				{
+					text.child(Haeckel.SVG_NS, 'tspan')
+						.text('(Messinian)')
+						.attrs(Haeckel.SVG_NS, {
+							'font-size': '18px',
+							'letter-spacing': '0.25em',
+							'font-weight': 'normal',
+							'x': '0px',
+							'dy': '18px'
+						});
+				}
 				var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
 				if (box.width > yRange.size)
 				{
@@ -475,19 +488,33 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					text.attr(Haeckel.SVG_NS, 'transform',
 						'translate(' + (MARGIN + 12) + ',' + yRange.mean + ') rotate(-90)');
 				}
+				if (fillStratum)
+				{
+					guides.child(Haeckel.SVG_NS, 'rect')
+							.attrs(Haeckel.SVG_NS, {
+								stroke: 'none',
+								fill: Haeckel.BLACK.hex,
+								'fill-opacity': '0.15',
+								x: '0px',
+								y: endY.mean + 'px',
+								width: FIGURE_WIDTH + 'px',
+								height: yRange.size + 'px'
+							});
+				}
+				fillStratum = !fillStratum;
 			});
-			var fillStratum = true;
+			fillStratum = true;
 			Haeckel.arr.each(stages, (stratum: Haeckel.Stratum) =>
 			{
 				var startY = chart.getTimeY(stratum.start);
 				var endY = chart.getTimeY(stratum.end);
 				if (fillStratum)
 				{
-					g.child(Haeckel.SVG_NS, 'rect')
-							.attrs({
+					guides.child(Haeckel.SVG_NS, 'rect')
+							.attrs(Haeckel.SVG_NS, {
 								stroke: 'none',
 								fill: Haeckel.BLACK.hex,
-								'fill-opacity': '0.1',
+								'fill-opacity': '0.05',
 								x: '0px',
 								y: endY.mean + 'px',
 								width: FIGURE_WIDTH + 'px',
@@ -553,7 +580,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						fill: 'none',//Haeckel.BLACK.hex,
 						//'fill-opacity': '0.05',
 						stroke: Haeckel.BLACK.hex,
-						'stroke-opacity': '0.333',
+						'stroke-opacity': '0.5',
 						'stroke-dasharray': '6 3'
 					});
 
@@ -707,7 +734,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         	var guides = builder.child(Haeckel.SVG_NS, 'g');
         	var plots = builder.child(Haeckel.SVG_NS, 'g');
         	var labels = builder.child(Haeckel.SVG_NS, 'g');
-			drawStrata(guides.child(Haeckel.SVG_NS, 'g'));
+			drawStrata(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			drawGoalposts(guides.child(Haeckel.SVG_NS, 'g'));
 			//drawTimes(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			plotOtherOccurrences(plots.child(Haeckel.SVG_NS, 'g'));
