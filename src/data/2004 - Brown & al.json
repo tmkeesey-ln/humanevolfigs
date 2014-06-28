@@ -28,6 +28,23 @@
 				"scores": {
 					"Homo floresiensis": [380, -18]
 				}
+			},
+			"Description-modified":
+			{
+				"note": "Changing endocranial volume to a range, so that specimens besides LB1 will show up in the figure.",
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume (cc)"
+					},
+					{
+						"name": "kyr"
+					}
+				],
+				"scores": {
+					"Homo floresiensis": [[360, 400], -18]
+				}
 			}
 		}
 	}

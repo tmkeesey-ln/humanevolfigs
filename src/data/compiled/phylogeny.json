@@ -174,7 +174,20 @@
 																"Homo indet. E",
 																"Homo indet. F",
 																[
-																	"Homo erectus",
+																	[
+																		"Homo erectus ssp.",
+																		[
+																			"Homo erectus erectus",
+																			"Homo erectus palaeojavanicus",
+																			"Homo erectus soloensis"
+																		],
+																		[
+																			"Homo erectus hexianensis",
+																			"Homo erectus lantianensis",
+																			"Homo erectus nankinensis",
+																			"Homo erectus pekinensis"
+																		]
+																	],
 																	[
 																		"Homo heidelbergensis antecessor",
 																		[
@@ -187,13 +200,7 @@
 																			"Homo sp. (Denisova)",
 																			[
 																				"Homo heidelbergensis rhodesiensis",
-																				[
-																					"Homo sapiens helmei",
-																					"Homo sapiens idaltu",
-																					"Homo sapiens njarasensis",
-																					"Homo sapiens sapiens",
-																					"Homo sapiens ssp."
-																				]
+																				"Homo sapiens"
 																			],
 																			[
 																				"Homo heidelbergensis steinheimensis",
