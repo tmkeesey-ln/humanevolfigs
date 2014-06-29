@@ -30,7 +30,7 @@ var MARGIN = 25;
 
 var TOP_MARGIN = 75;
 
-var MAX_CHARS_NO_BREAK = 20;
+var MAX_CHARS_NO_BREAK = 16;
 
 var LABELS: { [name: string]: LabelInfo; } = {
 	"Sahelanthropus": {
@@ -118,8 +118,13 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 		do
 		{
 			var index = s.substr(0, maxChars).lastIndexOf(' ');
+			maxChars++;
 		}
-		while (index < 0 && maxChars < n); 
+		while (index < 0 && maxChars < n);
+		if (index < 0)
+		{
+			return [s];
+		}
 		return [s.substr(0, index)].concat(splitText(s.substr(index + 1)));
 	}
 
@@ -159,11 +164,11 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			break;
 		case LabelPosition.BOTTOM_RIGHT:
 		case LabelPosition.TOP_RIGHT:
-			x = area.right - 10;
+			x = area.right;
 			break;
 		case LabelPosition.BOTTOM_LEFT:
 		case LabelPosition.TOP_LEFT:
-			x = area.left + 10;
+			x = area.left;
 			break;
 		default:
 			throw new Error("Invalid position: " + info.position);
@@ -173,7 +178,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 		case LabelPosition.BOTTOM:
 		case LabelPosition.BOTTOM_LEFT:
 		case LabelPosition.BOTTOM_RIGHT:
-			y = area.bottom + 12;
+			y = area.bottom + 14;
 			break;
 		case LabelPosition.TOP:
 		case LabelPosition.TOP_LEFT:
@@ -182,7 +187,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			break;
 		case LabelPosition.LEFT:
 		case LabelPosition.RIGHT:
-			y = area.centerY + 6;
+			y = area.centerY + 7;
 			break;
 		default:
 			throw new Error("Invalid position: " + info.position);
@@ -191,8 +196,8 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 	var label = builder.child(Haeckel.SVG_NS, 'text')
 		.attrs(Haeckel.SVG_NS, {
 			'fill': Haeckel.BLACK.hex,
-			'fill-opacity': '0.667',
-			'font-size': '12px',
+			'fill-opacity': '0.5',
+			'font-size': '14px',
 			'font-weight': 'bold',
 			'font-family': "Myriad Pro",
 			'text-anchor': anchor,
@@ -214,7 +219,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			{
 				span.attrs(Haeckel.SVG_NS, {
 					x: x + 'px',
-					dy: '12px'
+					dy: '14px'
 				});
 			};
 		}
@@ -433,11 +438,11 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 				g.child(Haeckel.SVG_NS, 'rect')
 					.attrs(Haeckel.SVG_NS, {
-						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.1',
-						stroke: Haeckel.BLACK.hex,
-						'stroke-opacity': '0.1',
-						'stroke-width': '1px',
+						fill: 'url(#diagonalHatch)',//Haeckel.BLACK.hex,
+						'fill-opacity': '0.15',
+						//stroke: Haeckel.BLACK.hex,
+						//'stroke-opacity': '0.1',
+						//'stroke-width': '1px',
 						x: (AREA.left + range.min * AREA.width) + 'px',
 						y: '-1px',
 						width: (range.size * AREA.width) + 'px',
@@ -449,7 +454,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						fill: Haeckel.BLACK.hex,
 						'fill-opacity': '0.667',
 						x: (AREA.left + range.mean * AREA.width) + 'px',
-						y: (MARGIN + 8) + 'px',
+						y: (MARGIN + 16) + 'px',
 						'text-anchor': 'middle',
 						'font-size': '16px',
 						'font-family': 'Myriad Pro',
@@ -477,6 +482,21 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						})
 			}
 			*/
+
+			defs().child(Haeckel.SVG_NS, 'pattern')
+				.attrs(Haeckel.SVG_NS, {
+						id: 'diagonalHatch',
+						patternUnits: 'userSpaceOnUse',
+						width: '4px',
+						height: '4px'
+					})
+				.child(Haeckel.SVG_NS, 'path')
+					.attrs(Haeckel.SVG_NS,
+						{
+							d: 'M-1 1 l2 -2M0 4 l4 -4M3 5 l2 -2',
+							'stroke-width': '1px',
+							stroke: Haeckel.BLACK.hex
+						});
 
 			var ccChar = matrix.characterList[0];
 			drawRange('Pan', 'chimpanzee range');
@@ -762,7 +782,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						x: x + 'px',
 						y: '16px',
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.333',
+						'fill-opacity': '0.5',
 						'font-family': 'Myriad Pro',
 						'font-size': '11px',
 						'text-anchor': 'middle',
@@ -890,8 +910,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			drawStrata(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			drawGoalposts(guides.child(Haeckel.SVG_NS, 'g'));
 			//drawTimes(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
-			plotOtherOccurrences(plots.child(Haeckel.SVG_NS, 'g'));
+			var otherGroup = plots.child(Haeckel.SVG_NS, 'g');
 			plotStrictOccurrences(plots.child(Haeckel.SVG_NS, 'g'));
+			plotOtherOccurrences(otherGroup);
 			labelTaxa(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			labelXAxis(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			drawKey(labels.child(Haeckel.SVG_NS, 'g'));
