@@ -391,11 +391,10 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				g.child(Haeckel.SVG_NS, 'rect')
 					.attrs(Haeckel.SVG_NS, {
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.05',
-						stroke: 'none',/*Haeckel.BLACK.hex,
+						'fill-opacity': '0.1',
+						stroke: Haeckel.BLACK.hex,
 						'stroke-opacity': '0.1',
-						'stroke-width': '2px',
-						'stroke-dasharray': '2 6',*/
+						'stroke-width': '1px',
 						x: (AREA.left + range.min * AREA.width) + 'px',
 						y: '-1px',
 						width: (range.size * AREA.width) + 'px',
@@ -405,7 +404,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.text(label)
 					.attrs(Haeckel.SVG_NS, {
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.333',
+						'fill-opacity': '0.5',
 						x: (AREA.left + range.mean * AREA.width) + 'px',
 						y: (MARGIN + 8) + 'px',
 						'text-anchor': 'middle',
@@ -414,6 +413,27 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'font-weight': 'bold'
 					});
 			}
+
+			/*
+			var gradient = defs().child(Haeckel.SVG_NS, 'linearGradient')
+				.attrs(Haeckel.SVG_NS, {
+						'id': 'range',
+						'x1': '0%',
+						'y1': '0%',
+						'x2': '100%',
+						'y2': '0%',
+					});
+			for (var i = 0; i <= 1; i += 0.1)
+			{
+				var opacity = (1 - Math.pow(Math.abs(i - 0.5) * 2, 4)) * 0.25;
+				gradient.child(Haeckel.SVG_NS, 'stop')
+					.attrs(Haeckel.SVG_NS, {
+							'offset': Math.round(i * 100) + '%',
+							'stop-color': Haeckel.BLACK.hex,
+							'stop-opacity': opacity.toFixed(3)
+						})
+			}
+			*/
 
 			var ccChar = matrix.characterList[0];
 			drawRange('Pan', 'chimpanzee range');
@@ -508,6 +528,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			{
 				var startY = chart.getTimeY(stratum.start);
 				var endY = chart.getTimeY(stratum.end);
+				guides.child(Haeckel.SVG_NS, 'line')
+						.attrs({
+							stroke: Haeckel.BLACK.hex,
+							'stroke-opacity': '0.1',
+							'stroke-width': '0.5px',
+							x1: '0px',
+							y1: startY.mean + 'px',
+							x2: FIGURE_WIDTH + 'px',
+							y2: startY.mean + 'px'
+						});
 				if (fillStratum)
 				{
 					guides.child(Haeckel.SVG_NS, 'rect')
@@ -600,8 +630,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						x2: x + 'px',
 						y2: FIGURE_HEIGHT + 'px',
 						stroke: Haeckel.BLACK.hex,
-						'stroke-width': '0.5px',
-						'stroke-opacity': '0.2'
+						'stroke-width': '1px',
+						'stroke-opacity': '0.1'
 					});
 				textGroup.child(Haeckel.SVG_NS, 'text')
 					.text(cc + 'cc')
