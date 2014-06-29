@@ -30,6 +30,8 @@ var MARGIN = 25;
 
 var TOP_MARGIN = 75;
 
+var MAX_CHARS_NO_BREAK = 20;
+
 var LABELS: { [name: string]: LabelInfo; } = {
 	"Sahelanthropus": {
 		italic: true,
@@ -67,7 +69,7 @@ var LABELS: { [name: string]: LabelInfo; } = {
 	*/
 	"Homo ergaster": {
 		italic: true,
-		position: LabelPosition.RIGHT
+		position: LabelPosition.BOTTOM_RIGHT
 	},
 	/*
 	"Homo erectus": {
@@ -81,7 +83,7 @@ var LABELS: { [name: string]: LabelInfo; } = {
 	*/
 	"Homo erectus & heidelbergensis": {
 		italic: true,
-		position: LabelPosition.RIGHT
+		position: LabelPosition.BOTTOM_RIGHT
 	},
 	/*
 	"Homo neanderthalensis": {
@@ -94,12 +96,33 @@ var LABELS: { [name: string]: LabelInfo; } = {
 	}
 	*/
 	"humans & Neandertals": {
-		position: LabelPosition.TOP
+		position: LabelPosition.BOTTOM_RIGHT
 	}
 };
 
 function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInfo, area: Haeckel.Rectangle)
 {
+	function splitText(s: string): string[]
+	{
+		if (!s || /^\s*$/.test(s))
+		{
+			return [];
+		}
+		s = s.replace(/^\s+/, '').replace(/\s+$/, '').replace(/\s+/g, ' ');
+		var n = s.length;
+		if (n <= MAX_CHARS_NO_BREAK)
+		{
+			return [s];
+		}
+		var maxChars = MAX_CHARS_NO_BREAK;
+		do
+		{
+			var index = s.substr(0, maxChars).lastIndexOf(' ');
+		}
+		while (index < 0 && maxChars < n); 
+		return [s.substr(0, index)].concat(splitText(s.substr(index + 1)));
+	}
+
 	var anchor: string;
 	var x: number;
 	var y: number;
@@ -164,11 +187,11 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 		default:
 			throw new Error("Invalid position: " + info.position);
 	}
-	var text = builder.child(Haeckel.SVG_NS, 'text')
-		.text(info.text || name)
-		.attrs({
+	var text = info.text || name;
+	var label = builder.child(Haeckel.SVG_NS, 'text')
+		.attrs(Haeckel.SVG_NS, {
 			'fill': Haeckel.BLACK.hex,
-			'fill-opacity': '0.5',
+			'fill-opacity': '0.667',
 			'font-size': '12px',
 			'font-weight': 'bold',
 			'font-family': "Myriad Pro",
@@ -176,9 +199,29 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			x: x + 'px',
 			y: y + 'px'
 		});
+	if (text.length <= MAX_CHARS_NO_BREAK)
+	{
+		label.text(text);
+	}
+	else
+	{
+		var parts = splitText(text);
+		for (var i = 0; i < parts.length; ++i)
+		{
+			var span = label.child(Haeckel.SVG_NS, 'tspan')
+				.text(parts[i]);
+			if (i > 0)
+			{
+				span.attrs(Haeckel.SVG_NS, {
+					x: x + 'px',
+					dy: '12px'
+				});
+			};
+		}
+	}
 	if (info.italic)
 	{
-		text.attr(Haeckel.SVG_NS, 'font-style', 'italic');
+		label.attr(Haeckel.SVG_NS, 'font-style', 'italic');
 	}
 }
 
@@ -404,7 +447,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.text(label)
 					.attrs(Haeckel.SVG_NS, {
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.5',
+						'fill-opacity': '0.667',
 						x: (AREA.left + range.mean * AREA.width) + 'px',
 						y: (MARGIN + 8) + 'px',
 						'text-anchor': 'middle',
@@ -438,6 +481,85 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			var ccChar = matrix.characterList[0];
 			drawRange('Pan', 'chimpanzee range');
 			drawRange('Homo sapiens', 'human range');
+		}
+
+		function drawKey(g: Haeckel.ElementBuilder)
+		{
+			var KEY_WIDTH = 280;
+			var KEY_HEIGHT = KEY_WIDTH / 1.618;
+			var KEY_MARGIN = 50;
+			var KEY_RECT = Haeckel.rec.create(AREA.right - KEY_MARGIN - KEY_WIDTH, AREA.bottom - KEY_MARGIN - KEY_HEIGHT, KEY_WIDTH, KEY_HEIGHT);
+			g.child(Haeckel.SVG_NS, 'rect')
+				.attrs({
+					fill: Haeckel.WHITE.hex,
+					stroke: Haeckel.BLACK.hex,
+					'stroke-width': '3px',
+					x: KEY_RECT.left + 'px',
+					y: KEY_RECT.top + 'px',
+					width: KEY_WIDTH + 'px',
+					height: KEY_HEIGHT + 'px'
+				});
+			g.child(Haeckel.SVG_NS, 'text')
+				.text('KEY')
+				.attrs({
+					fill: Haeckel.BLACK.hex,
+					x: KEY_RECT.centerX + 'px',
+					y: (KEY_RECT.top + 8 + 20) + 'px',
+					'text-anchor': 'middle',
+					'font-weight': 'bold',
+					'font-size': '20px',
+					'font-family': 'Myriad Pro'
+				});
+
+			var size = (KEY_HEIGHT - 36) / 2;
+			var rect = Haeckel.rec.create(KEY_RECT.left, KEY_RECT.top + 36, size, size);
+			g.child(Haeckel.SVG_NS, 'circle')
+				.attrs(Haeckel.SVG_NS, {
+					cx: rect.centerX + 'px',
+					cy: rect.centerY + 'px',
+					r: '4px',
+					fill: Haeckel.WHITE.hex,
+					stroke: Haeckel.BLACK.hex,
+					'stroke-width': '2px'
+				});
+			var text = g.child(Haeckel.SVG_NS, 'text')
+				.attrs({
+					fill: Haeckel.BLACK.hex,
+					x: rect.right + 'px',
+					y: (rect.centerY - 4.5) + 'px',
+					'text-anchor': 'left',
+					'font-size': '18px',
+					'font-family': 'Myriad Pro'
+				});
+			text.child(Haeckel.SVG_NS, 'tspan')
+				.text('individuals with known');
+			text.child(Haeckel.SVG_NS, 'tspan')
+				.text('cranial capacity')
+				.attrs({
+					x: rect.right + 'px',
+					dy: '18px'
+				});
+
+			rect = Haeckel.rec.create(rect.left, rect.top + rect.height, rect.width, rect.height);
+			g.child(Haeckel.SVG_NS, 'rect')
+				.attrs(Haeckel.SVG_NS, {
+					x: (rect.centerX - 1) + 'px',
+					y: (rect.centerY - 1) + 'px',
+					width: '2px',
+					height: '2px',
+					fill: Haeckel.BLACK.hex,
+					stroke: 'none'
+				});
+			var text = g.child(Haeckel.SVG_NS, 'text')
+				.text('other individuals')
+				.attrs({
+					fill: Haeckel.BLACK.hex,
+					x: rect.right + 'px',
+					y: (rect.centerY + 4.5) + 'px',
+					'text-anchor': 'left',
+					'font-size': '18px',
+					'font-family': 'Myriad Pro'
+				});
 		}
 
 		function drawStrata(guides: Haeckel.ElementBuilder, labels: Haeckel.ElementBuilder)
@@ -479,7 +601,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.text(stratum.name.toUpperCase())
 					.attrs(Haeckel.SVG_NS, {
 						'fill': Haeckel.BLACK.hex,
-						'fill-opacity': '0.5',
+						'fill-opacity': '0.667',
 						'font-size': '24px',
 						'font-weight': 'bold',
 						'font-family': "Myriad Pro",
@@ -495,7 +617,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'letter-spacing': '0.25em',
 							'font-weight': 'normal',
 							'x': '0px',
-							'dy': '18px'
+							'dy': '20px'
 						});
 				}
 				var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
@@ -610,7 +732,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						fill: 'none',//Haeckel.BLACK.hex,
 						//'fill-opacity': '0.05',
 						stroke: Haeckel.BLACK.hex,
-						'stroke-opacity': '0.5',
+						'stroke-width': '2px',
+						'stroke-opacity': '0.25',
 						'stroke-dasharray': '6 3'
 					});
 
@@ -771,6 +894,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			plotStrictOccurrences(plots.child(Haeckel.SVG_NS, 'g'));
 			labelTaxa(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			labelXAxis(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
+			drawKey(labels.child(Haeckel.SVG_NS, 'g'));
 		}
 		catch (e)
 		{
