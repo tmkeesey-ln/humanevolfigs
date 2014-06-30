@@ -170,11 +170,11 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			break;
 		case LabelPosition.BOTTOM_RIGHT:
 		case LabelPosition.TOP_RIGHT:
-			x = area.right;
+			x = area.right - 10;
 			break;
 		case LabelPosition.BOTTOM_LEFT:
 		case LabelPosition.TOP_LEFT:
-			x = area.left;
+			x = area.left + 10;
 			break;
 		default:
 			throw new Error("Invalid position: " + info.position);
@@ -213,13 +213,14 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			x: x + 'px',
 			y: y + 'px'
 		});
+	var parts: string[] = [ text ];
 	if (info.noBreak || text.length <= MAX_CHARS_NO_BREAK)
 	{
 		label.text(text);
 	}
 	else
 	{
-		var parts = splitText(text);
+		parts = splitText(text);
 		for (var i = 0; i < parts.length; ++i)
 		{
 			var span = label.child(Haeckel.SVG_NS, 'tspan')
@@ -239,8 +240,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 	}
 	if (info.position === LabelPosition.RIGHT_BOTTOM)
 	{
-		var box = Haeckel.rec.createFromBBox(<SVGTextElement> label.build());
-		label.attr(Haeckel.SVG_NS, 'y', (area.bottom - box.height) + 'px');
+		label.attr(Haeckel.SVG_NS, 'y', (area.bottom - parts.length * 14) + 'px');
 	}
 }
 
@@ -454,7 +454,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.attrs(Haeckel.SVG_NS, {
 						//fill: 'url(#diagonalHatch)',
 						fill: Haeckel.BLACK.hex,
-						//'fill-opacity': '0.15',
+						//'fill-opacity': '0.25',
 						'fill-opacity': '0.1',
 						stroke: Haeckel.BLACK.hex,
 						'stroke-opacity': '0.1',
@@ -478,7 +478,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					});
 			}
 
-			/*
 			var gradient = defs().child(Haeckel.SVG_NS, 'linearGradient')
 				.attrs(Haeckel.SVG_NS, {
 						'id': 'range',
@@ -497,8 +496,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'stop-opacity': opacity.toFixed(3)
 						})
 			}
-			*/
 
+			/*
 			defs().child(Haeckel.SVG_NS, 'pattern')
 				.attrs(Haeckel.SVG_NS, {
 						id: 'diagonalHatch',
@@ -513,6 +512,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'stroke-width': '1px',
 							stroke: Haeckel.BLACK.hex
 						});
+			*/
 
 			var ccChar = matrix.characterList[0];
 			drawRange('Pan', 'chimpanzee range');
