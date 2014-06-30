@@ -205,7 +205,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 	var label = builder.child(Haeckel.SVG_NS, 'text')
 		.attrs(Haeckel.SVG_NS, {
 			'fill': Haeckel.BLACK.hex,
-			'fill-opacity': '0.5',
+			'fill-opacity': '0.667',
 			'font-size': '14px',
 			'font-weight': 'bold',
 			'font-family': "Myriad Pro",
@@ -456,9 +456,10 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						fill: Haeckel.BLACK.hex,
 						//'fill-opacity': '0.25',
 						'fill-opacity': '0.1',
-						stroke: Haeckel.BLACK.hex,
-						'stroke-opacity': '0.1',
-						'stroke-width': '1px',
+						stroke: 'none',
+						//stroke: Haeckel.BLACK.hex,
+						//'stroke-opacity': '0.1',
+						//'stroke-width': '1px',
 						x: (AREA.left + range.min * AREA.width) + 'px',
 						y: '-1px',
 						width: (range.size * AREA.width) + 'px',
@@ -590,7 +591,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				.attrs({
 					fill: Haeckel.BLACK.hex,
 					x: rect.right + 'px',
-					y: (rect.centerY - 4.5) + 'px',
+					y: (rect.centerY - 13.5) + 'px',
 					'text-anchor': 'left',
 					'font-size': '18px',
 					'font-family': 'Myriad Pro'
@@ -598,7 +599,13 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			text.child(Haeckel.SVG_NS, 'tspan')
 				.text('other individuals');
 			text.child(Haeckel.SVG_NS, 'tspan')
-				.text('(capacity inferred)')
+				.text('(capacity inferred')
+				.attrs({
+					x: rect.right + 'px',
+					dy: '18px'
+				});
+			text.child(Haeckel.SVG_NS, 'tspan')
+				.text('from similar specimens)')
 				.attrs({
 					x: rect.right + 'px',
 					dy: '18px'
@@ -611,7 +618,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			guides.child(Haeckel.SVG_NS, 'rect')
 				.attrs({
 					fill: Haeckel.BLACK.hex,
-					'fill-opacity': '0.333',
+					'fill-opacity': '0.5',
 					stroke: 'none',
 					x: '0px',
 					y: (top.min - 1) + 'px',
@@ -632,6 +639,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				{
 					return;
 				}
+				/*
 				guides.child(Haeckel.SVG_NS, 'line')
 						.attrs({
 							stroke: Haeckel.BLACK.hex,
@@ -642,6 +650,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							x2: FIGURE_WIDTH + 'px',
 							y2: startY.mean + 'px'
 						});
+				*/
 				//boundaries.add(startY);
 				var yRange = Haeckel.rng.create(endY.mean, Math.min(FIGURE_HEIGHT, startY.mean));
 				var text = labels.child(Haeckel.SVG_NS, 'text')
@@ -737,8 +746,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				{
 					text.attr(Haeckel.SVG_NS, 'transform',
 						'translate(' + (MARGIN + 24 + 12) + ',' + yRange.mean + ') rotate(-90)');
-				
 				}				
+				/*
 				guides.child(Haeckel.SVG_NS, 'line')
 						.attrs({
 							stroke: Haeckel.BLACK.hex,
@@ -749,6 +758,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							x2: FIGURE_WIDTH + 'px',
 							y2: startY.mean + 'px'
 						});
+				*/
 				if (fillStratum)
 				{
 					guides.child(Haeckel.SVG_NS, 'rect')
@@ -822,7 +832,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						//'fill-opacity': '0.05',
 						stroke: Haeckel.BLACK.hex,
 						'stroke-width': '2px',
-						'stroke-opacity': '0.333',
+						'stroke-opacity': '0.35',
 						'stroke-dasharray': '6 3'
 					});
 
