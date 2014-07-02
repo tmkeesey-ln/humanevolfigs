@@ -653,7 +653,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			guides.child(Haeckel.SVG_NS, 'rect')
 				.attrs({
 					fill: Haeckel.BLACK.hex,
-					'fill-opacity': '0.5',
+					//'fill-opacity': '0.5',
 					stroke: 'none',
 					x: '0px',
 					y: (top.min - 1) + 'px',
