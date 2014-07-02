@@ -30,7 +30,7 @@ var FIGURE_WIDTH = 800;
 
 var MARGIN = 25;
 
-var TOP_MARGIN = 75;
+var TOP_MARGIN = 90;
 
 var MAX_CHARS_NO_BREAK = 16;
 
@@ -51,7 +51,7 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.LEFT
 	},
-	"Praeanthropus & Kenyanthropus": {
+	"Kenyanthropus & Praeanthropus": {
 		italic: true,
 		position: LabelPosition.RIGHT,
 		noBreak: true
@@ -205,7 +205,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 	var label = builder.child(Haeckel.SVG_NS, 'text')
 		.attrs(Haeckel.SVG_NS, {
 			'fill': Haeckel.BLACK.hex,
-			'fill-opacity': '0.667',
+			//'fill-opacity': '0.667',
 			'font-size': '14px',
 			'font-weight': 'bold',
 			'font-family': "Myriad Pro",
@@ -314,11 +314,22 @@ function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haecke
 	addFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion'], ccChar);
 	addFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], ccChar);
 
-	cmBuilder.states(sources.nomenclature.nameMap['Homo sapiens sapiens (living)'], ccChar, Haeckel.rng.create(1040, 1595));
+	// Add living humans specially.
+	var livingHumans = sources.nomenclature.nameMap['Homo sapiens sapiens (living)'];
+	cmBuilder.states(livingHumans, ccChar, Haeckel.rng.create(1040, 1595));
 	// 90% of living humans fit in this range.
 	// from Burenhult G. (1993): The first humans: human origins and history to 10,000 BC. New York: HarperCollins.
 
 	cmBuilder.inferStates(solver.dagSolver, sources.nomenclature.nameMap['Hylobatidae']);
+
+	// Add living humans specially.
+	var count = Haeckel.rng.create(7000000000, 7000000000);
+	var time = Haeckel.rng.create(-100, 0);
+	cmBuilder.states(livingHumans, Haeckel.COUNT_CHARACTER, count);
+	cmBuilder.states(livingHumans, Haeckel.TIME_CHARACTER, time);
+	cmBuilder.states(livingHumans, Haeckel.OCCURRENCE_CHARACTER, Haeckel.ext.create<Haeckel.Occurrence>([ Haeckel.occ.create(count, null, time) ]));
+	// :KLUDGE: For some reason inference overrides this.
+	//cmBuilder.states(sources.nomenclature.nameMap['Homo sapiens sapiens (living)'], ccChar, Haeckel.rng.create(1040, 1595));
 
 	addOccurrenceFromMatrix(sources.sources['data/2002 - Brunet & al.json'].characterMatrices['Abstract'], 0, 1000000);
 	addOccurrenceFromMatrix(sources.sources['data/2004 - Brown & al.json'].characterMatrices['Description-modified'], 1, 1000);
@@ -381,7 +392,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
-        var AREA = Haeckel.rec.createFromCoords(MARGIN + 24 + 16, TOP_MARGIN, FIGURE_WIDTH - MARGIN - 24, FIGURE_HEIGHT);
+        var AREA = Haeckel.rec.createFromCoords(MARGIN + 24 + 32, TOP_MARGIN, FIGURE_WIDTH - MARGIN - 24, FIGURE_HEIGHT);
         var TIME = Haeckel.rng.create(TIME_START, 0);
 		var chart = new Haeckel.ChronoChart();
 		chart.area = AREA;
@@ -424,6 +435,30 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	        		width: AREA.width + 'px',
 	        		height: (AREA.height + MARGIN) + 'px'
 	        	});
+		}
+
+		function drawAttribution(g: Haeckel.ElementBuilder)
+		{
+			g.child(Haeckel.SVG_NS, 'text')
+				.text('by T. Michael Keesey (' + new Date().getFullYear() + ')')
+				.attrs(Haeckel.SVG_NS, {
+					fill: Haeckel.BLACK.hex,
+					x: '4px',
+					y: (FIGURE_HEIGHT - 4) + 'px',
+					'text-anchor': 'start',
+					'font-size': '10px',
+					'font-family': 'Myriad Pro'
+				});
+			g.child(Haeckel.SVG_NS, 'text')
+				.text('License: Creative Commons Attribution 4.0 International')
+				.attrs(Haeckel.SVG_NS, {
+					fill: Haeckel.BLACK.hex,
+					x: (FIGURE_WIDTH - 4) + 'px',
+					y: (FIGURE_HEIGHT - 4) + 'px',
+					'text-anchor': 'end',
+					'font-size': '10px',
+					'font-family': 'Myriad Pro'
+				});
 		}
 
 		function drawBackground()
@@ -469,9 +504,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.text(label)
 					.attrs(Haeckel.SVG_NS, {
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.667',
+						//'fill-opacity': '0.667',
 						x: (AREA.left + range.mean * AREA.width) + 'px',
-						y: (MARGIN + 16) + 'px',
+						y: (MARGIN + 32) + 'px',
 						'text-anchor': 'middle',
 						'font-size': '16px',
 						'font-family': 'Myriad Pro',
@@ -517,14 +552,14 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 			var ccChar = matrix.characterList[0];
 			drawRange('Pan', 'chimpanzee range');
-			drawRange('Homo sapiens', 'human range');
+			drawRange('Homo sapiens sapiens (living)', 'living human range');
 		}
 
 		function drawLegend(g: Haeckel.ElementBuilder)
 		{
 			var KEY_WIDTH = 280;
 			var KEY_HEIGHT = KEY_WIDTH / 1.618;
-			var KEY_MARGIN = 50;
+			var KEY_MARGIN = 100;
 			var KEY_RECT = Haeckel.rec.create(FIGURE_WIDTH - KEY_MARGIN - KEY_WIDTH, FIGURE_HEIGHT - KEY_MARGIN - KEY_HEIGHT, KEY_WIDTH, KEY_HEIGHT);
 			g.child(Haeckel.SVG_NS, 'rect')
 				.attrs({
@@ -548,7 +583,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					'font-family': 'Myriad Pro'
 				});
 
-			var size = (KEY_HEIGHT - 36) / 2;
+			var size = (KEY_HEIGHT - 36 - 18) / 2;
 			var rect = Haeckel.rec.create(KEY_RECT.left, KEY_RECT.top + 36, size, size);
 			g.child(Haeckel.SVG_NS, 'circle')
 				.attrs(Haeckel.SVG_NS, {
@@ -657,7 +692,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.text(stratum.name.toUpperCase())
 					.attrs(Haeckel.SVG_NS, {
 						'fill': Haeckel.BLACK.hex,
-						'fill-opacity': '0.667',
+						//'fill-opacity': '0.667',
 						'font-size': '24px',
 						'font-weight': 'bold',
 						'font-family': "Myriad Pro",
@@ -717,9 +752,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var text = labels.child(Haeckel.SVG_NS, 'text')
 					.attrs(Haeckel.SVG_NS, {
 						'fill': Haeckel.BLACK.hex,
-						'fill-opacity': '0.5',
+						//'fill-opacity': '0.5',
 						'font-size': '16px',
-						'font-weight': 'bold',
+						//'font-weight': 'bold',
 						'font-family': "Myriad Pro",
 						'text-anchor': 'middle'
 					});
@@ -799,7 +834,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						y: (y - 1) + 'px',
 						'font-weight': 'bold',
 						'fill': Haeckel.BLACK.hex,
-						'fill-opacity': '0.5',
+						//'fill-opacity': '0.5',
 						'font-size': '12px',
 						'font-family': "Myriad Pro",
 						'text-anchor': 'end'
@@ -842,6 +877,18 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		function labelXAxis(linesGroup: Haeckel.ElementBuilder, textGroup: Haeckel.ElementBuilder)
 		{
+			textGroup.child(Haeckel.SVG_NS, 'text')
+				.text('Cranial Capacity (in cubic centimeters)'.toUpperCase())
+				.attrs(Haeckel.SVG_NS, {
+					x: AREA.centerX + 'px',
+					y: '34px',
+					fill: Haeckel.BLACK.hex,
+					'font-family': 'Myriad Pro',
+					'font-size': '14px',
+					'text-anchor': 'middle',
+					'font-weight': 'bold',
+					'letter-spacing': '0.1em'
+				});
 			for (var cc = 0; cc <= ccRange.max; cc += 100)
 			{
 				var x = AREA.left + cc * AREA.width / ccRange.max;
@@ -856,16 +903,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'stroke-opacity': '0.1'
 					});
 				textGroup.child(Haeckel.SVG_NS, 'text')
-					.text(cc + 'cc')
+					.text(String(cc))
 					.attrs(Haeckel.SVG_NS, {
 						x: x + 'px',
 						y: '16px',
 						fill: Haeckel.BLACK.hex,
-						'fill-opacity': '0.667',
+						//'fill-opacity': '0.667',
 						'font-family': 'Myriad Pro',
 						'font-size': '11px',
-						'text-anchor': 'middle',
-						'font-weight': 'bold'
+						'text-anchor': 'middle'//,
+						//'font-weight': 'bold'
 					});
 			}
 		}
@@ -928,6 +975,27 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		function plotStrictOccurrences(g: Haeckel.ElementBuilder)
 		{
+			function drawCircle(builder: Haeckel.ElementBuilder, x: number, y: number): void
+			{
+				builder.child(Haeckel.SVG_NS, 'circle')
+					.attrs(Haeckel.SVG_NS, {
+						cx: x + 'px',
+						cy: y + 'px',
+						r: '4px',
+						fill: Haeckel.WHITE.hex,
+						stroke: Haeckel.BLACK.hex,
+						'stroke-width': '2px'
+					});
+			}
+
+			function shuffle<T>(array: T[]): T[]
+			{
+				var j: number;
+				var x: T;
+    			for (var i = array.length; i; j = Math.floor(chart.random() * i), x = array[--i], array[i] = array[j], array[j] = x);
+			    return array;
+			}
+
 			var chart = new Haeckel.OccurrencePlotChart();
 			chart.area = AREA;
 			chart.characterMatrix = matrix;
@@ -940,29 +1008,21 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			chart.drawPoint = (builder: Haeckel.ElementBuilder, point: Haeckel.Point, taxon: Haeckel.Taxic) =>
 			{
 				addToLabelRect(taxon, Haeckel.rec.create(point.x - 4, point.y - 4, 8, 8));
-				/*
-				builder.child(Haeckel.SVG_NS, 'circle')
-					.attrs(Haeckel.SVG_NS, {
-						cx: point.x + 'px',
-						cy: point.y + 'px',
-						r: '4.5px',
-						fill: Haeckel.BLACK.hex,
-						stroke: 'none',
-						'fill-opacity': '0.2'
-					});
-				*/
-				builder.child(Haeckel.SVG_NS, 'circle')
-					.attrs(Haeckel.SVG_NS, {
-						cx: point.x + 'px',
-						cy: point.y + 'px',
-						r: '4px',
-						fill: Haeckel.WHITE.hex,
-						stroke: Haeckel.BLACK.hex,
-						'stroke-width': '2px'
-					});
+				drawCircle(builder, point.x, point.y);
 			};
 			chart.random = Haeckel.seedRandom(0);
 			chart.time = TIME;
+
+			// Do a special row for living humans.
+			var area = chart.getTaxonRect(nameMap['Homo sapiens sapiens (living)']);
+			var xList: number[] = [];
+			for (var x = area.left; x <= area.right; x += 2)
+			{
+				xList.push(x);
+			}
+			shuffle(xList).forEach((x: number) => drawCircle(g, x, area.top));
+
+			// Render others.
 			chart.render(g);
 			//	.attr(Haeckel.SVG_NS, 'clip-path', 'url(#chart-area)');
 		}
@@ -995,6 +1055,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			labelTaxa(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			labelXAxis(guides.child(Haeckel.SVG_NS, 'g'), labels.child(Haeckel.SVG_NS, 'g'));
 			drawLegend(labels.child(Haeckel.SVG_NS, 'g'));
+			//drawAttribution(labels.child(Haeckel.SVG_NS, 'g'));
 		}
 		catch (e)
 		{
