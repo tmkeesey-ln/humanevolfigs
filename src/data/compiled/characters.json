@@ -1254,6 +1254,14 @@
 					}
 				},
 				{
+					"count": 1,
+					"time": [-236000, -183000],
+					"geo": {
+						"Tourville-la-Riviere, France": [[49.329, 1.106]]
+					},
+					"ref": "urn:doi:10.1371/journal.pone.0104111"
+				},
+				{
 					"count": 2,
 					"time": [-230000, -225000],
 					"note": "Teeth, juvenile mandible -- may be more individuals",
