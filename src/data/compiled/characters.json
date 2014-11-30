@@ -659,12 +659,13 @@
 			"Homo erectus lantianensis":
 			[
 				{
-					"count": 3,
+					"count": 2,
 					"geo":
 					{
 						"near Xi'an": [[34.27, 108.9]]
 					},
-					"time": [-1000000, -530000]
+					"time": [-1640000, -1620000],
+					"references": ["urn:doi:10.1016/j.jhevol.2014.10.001"]
 				}
 			],
 			"Homo erectus nankinensis":
