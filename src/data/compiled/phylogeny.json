@@ -164,14 +164,16 @@
 															"Homo rudolfensis",
 															"Homo indet. A",
 															"Homo indet. B",
+															"Homo indet. E",
+															"Homo indet. G",
 															[
 																"Homo ergaster ergaster",
 																"Homo ergaster georgicus",
+																"Homo lantianensis",
 																"Homo modjokertensis",
 																"Homo yuanmouensis",
 																"Homo indet. C",
 																"Homo indet. D",
-																"Homo indet. E",
 																"Homo indet. F",
 																[
 																	[
@@ -183,7 +185,6 @@
 																		],
 																		[
 																			"Homo erectus hexianensis",
-																			"Homo erectus lantianensis",
 																			"Homo erectus nankinensis",
 																			"Homo erectus pekinensis"
 																		]

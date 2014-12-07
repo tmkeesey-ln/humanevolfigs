@@ -284,18 +284,6 @@
 					"time": [-2600000, -2500000]
 				}
 			],
-			"Australopithecus indet.":
-			[
-				{
-					"count": 1,
-					"geo":
-					{
-						"StW 53 infill, Sterkfontein, South Africa": [[-26, 27.7]]
-					},
-					"time": [-1800000, -1500000],
-					"note": "Stw 53 - Australopithecus or early Homo?"
-				}
-			],
 			"Australopithecus platyops":
 			[
 				{
@@ -654,18 +642,6 @@
 					},
 					"time": [-190000, -150000],
 					"note": "Could be up to 270,000 years old"
-				}
-			],
-			"Homo erectus lantianensis":
-			[
-				{
-					"count": 2,
-					"geo":
-					{
-						"near Xi'an": [[34.27, 108.9]]
-					},
-					"time": [-1640000, -1620000],
-					"references": ["urn:doi:10.1016/j.jhevol.2014.10.001"]
 				}
 			],
 			"Homo erectus nankinensis":
@@ -1184,8 +1160,9 @@
 					{
 						"Swartkrans": [[-25.93, 27.79]]
 					},
-					"note": "SK 847 - often regarded as Homo ergaster",
-					"time": [-1800000, -1500000]
+					"note": "SK 847",
+					"time": [-1800000, -1500000],
+					"reference": "urn:doi:10.1016/j.jhevol.2007.10.012"
 				}
 			],
 			"Homo indet. F":
@@ -1207,6 +1184,31 @@
 					},
 					"note": "KNM-OL 45500 - H. ergaster or H. heidelbergensis?",
 					"time": [-970000, -900000]
+				}
+			],
+			"Homo indet. G":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"StW 53 infill, Sterkfontein, South Africa": [[-26, 27.7]]
+					},
+					"time": [-1800000, -1500000],
+					"note": "Stw 53",
+					"reference": "urn:doi:10.1016/j.jhevol.2007.10.012"
+				}
+			],
+			"Homo lantianensis":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"near Xi'an": [[34.27, 108.9]]
+					},
+					"time": [-1640000, -1620000],
+					"references": ["urn:doi:10.1016/j.jhevol.2014.10.001"]
 				}
 			],
 			"Homo modjokertensis":
