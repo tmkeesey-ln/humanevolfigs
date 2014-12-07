@@ -84,6 +84,12 @@ module.exports = function(grunt)
 		},
 		typescript:
 		{
+			anatomyHead:
+			{
+				src: [ 'src/anatomy.ts', 'src/anatomyHead.fig.ts' ],
+				dest: 'src/anatomyHead.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			ageTaxa:
 			{
 				src: [ 'src/ageTaxa.sh.ts' ],
@@ -180,6 +186,7 @@ module.exports = function(grunt)
 		},
 		render:
 		{
+			anatomyHead: {},
 			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},
@@ -193,6 +200,7 @@ module.exports = function(grunt)
 		},
 		figure:
 		{
+			anatomyHead: {},
 			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},

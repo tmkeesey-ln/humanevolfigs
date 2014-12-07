@@ -1,0 +1,608 @@
+{
+    "taxa": {
+        "Homo sapiens": {
+            "axis": 9020,
+            "characters": {
+                "CW1": {
+                    "coords": [
+                        9124,
+                        692
+                    ],
+                    "behind": true
+                },
+                "CW79": {
+                    "coords": [
+                        9076,
+                        652
+                    ]
+                },
+                "CW89": {
+                    "coords": [
+                        9024,
+                        760
+                    ]
+                },
+                "CW41": {
+                    "coords": [
+                        9042,
+                        760
+                    ]
+                },
+                "SG49": {
+                    "coords": [
+                        9042,
+                        770
+                    ]
+                },
+                "CW43": {
+                    "coords": [
+                        9072,
+                        760
+                    ]
+                },
+                "DW18": {
+                    "coords": [
+                        9100,
+                        688
+                    ],
+                    "behind": true
+                },
+                "DW55": {
+                    "coords": [
+                        9046,
+                        858
+                    ]
+                },
+                "GCW5": {
+                    "coords": [
+                        9020,
+                        764
+                    ]
+                },
+                "GCW30": {
+                    "coords": [
+                        9610,
+                        1894
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW50": {
+                    "coords": [
+                        8362,
+                        2026
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW56": {
+                    "coords": [
+                        8790,
+                        1302
+                    ],
+                    "behind": true
+                },
+                "GCW69": {
+                    "coords": [
+                        9222,
+                        1794
+                    ]
+                },
+                "GCW76": {
+                    "coords": [
+                        9124,
+                        1882
+                    ],
+                    "behind": true
+                },
+                "GCW83": {
+                    "coords": [
+                        9262,
+                        2670
+                    ]
+                },
+                "GCW87": {
+                    "coords": [
+                        9258,
+                        2620
+                    ]
+                },
+                "GCW61": {
+                    "coords": [
+                        9262,
+                        2670
+                    ]
+                },
+                "GCW63": {
+                    "coords": [
+                        9174,
+                        1030
+                    ]
+                },
+                "GCW159": {
+                    "coords": [
+                        9020,
+                        1442
+                    ],
+                    "behind": true
+                },
+                "CW9": {
+                    "coords": [
+                        9122,
+                        652
+                    ]
+                },
+                "CW11": {
+                    "coords": [
+                        9112,
+                        652
+                    ]
+                },
+                "CW17": {
+                    "coords": [
+                        9020,
+                        572
+                    ]
+                },
+                "CW22": {
+                    "coords": [
+                        9020,
+                        572
+                    ]
+                },
+                "CW64": {
+                    "coords": [
+                        9020,
+                        728
+                    ],
+                    "behind": true
+                },
+                "CW52": {
+                    "coords": [
+                        9060,
+                        758
+                    ]
+                },
+                "CW54": {
+                    "coords": [
+                        9072,
+                        758
+                    ]
+                },
+                "CW50": {
+                    "coords": [
+                        9072,
+                        768
+                    ]
+                },
+                "DW16": {
+                    "coords": [
+                        9090,
+                        992
+                    ]
+                },
+                "DW22": {
+                    "coords": [
+                        9096,
+                        748
+                    ]
+                },
+                "DW67": {
+                    "coords": [
+                        9150,
+                        980
+                    ]
+                },
+                "GCW7": {
+                    "coords": [
+                        9020,
+                        764
+                    ]
+                },
+                "DW118": {
+                    "coords": [
+                        9512,
+                        1718
+                    ],
+                    "sideSpecific": true
+                },
+                "DW136": {
+                    "coords": [
+                        8376,
+                        2074
+                    ],
+                    "sideSpecific": true
+                },
+                "DW162, GCW50": {
+                    "coords": [
+                        8370,
+                        2104
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW12": {
+                    "coords": [
+                        8454,
+                        2060
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW15": {
+                    "coords": [
+                        9584,
+                        1522
+                    ],
+                    "sideSpecific": true,
+                    "behind": true
+                },
+                "GCW19": {
+                    "coords": [
+                        9512,
+                        1718
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW22": {
+                    "coords": [
+                        8368,
+                        1942
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW24": {
+                    "coords": [
+                        8416,
+                        1596
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW35": {
+                    "coords": [
+                        9540,
+                        2134
+                    ],
+                    "sideSpecific": true,
+                    "behind": true
+                },
+                "GCW36": {
+                    "coords": [
+                        9340,
+                        1068
+                    ]
+                },
+                "GCW38": {
+                    "coords": [
+                        9340,
+                        1068
+                    ]
+                },
+                "GCW47": {
+                    "coords": [
+                        8448,
+                        2016
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW52": {
+                    "coords": [
+                        9394,
+                        1064
+                    ]
+                },
+                "GCW59": {
+                    "coords": [
+                        9082,
+                        1070
+                    ]
+                },
+                "GCW113": {
+                    "coords": [
+                        9590,
+                        1760
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW115": {
+                    "coords": [
+                        9640,
+                        2148
+                    ],
+                    "sideSpecific": true,
+                    "behind": true
+                },
+                "GCW122": {
+                    "coords": [
+                        9492,
+                        1548
+                    ],
+                    "sideSpecific": true,
+                    "behind": true
+                },
+                "GCW123": {
+                    "coords": [
+                        9426,
+                        1332
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW139": {
+                    "coords": [
+                        9610,
+                        2194
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW68": {
+                    "coords": [
+                        9094,
+                        1886
+                    ],
+                    "behind": true
+                },
+                "GCW77": {
+                    "coords": [
+                        9174,
+                        1938
+                    ],
+                    "behind": true
+                },
+                "GCW82": {
+                    "coords": [
+                        9218,
+                        2042
+                    ],
+                    "behind": true
+                },
+                "GCW97": {
+                    "coords": [
+                        9430,
+                        3708
+                    ]
+                },
+                "GCW98": {
+                    "coords": [
+                        9260,
+                        3178
+                    ],
+                    "behind": true
+                },
+                "GCW149": {
+                    "coords": [
+                        9020,
+                        1596
+                    ],
+                    "behind": true
+                },
+                "GCW157": {
+                    "coords": [
+                        9300,
+                        3580
+                    ]
+                },
+                "GCW65": {
+                    "coords": [
+                        9040,
+                        1724
+                    ],
+                    "behind": true
+                },
+                "GCW125": {
+                    "coords": [
+                        8762,
+                        1130
+                    ]
+                },
+                "GCW127": {
+                    "coords": [
+                        8836,
+                        1058
+                    ]
+                },
+                "GCW129": {
+                    "coords": [
+                        9056,
+                        1100
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW133": {
+                    "coords": [
+                        9369,
+                        3660
+                    ]
+                },
+                "GCW148": {
+                    "coords": [
+                        8848,
+                        1708
+                    ]
+                },
+                "GCW162": {
+                    "coords": [
+                        9348,
+                        1248
+                    ]
+                },
+                "CW35": {
+                    "coords": [
+                        9020,
+                        740
+                    ]
+                },
+                "CW40": {
+                    "coords": [
+                        9030,
+                        752
+                    ]
+                },
+                "CW42": {
+                    "coords": [
+                        9042,
+                        770
+                    ]
+                },
+                "CW92": {
+                    "coords": [
+                        9042,
+                        760
+                    ]
+                },
+                "CW60": {
+                    "coords": [
+                        9034,
+                        796
+                    ]
+                },
+                "CW61": {
+                    "coords": [
+                        9032,
+                        826
+                    ]
+                },
+                "DW61": {
+                    "coords": [
+                        9020,
+                        770
+                    ]
+                },
+                "GCW34": {
+                    "coords": [
+                        8432,
+                        1572
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW40": {
+                    "coords": [
+                        9364,
+                        1084
+                    ],
+                    "behind": true
+                },
+                "GCW44": {
+                    "coords": [
+                        9496,
+                        2218
+                    ],
+                    "sideSpecific": true,
+                    "behind": true
+                },
+                "GCW53": {
+                    "coords": [
+                        9152,
+                        1264
+                    ],
+                    "behind": true
+                },
+                "GCW108": {
+                    "coords": [
+                        9642,
+                        2122
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW109": {
+                    "coords": [
+                        9262,
+                        3680
+                    ],
+                    "behind": true
+                },
+                "GCW116": {
+                    "coords": [
+                        9556,
+                        1558
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW119": {
+                    "coords": [
+                        9616,
+                        2128
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW121": {
+                    "coords": [
+                        9638,
+                        2082
+                    ],
+                    "sideSpecific": true
+                },
+                "GCW141": {
+                    "coords": [
+                        9470,
+                        1352
+                    ]
+                },
+                "GCW72": {
+                    "coords": [
+                        9300,
+                        1910
+                    ]
+                },
+                "GCW94": {
+                    "coords": [
+                        9296,
+                        2994
+                    ]
+                },
+                "GCW99": {
+                    "coords": [
+                        9286,
+                        2794
+                    ],
+                    "behind": true
+                },
+                "GCW101": {
+                    "coords": [
+                        9304,
+                        3698
+                    ]
+                },
+                "GCW105": {
+                    "coords": [
+                        9272,
+                        3676
+                    ]
+                },
+                "GCW135": {
+                    "coords": [
+                        9170,
+                        2002
+                    ]
+                },
+                "GCW137": {
+                    "coords": [
+                        9170,
+                        2002
+                    ]
+                },
+                "GCW158": {
+                    "coords": [
+                        9360,
+                        3740
+                    ]
+                },
+                "GCW54": {
+                    "coords": [
+                        9128,
+                        1292
+                    ],
+                    "behind": true
+                },
+                "GCW55": {
+                    "coords": [
+                        9020,
+                        1394
+                    ],
+                    "behind": true
+                },
+                "GCW154": {
+                    "coords": [
+                        9152,
+                        1988
+                    ]
+                }
+            }
+        }
+    }
+}
