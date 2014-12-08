@@ -37,7 +37,8 @@ var focusTaxon = dataSources.nomenclature.nameMap[FOCUS];
 for (i = 0, n = matrix.characterList.length; i < n; ++i)
 {
 	var character = matrix.characterList[i];
-	var charOutput = output[character.label || String(i + 1)] = {};
+	var charOutput: { [focus: string]: any; } = {};
+	output[character.label || String(i + 1)] = charOutput;
 	var focusStates = Haeckel.chr.states(matrix, focusTaxon, character);
 	var labelStates: (states: Haeckel.Set) => string = character.labelStates || Haeckel.hash;
 	charOutput[FOCUS] = labelStates(focusStates);
