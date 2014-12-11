@@ -257,19 +257,19 @@
 						"states": ["yes", "not"]
 					},
 					{
-						"name": "27 Suprameatal tegmen",
+						"name": "27. Suprameatal tegmen",
 						"states": ["present", "not"]
 					},
 					{
-						"name": "28 Occipital torus with supratoral sulcus",
+						"name": "28. Occipital torus with supratoral sulcus",
 						"states": ["not", "yes"]
 					},
 					{
-						"name": "29 Occipital torus continuous with angular torus and supramastoid crest",
+						"name": "29. Occipital torus continuous with angular torus and supramastoid crest",
 						"states": ["not", "yes"]
 					},
 					{
-						"name": "30 Mid-sagittal depression of the occipital torus",
+						"name": "30. Mid-sagittal depression of the occipital torus",
 						"states": ["absent", "present"]
 					}
 				],
