@@ -146,6 +146,159 @@
 					]
 				]
 			]
+		},
+		"characterScores":
+		{
+			"Tables1&2": {
+				"characterType": "discrete",
+				"characters": [
+					{
+						"name": "1. Long cranial vault",
+						"states": ["yes", "not"]
+					},
+					{
+						"name": "2. Low cranial vault",
+						"states": ["yes", "not"]
+					},
+					{
+						"name": "3. Maximum breadth across the angular torus or supramastoid crest",
+						"name": "(0) yes", "not"]
+					},
+					{
+						"name": "4. Thick vault bones (parietal)",
+						"states": ["not", "yes"]
+					},
+					{
+						"name": "5. Pronounced postorbital constriction",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "6. Frontal keel or ridge",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "7. Straight junction of torus and frontal squama",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "8. Coronal ridge",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "9. Flattened parietal",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "10. Rectangular parietal",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "11. Low temporal squama",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "12. Flat superior border of the temporal squama",
+						"states": ["not", "yes"]
+					},
+					{
+						"name": "13 .Small mastoid process",
+						"states": ["yes", "not"]
+					},
+					{
+						"name": "14. Opisthocranion coincident with inion",
+						"states": ["yes", "not"]
+					},
+					{
+						"name": "15. Sharply angulated occipital profile",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "16. Broad nasal bones",
+						"states": ["not", "yes"]
+					},
+					{
+						"name": "17. Horizontal inferior border of the supraorbital torus",
+						"states": ["not", "yes"]
+					},
+					{
+						"name": "18. Continuous thickness of the supraorbital torus",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "19. Glabellar inflexion in superior view",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "20. Ceprano-like “torsion” of the supraorbital torus",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "21. Bilateral discontinuity (ridges) of the supratoral sulcus",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "22. Prominent angular torus at mastoid angle",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "23. Marked supramastoid crests",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "24. Marked mastoid crests",
+						"states": ["present", "absent"]
+					},
+					{
+						"name": "25. Occipitomastoid ridge",
+						"states": ["absent", "present"]
+					},
+					{
+						"name": "26. Juxtamastoid ridge absent",
+						"states": ["yes", "not"]
+					},
+					{
+						"name": "27 Suprameatal tegmen",
+						"states": ["present", "not"]
+					},
+					{
+						"name": "28 Occipital torus with supratoral sulcus",
+						"states": ["not", "yes"]
+					},
+					{
+						"name": "29 Occipital torus continuous with angular torus and supramastoid crest",
+						"states": ["not", "yes"]
+					},
+					{
+						"name": "30 Mid-sagittal depression of the occipital torus",
+						"states": ["absent", "present"]
+					}
+				],
+				"guide":         "1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29    30",
+				"scores":
+				{
+					"ER3883":    [0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0],
+					"OH9":       [0,    0,    0,    0,    0,    1,    1,    null, 1,    0,    0,    0,    1,    0,    0,    0,    0,    0,    0,    0,    0,    1,    1,    1,    0,    1,    1,    0,    0,    0],
+					"BODO":      [0,    0,    null, 0,    1,    0,    1,    1,    0,    null, 1,    1,    null, null, null, 1,    1,    1,    0,    1,    null, null, null, null, null, null, null, null, null, null],
+					"KABWE":     [0,    0,    0,    1,    0,    1,    1,    1,    0,    1,    1,    1,    0,    1,    0,    1,    0,    1,    0,    1,    1,    0,    0,    1,    1,    0,    1,    1,    1,    null],
+					"SALDANHA":  [0,    0,    null, 0,    1,    0,    1,    1,    0,    1,    null, 1,    null, 0,    1,    null, 0,    1,    0,    1,    1,    0,    null, null, null, null, null, 0,    1,    0],
+					"DMN2280":   [0,    0,    0,    0,    0,    1,    1,    0,    1,    1,    0,    1,    1,    0,    1,    0,    0,    1,    1,    1,    0,    1,    0,    1,    null, null, 1,    0,    0,    0],
+					"DMN2282":   [0,    0,    0,    null, 0,    0,    0,    0,    1,    1,    0,    1,    1,    0,    0,    null, 0,    1,    null, 1,    0,    1,    0,    1,    null, null, 1,    0,    0,    0],
+					"SNG2":      [0,    0,    0,    0,    0,    0,    1,    0,    1,    0,    0,    0,    1,    0,    1,    null, 1,    0,    null, 0,    0,    0,    0,    0,    1,    0,    1,    1,    1,    0],
+					"SNG17":     [0,    0,    0,    0,    0,    1,    0,    0,    1,    1,    0,    0,    1,    0,    1,    1,    1,    0,    1,    0,    0,    0,    0,    0,    1,    1,    1,    0,    1,    0],
+					"ZKD3":      [0,    0,    0,    0,    0,    1,    0,    0,    1,    0,    0,    0,    1,    0,    1,    1,    0,    0,    0,    0,    0,    1,    0,    0,    1,    0,    1,    1,    1,    0],
+					"ZKD10":     [0,    0,    0,    0,    0,    1,    0,    0,    1,    1,    0,    0,    1,    0,    1,    1,    1,    0,    1,    0,    0,    1,    0,    1,    1,    0,    1,    1,    0,    0],
+					"ZKD11":     [0,    0,    0,    0,    0,    1,    0,    0,    1,    0,    0,    0,    1,    0,    1,    1,    1,    0,    1,    0,    0,    1,    0,    1,    1,    0,    1,    1,    0,    0],
+					"ZKD12":     [0,    0,    0,    1,    0,    1,    0,    0,    1,    0,    0,    0,    1,    0,    1,    1,    1,    0,    1,    0,    0,    1,    0,    0,    1,    0,    1,    1,    0,    0],
+					"CEPRANO":   [1,    0,    0,    0,    1,    0,    0,    1,    1,    0,    1,    1,    0,    0,    1,    1,    1,    1,    0,    1,    1,    1,    0,    0,    1,    0,    1,    1,    0,    0],
+					"ARAGO":     [0,    0,    null, 1,    1,    0,    0,    1,    1,    0,    null, null, null, null, null, 1,    0,    0,    0,    1,    1,    1,    null, null, null, null, null, null, null, null],
+					"STEINHEIM": [0,    0,    1,    1,    1,    0,    0,    1,    1,    0,    1,    1,    1,    1,    0,    1,    0,    0,    0,    0,    1,    0,    1,    0,    1,    1,    0,    0,    0,    1],
+					"PETRALONA": [0,    0,    0,    1,    1,    0,    1,    1,    0,    1,    1,    1,    0,    0,    0,    1,    0,    0,    0,    0,    1,    1,    0,    null, null, null, 1,    1,    0,    0],
+					"AT-SH-CR4": [1,    0,    0,    0,    1,    0,    0,    1,    0,    1,    1,    1,    0,    1,    0,    1,    0,    0,    0,    0,    0,    1,    0,    1,    1,    0,    0,    1,    1,    1],
+					"AT-SH-CR5": [0,    0,    0,    0,    1,    0,    1,    1,    0,    0,    1,    1,    0,    1,    0,    1,    1,    0,    0,    0,    0,    1,    0,    1,    1,    0,    0,    1,    0,    1],
+					"DAKA":      [1,    0,    0,    0,    1,    0,    0,    1,    1,    0,    1,    1,    0,    0,    1,    1,    0,    1,    0,    1,    1,    1,    0,    0,    1,    0,    1,    1,    0,    0]
+
+				}
+			}
 		}
 	}
 }
