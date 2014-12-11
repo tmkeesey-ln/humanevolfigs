@@ -162,7 +162,7 @@
 					},
 					{
 						"name": "3. Maximum breadth across the angular torus or supramastoid crest",
-						"name": "(0) yes", "not"]
+						"states": ["yes", "not"]
 					},
 					{
 						"name": "4. Thick vault bones (parietal)",
