@@ -12,7 +12,7 @@ var EXTENT_ATTRS: { [name: string]: string; } = {
 	'stroke-linecap': 'square'
 };
 
-var MARGIN = 20;
+var SPACING = 20;
 
 var TAXON_LABEL_SIZE = 15;
 
@@ -154,10 +154,10 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		function getMapArea(column: number, row: number)
 		{
-			var columnWidth = (FIGURE_WIDTH - TIME_LABEL_SIZE * 2 - (columns + 1) * MARGIN) / columns,
-				rowHeight = (FIGURE_HEIGHT - (TAXON_LABEL_SIZE + MARGIN) - EXTANT_TAXON_LABEL_SIZE - (rows + 1) * MARGIN) / rows,
-				x = (column + 1) * MARGIN + column * columnWidth + TIME_LABEL_SIZE * 2,
-				y = (row + 1) * MARGIN + EXTANT_TAXON_LABEL_SIZE + row * rowHeight;
+			var columnWidth = (FIGURE_WIDTH - TIME_LABEL_SIZE * 2 - (columns + 1) * SPACING) / columns,
+				rowHeight = (FIGURE_HEIGHT - (TAXON_LABEL_SIZE + SPACING) - EXTANT_TAXON_LABEL_SIZE - (rows + 1) * SPACING) / rows,
+				x = (column + 1) * SPACING + column * columnWidth + TIME_LABEL_SIZE * 2,
+				y = (row + 1) * SPACING + EXTANT_TAXON_LABEL_SIZE + row * rowHeight;
 			return Haeckel.rec.create(x, y, columnWidth, rowHeight);
 		}
 
@@ -309,8 +309,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			names = nomenclature.nameMap;
 
 		var taxa: Haeckel.Taxic[] = [
-			Haeckel.tax.setDiff(names['Hominidae'], names['Homininae']),
-			Haeckel.tax.setDiff(names['Homininae'], names['Hominina']),
+			Haeckel.tax.setDiff(names['Hominidae'], names['pan-Homininae']),
+			Haeckel.tax.setDiff(names['pan-Homininae'], names['Hominina']),
 			Haeckel.tax.setDiff(names['Hominina'], names['Homo']),
 			Haeckel.tax.setDiff(names['Homo'], names['Homo (Homo)']),
 			Haeckel.tax.setDiff(names['Homo (Homo)'], names['Homo (sapiens)']),
@@ -332,41 +332,39 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		var connections = builder.child(SVG_NS, 'g').attr(SVG_NS, 'id', 'connections');
 
-		connect(connections, { column: 0, row: 7}, {column: 0, row: 6});
-		connect(connections, { column: 0, row: 7}, {column: 1, row: 6});
-		connect(connections, { column: 0, row: 6}, {column: 0, row: 5}, -1);
-		connect(connections, { column: 0, row: 6}, {column: 0, row: 4}, 1);
-		connect(connections, { column: 0, row: 6}, {column: 0, row: 2});
-		connect(connections, { column: 0, row: 5}, {column: 0, row: 2}, -1);
-		connect(connections, { column: 0, row: 2}, {column: 0, row: 1}, -1);
-		connect(connections, { column: 0, row: 2}, {column: 0, row: 1});
-		connect(connections, { column: 0, row: 1}, {column: 0, row: 0});
+		connect(connections, { column: 0, row: 7}, {column: 0, row: 6}); // Ponginae
+		connect(connections, { column: 0, row: 7}, {column: 0, row: 6}, 1); // Dryopithecinae
+		connect(connections, { column: 0, row: 7}, {column: 1, row: 7}); // pan-Homininae
+		connect(connections, { column: 0, row: 6}, {column: 0, row: 5}, -1); // Sivapithecina
+		connect(connections, { column: 0, row: 6}, {column: 0, row: 2}); // Pongina
+		connect(connections, { column: 0, row: 6}, {column: 0, row: 4}, 1); // Lufengpithecini
+		connect(connections, { column: 0, row: 5}, {column: 0, row: 2}, -1); // Gigantopithecus
+		connect(connections, { column: 0, row: 2}, {column: 0, row: 1}, -1); // Gigantopithecus
+		connect(connections, { column: 0, row: 2}, {column: 0, row: 1}); // Pongo
+		connect(connections, { column: 0, row: 1}, {column: 0, row: 0}); // Pongo (Pongo)
 
-		connect(connections, { column: 1, row: 6}, {column: 1, row: 0}, -1);
-		connect(connections, { column: 1, row: 6}, {column: 1, row: 5}, 0, 0.75);
-		connect(connections, { column: 1, row: 5}, {column: 1, row: 2}, 0, 1, true);
-		connect(connections, { column: 1, row: 6}, {column: 2, row: 6});
-		connect(connections, { column: 1, row: 2}, {column: 1, row: 0});
+		connect(connections, { column: 1, row: 7}, {column: 1, row: 0}, -0.5);
+		connect(connections, { column: 1, row: 7}, {column: 1, row: 2}, 0.5);
+		connect(connections, { column: 1, row: 7}, {column: 2, row: 6});
+		connect(connections, { column: 1, row: 2}, {column: 1, row: 0}, 0.5);
 
 		connect(connections, { column: 2, row: 6}, {column: 2, row: 5});
-		connect(connections, { column: 2, row: 6}, {column: 1, row: 5}, 0, 0.25);
-		connect(connections, { column: 2, row: 5}, {column: 2, row: 4}, -1);
-		connect(connections, { column: 2, row: 5}, {column: 2, row: 4});
-		connect(connections, { column: 2, row: 5}, {column: 3, row: 4}, 0, 0.5);
-		connect(connections, { column: 2, row: 4}, {column: 2, row: 3}, -1);
-		connect(connections, { column: 2, row: 4}, {column: 2, row: 3});
-		connect(connections, { column: 2, row: 4}, {column: 3, row: 4}, 0, 0.5);
-		connect(connections, { column: 2, row: 3}, {column: 2, row: 2}, -1);
+		connect(connections, { column: 2, row: 5}, {column: 2, row: 4}, -0.5);
+		connect(connections, { column: 2, row: 5}, {column: 2, row: 4}, 0.5);
+		connect(connections, { column: 2, row: 5}, {column: 3, row: 4});
+		connect(connections, { column: 2, row: 4}, {column: 2, row: 3}, -0.5);
+		connect(connections, { column: 2, row: 4}, {column: 2, row: 3}, 0.5);
+		connect(connections, { column: 2, row: 3}, {column: 2, row: 2}, 0.5);
 
 		connect(connections, { column: 3, row: 4}, {column: 3, row: 3});
 		connect(connections, { column: 3, row: 4}, {column: 4, row: 3});
-		connect(connections, { column: 3, row: 3}, {column: 3, row: 1}, 0, 0.5);
+		connect(connections, { column: 3, row: 3}, {column: 3, row: 1}, 0, 0.75);
 
 		connect(connections, { column: 4, row: 3}, {column: 4, row: 2});
 		connect(connections, { column: 4, row: 3}, {column: 4, row: 2}, 1);
 		connect(connections, { column: 4, row: 3}, {column: 5, row: 3});
 		connect(connections, { column: 4, row: 2}, {column: 4, row: 1});
-		connect(connections, { column: 4, row: 2}, {column: 3, row: 1}, 0, 0.5);
+		connect(connections, { column: 4, row: 2}, {column: 3, row: 1}, 0, 0.25);
 		connect(connections, { column: 4, row: 2}, {column: 5, row: 2}, 0, 0.375);
 		connect(connections, { column: 4, row: 2}, {column: 4, row: 1});
 
@@ -391,8 +389,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			{
 				var mapID = 'map-' + row + '-' + column,
 					map = maps.child(SVG_NS, 'g').attr(SVG_NS, 'id', mapID),
-					area = getMapArea(column, row);
-				if (column === columns - 1 && row === 0)
+					area = getMapArea(column, row),
+					usePopDensityMap = column === columns - 1 && row === 0;
+				if (usePopDensityMap)
 				{
 					pngAssets.image(map, "assets/worldmap_popdensity.png")
 						.attrs(SVG_NS, {
@@ -421,8 +420,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		var labels = builder.child(SVG_NS, 'g').attr(SVG_NS, 'id', 'labels');
 
-		labelTaxon(labels, 'great apes', 8, 0, 1);
-		labelTaxon(labels, 'Homininae', 7.5, 1, NaN, { 'font-style': 'italic' });
+		labelTaxon(labels, 'great apes', 8.5, 0, 1);
+		labelTaxon(labels, 'hominines and stem-hominines', 8, 1);
 		labelTaxon(labels, 'stem-humans', 7, 2, taxa.length - 2);
 		labelTaxon(labels, 'Homo', 5, 3, NaN, { 'font-style': 'italic' });
 		labelTaxon(labels, 'large brains', 4.5, 4);
