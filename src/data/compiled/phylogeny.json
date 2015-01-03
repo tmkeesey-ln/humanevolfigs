@@ -33,6 +33,10 @@
 				["stem African great apes", "Ouranopithecus"],
 				["stem African great apes", "Samburupithecus"],
 				["stem African great apes", "Udabnopithecus"]
+			],
+			"synonymies":
+			[
+				["stem African great apes", "stem-hominines"]
 			]
 		},
 		"phyloGraphs":

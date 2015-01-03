@@ -129,7 +129,7 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"western gorillas": {
 		column: 4
 	},
-	"stem African great apes": {
+	"stem-hominines": {
 		column: 6
 	},
 	"Gorilla*": {
