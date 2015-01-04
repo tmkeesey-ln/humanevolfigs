@@ -127,17 +127,25 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		italic: true
 	},
 	"western gorillas": {
-		column: 4
+		column: 5
 	},
 	"stem-hominines": {
-		column: 6
+		column: 5
 	},
-	"Gorilla*": {
+	"pan-Homininae*": {
 		column: 5,
 		ancestral: true
 	},
+	"Homininae*": {
+		column: 6,
+		ancestral: true
+	},
+	"Gorilla*": {
+		column: 6,
+		ancestral: true
+	},
 	"eastern gorillas": {
-		column: 5
+		column: 6
 	},
 	"Hominini*": {
 		column: 7,
@@ -369,7 +377,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 			function createArcRenderer(useSides?: boolean)
 			{
-				return (builder: Haeckel.ElementBuilder, taxon: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
+				return (builder: Haeckel.ElementBuilder, arc: Haeckel.Arc<Haeckel.Taxic>, sourceRect: Haeckel.Rectangle, targetRect: Haeckel.Rectangle) =>
 				{
 					var data = 'M';
 					if (Haeckel.precisionEqual(targetRect.centerX, sourceRect.centerX))
@@ -383,8 +391,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							? (targetRect.centerX < sourceRect.centerX ? sourceRect.left : sourceRect.right)
 							: sourceRect.centerX;
 						var sourceY = getSourceY(sourceRect, targetRect);
+						var targetY = Math.min(targetRect.bottom, sourceY);
 						data += [startX, sourceY].join(' ')
-							+ 'Q' + [targetRect.centerX, sourceY, targetRect.centerX, Math.min(targetRect.bottom, sourceY)];
+							+ 'Q' + [targetRect.centerX, sourceY, targetRect.centerX, targetY];
 					}
 					builder.child(Haeckel.SVG_NS, 'path')
 						.attrs(Haeckel.SVG_NS, {
@@ -407,8 +416,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var occurrences = sources.sources['data/compiled/characters.json'].occurrences;
 				var cmBuilder = new Haeckel.CharacterMatrixBuilder<Haeckel.Range>();
 				addToCharacterMatrix(cmBuilder, solver, [
-					['data/2012 - Langergraber & al.json', 'synthesis-ape-genera'],
-					['data/2006 - Steiper & Young.json', 'Fig1-abridged']
+					['data/2006 - Steiper & Young.json', 'Fig1-abridged'],
+					['data/2012 - Langergraber & al.json', 'synthesis']
 				]);
 				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
 				{
@@ -430,10 +439,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						if (entry.ancestral)
 						{
 							var sourceY = rectangle.centerY;
+							/*
 							Haeckel.ext.each(solver.dagSolver.imSucs(taxon), (imSuc: Haeckel.Taxic) =>
 							{
-								sourceY = Math.max(sourceY, getSourceY(rectangle, chart.getTaxonRect(imSuc)));
+								var imSucY = getSourceY(rectangle, chart.getTaxonRect(imSuc));
+								if (imSucY > sourceY) 
+								{
+									sourceY = imSucY;
+								}
 							});
+							*/
 							builder.child(Haeckel.SVG_NS, 'path')
 								.attrs(Haeckel.SVG_NS, {
 									'd': 'M' + rectangle.centerX + ' ' + rectangle.bottom + 'V' + sourceY,
@@ -706,7 +721,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						'stroke-width': '2px'
 					});
 				group.child(Haeckel.SVG_NS, 'text')
-					.text('specimen')
+					.text('specimens')
 					.attrs(Haeckel.SVG_NS, {
 						'x': (area.left + area.width / 4) + 'px',
 						'y': (area.top + height * 13 / 32) + 'px',

@@ -36,6 +36,9 @@
 			],
 			"synonymies":
 			[
+				["Hominidae*", "mt-Hominidae*"],
+				["Homininae*", "mt-Homininae*"],
+				["Hominini*", "mt-Hominini*"],
 				["stem African great apes", "stem-hominines"]
 			]
 		},
@@ -45,12 +48,14 @@
 			[
 				["Hominidae*", "Dryopithecinae"],
 				["Hominidae*", "stem-orangutans"],
-				["Hominidae*", "stem African great apes"],
+				["Hominidae*", "pan-Homininae*"],
+				["pan-Homininae*", "stem-hominines"],
+				["pan-Homininae*", "Homininae*"],
 				["stem-orangutans", "fossil orangutans"],
 				["fossil orangutans", "Pongo abelii"],
 				["fossil orangutans", "Pongo pygmaeus"],
-				["stem African great apes", "Gorilla*"],
-				["stem African great apes", "Hominini*"],
+				["Homininae*", "Gorilla*"],
+				["Homininae*", "Hominini*"],
 				["Gorilla*", "Gorilla beringei"],
 				["Gorilla*", "Gorilla gorilla"],
 				["Hominini*", "Pan*"],

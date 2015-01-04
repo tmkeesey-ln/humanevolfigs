@@ -81,16 +81,6 @@
 	    			"taxa": ["mt-MRCA", "Homo neanderthalensis neanderthalensis"],
 	    			"time": [-781000, -423000]
 	    		}
-	    	],
-	    	"synthesis-ape-genera": [
-	    		{
-	    			"taxa": ["Gorilla gorilla", "Gorilla beringei"],
-	    			"time": [-3010000, -1200000]
-	    		},
-	    		{
-	    			"taxa": ["Pan troglodytes", "Pan paniscus"],
-	    			"time": [-2550000, -1450000]
-	    		}
 	    	]
 	    }
 	}
