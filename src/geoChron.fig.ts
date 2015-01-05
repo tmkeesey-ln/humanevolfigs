@@ -12,6 +12,8 @@ var EXTENT_ATTRS: { [name: string]: string; } = {
 	'stroke-linecap': 'square'
 };
 
+var MARGIN_BOTTOM = 20;
+
 var SPACING = 20;
 
 var TAXON_LABEL_SIZE = 15;
@@ -155,7 +157,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		function getMapArea(column: number, row: number)
 		{
 			var columnWidth = (FIGURE_WIDTH - TIME_LABEL_SIZE * 2 - (columns + 1) * SPACING) / columns,
-				rowHeight = (FIGURE_HEIGHT - (TAXON_LABEL_SIZE + SPACING) - EXTANT_TAXON_LABEL_SIZE - (rows + 1) * SPACING) / rows,
+				rowHeight = (FIGURE_HEIGHT - MARGIN_BOTTOM - (TAXON_LABEL_SIZE + SPACING) - EXTANT_TAXON_LABEL_SIZE - (rows + 1) * SPACING) / rows,
 				x = (column + 1) * SPACING + column * columnWidth + TIME_LABEL_SIZE * 2,
 				y = (row + 1) * SPACING + EXTANT_TAXON_LABEL_SIZE + row * rowHeight;
 			return Haeckel.rec.create(x, y, columnWidth, rowHeight);
@@ -333,7 +335,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		var connections = builder.child(SVG_NS, 'g').attr(SVG_NS, 'id', 'connections');
 
 		connect(connections, { column: 0, row: 7}, {column: 0, row: 6}); // Ponginae
-		connect(connections, { column: 0, row: 7}, {column: 0, row: 6}, 1); // Dryopithecinae
+		connect(connections, { column: 0, row: 7}, {column: 0, row: 6}, 2); // Dryopithecinae
 		connect(connections, { column: 0, row: 7}, {column: 1, row: 7}); // pan-Homininae
 		connect(connections, { column: 0, row: 6}, {column: 0, row: 5}, -1); // Sivapithecina
 		connect(connections, { column: 0, row: 6}, {column: 0, row: 2}); // Pongina
