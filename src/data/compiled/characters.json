@@ -739,6 +739,20 @@
 					"count": 1,
 					"geo":
 					{
+						"Tel 'Ubeidiya": [[32.69, 35.56]]
+					},
+					"notes": [
+						"age from Bar-Yosef, O., Goren-Inbar, N., & Gilead, I. (1993)",
+						"teeth only -- not sure of exact number of individuals",
+						"associated with Acheuelean technology",
+						"placement extremely tentative"
+					],
+					"time": [-1600000, -1400000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
 						"Gona, Afar": [[11.5,40]]
 					},
 					"note": "BSN49/P27 - 'Mrs. Elvis'",
