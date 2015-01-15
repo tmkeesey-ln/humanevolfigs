@@ -193,10 +193,10 @@
 					},
 					{
 						"name": "SG42. Inclination of foramen magnum",
-						"states": ["Strongly inclined (posterior)", "Roughly horizontal", "trongly inclined (anterior)"]
+						"states": ["Strongly inclined (posterior)", "Roughly horizontal", "Strongly inclined (anterior)"]
 					},
 					{
-						"name": "SG43. Originof digastric muscle",
+						"name": "SG43. Origin of digastric muscle",
 						"states": ["Broad, shallow fossa", "Deep, narrow notch"]
 					},
 					{
