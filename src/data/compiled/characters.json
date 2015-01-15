@@ -7,6 +7,120 @@
 	},
 	"data":
 	{
+		"characterScores":
+		{
+			"examples": {
+				"characterType": "discrete",
+				"characters": [
+					{
+						"name": "Brow",
+						"states": ["continuous", "2 arches", "smooth"],
+						"references": [
+							"Argue & al. 2009 #3",
+							"Mallegni & al. 2003 #18",
+							"Schwartz & Tattersall 2000, p. 369 (continuous in some early H. sapiens)",
+							"Collard & Wood #25"
+						]
+					},
+					{
+						"name": "Big Toe",
+						"states": ["opposable", "not opposable"],
+						"references": [
+							"TBD"
+						]
+					},
+					{
+						"name": "Hip Bones",
+						"states": ["long, narrow", "short, bowl-shaped"],
+						"references": [
+							"TBD"
+						]
+					},
+					{
+						"name": "Lower Jaw",
+						"states": ["rectangular", "parabolic"],
+						"references": [
+							"TBD"
+						]
+					},
+					{
+						"name": "Mandibular Symphysis",
+						"states": ["receding", "subvertical", "vertical", "projecting"],
+						"references": [
+							"Argue & al. 2009 #58",
+							"Schwartz & Tattersall 2000",
+							"Strait & Grine 2004 #45",
+							"Suwa & al. 2009 Fig. 2"
+						]
+					},
+					{
+						"name": "Rib Cage",
+						"states": ["conical", "barrel-like"],
+						"references": [
+							"Schmid & al. 2013"
+						]
+					},
+					{
+						"name": "Canine Teeth",
+						"states": ["large", "medium", "small"],
+						"references": [
+							"Strait & Grine 2004 #51"
+						]
+					},
+					{
+						"name": "Forearm/Thighbone Length Ratio",
+						"states": [">80%", "70-80%", "60-70%", "<60%"],
+						"references": [
+							"Argue & al. 2006 Fig. 7",
+							"Argue & al. 2009 #51",
+							"Bacon & Long 2001",
+							"est. from Lovejoy & al. 2009 Fig. 1",
+							"Walker & al. 2001 Tables S7, S8"
+						],
+						"note": "some human populations just barely dip into the lower 60s"
+					},
+					{
+						"name": "Scapular Spine Angle",
+						"states": ["<40°", ">40°"],
+						"references": [
+							"Argue & al. 2009 #54",
+							"Green 2013 Table 9"
+						]
+					},
+					{
+						"name": "Bar-Glenoid Angle",
+						"states": ["<135°", ">135°"],
+						"references": [
+							"Argue & al. 2009 #55",
+							"Green 2013 Table 9"
+						],
+						"note": "lower in human children"
+					},
+					{
+						"name": "Parietal Tuber",
+						"states": ["absent", "present"],
+						"references": [
+							"Strait & Grine 2004 #63"
+						]
+					}
+				],
+				"scores":
+				{
+					"Pongo":                      [1,       0, 0, 0, 0,     0,    0,    0,     0,    null, 0],
+					"Gorilla":                    [0,       0, 0, 0, 0,     0,    0,    0,     0,    0,    0],
+					"Pan":                        [0,       0, 0, 0, 0,     0,    0,    0,     0,    0,    0],
+					"Ardipithecus":               [0,       0, 1, 0, 0,     null, 1,    1,     null, null, null],
+					"Praeanthropus":              [0,       1, 1, 0, [0,1], null, 1,    2,     0,    0,    0],
+					"Australopithecus":           [[0,1],   1, 1, 0, 1,     0,    1,    2,     0,    0,    0],
+					"Homo habilis & rudolfensis": [[0,1],   1, 1, 1, [1,2], null, 1,    [0,1], null, null, 1],
+					"Homo ergaster & erectus":    [[0,1],   1, 1, 1, 2,     1,    2,    3,     1,    1,    1],
+					"Homo heidelbergensis":       [[0,1],   1, 1, 1, null,  1,    null, null,  null, null, null],
+					"Homo neanderthalensis":      [[0,1],   1, 1, 1, [2,3], 1,    null, 3,     null, null, null],
+					"Homo sapiens":               [[0,1,2], 1, 1, 1, [2,3], 1,    2,    3,     1,    1,    1],
+					"Homo sapiens (living)":      [[1,2],   1, 1, 1, [2,3], 1,    2,    3,     1,    1,    1]
+				}
+			}
+		},
 		"occurrences":
 		{
 			"Ankarapithecus meteai":
