@@ -1157,11 +1157,12 @@
 					{
 						"Tighennif, Algeria": [[35.4,0.33]]
 					},
-					"time": [-750000, -650000],
+					"time": [-780000, -130000],
 					"notes":
 						[
 							"a.k.a. Atlanthropus mauritanicus",
-							"3 mandibles, parietal, isolated teeth"
+							"3 mandibles, parietal, isolated teeth",
+							"age from Geraads, D., Hublin, J. J., Jaeger, J. J., Tong, H., Sen, S., & Toubeau, P. (1986)"
 						]
 				}
 			],
