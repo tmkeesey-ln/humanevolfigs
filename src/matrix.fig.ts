@@ -75,17 +75,47 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				height: FIGURE_HEIGHT + 'px'
 			});
 		var chartGroup = builder.child(Haeckel.SVG_NS, 'g');
+		var labelsGroup = builder.child(Haeckel.SVG_NS, 'g');
 		var chart = new Haeckel.CharacterMatrixChart();
+
 		chart.area = Haeckel.rec.create(CHARACTER_LABEL_WIDTH, TAXON_LABEL_HEIGHT,
 			FIGURE_WIDTH - CHARACTER_LABEL_WIDTH - STATES_LABEL_WIDTH, FIGURE_HEIGHT - TAXON_LABEL_HEIGHT - MARGIN_BOTTOM);
 		chart.matrix = <Haeckel.CharacterMatrix<Haeckel.BitSet>> sources.sources['data/compiled/characters.json'].characterMatrices['examples'];
-		chart.characters = [2, 1, 3, 10, 7, 6, 5, 8, 9, 4, 0]
+		chart.characters = [2, 1, 3, 10, 5, 8, 9, 7, 6, 4, 0]
 			.reverse()
 			.map(index => chart.matrix.characterList[index]);
 		chart.taxa = ['Pongo', 'Gorilla', 'Pan', 'Ardipithecus', 'Praeanthropus', 'Australopithecus',
 			'Homo habilis & rudolfensis', 'Homo erectus & ergaster', 'Homo heidelbergensis', 'Homo neanderthalensis',
 			'Homo sapiens'].map(name => sources.nomenclature.nameMap[name]);
 		chart.render(chartGroup);
+
+		chart.characters.forEach((character: Haeckel.Character<Haeckel.BitSet>, index: number) =>
+		{
+			var area = chart.getArea(index, 0);
+			var text = labelsGroup
+				.child(Haeckel.SVG_NS, 'text')
+				.attrs(Haeckel.SVG_NS, {
+					x: (area.left - 12) + 'px',
+					y: (area.top + 16) + 'px',
+					'text-anchor': 'end',
+					'font-size': '16px',
+					'font-family': "Myriad Pro",
+					'font-weight': 'bold'
+				});
+			character.label
+				.replace(/(\-|\/)(\S)/g, '$1 $2')
+				.split(/\s+/g)
+				.forEach((word: string, index: number) => {
+					text
+						.child(Haeckel.SVG_NS, 'tspan')
+						.text(word)
+						.attrs(Haeckel.SVG_NS, {
+							x: (area.left - 12) + 'px',
+							dy: (index > 0) ? '16px' : '0'
+						});
+				});
+		});
+
 		return builder;
 	}
 };
