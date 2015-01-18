@@ -55,7 +55,7 @@
 					},
 					{
 						"name": "Mandibular Symphysis",
-						"states": ["receding", "subvertical", "vertical", "projecting"],
+						"states": ["receding", "subvertical", "vertical", "true chin"],
 						"references": [
 							"Argue & al. 2009 #58",
 							"Schwartz & Tattersall 2000",
@@ -67,14 +67,15 @@
 						"name": "Rib Cage",
 						"states": ["conical", "barrel-like"],
 						"references": [
-							"Schmid & al. 2013"
+							"Schmid & al. 2013",
+							"pers. obs. from Lovejoy & al. 2009, Fig. 1"
 						]
 					},
 					{
 						"name": "Canine Teeth",
-						"states": ["large", "medium", "small"],
+						"states": ["strongly dimorphic", "dimorphic", "small in both sexes"],
 						"references": [
-							"Strait & Grine 2004 #51"
+							"Collard & Wood 2000 #92"
 						]
 					},
 					{
@@ -102,32 +103,43 @@
 						"states": ["<135°", ">135°"],
 						"references": [
 							"Argue & al. 2009 #55",
-							"Green 2013 Table 9"
+							"Green 2013 Table 9",
+							"Inouye & Shea 1997 Table II"
 						],
-						"note": "lower in human children"
+						"note": "lower in human children, and smaller humans in general"
 					},
 					{
 						"name": "Parietal Tuber",
 						"states": ["absent", "present"],
 						"references": [
-							"Strait & Grine 2004 #63"
+							"Strait & Grine 2004 #63",
+							"Asfaw & al. 2009",
+							"pers. obs. from Suwa & al. (2009), Fig 2"
+						]
+					},
+					{
+						"name": "Trapezoid Bone",
+						"states": ["wedge-shaped", "boot-shaped"],
+						"references": [
+							"Tocheri & al. 2007",
+							"pers. obs from Lovejoy & al. 2009, Fig. 1"
 						]
 					}
 				],
 				"scores":
 				{
-					"Pongo":                         [1,       0, 0, 0, 0,     0,    0,    0,     0,    null, 0],
-					"Gorilla":                       [0,       0, 0, 0, 0,     0,    0,    0,     0,    0,    0],
-					"Pan":                           [0,       0, 0, 0, 0,     0,    0,    0,     0,    0,    0],
-					"Ardipithecus":                  [0,       0, 1, 0, 0,     null, 1,    1,     null, null, null],
-					"Praeanthropus":                 [0,       1, 1, 0, [0,1], null, 1,    2,     0,    0,    0],
-					"Australopithecus":              [[0,1],   1, 1, 0, 1,     0,    1,    2,     0,    0,    0],
-					"Homo habilis & rudolfensis":    [[0,1],   1, 1, 1, [1,2], null, 1,    [0,1], null, null, 1],
-					"Homo erectus & ergaster":       [[0,1],   1, 1, 1, 2,     1,    2,    3,     1,    1,    1],
-					"Homo heidelbergensis":          [[0,1],   1, 1, 1, null,  1,    null, null,  null, null, null],
-					"Homo neanderthalensis":         [[0,1],   1, 1, 1, [2,3], 1,    null, 3,     null, null, null],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 1, 1, [2,3], 1,    2,    3,     1,    1,    1],
-					"Homo sapiens sapiens (living)": [[1,2],   1, 1, 1, [2,3], 1,    2,    3,     1,    1,    1]
+					"Pongo":                         [1,       0, 0, 0, 0,     0,    0,     0,     0,    0,    0,    0],
+					"Gorilla":                       [0,       0, 0, 0, 0,     0,    0,     0,     0,    0,    0,    0],
+					"Pan":                           [0,       0, 0, 0, 0,     0,    1,     0,     0,    0,    0,    0],
+					"Ardipithecus":                  [0,       0, 1, 0, 0,     0,    1,     1,     null, null, 0,    0],
+					"Praeanthropus":                 [0,       1, 1, 0, [0,1], null, [1,2], 2,     0,    0,    0,    0],
+					"Australopithecus":              [[0,1],   1, 1, 0, 1,     0,    2,     2,     0,    0,    0,    0],
+					"Homo habilis & rudolfensis":    [[0,1],   1, 1, 1, [1,2], null, [1,2], [0,1], null, null, 1,    0],
+					"Homo erectus & ergaster":       [[0,1],   1, 1, 1, 2,     1,    2,     3,     1,    1,    1,    null],
+					"Homo heidelbergensis":          [[0,1],   1, 1, 1, 2,     1,    2,     null,  null, null, 1,    null],
+					"Homo neanderthalensis":         [[0,1],   1, 1, 1, 2,     1,    2,     3,     null, null, 1,    1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 1, 1, [2,3], 1,    2,     3,     1,    1,    1,    1],
+					"Homo sapiens sapiens (living)": [[1,2],   1, 1, 1, 3,     1,    2,     3,     1,    1,    1,    1]
 				}
 			}
 		},

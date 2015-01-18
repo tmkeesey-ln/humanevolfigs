@@ -213,7 +213,10 @@
 				["Australopithecus & Paranthropus", "Australopithecus"],
 				["Australopithecus & Paranthropus", "Paranthropus"],
 				["humans & Neandertals", "Homo neanderthalensis"],
-				["humans & Neandertals", "Homo sapiens"]
+				["humans & Neandertals", "Homo sapiens"],
+				["near-humans", "Homo heidelbergensis"],
+				["near-humans", "Homo neanderthalensis"],
+				["near-humans", "Homo sp. (Denisova)"]
 			],
 			"synonymies":
 			[
