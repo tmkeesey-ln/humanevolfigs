@@ -383,6 +383,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		var columns = taxa.length,
 			rows = times.length;
 
+		builder
+			.child(SVG_NS, 'rect')
+			.attrs(Haeckel.SVG_NS, {
+				x: '0',
+				y: '0',
+				width: FIGURE_WIDTH + 'px',
+				height: FIGURE_HEIGHT + 'px',
+				fill: '#ffffff'
+			});
+
 		var connections = builder.child(SVG_NS, 'g').attr(SVG_NS, 'id', 'connections');
 
 		connect(connections, { column: 0, row: 7}, {column: 0, row: 6}); // Ponginae
