@@ -1149,6 +1149,22 @@
 					"time": [-135000, -129000]
 				}
 			],
+			"Homo heidelbergensis mauritanicus":
+			[
+				{
+					"count": 3,
+					"geo":
+					{
+						"Tighennif, Algeria": [[35.4,0.33]]
+					},
+					"time": [-750000, -650000],
+					"notes":
+						[
+							"a.k.a. Atlanthropus mauritanicus",
+							"3 mandibles, parietal, isolated teeth"
+						]
+				}
+			],
 			"Homo heidelbergensis narmadensis":
 			[
 				{
@@ -1224,7 +1240,7 @@
 					"time": [-300000, -125000]
 				}
 			],
-			"Homo heidelbergensis ssp.":
+			"Homo heidelbergensis ssp. (Kacabas)":
 			[
 				{
 					"count": 1,
@@ -1933,14 +1949,16 @@
 					"time": [-115000, -92000],
 					"geo": {
 						"Qafzeh": [[34, 9]]
-					}
+					},
+					"note": "Some Neandertal characters"
 				},
 				{
 					"count": 16,
 					"time": [-101000, -81000],
 					"geo": {
 						"Skhul": [[32.63, 34.96]]
-					}
+					},
+					"note": "Some Neandertal characters"
 				},
 				{
 					"count": 1,
