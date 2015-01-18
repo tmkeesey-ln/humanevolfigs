@@ -59,6 +59,15 @@ function haploMap(builder: Haeckel.ElementBuilder,
 	var main = builder
 		.child(Haeckel.SVG_NS, 'g')
 		.attr(Haeckel.SVG_NS, 'clip-path', 'url(#mask)');
+	main
+		.child(Haeckel.SVG_NS, 'rect')
+		.attrs(Haeckel.SVG_NS, {
+				x: mapArea.x + 'px',
+				y: mapArea.y + 'px',
+				width: mapArea.width + 'px',
+				height: mapArea.height + 'px',
+				fill: '#c0c0c0'
+			});
 	var maps = main
 		.child(Haeckel.SVG_NS, 'g')
 		.attr(Haeckel.SVG_NS, 'id', 'maps');

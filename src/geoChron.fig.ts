@@ -133,7 +133,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				return false;
 			}
 
-			var clipPath = builder.child(SVG_NS, 'clipPath')
+			var clipPath = defs().child(SVG_NS, 'clipPath')
 				.attr(SVG_NS, 'id', id + '-mask');
 			clipPath.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
@@ -144,6 +144,14 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					});
 			var chartGroup = builder.child(SVG_NS, 'g')
 				.attr(SVG_NS, 'clip-path', 'url(#' + id + '-mask)');
+			chartGroup.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+						x: area.x + 'px',
+						y: area.y + 'px',
+						width: area.width + 'px',
+						height: area.height + 'px',
+						fill: '#c1c1c1'
+					});
 			chartGroup
 				.child(SVG_NS, 'use')
 				.attrs(SVG_NS, {

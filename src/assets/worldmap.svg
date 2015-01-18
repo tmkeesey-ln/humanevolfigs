@@ -62,14 +62,14 @@ Scale : 1:5,000,000</dc:description>
      id="layer1"
      style="display:inline"
      transform="translate(0.188394,447.74943)">
-    <rect
+    <!--<rect
        x="-0.188394"
        y="-1052.5505"
        width="3000"
        height="1500"
        style="fill:#C0C0C0;stroke:none"
        id="rect2450"
-       transform="scale(1,-1)" />
+       transform="scale(1,-1)" />-->
     <g
        id="Land_Area"
        style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
