@@ -4,7 +4,7 @@ var CONNECTION_THICKNESS = 3;
 
 var CONNECTION_OFFSET = 4.33;
 
-var EXTANT_TAXON_LABEL_SIZE = 12;
+var EXTANT_TAXON_LABEL_SIZE = 0;//12;
 
 var EXTENT_ATTRS: { [name: string]: string; } = {
 	stroke: '#000000',
@@ -13,6 +13,33 @@ var EXTENT_ATTRS: { [name: string]: string; } = {
 };
 
 var MARGIN_BOTTOM = 20;
+
+var MARGIN_TOP = 50;
+
+var SILHOUETTE_SCALE = 0.25;
+
+var SILHOUETTES = [
+	'assets/silhouettes/Pongo pygmaeus (female, climbing).svg',
+	'assets/silhouettes/Lufengpithecus hudienensis.svg',
+
+	'assets/silhouettes/Gorilla gorilla (female, quadrupedal).svg',
+	'assets/silhouettes/Pan paniscus.svg',
+
+	'assets/silhouettes/Ardipithecus ramidus.svg',
+	'assets/silhouettes/Paranthropus boisei (male).svg',
+
+	'assets/silhouettes/Homo rudolfensis.svg',
+	'assets/silhouettes/Homo floresiensis.svg',
+
+	'assets/silhouettes/Homo ergaster ergaster.svg',
+	'assets/silhouettes/Homo erectus pekinensis.svg',
+
+	'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg',
+	'assets/silhouettes/Homo neanderthalensis (female).svg',
+	
+	'assets/silhouettes/Homo sapiens sapiens (female, walking).svg',
+	'assets/silhouettes/Homo sapiens sapiens (male, running).svg'
+];
 
 var SPACING = 20;
 
@@ -47,7 +74,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 	assets: {
 		png: ['assets/worldmap_popdensity.png'],
-		svg: ['assets/worldmap.svg']
+		svg: ['assets/worldmap.svg'].concat(SILHOUETTES)
 	},
 	sources: [
 		'data/compiled/characters.json',
@@ -154,12 +181,26 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			return true;
 		}
 
+		function drawSilhouette(builder: Haeckel.ElementBuilder, column: number, onLeft: boolean, assetName: string)
+		{
+			var area = getMapArea(column, 0);
+			builder
+				.child(SVG_NS, 'use')
+				.attrs(SVG_NS, {
+					x: (area.centerX + ((onLeft ? -1 : 1) * 100 - 100) * SILHOUETTE_SCALE) + 'px',
+					y: (area.y - 200 * SILHOUETTE_SCALE) + 'px',
+					width: (200 * SILHOUETTE_SCALE) + 'px',
+					height: (200 * SILHOUETTE_SCALE) + 'px'
+				})
+				.attr('xlink:href', '#' + assetName);
+		}
+
 		function getMapArea(column: number, row: number)
 		{
 			var columnWidth = (FIGURE_WIDTH - TIME_LABEL_SIZE * 2 - (columns + 1) * SPACING) / columns,
-				rowHeight = (FIGURE_HEIGHT - MARGIN_BOTTOM - (TAXON_LABEL_SIZE + SPACING) - EXTANT_TAXON_LABEL_SIZE - (rows + 1) * SPACING) / rows,
+				rowHeight = (FIGURE_HEIGHT - MARGIN_BOTTOM - MARGIN_TOP - (TAXON_LABEL_SIZE + SPACING) - EXTANT_TAXON_LABEL_SIZE - (rows + 1) * SPACING) / rows,
 				x = (column + 1) * SPACING + column * columnWidth + TIME_LABEL_SIZE * 2,
-				y = (row + 1) * SPACING + EXTANT_TAXON_LABEL_SIZE + row * rowHeight;
+				y = (row + 1) * SPACING + EXTANT_TAXON_LABEL_SIZE + row * rowHeight + MARGIN_TOP;
 			return Haeckel.rec.create(x, y, columnWidth, rowHeight);
 		}
 
@@ -181,6 +222,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			return Haeckel.rng.create(stratum.start.mean, stratum.end.mean);
 		}
 
+		/*
 		function labelExtantTaxon(builder: Haeckel.ElementBuilder, name: string, column: number)
 		{
 			var area = getMapArea(column, 0);
@@ -194,6 +236,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						"font-family": "Myriad Pro"
 					});
 		}
+		*/
 
 		function labelTaxon(builder: Haeckel.ElementBuilder, name: string, row: number,
 			leftColumn: number, rightColumn: number = NaN, textAttrs: { [name: string]: string; } = null)
@@ -430,9 +473,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		labelTaxon(labels, 'near-humans', 4, 5, 5);
 		labelTaxon(labels, 'Homo sapiens', 3, 6, 6, { 'font-style': 'italic' });
 
-		labelExtantTaxon(labels, 'orangutans', 0);
-		labelExtantTaxon(labels, 'gorillas & chimpanzees', 1);
-		labelExtantTaxon(labels, 'humans', 6);
+		//labelExtantTaxon(labels, 'orangutans', 0);
+		//labelExtantTaxon(labels, 'gorillas & chimpanzees', 1);
+		//labelExtantTaxon(labels, 'humans', 6);
 
 		labelTime(labels, 'Recent', 0, true);
 		labelTime(labels, 'Tarantian', 1);
@@ -444,5 +487,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		labelTimeRange(labels, 'Pleistocene', 1, 4);
 		labelTimeRange(labels, 'Miocene', 6, 7);
+
+		var silhouettes = builder.child(SVG_NS, 'g').attr(SVG_NS, 'id', 'silhouettes');
+		SILHOUETTES.forEach((name: string, index: number) => drawSilhouette(silhouettes, Math.floor(index / 2), index % 2 === 0, name));
 	}
 };
