@@ -24,7 +24,7 @@
 				"characters": [
 					{
 						"name": "Brow",
-						"states": ["continuous", "2 arches", "smooth"],
+						"states": ["continuous", "two arches", "smooth"],
 						"references": [
 							"Argue & al. 2009 #3",
 							"Mallegni & al. 2003 #18",
@@ -36,26 +36,28 @@
 						"name": "Big Toe",
 						"states": ["opposable", "not opposable"],
 						"references": [
-							"TBD"
+							"Lovejoy & al. 2009"
 						]
 					},
 					{
 						"name": "Hip Bones",
-						"states": ["long, narrow", "short, bowl-shaped"],
+						"states": ["long, narrow", "short", "short, wide"],
 						"references": [
-							"TBD"
+							"Simpson & al. 2008",
+							"Lovejoy & al. 2009",
+							"Schmid & al. 2013"
 						]
 					},
 					{
 						"name": "Lower Jaw",
-						"states": ["rectangular", "parabolic"],
+						"states": ["rectangular", "intermediate", "parabolic"],
 						"references": [
 							"TBD"
 						]
 					},
 					{
 						"name": "Mandibular Symphysis",
-						"states": ["receding", "subvertical", "vertical", "true chin"],
+						"states": ["receding", "subvertical", "vertical", "chin"],
 						"references": [
 							"Argue & al. 2009 #58",
 							"Schwartz & Tattersall 2000",
@@ -68,19 +70,19 @@
 						"states": ["conical", "barrel-like"],
 						"references": [
 							"Schmid & al. 2013",
-							"pers. obs. from Lovejoy & al. 2009, Fig. 1"
+							"Haile-Selassie & al. 2010, p. 12122"
 						]
 					},
 					{
 						"name": "Canine Teeth",
-						"states": ["strongly dimorphic", "dimorphic", "small in both sexes"],
+						"states": ["strongly dimorphic", "dimorphic", "small"],
 						"references": [
 							"Collard & Wood 2000 #92"
 						]
 					},
 					{
-						"name": "Forearm/Thighbone Length Ratio",
-						"states": [">80%", "70-80%", "60-70%", "<60%"],
+						"name": "Forearm/Thighbone Ratio",
+						"states": [">80%", "70–80%", "60–70%", "<60%"],
 						"references": [
 							"Argue & al. 2006 Fig. 7",
 							"Argue & al. 2009 #51",
@@ -128,18 +130,18 @@
 				],
 				"scores":
 				{
-					"Pongo":                         [1,       0, 0, 0, 0,     0,    0,     0,     0,    0,    0,    0],
-					"Gorilla":                       [0,       0, 0, 0, 0,     0,    0,     0,     0,    0,    0,    0],
-					"Pan":                           [0,       0, 0, 0, 0,     0,    1,     0,     0,    0,    0,    0],
-					"Ardipithecus":                  [0,       0, 1, 0, 0,     0,    1,     1,     null, null, 0,    0],
-					"Praeanthropus":                 [0,       1, 1, 0, [0,1], null, [1,2], 2,     0,    0,    0,    0],
-					"Australopithecus":              [[0,1],   1, 1, 0, 1,     0,    2,     2,     0,    0,    0,    0],
-					"Homo habilis & rudolfensis":    [[0,1],   1, 1, 1, [1,2], null, [1,2], [0,1], null, null, 1,    0],
-					"Homo erectus & ergaster":       [[0,1],   1, 1, 1, 2,     1,    2,     3,     1,    1,    1,    null],
-					"Homo heidelbergensis":          [[0,1],   1, 1, 1, 2,     1,    2,     null,  null, null, 1,    null],
-					"Homo neanderthalensis":         [[0,1],   1, 1, 1, 2,     1,    2,     3,     null, null, 1,    1],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 1, 1, [2,3], 1,    2,     3,     1,    1,    1,    1],
-					"Homo sapiens sapiens (living)": [[1,2],   1, 1, 1, 3,     1,    2,     3,     1,    1,    1,    1]
+					"Pongo":                         [1,       0, 0, 0,     0,     0,    0,     0,     0,    0,    0,    0],
+					"Gorilla":                       [0,       0, 0, 0,     0,     0,    0,     0,     0,    0,    0,    0],
+					"Pan":                           [0,       0, 0, 0,     0,     0,    1,     0,     0,    0,    0,    0],
+					"Ardipithecus":                  [0,       0, 1, 1,     0,     null, 1,     1,     null, null, 0,    0],
+					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], 1,    [1,2], 2,     0,    0,    0,    0],
+					"Australopithecus":              [[0,1],   1, 1, 1,     1,     0,    2,     2,     0,    0,    0,    0],
+					"Homo habilis & rudolfensis":    [[0,1],   1, 1, [1,2], [1,2], null, [1,2], [0,1], null, null, 1,    0],
+					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     3,     1,    1,    1,    null],
+					"Homo heidelbergensis":          [[0,1],   1, 2, 2,     2,     1,    2,     null,  1,    1,    1,    null],
+					"Homo neanderthalensis":         [[0,1],   1, 2, 2,     2,     1,    2,     3,     1,    1,    1,    1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 2, 2,     [2,3], 1,    2,     3,     1,    1,    1,    1],
+					"Homo sapiens sapiens (living)": [[1,2],   1, 2, 2,     3,     1,    2,     3,     1,    1,    1,    1]
 				}
 			}
 		},

@@ -138,6 +138,12 @@ module.exports = function(grunt)
 				dest: 'src/matrix.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			matrixExtant:
+			{
+				src: [ 'src/matrixExtant.fig.ts' ],
+				dest: 'src/matrixExtant.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			mtDNA:
 			{
 				src: [ 'src/haploMap.ts', 'src/mtDNA.fig.ts' ],
@@ -193,6 +199,7 @@ module.exports = function(grunt)
 			extant: {},
 			geoChron: {},
 			matrix: {},
+			matrixExtant: {},
 			mtDNA: {},
 			phyloChron: {},
 			softTissue: {},
@@ -207,6 +214,7 @@ module.exports = function(grunt)
 			extant: {},
 			geoChron: {},
 			matrix: {},
+			matrixExtant: {},
 			mtDNA: {},
 			phyloChron: {},
 			softTissue: {},

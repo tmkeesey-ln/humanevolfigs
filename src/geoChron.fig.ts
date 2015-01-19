@@ -488,7 +488,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		labelTaxon(labels, 'stem-humans', 7, 2, taxa.length - 2);
 		labelTaxon(labels, 'Homo', 5, 3, NaN, { 'font-style': 'italic' });
 		labelTaxon(labels, 'large brains', 4.5, 4);
-		labelTaxon(labels, 'near-humans', 4, 5, 5);
+		labelTaxon(labels, '"archaics"', 4, 5, 5);
 		labelTaxon(labels, 'Homo sapiens', 3, 6, 6, { 'font-style': 'italic' });
 
 		//labelExtantTaxon(labels, 'orangutans', 0);

@@ -274,7 +274,8 @@
 				["Homo sp. (Denisova)", "Denisovans"],
 				["Hominoidea", "apes"],
 				["Hylobates", "Hylobates sp.", "Hylobates spp.", "lar gibbons", "common gibbons"],
-				["Hylobatidae", "gibbons"]
+				["Hylobatidae", "gibbons"],
+				["near-humans", "archaic humans", "\"archaics\""]
 			]
 		}
 	}

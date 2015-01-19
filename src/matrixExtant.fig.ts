@@ -2,9 +2,9 @@
 
 var CHARACTER_LABEL_WIDTH = 100;
 
-var FIGURE_HEIGHT = 900;
+var FIGURE_HEIGHT = 700;
 
-var FIGURE_WIDTH = 900;
+var FIGURE_WIDTH = 450;
 
 var MARGIN_BOTTOM = 12;
 
@@ -15,20 +15,12 @@ var STATES_LABEL_WIDTH = 12;
 var TAXON_LABEL_HEIGHT = 100;
 
 var TAXON_NAMES: string[] = ['orangutans', 'gorillas', 'chimpanzees',
-	'Ardipithecus', 'Praeanthropus', 'Australopithecus',
-	'Homo habilis & rudolfensis', 'Homo erectus & ergaster', '"archaics"',
-	'humans'];
+	'Homo sapiens sapiens (living)'];
 
 var TAXON_SILHOUETTES: string[] = [
 		'assets/silhouettes/Pongo pygmaeus (male, bipedal).svg',
 		'assets/silhouettes/Gorilla gorilla (male, bipedal).svg',
 		'assets/silhouettes/Pan troglodytes (bipedal).svg',
-		'assets/silhouettes/Ardipithecus ramidus.svg',
-		'assets/silhouettes/Praeanthropus anamensis.svg',
-		'assets/silhouettes/Australopithecus africanus.svg',
-		'assets/silhouettes/Homo rudolfensis.svg',
-		'assets/silhouettes/Homo ergaster ergaster.svg',
-		'assets/silhouettes/Homo neanderthalensis (male).svg',
 		'assets/silhouettes/Homo sapiens sapiens (male, standing).svg'
 	];
 
@@ -120,9 +112,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				.child(Haeckel.SVG_NS, 'text')
 				.attrs(Haeckel.SVG_NS, {
 					x: (area.left - 12) + 'px',
-					y: (area.top + 16) + 'px',
+					y: (area.top + 12) + 'px',
 					'text-anchor': 'end',
-					'font-size': '16px',
+					'font-size': '14px',
 					'font-family': "Myriad Pro",
 					'font-weight': 'bold'
 				});
@@ -136,16 +128,15 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						.text(word)
 						.attrs(Haeckel.SVG_NS, {
 							x: (area.left - 12) + 'px',
-							dy: (index > 0) ? '16px' : '0'
+							dy: (index > 0) ? '14px' : '0'
 						});
 				});
 		});
 
 		TAXON_NAMES.forEach((name: string, index: number) =>
 		{
-			var italicize = /^[A-Z]/.test(name);
 			var area = chart.getArea(0, index);
-			var label = labelsGroup
+			labelsGroup
 				.child(Haeckel.SVG_NS, 'text')
 				.attrs(Haeckel.SVG_NS, {
 					x: area.centerX + 'px',
@@ -153,33 +144,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					'text-anchor': 'middle',
 					'font-size': '12px',
 					'font-family': "Myriad Pro"
-				});
-			var ampPos = name.indexOf('&');
-			if (ampPos < 0)
-			{
-				label.text(name);
-			}
-			else
-			{
-				label
-					.child(Haeckel.SVG_NS, 'tspan')
-					.text(name.substr(0, ampPos - 1))
-					.attrs(Haeckel.SVG_NS, {
-						x: area.centerX + 'px',
-						dy: '0'
-					});
-				label
-					.child(Haeckel.SVG_NS, 'tspan')
-					.text(name.substr(ampPos))
-					.attrs(Haeckel.SVG_NS, {
-						x: area.centerX + 'px',
-						dy: '12px'
-					});
-			}
-			if (italicize)
-			{
-				label.attr(Haeckel.SVG_NS, 'font-style', 'italic');
-			}
+				})
+				.text(name.replace('Homo sapiens sapiens (living)', 'humans'));
 			silhouettesGroup
 				.child(Haeckel.SVG_NS, 'use')
 				.attrs(Haeckel.SVG_NS, {
