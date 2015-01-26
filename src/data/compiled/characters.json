@@ -14,7 +14,9 @@
 				["Homo erectus & ergaster", "Homo erectus"],
 				["Homo erectus & ergaster", "Homo ergaster"],
 				["Homo habilis & rudolfensis", "Homo habilis"],
-				["Homo habilis & rudolfensis", "Homo rudolfensis"]
+				["Homo habilis & rudolfensis", "Homo rudolfensis"],
+				["Australopithecus & Praeanthropus", "Australopithecus"],
+				["Australopithecus & Praeanthropus", "Praeanthropus"]
 			]
 		},
 		"characterScores":
@@ -82,15 +84,15 @@
 					},
 					{
 						"name": "Forearm/Thighbone Ratio",
-						"states": [">80%", "70–80%", "60–70%", "<60%"],
+						"states": [">80%", "65–80%", "<65%"],
 						"references": [
 							"Argue & al. 2006 Fig. 7",
 							"Argue & al. 2009 #51",
-							"Bacon & Long 2001",
+							"Bacon & Long 2001, Table 5",
 							"est. from Lovejoy & al. 2009 Fig. 1",
-							"Walker & al. 2001 Tables S7, S8"
+							"Walker & al. 2011 Tables S7, S8"
 						],
-						"note": "some human populations just barely dip into the lower 60s"
+						"note": "most humans below 60%"
 					},
 					{
 						"name": "Scapular Spine Angle",
@@ -102,7 +104,7 @@
 					},
 					{
 						"name": "Bar-Glenoid Angle",
-						"states": ["<135°", ">135°"],
+						"states": ["<135°", ">135° in adults"],
 						"references": [
 							"Argue & al. 2009 #55",
 							"Green 2013 Table 9",
@@ -137,11 +139,11 @@
 					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], 1,    [1,2], 2,     0,    0,    0,    0],
 					"Australopithecus":              [[0,1],   1, 1, 1,     1,     0,    2,     2,     0,    0,    0,    0],
 					"Homo habilis & rudolfensis":    [[0,1],   1, 1, [1,2], [1,2], null, [1,2], [0,1], null, null, 1,    0],
-					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     3,     1,    1,    1,    null],
+					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     2,     1,    1,    1,    null],
 					"Homo heidelbergensis":          [[0,1],   1, 2, 2,     2,     1,    2,     null,  1,    1,    1,    null],
-					"Homo neanderthalensis":         [[0,1],   1, 2, 2,     2,     1,    2,     3,     1,    1,    1,    1],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 2, 2,     [2,3], 1,    2,     3,     1,    1,    1,    1],
-					"Homo sapiens sapiens (living)": [[1,2],   1, 2, 2,     3,     1,    2,     3,     1,    1,    1,    1]
+					"Homo neanderthalensis":         [[0,1],   1, 2, 2,     2,     1,    2,     2,     1,    1,    1,    1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 2, 2,     [2,3], 1,    2,     2,     1,    1,    1,    1],
+					"Homo sapiens sapiens (living)": [[1,2],   1, 2, 2,     3,     1,    2,     2,     1,    1,    1,    1]
 				}
 			}
 		},
@@ -549,18 +551,6 @@
 					"time": [-10000000, -9500000]
 				}
 			],
-			"Gigantopithecus bilaspurensis":
-			[
-				{
-					"count": 1,
-					"note": "CYP 35968",
-					"geo":
-					{
-						"Haritalyangar": [[31.53, 76.63]]
-					},
-					"time": [-3800000, -3400000]
-				}
-			],
 			"Gigantopithecus blacki":
 			[
 				{
@@ -591,19 +581,6 @@
 					},
 					"time": [-250000, -140000],
 					"note": "Tooth. Species uncertain."
-				}
-			],
-			"Gigantopithecus giganteus":
-			[
-				{
-					"count": 2,
-					"geo":
-					{
-						"Siwaliks of India": [[32, 78]],
-						"Siwaliks of Pakistan": [[33, 73]]
-					},
-					"note": ":TODO: More than 2, but need to determine number.",
-					"time": [-11608000, -5332000]
 				}
 			],
 			"Gorilla beringei beringei":
@@ -2194,6 +2171,31 @@
 						"Yuanmou County": [[25.72, 101.86]]
 					},
 					"time": [-1700000, -500000]
+				}
+			],
+			"Indopithecus giganteus bilaspurensis":
+			[
+				{
+					"count": 1,
+					"note": "CYP 35968",
+					"geo":
+					{
+						"Haritalyangar": [[31.53, 76.63]]
+					},
+					"time": [-3800000, -3400000]
+				}
+			],
+			"Indopithecus giganteus giganteus":
+			[
+				{
+					"count": 2,
+					"geo":
+					{
+						"Siwaliks of India": [[32, 78]],
+						"Siwaliks of Pakistan": [[33, 73]]
+					},
+					"note": ":TODO: More than 2, but need to determine number.",
+					"time": [-11608000, -5332000]
 				}
 			],
 			"Khoratpithecus chiangmuanensis":
