@@ -90,6 +90,12 @@ module.exports = function(grunt)
 				dest: 'src/ageTaxa.sh.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			agesUpperPleistocene:
+			{
+				src: [ 'src/stratUnit.ts', 'src/agesUpperPleistocene.fig.ts' ],
+				dest: 'src/agesUpperPleistocene.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			ccChron:
 			{
 				src: [ 'src/ccChron.fig.ts' ],
@@ -192,6 +198,7 @@ module.exports = function(grunt)
 		},
 		render:
 		{
+			agesUpperPleistocene: {},
 			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},
@@ -207,6 +214,7 @@ module.exports = function(grunt)
 		},
 		figure:
 		{
+			agesUpperPleistocene: {},
 			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},
