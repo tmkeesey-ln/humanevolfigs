@@ -716,7 +716,19 @@
 					"time": [-2400000, -2260000]
 				}
 			],
-			"Homo erectus ssp.":
+			"Homo erectus ssp. (Taiwan)": [
+				{
+					"count": 1,
+					"geo":
+					{
+						"Penghu Strait, Taiwan": [[23.47,119.78]]
+					},
+					"note": "mandible (Penghu 1) -- age uncertain, could be up to 450 kya",
+					"reference": "urn:doi:10.1038/ncomms7037",
+					"time": [-190000, -10000]
+				}
+			],
+			"Homo erectus ssp. (Vietnam)":
 			[
 				{
 					"count": 1,
@@ -828,18 +840,6 @@
 					},
 					"time": [-612000, -143000],
 					"note": "Ngawi calvaria: age of specimen is not known -- just using the maximum range from other specimens in the subspecies"
-				}
-			],
-			"Homo erectus ssp. (Taiwan)": [
-				{
-					"count": 1,
-					"geo":
-					{
-						"Penghu Strait, Taiwan": [[23.47,119.78]]
-					},
-					"note": "mandible (Penghu 1) -- age uncertain, could be up to 450 kya",
-					"reference": "urn:doi:10.1038/ncomms7037",
-					"time": [-190000, -10000]
 				}
 			],
 			"Homo ergaster ergaster":
