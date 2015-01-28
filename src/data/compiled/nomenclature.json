@@ -19,6 +19,8 @@
 				["Australopithecus", "Australopithecus garhi"],
 				["Australopithecus", "Australopithecus sediba"],
 				["Australopithecus", "Australopithecus sp."],
+				["Australopithecus", "Australopithecus indet."],
+				["Australopithecus", "Hominina indet. A"],
 				["Australopithecus afarensis", "Australopithecus afarensis bahrelghazali"],
 				["Australopithecus afarensis", "Australopithecus afarensis afarensis"],
 				["Australopithecus afarensis", "Australopithecus afarensis antiquus"],
@@ -109,6 +111,7 @@
 				["Homo erectus", "Homo erectus ssp."],
 				["Homo ergaster", "Homo ergaster ergaster"],
 				["Homo ergaster", "Homo ergaster georgicus"],
+				["Homo heidelbergensis", "Homo heidelbergensis aff. cepranensis"],
 				["Homo heidelbergensis", "Homo heidelbergensis antecessor"],
 				["Homo heidelbergensis", "Homo heidelbergensis cepranensis"],
 				["Homo heidelbergensis", "Homo heidelbergensis daliensis"],
@@ -183,6 +186,7 @@
 				["Pongo (Pongo)", "Pongo (Pongo) indet."],
 				["Praeanthropus", "Praeanthropus anamensis"],
 				["Praeanthropus", "Praeanthropus afarensis"],
+				["Praeanthropus", "Australopithecus aff. afarensis"],
 				["Rudapithecus", "Rudapithecus hungaricus"],
 				["Sahelanthropus", "Sahelanthropus tchadensis"],
 				["Samburupithecus", "Samburupithecus kiptalami"],
@@ -201,6 +205,12 @@
 
 				["living chimpanzees", "Pan troglodytes"],
 				["living chimpanzees", "Pan paniscus"],
+
+				["fossil humans", "Homo sapiens helmei"],
+				["fossil humans", "Homo sapiens idaltu"],
+				["fossil humans", "Homo sapiens njarasensis"],
+				["fossil humans", "Homo sapiens ssp."],
+				["fossil humans", "Homo sapiens sapiens (fossil)"],
 
 				["Homo erectus & heidelbergensis", "Homo erectus"],
 				["Homo erectus & heidelbergensis", "Homo heidelbergensis"],
@@ -230,9 +240,33 @@
 				["erectines", "Homo indet. C"],
 				["erectines", "Homo indet. D"],
 				["erectines", "Homo indet. F"],
+				["Asian erectines", "Homo erectus"],
+				["Afro-European erectines", "Homo ergaster"],
+				["Asian erectines", "Homo lantianensis"],
+				["Asian erectines", "Homo modjokertensis"],
+				["Asian erectines", "Homo yuanmouensis"],
+				["Afro-European erectines", "Homo indet. C"],
+				["Afro-European erectines", "Homo indet. D"],
+				["Afro-European erectines", "Homo indet. F"],
 				["near-humans", "Homo heidelbergensis"],
 				["near-humans", "Homo neanderthalensis"],
-				["near-humans", "Homo sp. (Denisova)"]
+				["near-humans", "Homo sp. (Denisova)"],
+				["other archaics", "Homo heidelbergensis"],
+				["other archaics", "Homo sp. (Denisova)"],
+				["eastern archaics", "Homo sp. (Denisova)"],
+				["eastern archaics", "Homo heidelbergensis daliensis"],
+				["western archaics", "Homo heidelbergensis antecessor"],
+				["western archaics", "Homo heidelbergensis cepranensis"],
+				["western archaics", "Homo heidelbergensis ssp. (Kacabas)"],
+				["western archaics", "Homo heidelbergensis heidelbergensis"],
+				["western archaics", "Homo heidelbergensis steinheimensis"],
+				["African archaics", "Homo heidelbergensis aff. cepranensis"],
+				["African archaics", "Homo heidelbergensis mauritanicus"],
+				["African archaics", "Homo heidelbergensis rhodesiensis"],
+				["other humans", "Homo sapiens helmei"],
+				["other humans", "Homo sapiens idaltu"],
+				["other humans", "Homo sapiens njarasensis"],
+				["other humans", "Homo sapiens ssp."]
 			],
 			"synonymies":
 			[
@@ -265,6 +299,7 @@
 				["Cynocephalus", "Philippine colugos", "colugos"],
 				["Tupaia", "common treeshrews"],
 				["Rattus", "rats"],
+				["Australopithecus praegens", "\"Australopithecus\" praegens"],
 				["Australopithecus aethiopicus", "Paranthropus aethiopicus", "Paraustralopithecus aethiopicus"],
 				["Australopithecus afarensis", "Australopithecus bahrelghazali", "Praeanthropus afarensis", "Praeanthropus bahrelghazali", "Homo antiquus", "Praeanthropus africanus"],
 				["Australopithecus afarensis sspp.", "Australopithecus bahrelghazali sspp.", "Praeanthropus afarensis sspp.", "Praeanthropus bahrelghazali sspp.", "Homo antiquus sspp.", "Praeanthropus africanus sspp."],
@@ -294,7 +329,11 @@
 				["Hylobatidae", "gibbons"],
 				["habilines", "\"habilines\""],
 				["erectines", "\"erectines\""],
-				["near-humans", "archaic humans", "archaics", "\"archaics\""]
+				["near-humans", "archaic humans", "archaics", "\"archaics\""],
+				["other near-humans", "other archaic humans", "other archaics", "other \"archaics\""],
+				["modern humans", "Homo sapiens sapiens"],
+				["living humans", "Homo sapiens sapiens (living)"],
+				["Narmada Man", "Homo heidelbergensis narmadensis"]
 			]
 		}
 	}

@@ -84,7 +84,7 @@
 					},
 					{
 						"name": "Forearm/Thighbone Ratio",
-						"states": [">80%", "65–80%", "<65%"],
+						"states": [">80%", ">65%", "65–80%", "<65%"],
 						"references": [
 							"Argue & al. 2006 Fig. 7",
 							"Argue & al. 2009 #51",
@@ -132,18 +132,18 @@
 				],
 				"scores":
 				{
-					"Pongo":                         [1,       0, 0, 0,     0,     0,    0,     0,     0,    0,    0,    0],
-					"Gorilla":                       [0,       0, 0, 0,     0,     0,    0,     0,     0,    0,    0,    0],
-					"Pan":                           [0,       0, 0, 0,     0,     0,    1,     0,     0,    0,    0,    0],
-					"Ardipithecus":                  [0,       0, 1, 1,     0,     null, 1,     1,     null, null, 0,    0],
-					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], 1,    [1,2], 2,     0,    0,    0,    0],
-					"Australopithecus":              [[0,1],   1, 1, 1,     1,     0,    2,     2,     0,    0,    0,    0],
-					"Homo habilis & rudolfensis":    [[0,1],   1, 1, [1,2], [1,2], null, [1,2], [0,1], null, null, 1,    0],
-					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     2,     1,    1,    1,    null],
-					"Homo heidelbergensis":          [[0,1],   1, 2, 2,     2,     1,    2,     null,  1,    1,    1,    null],
-					"Homo neanderthalensis":         [[0,1],   1, 2, 2,     2,     1,    2,     2,     1,    1,    1,    1],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 2, 2,     [2,3], 1,    2,     2,     1,    1,    1,    1],
-					"Homo sapiens sapiens (living)": [[1,2],   1, 2, 2,     3,     1,    2,     2,     1,    1,    1,    1]
+					"Pongo":                         [1,       0, 0, 0,     0,     0,    0,     0,    0,    0,    0,    0],
+					"Gorilla":                       [0,       0, 0, 0,     0,     0,    0,     0,    0,    0,    0,    0],
+					"Pan":                           [0,       0, 0, 0,     0,     0,    1,     0,    0,    0,    0,    0],
+					"Ardipithecus":                  [0,       0, 1, 1,     0,     null, 1,     2,    null, null, 0,    0],
+					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], 1,    [1,2], 3,    0,    0,    0,    0],
+					"Australopithecus":              [[0,1],   1, 1, 1,     1,     0,    2,     3,    0,    0,    0,    0],
+					"Homo habilis & rudolfensis":    [[0,1],   1, 1, [1,2], [1,2], null, [1,2], 1,    null, null, 1,    0],
+					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     3,    1,    1,    1,    null],
+					"Homo heidelbergensis":          [[0,1],   1, 2, 2,     2,     1,    2,     null, 1,    1,    1,    null],
+					"Homo neanderthalensis":         [[0,1],   1, 2, 2,     2,     1,    2,     3,    1,    1,    1,    1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 2, 2,     [2,3], 1,    2,     3,    1,    1,    1,    1],
+					"Homo sapiens sapiens (living)": [[1,2],   1, 2, 2,     3,     1,    2,     3,    1,    1,    1,    1]
 				}
 			}
 		},
@@ -937,7 +937,7 @@
 					"time": [-1200000, -800000]
 				}
 			],
-			"Homo heidelbergensis cepranensis":
+			"Homo heidelbergensis aff. cepranensis":
 			[
 				{
 					"count": 1,
@@ -947,7 +947,10 @@
 					},
 					"note": "BOU-VP-2/66 - Daka skull - H. ergaster or H. heidelbergensis?",
 					"time": [-1050000, -950000]
-				},
+				}
+			],
+			"Homo heidelbergensis cepranensis":
+			[
 				{
 					"count": 1,
 					"geo":
@@ -1931,7 +1934,9 @@
 					{
 						"Lake Eyasi": [[-3.58, 35.00]]
 					},
-					"time": [-132000, -88000]
+					"time": [-132000, -88000],
+					"notes": "a.k.a. Africanthropus njarasensis",
+					"reference": "urn:doi:10.1016/j.jhevol.2008.02.002"
 				}
 			],
 			"Homo sapiens sapiens (fossil)":
@@ -2265,7 +2270,7 @@
 						"Longgupo, Wushan County": [[31, 110]]
 					},
 					"note": "Placement provisional.",
-					"time": [-1900000, -1900000]
+					"time": [-1950000, -1850000]
 				}
 			],
 			"Nakalipithecus nakayamai":
