@@ -1,36 +1,48 @@
 /// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
 
-var CHARACTER_LABEL_WIDTH = 100;
+var CHARACTER_LABEL_FONT_SIZE = 21;
 
-var FIGURE_HEIGHT = 900;
+var CHARACTER_LABEL_WIDTH = 125;
 
-var FIGURE_WIDTH = 900;
+var FIGURE_HEIGHT = 3.5 * 300;
+
+var FIGURE_WIDTH = 5 * 300;
 
 var MARGIN_BOTTOM = 12;
 
-var SILHOUETTE_SCALE = 1 / 3;
+var SILHOUETTE_SCALE = 1 / 2;
 
 var STATES_LABEL_WIDTH = 12;
 
-var TAXON_LABEL_HEIGHT = 100;
+var TAXON_LABEL_FONT_SIZE = 20;
+
+var TAXON_LABEL_HEIGHT = 125;
 
 var TAXON_NAMES: string[] = ['orangutans', 'gorillas', 'chimpanzees',
-	'Ardipithecus', 'Praeanthropus', 'Australopithecus',
-	'Homo habilis & rudolfensis', 'Homo erectus & ergaster', '"archaics"',
-	'humans'];
+	'Ardipithecus',
+	'Australopithecus & Praeanthropus',
+	//'Praeanthropus', 'Australopithecus',
+	'habilines', 'erectines', 'near-humans',
+	'fossil humans', 'living humans'];
 
 var TAXON_SILHOUETTES: string[] = [
 		'assets/silhouettes/Pongo pygmaeus (male, bipedal).svg',
 		'assets/silhouettes/Gorilla gorilla (male, bipedal).svg',
 		'assets/silhouettes/Pan troglodytes (bipedal).svg',
 		'assets/silhouettes/Ardipithecus ramidus.svg',
-		'assets/silhouettes/Praeanthropus anamensis.svg',
+		//'assets/silhouettes/Praeanthropus anamensis.svg',
 		'assets/silhouettes/Australopithecus africanus.svg',
 		'assets/silhouettes/Homo rudolfensis.svg',
 		'assets/silhouettes/Homo ergaster ergaster.svg',
 		'assets/silhouettes/Homo neanderthalensis (male).svg',
+		'assets/silhouettes/Homo sapiens idaltu.svg',
 		'assets/silhouettes/Homo sapiens sapiens (male, standing).svg'
 	];
+
+function capitalize(s: string)
+{
+	return s.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g, c => c.toUpperCase());
+}
 
 var FIGURE_TO_RENDER: Haeckel.Figure = 
 {
@@ -106,9 +118,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 
 		chart.area = Haeckel.rec.create(CHARACTER_LABEL_WIDTH, TAXON_LABEL_HEIGHT,
 			FIGURE_WIDTH - CHARACTER_LABEL_WIDTH - STATES_LABEL_WIDTH, FIGURE_HEIGHT - TAXON_LABEL_HEIGHT - MARGIN_BOTTOM);
+		chart.stateFontSize = 18;
 		chart.matrix = <Haeckel.CharacterMatrix<Haeckel.BitSet>> sources.sources['data/compiled/characters.json'].characterMatrices['examples'];
-		chart.characters = [1, 6, 3, 10, 5, 9, 2, 7, 11, 0, 4]
-			.reverse()
+		chart.characters = [4, 0, 11, 2, 9, 3, 10, 7, 5, 1, 6]
 			.map(index => chart.matrix.characterList[index]);
 		chart.taxa = TAXON_NAMES.map(name => sources.nomenclature.nameMap[name]);
 		chart.render(chartGroup);
@@ -120,9 +132,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				.child(Haeckel.SVG_NS, 'text')
 				.attrs(Haeckel.SVG_NS, {
 					x: (area.left - 12) + 'px',
-					y: (area.top + 16) + 'px',
+					y: (area.top + CHARACTER_LABEL_FONT_SIZE) + 'px',
 					'text-anchor': 'end',
-					'font-size': '16px',
+					'font-size': CHARACTER_LABEL_FONT_SIZE + 'px',
 					'font-family': "Myriad Pro",
 					'font-weight': 'bold'
 				});
@@ -136,7 +148,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						.text(word)
 						.attrs(Haeckel.SVG_NS, {
 							x: (area.left - 12) + 'px',
-							dy: (index > 0) ? '16px' : '0'
+							dy: (index > 0) ? CHARACTER_LABEL_FONT_SIZE + 'px' : '0'
 						});
 				});
 		});
@@ -149,15 +161,15 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				.child(Haeckel.SVG_NS, 'text')
 				.attrs(Haeckel.SVG_NS, {
 					x: area.centerX + 'px',
-					y: '12px',
+					y: TAXON_LABEL_FONT_SIZE + 'px',
 					'text-anchor': 'middle',
-					'font-size': '12px',
+					'font-size': TAXON_LABEL_FONT_SIZE + 'px',
 					'font-family': "Myriad Pro"
 				});
 			var ampPos = name.indexOf('&');
 			if (ampPos < 0)
 			{
-				label.text(name);
+				label.text(capitalize(name));
 			}
 			else
 			{
@@ -173,7 +185,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.text(name.substr(ampPos))
 					.attrs(Haeckel.SVG_NS, {
 						x: area.centerX + 'px',
-						dy: '12px'
+						dy: TAXON_LABEL_FONT_SIZE + 'px'
 					});
 			}
 			if (italicize)
