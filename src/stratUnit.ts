@@ -15,23 +15,11 @@ function stratUnit(
 {
 	function snap(x: number)
 	{
-		return Math.round(x * 10) / 10;
+		return Math.round(x * 100) / 100;
 	}
 
-	settings.builder
-		.child(Haeckel.SVG_NS, 'rect')
-		.attrs(Haeckel.SVG_NS, {
-			x: settings.area.left + 'px',
-			y: settings.area.top + 'px',
-			width: settings.area.width + 'px',
-			height: settings.area.height + 'px',
-			fill: Haeckel.WHITE.hex,
-			stroke: Haeckel.BLACK.hex,
-			'stroke-width': '1px',
-			'stroke-linejoin': 'miter'
-		});
 	var spacing = isFinite(settings.spacing) ? settings.spacing : 10;
-	var areaPerOccurrence = isFinite(settings.areaPerOccurrence) ? settings.areaPerOccurrence : 10;
+	var areaPerOccurrence = isFinite(settings.areaPerOccurrence) ? settings.areaPerOccurrence : 32;
 	var columnWidth = settings.area.width / settings.taxonNames.length;
 	var timeSize = Math.max(1, settings.time.size);
 	settings.taxonNames.forEach((name: string, index: number) =>
@@ -63,10 +51,12 @@ function stratUnit(
 				var count = occurrence.count.min * ratio;
 				var topAllOcc = settings.area.bottom - (settings.area.height * (occurrence.time.max - settings.time.min) / timeSize);
 				var bottomAllOcc = settings.area.bottom - (settings.area.height * (occurrence.time.min - settings.time.min) / timeSize);
-				var width = Math.max(1, Math.min(columnWidth - spacing, areaPerOccurrence * count / Math.max(1, bottomAllOcc - topAllOcc)));
+				var width = Math.min(columnWidth - spacing, areaPerOccurrence * count / Math.max(1, bottomAllOcc - topAllOcc));
+				moments.add(occTime.max + 1);
 				moments.add(occTime.max);
 				moments.add(occTime.mean);
 				moments.add(occTime.min);
+				moments.add(occTime.min - 1);
 				occurrenceWidths.push({
 					time: occurrence.time,
 					width: width
@@ -90,14 +80,13 @@ function stratUnit(
 						width += ow.width;
 					}
 				});
-				width = Math.min(width, columnWidth - spacing);
+				width = Math.max(1, Math.min(width, columnWidth - spacing));
 				points.push({ width: width, y: y });
 			});
 			points.sort((a: { y: number; }, b: { y: number; }) => b.y - a.y);
 			var pathLeft = new Haeckel.PathBuilder();
 			var pathRight = new Haeckel.PathBuilder();
-			pathLeft.add(snap(center), snap(points[0].y));
-			pathRight.add(snap(center), snap(points[0].y));
+			var paths: string[] = [];
 			var last: {
 				width: number;
 				y: number;
@@ -106,44 +95,63 @@ function stratUnit(
 				y: points[0].y
 			};
 			points.forEach(point => {
-				if (last.width < point.width)
+				if (point.width < 0.2)
 				{
-					pathLeft.add(snap(center - last.width / 2), snap(point.y));
-					pathRight.add(snap(center + last.width / 2), snap(point.y));
+					if (last)
+					{
+						pathLeft.add(snap(center), snap(last.y));
+						pathRight.add(snap(center), snap(last.y));
+						paths.push(pathLeft.build());
+						paths.push(pathRight.build());
+						pathLeft.reset();
+						pathRight.reset();
+						last = null;
+					}
 				}
 				else
 				{
-					pathLeft.add(snap(center - point.width / 2), snap(last.y));
-					pathRight.add(snap(center + point.width / 2), snap(last.y));
+					if (!last)
+					{
+						pathLeft.add(snap(center), snap(point.y));
+						pathRight.add(snap(center), snap(point.y));
+					}
+					else if (last.width < point.width)
+					{
+						pathLeft.add(snap(center - last.width / 2), snap(point.y));
+						pathRight.add(snap(center + last.width / 2), snap(point.y));
+					}
+					else
+					{
+						pathLeft.add(snap(center - point.width / 2), snap(last.y));
+						pathRight.add(snap(center + point.width / 2), snap(last.y));
+					}
+					pathLeft.add(snap(center - point.width / 2), snap(point.y));
+					pathRight.add(snap(center + point.width / 2), snap(point.y));
+					last = point;
 				}
-				pathLeft.add(snap(center - point.width / 2), snap(point.y));
-				pathRight.add(snap(center + point.width / 2), snap(point.y));
-				last = point;
 			});
-			pathLeft.add(snap(center), snap(last.y));
-			pathRight.add(snap(center), snap(last.y));
-			pathLeft.add(snap(center), snap(points[0].y));
-			pathRight.add(snap(center), snap(points[0].y));
-			settings.builder
-				.child(Haeckel.SVG_NS, 'path')
-				.attrs(Haeckel.SVG_NS,
-				{
-					d: pathLeft.build(),
-					fill: Haeckel.BLACK.hex/*,
-					stroke: Haeckel.BLACK.hex,
-					"stroke-width": "1px",
-					"stroke-linejoin": "round"*/
-				});
-			settings.builder
-				.child(Haeckel.SVG_NS, 'path')
-				.attrs(Haeckel.SVG_NS,
-				{
-					d: pathRight.build(),
-					fill: Haeckel.BLACK.hex/*,
-					stroke: Haeckel.BLACK.hex,
-					"stroke-width": "1px",
-					"stroke-linejoin": "round"*/
-				});
+			if (last)
+			{
+				pathLeft.add(snap(center), snap(last.y));
+				pathRight.add(snap(center), snap(last.y));
+				paths.push(pathLeft.build());
+				paths.push(pathRight.build());
+			}
+			pathLeft = pathRight = null;
+			last = null;
+			paths.forEach(path =>
+			{
+				settings.builder
+					.child(Haeckel.SVG_NS, 'path')
+					.attrs(Haeckel.SVG_NS,
+					{
+						d: path,
+						fill: Haeckel.BLACK.hex,
+						stroke: Haeckel.BLACK.hex,
+						"stroke-width": "0.5px",
+						"stroke-linejoin": "miter"
+					});
+			});
 			var taxonTime = Haeckel.rng.combine(taxonTimes);
 			if (!taxonTime.empty)
 			{
@@ -158,22 +166,11 @@ function stratUnit(
 						y1: y1 + 'px',
 						y2: y2 + 'px',
 						stroke: Haeckel.BLACK.hex,
-						"stroke-width": "0.25px",
+						"stroke-width": "0.5px",
 						"stroke-linecap": "butt",
 						"stroke-dasharray": "1 1"
 					});
 			}
-			settings.builder
-				.child(Haeckel.SVG_NS, 'text')
-				.attrs(Haeckel.SVG_NS,
-				{
-					'text-anchor': 'middle',
-					x: center + 'px',
-					y: (settings.spacing + 10 * index)+ 'px',
-					'font-size': '8px',
-					"font-family": "Myriad Pro"
-				})
-				.text(name);
 		}
 	});
 }

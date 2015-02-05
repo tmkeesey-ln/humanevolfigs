@@ -30,7 +30,8 @@ module.exports = function(grunt)
 		{
 			if (error)
 			{
-				grunt.verbose.or.write(msg).error().error('Error #' + code);
+				grunt.verbose.or.write(msg).error().error('Error #' + code).error(error);
+				grunt.verbose.error().error(error).error().error('Error #' + code);
 				grunt.fail.warn('Error rendering "' + name + '".');
 				done(false);
 			}
@@ -90,10 +91,52 @@ module.exports = function(grunt)
 				dest: 'src/ageTaxa.sh.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			agesCalabrian:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesCalabrian.fig.ts' ],
+				dest: 'src/agesCalabrian.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			agesGelasian:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesGelasian.fig.ts' ],
+				dest: 'src/agesGelasian.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			agesHolocene:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesHolocene.fig.ts' ],
+				dest: 'src/agesHolocene.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			agesMessinian:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesMessinian.fig.ts' ],
+				dest: 'src/agesMessinian.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			agesMiddlePleistocene:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesMiddlePleistocene.fig.ts' ],
+				dest: 'src/agesMiddlePleistocene.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			agesPiacenzian:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesPiacenzian.fig.ts' ],
+				dest: 'src/agesPiacenzian.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			agesUpperPleistocene:
 			{
-				src: [ 'src/stratUnit.ts', 'src/agesUpperPleistocene.fig.ts' ],
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesUpperPleistocene.fig.ts' ],
 				dest: 'src/agesUpperPleistocene.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
+			agesZanclean:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesZanclean.fig.ts' ],
+				dest: 'src/agesZanclean.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
 			ccChron:
@@ -198,7 +241,14 @@ module.exports = function(grunt)
 		},
 		render:
 		{
+			agesCalabrian: {},
+			agesGelasian: {},
+			agesHolocene: {},
+			agesMessinian: {},
+			agesMiddlePleistocene: {},
+			agesPiacenzian: {},
 			agesUpperPleistocene: {},
+			agesZanclean: {},
 			ccChron: {},
 			craniodental: {},
 			craniodentalChron: {},
@@ -214,18 +264,25 @@ module.exports = function(grunt)
 		},
 		figure:
 		{
+			agesCalabrian: {},
+			agesGelasian: {},
+			agesHolocene: {},
+			agesMessinian: {},
+			agesMiddlePleistocene: {},
+			agesPiacenzian: {},
 			agesUpperPleistocene: {},
+			agesZanclean: {},
 			ccChron: {},
-			craniodental: {},
-			craniodentalChron: {},
-			craniodentalExtant: {},
+			//craniodental: {},
+			//craniodentalChron: {},
+			//craniodentalExtant: {},
 			extant: {},
-			geoChron: {},
+			//geoChron: {},
 			matrix: {},
-			matrixExtant: {},
+			//matrixExtant: {},
 			mtDNA: {},
 			phyloChron: {},
-			softTissue: {},
+			//softTissue: {},
 			YDNA: {}
 		},
         analyze:
@@ -237,6 +294,13 @@ module.exports = function(grunt)
         }
 		// :TODO: watch tasks
 	});
+
+	grunt.registerTask('ages', [
+		'figure:agesHolocene',
+		'figure:agesUpperPleistocene', 'figure:agesMiddlePleistocene', 'figure:agesCalabrian', 'figure:agesGelasian',
+		'figure:agesPiacenzian', 'figure:agesZanclean',
+		'figure:agesMessinian'
+	]);
 
 	grunt.registerTask('default', ['clean', 'mkdir', 'figure', 'analyze']);
 };

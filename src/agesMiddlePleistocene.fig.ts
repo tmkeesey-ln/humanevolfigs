@@ -5,30 +5,34 @@ var FIGURE_HEIGHT = 5 * 300;
 var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'orangutans',
-		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, quadrupedal).svg'
+		silhouette: 'assets/silhouettes/Pongo pygmaeus (female, climbing).svg'
 	},
 	{
-		name: 'Floresian \"hobbits\"',
-		label: 'Floresian \u201cHobbits\u201d',
-		silhouette: 'assets/silhouettes/Homo floresiensis.svg'
+		name: 'Gigantopithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Gigantopithecus blacki.svg'
+	},
+	{
+		name: 'chimpanzees',
+		silhouette: 'assets/silhouettes/Pan paniscus.svg'
+	},
+	{
+		name: 'Homo erectus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Homo erectus pekinensis.svg'
 	},
 	{
 		name: 'Neandertals',
-		silhouette: 'assets/silhouettes/Homo neanderthalensis (female).svg'
+		silhouette: 'assets/silhouettes/Homo neanderthalensis (male).svg'
 	},
 	{
-		name: 'eastern archaics',
-		label: 'East Asian near-humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg' // :TODO: Replace with Xujiayao restoration
+		name: 'other archaics',
+		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg'
 	},
 	{
-		name: 'other humans',
-		label: 'Robust Humans',
-		silhouette: 'assets/silhouettes/Homo sapiens idaltu.svg' // :TODO: Replace with Lake Eyasi restoration
-	},
-	{
-		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (female, walking).svg'
+		name: 'humans',
+		label: 'robust humans',
+		silhouette: 'assets/silhouettes/Homo sapiens idaltu.svg'
 	}
 ];
 
@@ -54,7 +58,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			occurrencesSource: sources.sources['data/compiled/characters.json'],
 			strataSource: sources.sources['data/2014 - ICS.json'],
 			taxa: TAXA,
-			timeUnitName: 'Upper Pleistocene'
+			timeUnitName: 'Middle Pleistocene'
 		});
 		return builder;
 	}

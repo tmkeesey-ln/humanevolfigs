@@ -4,31 +4,39 @@ var FIGURE_HEIGHT = 5 * 300;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
-		name: 'orangutans',
-		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, quadrupedal).svg'
+		name: 'Khoratpithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Pongo abelii.svg' // :TODO: Khoratpithecus image
 	},
 	{
-		name: 'Floresian \"hobbits\"',
-		label: 'Floresian \u201cHobbits\u201d',
-		silhouette: 'assets/silhouettes/Homo floresiensis.svg'
+		name: 'Indopithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Gigantopithecus blacki.svg' // :TODO: Indopithecus image
 	},
 	{
-		name: 'Neandertals',
-		silhouette: 'assets/silhouettes/Homo neanderthalensis (female).svg'
+		name: 'Lufengpithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Lufengpithecus hudienensis.svg'
 	},
 	{
-		name: 'eastern archaics',
-		label: 'East Asian near-humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg' // :TODO: Replace with Xujiayao restoration
+		name: 'Oreopithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Dryopithecus brancoi.svg' // :TODO: Oreopithecus image
 	},
 	{
-		name: 'other humans',
-		label: 'Robust Humans',
-		silhouette: 'assets/silhouettes/Homo sapiens idaltu.svg' // :TODO: Replace with Lake Eyasi restoration
+		name: 'Sahelanthropus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Sahelanthropus tchadensis.svg'
 	},
 	{
-		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (female, walking).svg'
+		name: 'Orrorin',
+		italics: true,
+		silhouette: 'assets/silhouettes/Orrorin tugenensis.svg'
+	},
+	{
+		name: 'Ardipithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Ardipithecus kadabba.svg'
 	}
 ];
 
@@ -54,7 +62,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			occurrencesSource: sources.sources['data/compiled/characters.json'],
 			strataSource: sources.sources['data/2014 - ICS.json'],
 			taxa: TAXA,
-			timeUnitName: 'Upper Pleistocene'
+			timeUnitName: 'Messinian'
 		});
 		return builder;
 	}

@@ -4,31 +4,23 @@ var FIGURE_HEIGHT = 5 * 300;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
-		name: 'orangutans',
-		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, quadrupedal).svg'
+		name: 'Lufengpithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Lufengpithecus hudienensis.svg' // :TODO: opacity?
 	},
 	{
-		name: 'Floresian \"hobbits\"',
-		label: 'Floresian \u201cHobbits\u201d',
-		silhouette: 'assets/silhouettes/Homo floresiensis.svg'
+		name: 'Australopithecus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Australopithecus sediba.svg'
 	},
 	{
-		name: 'Neandertals',
-		silhouette: 'assets/silhouettes/Homo neanderthalensis (female).svg'
+		name: 'Paranthropus',
+		italics: true,
+		silhouette: 'assets/silhouettes/Paranthropus robustus.svg'
 	},
 	{
-		name: 'eastern archaics',
-		label: 'East Asian near-humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg' // :TODO: Replace with Xujiayao restoration
-	},
-	{
-		name: 'other humans',
-		label: 'Robust Humans',
-		silhouette: 'assets/silhouettes/Homo sapiens idaltu.svg' // :TODO: Replace with Lake Eyasi restoration
-	},
-	{
-		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (female, walking).svg'
+		name: 'habilines',
+		silhouette: 'assets/silhouettes/Homo rudolfensis.svg'
 	}
 ];
 
@@ -54,7 +46,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			occurrencesSource: sources.sources['data/compiled/characters.json'],
 			strataSource: sources.sources['data/2014 - ICS.json'],
 			taxa: TAXA,
-			timeUnitName: 'Upper Pleistocene'
+			timeUnitName: 'Gelasian'
 		});
 		return builder;
 	}

@@ -5,30 +5,19 @@ var FIGURE_HEIGHT = 5 * 300;
 var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'orangutans',
-		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, quadrupedal).svg'
+		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, bipedal).svg'
 	},
 	{
-		name: 'Floresian \"hobbits\"',
-		label: 'Floresian \u201cHobbits\u201d',
-		silhouette: 'assets/silhouettes/Homo floresiensis.svg'
+		name: 'gorillas',
+		silhouette: 'assets/silhouettes/Gorilla gorilla (male, bipedal).svg'
 	},
 	{
-		name: 'Neandertals',
-		silhouette: 'assets/silhouettes/Homo neanderthalensis (female).svg'
-	},
-	{
-		name: 'eastern archaics',
-		label: 'East Asian near-humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg' // :TODO: Replace with Xujiayao restoration
-	},
-	{
-		name: 'other humans',
-		label: 'Robust Humans',
-		silhouette: 'assets/silhouettes/Homo sapiens idaltu.svg' // :TODO: Replace with Lake Eyasi restoration
+		name: 'chimpanzees',
+		silhouette: 'assets/silhouettes/Pan troglodytes (bipedal).svg'
 	},
 	{
 		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (female, walking).svg'
+		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, standing).svg'
 	}
 ];
 
@@ -54,7 +43,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			occurrencesSource: sources.sources['data/compiled/characters.json'],
 			strataSource: sources.sources['data/2014 - ICS.json'],
 			taxa: TAXA,
-			timeUnitName: 'Upper Pleistocene'
+			timeUnitName: 'Holocene'
 		});
 		return builder;
 	}
