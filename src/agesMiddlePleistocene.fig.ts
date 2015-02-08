@@ -1,6 +1,6 @@
 /// <reference path="ageFigure.ts"/>
 
-var FIGURE_HEIGHT = 5 * 300;
+var FIGURE_WIDTH = 1000;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
@@ -27,6 +27,7 @@ var TAXA: AgeFigureTaxon[] = [
 	},
 	{
 		name: 'other archaics',
+		label: 'Other Near-Humans',
 		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg'
 	},
 	{
@@ -36,7 +37,7 @@ var TAXA: AgeFigureTaxon[] = [
 	}
 ];
 
-var FIGURE_WIDTH = 250 * TAXA.length + 25;
+var FIGURE_HEIGHT = ageFigureHeight(FIGURE_WIDTH, TAXA.length);
 
 var FIGURE_TO_RENDER: Haeckel.Figure = 
 {
@@ -45,7 +46,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	sources: ['data/2014 - ICS.json', 'data/compiled/characters.json', 'data/compiled/nomenclature.json'],
 	assets: {
 		//png: ['assets/worldmap_popdensity.png'],
-		svg: /*['assets/worldmap.svg'].concat(*/TAXA.map(taxon => taxon.silhouette)//)
+		svg: ['assets/worldmap.svg'].concat(TAXA.map(taxon => taxon.silhouette))
 	},
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder) =>
 	{

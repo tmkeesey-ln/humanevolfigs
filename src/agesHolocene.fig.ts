@@ -1,6 +1,6 @@
 /// <reference path="ageFigure.ts"/>
 
-var FIGURE_HEIGHT = 5 * 300;
+var FIGURE_WIDTH = 750;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
@@ -17,11 +17,12 @@ var TAXA: AgeFigureTaxon[] = [
 	},
 	{
 		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, standing).svg'
+		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, standing).svg',
+		specialMap: 'assets/worldmap_popdensity.png'
 	}
 ];
 
-var FIGURE_WIDTH = 250 * TAXA.length + 25;
+var FIGURE_HEIGHT = ageFigureHeight(FIGURE_WIDTH, TAXA.length, true);
 
 var FIGURE_TO_RENDER: Haeckel.Figure = 
 {
@@ -29,18 +30,20 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	height: FIGURE_HEIGHT,
 	sources: ['data/2014 - ICS.json', 'data/compiled/characters.json', 'data/compiled/nomenclature.json'],
 	assets: {
-		//png: ['assets/worldmap_popdensity.png'],
-		svg: /*['assets/worldmap.svg'].concat(*/TAXA.map(taxon => taxon.silhouette)//)
+		png: ['assets/worldmap_popdensity.png'],
+		svg: ['assets/worldmap.svg'].concat(TAXA.map(taxon => taxon.silhouette))
 	},
-	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder) =>
+	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
 		var area = Haeckel.rec.create(0, 0, FIGURE_WIDTH, FIGURE_HEIGHT);
 		ageFigure({
 			area: area,
 			builder: builder,
 			defs: defs(),
+			noStrat: true,
 			nomenclature: sources.nomenclature,
 			occurrencesSource: sources.sources['data/compiled/characters.json'],
+			pngAssets: pngAssets,
 			strataSource: sources.sources['data/2014 - ICS.json'],
 			taxa: TAXA,
 			timeUnitName: 'Holocene'

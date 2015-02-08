@@ -1,5 +1,11 @@
 /// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
 
+interface Ellipse
+{
+	c: Haeckel.Point;
+	r: Haeckel.Point;
+}
+
 function stratUnit(
 	settings: {
 		area: Haeckel.Rectangle;
@@ -13,10 +19,32 @@ function stratUnit(
 	}
 )
 {
+	function createEllipse(x: number, y: Haeckel.Range, area: number): Ellipse
+	{
+		var ry = y.size / 2;
+		var rx = area / (Math.PI * ry);
+		return {
+			c: Haeckel.pt.create(x, y.mean),
+			r: Haeckel.pt.create(rx, ry)
+		};
+	}
+
+	function ellipseWidthAt(ellipse: Ellipse, y: number): number
+	{
+		if (ellipse && ellipse.c.y - ellipse.r.y < y && y < ellipse.c.y + ellipse.r.y)
+		{
+			var y2 = (ellipse.c.y  - y) * ellipse.r.x / ellipse.r.y + ellipse.c.y;
+			return Math.sqrt(Math.pow(ellipse.r.x, 2) - Math.pow(ellipse.c.y - y2, 2));
+		}
+		return 0;
+	}
+
 	function snap(x: number)
 	{
 		return Math.round(x * 100) / 100;
 	}
+
+	var RESOLUTION = 1;
 
 	var spacing = isFinite(settings.spacing) ? settings.spacing : 10;
 	var areaPerOccurrence = isFinite(settings.areaPerOccurrence) ? settings.areaPerOccurrence : 32;
@@ -30,115 +58,101 @@ function stratUnit(
 		{
 			throw new Error("No taxon named \"" + name + "\".");
 		}
-		var left =  settings.area.left  + index       * columnWidth + spacing / 2;
+		var left =  settings.area.left +  index      * columnWidth + spacing / 2;
 		var right = settings.area.left + (index + 1) * columnWidth - spacing / 2;
 		var center = (left + right) / 2;
 		var occurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(settings.occurrences, taxon, Haeckel.OCCURRENCE_CHARACTER);
-		var hasOccurrences = false;
-		var moments = new Haeckel.ExtSetBuilder<number>();
-		var occurrenceWidths: {
-			time: Haeckel.Range;
-			width: number;
-		}[] = [];
+		var ellipses: Ellipse[] = [];
 		Haeckel.ext.each(occurrences, occurrence =>
 		{
 			taxonTimes.push(occurrence.time);
-			var occTime = Haeckel.rng.intersect(occurrence.time, settings.time);
-			if (!occTime.empty)
+			var yRange = Haeckel.rng.add(Haeckel.rng.multiply(Haeckel.rng.add(occurrence.time, -settings.time.max), -settings.area.height / settings.time.size), settings.area.top);
+			if (yRange.size < 2 * RESOLUTION)
 			{
-				hasOccurrences = true;
-				var ratio = occurrence.time.size === 0 ? 1 : occTime.size / occurrence.time.size;
-				var count = occurrence.count.min * ratio;
-				var topAllOcc = settings.area.bottom - (settings.area.height * (occurrence.time.max - settings.time.min) / timeSize);
-				var bottomAllOcc = settings.area.bottom - (settings.area.height * (occurrence.time.min - settings.time.min) / timeSize);
-				var width = Math.min(columnWidth - spacing, areaPerOccurrence * count / Math.max(1, bottomAllOcc - topAllOcc));
-				moments.add(occTime.max + 1);
-				moments.add(occTime.max);
-				moments.add(occTime.mean);
-				moments.add(occTime.min);
-				moments.add(occTime.min - 1);
-				occurrenceWidths.push({
-					time: occurrence.time,
-					width: width
-				});
+				yRange = Haeckel.rng.create(yRange.mean - RESOLUTION, yRange.mean + RESOLUTION);
 			}
+			ellipses.push(createEllipse(center, yRange, occurrence.count.min * areaPerOccurrence));
 		});
-		if (hasOccurrences)
+		if (ellipses.length)
 		{
-			var points: {
-				width: number;
-				y: number;
-			}[] = [];
-			Haeckel.ext.list(moments.build()).sort().forEach(moment =>
-			{
-				var width = 0;
-				var y = settings.area.bottom - (settings.area.height * (moment - settings.time.min) / timeSize);
-				occurrenceWidths.forEach(ow =>
-				{
-					if (Haeckel.rng.contains(ow.time, moment))
-					{
-						width += ow.width;
-					}
-				});
-				width = Math.max(1, Math.min(width, columnWidth - spacing));
-				points.push({ width: width, y: y });
-			});
-			points.sort((a: { y: number; }, b: { y: number; }) => b.y - a.y);
+			var taxonTime = Haeckel.rng.combine(taxonTimes);
+			var y1 = Math.max(settings.area.top, settings.area.bottom - (settings.area.height * (taxonTime.max - settings.time.min) / timeSize));
+			var y2 = Math.min(settings.area.bottom, settings.area.bottom - (settings.area.height * (taxonTime.min - settings.time.min) / timeSize));
+			var bridges: {
+				bottom?: number;
+				top: number;
+			}[] = [{ top: y1 }];
 			var pathLeft = new Haeckel.PathBuilder();
 			var pathRight = new Haeckel.PathBuilder();
 			var paths: string[] = [];
-			var last: {
-				width: number;
-				y: number;
-			} = {
-				width: 0,
-				y: points[0].y
-			};
-			points.forEach(point => {
-				if (point.width < 0.2)
+			var inEllipse = false;
+			var inThickEllipse = false;
+			var bridgeValid = false;
+			for (var y = settings.area.top; y <= settings.area.bottom; y += RESOLUTION)
+			{
+				var width = 0;
+				ellipses.forEach(ellipse => width += ellipseWidthAt(ellipse, y));
+				if (width < 0.5)
 				{
-					if (last)
+					if (inThickEllipse)
 					{
-						pathLeft.add(snap(center), snap(last.y));
-						pathRight.add(snap(center), snap(last.y));
+						bridges.unshift({top: y});
+						inThickEllipse = bridgeValid = false;
+					}
+				}
+				else if (!inThickEllipse)
+				{
+					if (bridgeValid)
+					{
+						bridges[0].bottom = y;
+					}
+					else
+					{
+						bridges.shift();
+					}
+					inThickEllipse = true;
+				}
+				if (Haeckel.precisionEqual(width, 0))
+				{
+					if (!inThickEllipse && y > y1 && y < y2)
+					{
+						bridgeValid = true;
+					}
+					if (inEllipse)
+					{
+						pathLeft.add(snap(center), y - RESOLUTION);
+						pathRight.add(snap(center), y - RESOLUTION);
 						paths.push(pathLeft.build());
 						paths.push(pathRight.build());
 						pathLeft.reset();
 						pathRight.reset();
-						last = null;
+						inEllipse = false;;
 					}
 				}
 				else
 				{
-					if (!last)
+					if (!inEllipse)
 					{
-						pathLeft.add(snap(center), snap(point.y));
-						pathRight.add(snap(center), snap(point.y));
+						pathLeft.add(snap(center), y);
+						pathRight.add(snap(center), y);
+						inEllipse = true;
 					}
-					else if (last.width < point.width)
-					{
-						pathLeft.add(snap(center - last.width / 2), snap(point.y));
-						pathRight.add(snap(center + last.width / 2), snap(point.y));
-					}
-					else
-					{
-						pathLeft.add(snap(center - point.width / 2), snap(last.y));
-						pathRight.add(snap(center + point.width / 2), snap(last.y));
-					}
-					pathLeft.add(snap(center - point.width / 2), snap(point.y));
-					pathRight.add(snap(center + point.width / 2), snap(point.y));
-					last = point;
+					pathLeft.add(Math.max(left, center - width), y);
+					pathRight.add(Math.min(right, center + width), y);
 				}
-			});
-			if (last)
+			}
+			if (inEllipse)
 			{
-				pathLeft.add(snap(center), snap(last.y));
-				pathRight.add(snap(center), snap(last.y));
+				pathLeft.add(snap(center), settings.area.bottom);
+				pathRight.add(snap(center), settings.area.bottom);
 				paths.push(pathLeft.build());
 				paths.push(pathRight.build());
 			}
+			if (!inThickEllipse && bridgeValid && !Haeckel.precisionEqual(bridges[0].top, y1) && bridges[0].top < y2 - RESOLUTION)
+			{
+				bridges[0].bottom = y2;
+			}
 			pathLeft = pathRight = null;
-			last = null;
 			paths.forEach(path =>
 			{
 				settings.builder
@@ -146,31 +160,27 @@ function stratUnit(
 					.attrs(Haeckel.SVG_NS,
 					{
 						d: path,
-						fill: Haeckel.BLACK.hex,
-						stroke: Haeckel.BLACK.hex,
-						"stroke-width": "0.5px",
-						"stroke-linejoin": "miter"
+						fill: Haeckel.BLACK.hex
 					});
 			});
-			var taxonTime = Haeckel.rng.combine(taxonTimes);
-			if (!taxonTime.empty)
-			{
-				var y1 = Math.max(settings.area.top, settings.area.bottom - (settings.area.height * (taxonTime.max - settings.time.min) / timeSize));
-				var y2 = Math.min(settings.area.bottom, settings.area.bottom - (settings.area.height * (taxonTime.min - settings.time.min) / timeSize));
-				settings.builder
-					.child(Haeckel.SVG_NS, 'line')
-					.attrs(Haeckel.SVG_NS,
-					{
-						x1: center + 'px',
-						x2: center + 'px',
-						y1: y1 + 'px',
-						y2: y2 + 'px',
-						stroke: Haeckel.BLACK.hex,
-						"stroke-width": "0.5px",
-						"stroke-linecap": "butt",
-						"stroke-dasharray": "1 1"
-					});
-			}
+			bridges.forEach(bridge => {
+				if (bridge.bottom !== undefined)
+				{
+					settings.builder
+						.child(Haeckel.SVG_NS, 'line')
+						.attrs(Haeckel.SVG_NS,
+						{
+							x1: center + 'px',
+							x2: center + 'px',
+							y1: bridge.top + 'px',
+							y2: bridge.bottom + 'px',
+							stroke: Haeckel.BLACK.hex,
+							"stroke-width": "1px",
+							"stroke-linecap": "butt",
+							"stroke-dasharray": "1 2"
+						});
+				}
+			});
 		}
 	});
 }

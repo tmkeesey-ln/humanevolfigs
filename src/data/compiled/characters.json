@@ -554,15 +554,38 @@
 			"Gigantopithecus blacki":
 			[
 				{
-					"count": [90, 1300],
+					"count": [92, 1000],
 					"geo":
 					{
-						"Guangxi": [[22.8, 108.3]],
-						"Hubei": [[30.5,114.3]],
-						"Sichuan": [[30.7,104.1]]
+						"Guangxi": [[22.8, 108.3]]
+					},
+					"time": [-1945000, -1778000]
+				},
+				{
+					"count": 28,
+					"geo":
+					{
+						"Jianshi Cave, Hubei": [[30.5,114.3]]
+					},
+					"time": [-2200000, -1500000]
+				},
+				{
+					"count": 16,
+					"geo":
+					{
+						"Longgupo Cave, Sichuan": [[30.7,104.1]]
 					},
 					"note": "count approximate",
-					"time": [-781000, -126000]
+					"time": [-1950000, -1500000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Site Semedo, District Kedungbanteng, Tegal regency, Central Java": [[-7.4, 111.1]]
+					},
+					"time": [-650000, -750000],
+					"reference": "http://www.thejakartapost.com/news/2014/12/01/fossils-rare-ancient-animals-found-tegal.html"
 				},
 				{
 					"count": 1,
@@ -570,7 +593,7 @@
 					{
 						"Tham Khuyen, Vietnam": [[22,107]]
 					},
-					"time": [-300000, -250000],
+					"time": [-600000, -350000],
 					"note": "canine tooth (TK 65/122)-- other teeth from this site attributed to G. blacki may be another pongine"
 				},
 				{
@@ -738,6 +761,14 @@
 					},
 					"time": [-300000, -250000],
 					"note": "canine tooth (TK 65/167)"
+				},
+				{
+					"count": [5,9],
+					"geo":
+					{
+						"Tham Khuyen, Vietnam": [[22,107]]
+					},
+					"time": [-600000, -350000]
 				}
 			],
 			"Homo erectus erectus":
@@ -757,6 +788,15 @@
 						"Trinil": [[-7.4, 110]]
 					},
 					"time": [-700000, -100000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Site Semedo, District Kedungbanteng, Tegal regency, Central Java": [[-7.4, 111.1]]
+					},
+					"time": [[-650000, -750000]],
+					"reference": "http://justarticless.blogspot.com/2012/04/ancient-human-skull-found-in-semedo.html"
 				}
 			],
 			"Homo erectus hexianensis":
