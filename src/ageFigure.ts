@@ -360,6 +360,18 @@ function ageFigure(
 						width: area.width + 'px',
 						height: area.height + 'px'
 					});
+			var mapMask = settings.defs
+				.child(SVG_NS, 'mask')
+				.attr(SVG_NS, 'id', id + '-map-mask');
+			mapMask
+				.child(SVG_NS, 'use')
+				.attrs(SVG_NS, {
+						x: area.left + 'px',
+						y: area.top + 'px',
+						width: area.width + 'px',
+						height: area.height + 'px'
+					})
+				.attr('xlink:href', '#assets/worldmap.svg');
 			var chartGroup = builder
 				.child(SVG_NS, 'g')
 				.attr(SVG_NS, 'clip-path', 'url(#' + id + '-mask)');
@@ -400,7 +412,8 @@ function ageFigure(
 				chart.minThickness = 1;
 				chart.occurrences = taxonOccurrences;
 				chart.area = area;
-				chart.render(occGroup);
+				chart.render(occGroup)
+					.attr(SVG_NS, 'mask', 'url(#' + id + '-map-mask)');
 			}
 		}
 
