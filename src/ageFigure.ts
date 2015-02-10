@@ -12,7 +12,7 @@ interface AgeFigureTaxon
 
 var STRATUM_HEIGHT = 270;
 var SILHOUETTE_HEIGHT = 200;
-var MAP_HEIGHT = 320; // 500;
+var MAP_SPACING = 8;
 var SECTION_SPACING = 8;
 var STRAT_UNIT_SPACING = 2;
 var STRATUM_LINE_THICKNESS = 2;
@@ -70,15 +70,15 @@ function ageFigure(
 	{
 		if (count.min > 1000000000)
 		{
-			return "billions";
+			return "billions of";
 		}
 		if (count.min > 1000000)
 		{
-			return "millions";
+			return "millions of";
 		}
 		if (count.min > 1000)
 		{
-			return "thousands";
+			return "thousands of";
 		}
 		var precise = count.size === 0;
 		var whole = Math.floor(count.min) === count.min;
@@ -167,52 +167,6 @@ function ageFigure(
 	var mapsGroup = settings.builder.child(SVG_NS, 'g');
 	var silhouetteTop = settings.noStrat ? TIME_LABEL_FONT_SIZE : (STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT);
 
-	// Columns (background)
-	(() =>
-	{
-		var g = settings.builder.child(SVG_NS, 'g');
-		for (var i = 0; i <= numTaxa; ++i)
-		{
-			/*
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: (leftOffset + columnWidth * i) + 'px',
-					y: '0px',
-					width: columnWidth + 'px',
-					height: (settings.area.height - leftOffset - SECTION_SPACING) + 'px',
-					fill: i % 2 ? Haeckel.WHITE.hex : '#d0d0d0'
-				});
-			*/
-			var x = (leftOffset + columnWidth * i) + 'px';
-			var yBorder = silhouetteTop + 'px';
-			if (!settings.noStrat && i && i < numTaxa)
-			{
-				g
-					.child(SVG_NS, 'line')
-					.attrs(SVG_NS, {
-						x1: x,
-						y1: settings.area.top + 'px',
-						x2: x,
-						y2: yBorder,
-						stroke: Haeckel.BLACK.hex,
-						'stroke-width': '1px',
-						'stroke-dasharray': '4 6'
-					});
-			}
-			g
-				.child(SVG_NS, 'line')
-				.attrs(SVG_NS, {
-					x1: x,
-					y1: yBorder,
-					x2: x,
-					y2: settings.area.bottom + 'px',
-					stroke: Haeckel.BLACK.hex,
-					'stroke-width': '2px'
-				});
-		}
-	})();
-
 	// Strat chart
 	(() =>
 	{
@@ -261,24 +215,6 @@ function ageFigure(
 					y: stratArea.bottom + 'px',
 					width: settings.area.width + 'px',
 					height: STRATUM_LINE_THICKNESS + 'px',
-					fill: Haeckel.BLACK.hex
-				});
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: settings.area.left + 'px',
-					y: settings.area.top + 'px',
-					width: STRATUM_LINE_THICKNESS + 'px',
-					height: (STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT) + 'px',
-					fill: Haeckel.BLACK.hex
-				});
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: (settings.area.right - STRATUM_LINE_THICKNESS) + 'px',
-					y: settings.area.top + 'px',
-					width: STRATUM_LINE_THICKNESS + 'px',
-					height: (STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT) + 'px',
 					fill: Haeckel.BLACK.hex
 				});
 			stratUnit({
@@ -377,7 +313,7 @@ function ageFigure(
 			var x = leftOffset + columnWidth * (i + 0.5);
 			g
 				.child(SVG_NS, 'text')
-				.text('(' + label + ')')
+				.text('(' + label + ' individuals)')
 				.attrs(SVG_NS, COUNT_LABEL_STYLE)
 				.attrs(SVG_NS, {
 					'text-anchor': 'middle',
@@ -473,17 +409,5 @@ function ageFigure(
 			var area = Haeckel.rec.create(leftOffset + columnWidth * i, y, columnWidth, columnWidth / 2);
 			drawMap('taxon' + i, mapsGroup, area, settings.nomenclature.nameMap[taxon.name], taxon.specialMap);
 		}				
-		mapsGroup
-			.child(SVG_NS, 'rect')
-			.attrs(SVG_NS, {
-					x: leftOffset + 'px',
-					y: y + 'px',
-					width: (settings.area.width - leftOffset - 1) + 'px',
-					height: (columnWidth / 2 - 1) + 'px',
-					fill: 'none',
-					stroke: Haeckel.BLACK.hex,
-					'stroke-width': '2px',
-					'stroke-linejoin': 'miter'
-				});
 	})();
 }
