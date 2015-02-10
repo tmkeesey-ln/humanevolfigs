@@ -39,10 +39,10 @@ function ageFigureHeight(width: number, numTaxa: number, noStrat: boolean = fals
 {
 	if (noStrat) {
 		return TIME_LABEL_FONT_SIZE + SILHOUETTE_HEIGHT + TAXON_LABEL_MARGIN * 2
-			+ TAXON_LABEL_FONT_SIZE + COUNT_LABEL_FONT_SIZE + width / (numTaxa * 2);
+			+ TAXON_LABEL_FONT_SIZE + COUNT_LABEL_FONT_SIZE + width / (numTaxa * 2) - MAP_SPACING;
 	}
 	return STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT + SILHOUETTE_HEIGHT + TAXON_LABEL_MARGIN * 2
-		+ TAXON_LABEL_FONT_SIZE + COUNT_LABEL_FONT_SIZE + (width - TIME_LABEL_FONT_SIZE) / (numTaxa * 2);
+		+ TAXON_LABEL_FONT_SIZE + COUNT_LABEL_FONT_SIZE + (width - TIME_LABEL_FONT_SIZE) / (numTaxa * 2) - MAP_SPACING;
 }
 
 function ageFigure(
@@ -173,6 +173,7 @@ function ageFigure(
 		var g = settings.builder.child(SVG_NS, 'g');
 		if (settings.noStrat)
 		{
+			/*
 			g
 				.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
@@ -182,6 +183,7 @@ function ageFigure(
 					height: STRATUM_LINE_THICKNESS + 'px',
 					fill: Haeckel.BLACK.hex
 				});
+			*/
 		}
 		else
 		{
@@ -402,11 +404,12 @@ function ageFigure(
 			}
 		}
 
-		var y = settings.area.bottom - columnWidth / 2;
+		var y = settings.area.bottom - (columnWidth - MAP_SPACING) / 2;
 		for (var i = 0; i < numTaxa; ++i)
 		{
 			var taxon = settings.taxa[i];
-			var area = Haeckel.rec.create(leftOffset + columnWidth * i, y, columnWidth, columnWidth / 2);
+			var area = Haeckel.rec.create(leftOffset + columnWidth * i + MAP_SPACING / 2, y,
+				columnWidth - MAP_SPACING, (columnWidth - MAP_SPACING) / 2);
 			drawMap('taxon' + i, mapsGroup, area, settings.nomenclature.nameMap[taxon.name], taxon.specialMap);
 		}				
 	})();
