@@ -407,7 +407,7 @@ function ageFigure(
 					.attr('xlink:href', '#assets/worldmap.svg');
 				var taxonOccurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(occurrences, taxon, Haeckel.OCCURRENCE_CHARACTER);
 				taxonOccurrences = Haeckel.occ.timeSlice(time, taxonOccurrences);
-				var occGroup = chartGroup.child(SVG_NS, 'g');
+				var occGroup = builder.child(SVG_NS, 'g');
 				var chart = new Haeckel.GeoChart();
 				chart.minThickness = 1;
 				chart.occurrences = taxonOccurrences;
