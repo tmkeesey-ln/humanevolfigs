@@ -5,18 +5,22 @@ var FIGURE_WIDTH = 750;
 var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'orangutans',
+		maskMap: true,
 		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, bipedal).svg'
 	},
 	{
 		name: 'gorillas',
+		maskMap: true,
 		silhouette: 'assets/silhouettes/Gorilla gorilla (male, bipedal).svg'
 	},
 	{
 		name: 'chimpanzees',
+		maskMap: true,
 		silhouette: 'assets/silhouettes/Pan troglodytes (bipedal).svg'
 	},
 	{
 		name: 'modern humans',
+		maskMap: true,
 		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, standing).svg',
 		specialMap: 'assets/worldmap_popdensity.png'
 	}

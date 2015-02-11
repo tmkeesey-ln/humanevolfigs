@@ -6,6 +6,7 @@ interface AgeFigureTaxon
 	italics?: boolean;
 	label?: string;
 	mapImage?: string;
+	maskMap?: boolean;
 	silhouette?: string;
 	specialMap?: string;
 }
@@ -347,7 +348,25 @@ function ageFigure(
 	// Maps
 	(() =>
 	{
-		function drawMap(id: string, builder: Haeckel.ElementBuilder, area: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string)
+		settings.defs
+			.child(SVG_NS, 'pattern')
+			.attrs(SVG_NS, {
+				id: 'map-hatch',
+				patternUnits: "userSpaceOnUse",
+				width: '1',
+				height: '1.5'
+			})
+			.child(SVG_NS, 'rect')
+			.attrs(SVG_NS, {
+				id: 'map-hatch',
+				patternUnits: "userSpaceOnUse",
+				x: '0',
+				y: '0',
+				width: '1',
+				height: '0.5'
+			});
+
+		function drawMap(id: string, builder: Haeckel.ElementBuilder, area: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string, maskMap: boolean)
 		{
 			var clipPath = settings.defs
 				.child(SVG_NS, 'clipPath')
@@ -360,43 +379,12 @@ function ageFigure(
 						width: area.width + 'px',
 						height: area.height + 'px'
 					});
-			var mapMask = settings.defs
-				.child(SVG_NS, 'mask')
-				.attr(SVG_NS, 'id', id + '-map-mask');
-			mapMask
-				.child(SVG_NS, 'use')
-				.attrs(SVG_NS, {
-						x: area.left + 'px',
-						y: area.top + 'px',
-						width: area.width + 'px',
-						height: area.height + 'px'
-					})
-				.attr('xlink:href', '#assets/worldmap.svg');
-			var chartGroup = builder
-				.child(SVG_NS, 'g')
-				.attr(SVG_NS, 'clip-path', 'url(#' + id + '-mask)');
-			if (specialMap)
+			if (maskMap)
 			{
-				settings.pngAssets.image(chartGroup, specialMap)
-					.attrs(SVG_NS, {
-							x: area.left + 'px',
-							y: area.top + 'px',
-							width: area.width + 'px',
-							height: area.height + 'px'
-						});
-			}
-			else
-			{
-				chartGroup
-					.child(SVG_NS, 'rect')
-					.attrs(SVG_NS, {
-							x: area.x + 'px',
-							y: area.y + 'px',
-							width: area.width + 'px',
-							height: area.height + 'px',
-							fill: '#c1c1c1'
-						});
-				chartGroup
+				var mapMask = settings.defs
+					.child(SVG_NS, 'mask')
+					.attr(SVG_NS, 'id', id + '-map-mask');
+				mapMask
 					.child(SVG_NS, 'use')
 					.attrs(SVG_NS, {
 							x: area.left + 'px',
@@ -405,6 +393,44 @@ function ageFigure(
 							height: area.height + 'px'
 						})
 					.attr('xlink:href', '#assets/worldmap.svg');
+			}
+			var chartGroup = builder
+				.child(SVG_NS, 'g')
+				.attr(SVG_NS, 'clip-path', 'url(#' + id + '-mask)');
+			chartGroup
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+						x: area.x + 'px',
+						y: area.y + 'px',
+						width: area.width + 'px',
+						height: area.height + 'px',
+						fill: 'url(#map-hatch)'
+					});
+			chartGroup
+				.child(SVG_NS, 'use')
+				.attrs(SVG_NS, {
+						x: area.left + 'px',
+						y: area.top + 'px',
+						width: area.width + 'px',
+						height: area.height + 'px'
+					})
+				.attr('xlink:href', '#assets/worldmap.svg');
+			if (specialMap)
+			{
+				var image = settings.pngAssets.image(chartGroup, specialMap)
+					.attrs(SVG_NS, {
+							x: area.left + 'px',
+							y: area.top + 'px',
+							width: area.width + 'px',
+							height: area.height + 'px'
+						});
+				if (maskMap)
+				{
+					image.attr(SVG_NS, 'mask', 'url(#' + id + '-map-mask)');
+				}
+			}
+			else
+			{
 				var taxonOccurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(occurrences, taxon, Haeckel.OCCURRENCE_CHARACTER);
 				taxonOccurrences = Haeckel.occ.timeSlice(time, taxonOccurrences);
 				var occGroup = chartGroup.child(SVG_NS, 'g');
@@ -412,9 +438,24 @@ function ageFigure(
 				chart.minThickness = 1;
 				chart.occurrences = taxonOccurrences;
 				chart.area = area;
-				chart.render(occGroup)
-					.attr(SVG_NS, 'mask', 'url(#' + id + '-map-mask)');
+				chart.render(occGroup);
+				if (maskMap)
+				{
+					occGroup.attr(SVG_NS, 'mask', 'url(#' + id + '-map-mask)');
+				}
 			}
+			builder
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+						x: area.x + 'px',
+						y: area.y + 'px',
+						width: area.width + 'px',
+						height: area.height + 'px',
+						fill: 'none',
+						stroke: Haeckel.BLACK.hex,
+						'stroke-linejoin': 'miter',
+						'stroke-width': '1px'
+					});
 		}
 
 		var y = settings.area.bottom - (columnWidth - MAP_SPACING) / 2;
@@ -423,7 +464,7 @@ function ageFigure(
 			var taxon = settings.taxa[i];
 			var area = Haeckel.rec.create(leftOffset + columnWidth * i + MAP_SPACING / 2, y,
 				columnWidth - MAP_SPACING, (columnWidth - MAP_SPACING) / 2);
-			drawMap('taxon' + i, mapsGroup, area, settings.nomenclature.nameMap[taxon.name], taxon.specialMap);
+			drawMap('taxon' + i, mapsGroup, area, settings.nomenclature.nameMap[taxon.name], taxon.specialMap, taxon.maskMap);
 		}				
 	})();
 }
