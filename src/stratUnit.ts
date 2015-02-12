@@ -137,8 +137,8 @@ function stratUnit(
 						pathRight.add(snap(center), y);
 						inEllipse = true;
 					}
-					pathLeft.add(Math.max(left, center - width), y);
-					pathRight.add(Math.min(right, center + width), y);
+					pathLeft.add(snap(Math.max(left, center - width)), y);
+					pathRight.add(snap(Math.min(right, center + width)), y);
 				}
 			}
 			if (inEllipse)

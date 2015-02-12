@@ -23,7 +23,7 @@ var TAXA: AgeFigureTaxon[] = [
 	},
 	{
 		name: 'Neandertals',
-		silhouette: 'assets/silhouettes/Homo neanderthalensis (male).svg'
+		silhouette: 'assets/silhouettes/Homo neanderthalensis (female).svg'
 	},
 	{
 		name: 'other archaics',

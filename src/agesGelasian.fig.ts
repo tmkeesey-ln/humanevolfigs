@@ -11,7 +11,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'Lufengpithecus',
 		italics: true,
-		silhouette: 'assets/silhouettes/Lufengpithecus hudienensis.svg' // :TODO: opacity?
+		silhouette: 'assets/silhouettes/Lufengpithecus wushanensis.svg'
 	},
 	{
 		name: 'Australopithecus',

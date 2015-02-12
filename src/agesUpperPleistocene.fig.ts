@@ -13,22 +13,22 @@ var TAXA: AgeFigureTaxon[] = [
 		silhouette: 'assets/silhouettes/Homo floresiensis.svg'
 	},
 	{
-		name: 'Neandertals',
-		silhouette: 'assets/silhouettes/Homo neanderthalensis (female).svg'
-	},
-	{
 		name: 'eastern archaics',
 		label: 'East Asian near-humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg' // :TODO: Replace with Xujiayao restoration
+		silhouette: 'assets/silhouettes/Homo heidelbergensis daliensis.svg'
+	},
+	{
+		name: 'Neandertals',
+		silhouette: 'assets/silhouettes/Homo neanderthalensis (male).svg'
 	},
 	{
 		name: 'other humans',
 		label: 'Robust Humans',
-		silhouette: 'assets/silhouettes/Homo sapiens idaltu.svg' // :TODO: Replace with Lake Eyasi restoration
+		silhouette: 'assets/silhouettes/Homo sapiens njarasensis.svg'
 	},
 	{
 		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (female, walking).svg'
+		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, walking).svg'
 	}
 ];
 

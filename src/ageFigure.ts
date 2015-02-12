@@ -11,7 +11,7 @@ interface AgeFigureTaxon
 	specialMap?: string;
 }
 
-var STRATUM_HEIGHT = 270;
+var STRATUM_HEIGHT = 150;
 var SILHOUETTE_HEIGHT = 200;
 var MAP_SPACING = 8;
 var SECTION_SPACING = 8;
@@ -30,6 +30,7 @@ var TIME_LABEL_STYLE: { [name: string]: string; } = {
 	'font-weight': 'bold',
 	'font-family': 'Myriad Pro'
 };
+var TIME_LABEL_SPACING = 8;
 var COUNT_LABEL_FONT_SIZE = 12;
 var COUNT_LABEL_STYLE: { [name: string]: string; } = {
 	'font-size': COUNT_LABEL_FONT_SIZE + 'px',
@@ -42,7 +43,7 @@ function ageFigureHeight(width: number, numTaxa: number, noStrat: boolean = fals
 		return TIME_LABEL_FONT_SIZE + SILHOUETTE_HEIGHT + TAXON_LABEL_MARGIN * 2
 			+ TAXON_LABEL_FONT_SIZE + COUNT_LABEL_FONT_SIZE + width / (numTaxa * 2) - MAP_SPACING;
 	}
-	return STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT + SILHOUETTE_HEIGHT + TAXON_LABEL_MARGIN * 2
+	return TIME_LABEL_FONT_SIZE + TIME_LABEL_SPACING + STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT + SILHOUETTE_HEIGHT + TAXON_LABEL_MARGIN * 2
 		+ TAXON_LABEL_FONT_SIZE + COUNT_LABEL_FONT_SIZE + (width - TIME_LABEL_FONT_SIZE) / (numTaxa * 2) - MAP_SPACING;
 }
 
@@ -166,7 +167,7 @@ function ageFigure(
 	var leftOffset = (settings.noStrat || !settings. padForTimeLabel) ? 0 : TIME_LABEL_FONT_SIZE;
 	var columnWidth = (settings.area.width - leftOffset) / numTaxa;
 	var mapsGroup = settings.builder.child(SVG_NS, 'g');
-	var silhouetteTop = settings.noStrat ? TIME_LABEL_FONT_SIZE : (STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT);
+	var silhouetteTop = TIME_LABEL_FONT_SIZE + (settings.noStrat ? 0 : (STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT + TIME_LABEL_SPACING));
 
 	// Strat chart
 	(() =>
@@ -188,7 +189,7 @@ function ageFigure(
 		}
 		else
 		{
-			var stratArea = Haeckel.rec.create(settings.area.left + leftOffset, settings.area.top + STRATUM_LINE_THICKNESS,
+			var stratArea = Haeckel.rec.create(settings.area.left + leftOffset, settings.area.top + TIME_LABEL_FONT_SIZE + TIME_LABEL_SPACING + STRATUM_LINE_THICKNESS,
 				settings.area.width - leftOffset, STRATUM_HEIGHT);
 			/*
 			g
@@ -206,7 +207,7 @@ function ageFigure(
 				.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
 					x: settings.area.left + 'px',
-					y: settings.area.top + 'px',
+					y: (stratArea.top - STRATUM_LINE_THICKNESS) + 'px',
 					width: settings.area.width + 'px',
 					height: STRATUM_LINE_THICKNESS + 'px',
 					fill: Haeckel.BLACK.hex
@@ -222,7 +223,7 @@ function ageFigure(
 				});
 			stratUnit({
 				area: stratArea,
-				areaPerOccurrence: 75,
+				areaPerOccurrence: 64,
 				builder: g,
 				nomenclature: settings.nomenclature,
 				occurrences: occurrences,
@@ -236,28 +237,36 @@ function ageFigure(
 	// Stratum label
 	(() =>
 	{
+		var name = settings.timeUnitName;
+		if (name === 'Gelasian' || name === 'Calabrian')
+		{
+			name = 'Lower Pleistocene: ' + name;
+		}
+		else if (name === 'Holocene')
+		{
+			name += ' (Recent)'
+		}
+		else if (name === 'Piacenzian')
+		{
+			name += ' (Upper Pliocene)'
+		}
+		else if (name === 'Zanclean')
+		{
+			name += ' (Lower Pliocene)'
+		}
+		else if (name === 'Messinian')
+		{
+			name = 'Upper Miocene: ' + name;
+		}
 		var label = settings.builder
 			.child(SVG_NS, 'text')
-			.text(settings.timeUnitName.toUpperCase())
-			.attrs(SVG_NS, TIME_LABEL_STYLE);
-		if (settings.noStrat)
-		{
-			label
-				.attrs(SVG_NS, {
-					x: settings.area.centerX + 'px',
-					y: (TIME_LABEL_FONT_SIZE - 4) + 'px',
-					'text-anchor': 'middle'
-				});
-		}
-		else
-		{
-			label
-				.attrs(SVG_NS, {
-					'text-anchor': 'middle',
-					transform: 'translate(' + TIME_LABEL_FONT_SIZE + ','
-						+ (STRATUM_LINE_THICKNESS + (STRATUM_HEIGHT / 2)) + ')rotate(-90)'
-				});
-		}
+			.text(name.toUpperCase())
+			.attrs(SVG_NS, TIME_LABEL_STYLE)
+			.attrs(SVG_NS, {
+				x: settings.area.centerX + 'px',
+				y: (settings.area.top + TIME_LABEL_FONT_SIZE - TIME_LABEL_SPACING) + 'px',
+				'text-anchor': 'middle'
+			});
 	})();
 
 	// Taxon labels
@@ -313,10 +322,11 @@ function ageFigure(
 				}
 			});
 			var label = getCountLabel(Haeckel.rng.create(min, max));
+			var singular = /^\D*1\D*$/.test(label);
 			var x = leftOffset + columnWidth * (i + 0.5);
 			g
 				.child(SVG_NS, 'text')
-				.text('(' + label + ' individuals)')
+				.text('(' + label + ' individual' + (singular ? '' : 's') + ')')
 				.attrs(SVG_NS, COUNT_LABEL_STYLE)
 				.attrs(SVG_NS, {
 					'text-anchor': 'middle',
@@ -402,8 +412,8 @@ function ageFigure(
 				.attrs(SVG_NS, {
 						x: area.x + 'px',
 						y: area.y + 'px',
-						width: area.width + 'px',
-						height: area.height + 'px',
+						width: (area.width - 0.5) + 'px',
+						height: (area.height - 0.5) + 'px',
 						fill: 'url(#map-hatch)'
 					});
 			chartGroup
@@ -449,8 +459,8 @@ function ageFigure(
 				.attrs(SVG_NS, {
 						x: area.x + 'px',
 						y: area.y + 'px',
-						width: area.width + 'px',
-						height: area.height + 'px',
+						width: (area.width - 0.5) + 'px',
+						height: (area.height - 0.5) + 'px',
 						fill: 'none',
 						stroke: Haeckel.BLACK.hex,
 						'stroke-linejoin': 'miter',

@@ -29,7 +29,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'archaics',
 		label: 'Near-Humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis rhodesiensis.svg' // :TODO: antecessor
+		silhouette: 'assets/silhouettes/Homo heidelbergensis antecessor.svg'
 	}
 ];
 

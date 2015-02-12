@@ -6,7 +6,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'Indopithecus',
 		italics: true,
-		silhouette: 'assets/silhouettes/Gigantopithecus blacki.svg' // :TODO: Indopithecus image
+		silhouette: 'assets/silhouettes/Indopithecus giganteus.svg'
 	},
 	{
 		name: 'Ardipithecus',

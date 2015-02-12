@@ -16,7 +16,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'Oreopithecus',
 		italics: true,
-		silhouette: 'assets/silhouettes/Dryopithecus brancoi.svg' // :TODO: Oreopithecus image
+		silhouette: 'assets/silhouettes/Oreopithecus bambolii.svg'
 	},
 	{
 		name: 'Sahelanthropus',
