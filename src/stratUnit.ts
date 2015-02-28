@@ -11,6 +11,7 @@ function stratUnit(
 		area: Haeckel.Rectangle;
 		areaPerOccurrence?: number;
 		builder: Haeckel.ElementBuilder;
+		defs: Haeckel.ElementBuilder;
 		nomenclature: Haeckel.Nomenclature;
 		occurrences: Haeckel.CharacterMatrix<Haeckel.Set>;
 		spacing?: number;
@@ -46,6 +47,22 @@ function stratUnit(
 
 	var RESOLUTION = 1;
 
+	settings.defs
+		.child(Haeckel.SVG_NS, 'pattern')
+		.attrs(Haeckel.SVG_NS, {
+			id: 'strat-taxon-hatch',
+			patternUnits: "userSpaceOnUse",
+			width: '1',
+			height: '3'
+		})
+		.child(Haeckel.SVG_NS, 'rect')
+		.attrs(Haeckel.SVG_NS, {
+			x: '0',
+			y: '0',
+			width: '1',
+			height: '1'
+		});
+
 	var spacing = isFinite(settings.spacing) ? settings.spacing : 10;
 	var areaPerOccurrence = isFinite(settings.areaPerOccurrence) ? settings.areaPerOccurrence : 32;
 	var columnWidth = settings.area.width / settings.taxonNames.length;
@@ -62,6 +79,10 @@ function stratUnit(
 		var right = settings.area.left + (index + 1) * columnWidth - spacing / 2;
 		var center = (left + right) / 2;
 		var occurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(settings.occurrences, taxon, Haeckel.OCCURRENCE_CHARACTER);
+		if (!occurrences || occurrences.empty)
+		{
+			return;
+		}
 		var ellipses: Ellipse[] = [];
 		Haeckel.ext.each(occurrences, occurrence =>
 		{
@@ -122,8 +143,10 @@ function stratUnit(
 					{
 						pathLeft.add(snap(center), y - RESOLUTION);
 						pathRight.add(snap(center), y - RESOLUTION);
-						paths.push(pathLeft.build());
-						paths.push(pathRight.build());
+						if (!(pathLeft.empty() && pathRight.empty()))
+						{
+							paths.push(pathLeft.add(pathRight.reverse()).build());
+						}
 						pathLeft.reset();
 						pathRight.reset();
 						inEllipse = false;;
@@ -145,8 +168,7 @@ function stratUnit(
 			{
 				pathLeft.add(snap(center), settings.area.bottom);
 				pathRight.add(snap(center), settings.area.bottom);
-				paths.push(pathLeft.build());
-				paths.push(pathRight.build());
+				paths.push(pathLeft.add(pathRight.reverse()).build());
 			}
 			if (!inThickEllipse && bridgeValid && !Haeckel.precisionEqual(bridges[0].top, y1) && bridges[0].top < y2 - RESOLUTION)
 			{
@@ -160,7 +182,9 @@ function stratUnit(
 					.attrs(Haeckel.SVG_NS,
 					{
 						d: path,
-						fill: Haeckel.BLACK.hex
+						fill: 'url(#strat-taxon-hatch)',//Haeckel.BLACK.hex,
+						stroke: Haeckel.BLACK.hex,
+						"stroke-width": "0.5px"
 					});
 			});
 			bridges.forEach(bridge => {

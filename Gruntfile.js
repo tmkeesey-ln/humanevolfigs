@@ -91,6 +91,12 @@ module.exports = function(grunt)
 				dest: 'src/ageTaxa.sh.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			agesAll:
+			{
+				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesAll.fig.ts' ],
+				dest: 'src/agesAll.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			agesCalabrian:
 			{
 				src: [ 'src/stratUnit.ts', 'src/ageFigure.ts', 'src/agesCalabrian.fig.ts' ],
@@ -241,6 +247,7 @@ module.exports = function(grunt)
 		},
 		render:
 		{
+			agesAll: {},
 			agesCalabrian: {},
 			agesGelasian: {},
 			agesHolocene: {},
@@ -264,6 +271,7 @@ module.exports = function(grunt)
 		},
 		figure:
 		{
+			agesAll: {},
 			agesCalabrian: {},
 			agesGelasian: {},
 			agesHolocene: {},

@@ -16,11 +16,16 @@ var SILHOUETTE_HEIGHT = 200;
 var MAP_SPACING = 8;
 var SECTION_SPACING = 8;
 var STRAT_UNIT_SPACING = 2;
-var STRATUM_LINE_THICKNESS = 2;
+var STRATUM_LINE_THICKNESS = 12;
 var TAXON_LABEL_MARGIN = 6;
-var TAXON_LABEL_FONT_SIZE = 14;
+var TAXON_LABEL_FONT_SIZE = 16;
 var TAXON_LABEL_STYLE: { [name: string]: string; } = {
 	'font-size': TAXON_LABEL_FONT_SIZE + 'px',
+	'font-weight': 'bold',
+	'font-family': 'Myriad Pro'
+};
+var STRAT_DIRECTION_STYLE: { [name: string]: string; } = {
+	'font-size': STRATUM_LINE_THICKNESS + 'px',
 	'font-weight': 'bold',
 	'font-family': 'Myriad Pro'
 };
@@ -31,7 +36,7 @@ var TIME_LABEL_STYLE: { [name: string]: string; } = {
 	'font-family': 'Myriad Pro'
 };
 var TIME_LABEL_SPACING = 8;
-var COUNT_LABEL_FONT_SIZE = 12;
+var COUNT_LABEL_FONT_SIZE = 16;
 var COUNT_LABEL_STYLE: { [name: string]: string; } = {
 	'font-size': COUNT_LABEL_FONT_SIZE + 'px',
 	'font-family': 'Myriad Pro'
@@ -58,6 +63,7 @@ function ageFigure(
 		padForTimeLabel?: boolean;
 		pngAssets?: Haeckel.PNGAssets;
 		strataSource: Haeckel.DataSource;
+		stratumHeight?: number;
 		taxa: AgeFigureTaxon[];
 		timeUnitName: string;
 	}
@@ -111,6 +117,7 @@ function ageFigure(
 	var strata = settings.strataSource.strata;
 	var SVG_NS = Haeckel.SVG_NS;
 	var XLINK_NS = "http://www.w3.org/1999/xlink";
+	var stratumHeight = settings.stratumHeight || STRATUM_HEIGHT;
 
 	function findStratum(name: string)
 	{
@@ -167,7 +174,7 @@ function ageFigure(
 	var leftOffset = (settings.noStrat || !settings. padForTimeLabel) ? 0 : TIME_LABEL_FONT_SIZE;
 	var columnWidth = (settings.area.width - leftOffset) / numTaxa;
 	var mapsGroup = settings.builder.child(SVG_NS, 'g');
-	var silhouetteTop = TIME_LABEL_FONT_SIZE + (settings.noStrat ? 0 : (STRATUM_LINE_THICKNESS * 2 + STRATUM_HEIGHT + TIME_LABEL_SPACING));
+	var silhouetteTop = TIME_LABEL_FONT_SIZE + (settings.noStrat ? 0 : (STRATUM_LINE_THICKNESS * 2 + stratumHeight + TIME_LABEL_SPACING));
 
 	// Strat chart
 	(() =>
@@ -190,8 +197,24 @@ function ageFigure(
 		else
 		{
 			var stratArea = Haeckel.rec.create(settings.area.left + leftOffset, settings.area.top + TIME_LABEL_FONT_SIZE + TIME_LABEL_SPACING + STRATUM_LINE_THICKNESS,
-				settings.area.width - leftOffset, STRATUM_HEIGHT);
+				settings.area.width - leftOffset, stratumHeight);
 			/*
+			settings.defs
+				.child(Haeckel.SVG_NS, 'pattern')
+				.attrs(Haeckel.SVG_NS, {
+					id: 'strat-unit-hatch',
+					patternUnits: "userSpaceOnUse",
+					width: '1',
+					height: '3'
+				})
+				.child(Haeckel.SVG_NS, 'rect')
+				.attrs(Haeckel.SVG_NS, {
+					x: '0',
+					y: '0',
+					width: '1',
+					height: '0.25'
+				});
+
 			g
 				.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
@@ -199,8 +222,7 @@ function ageFigure(
 					y: stratArea.top + 'px',
 					width: settings.area.width + 'px',
 					height: stratArea.height + 'px',
-					fill: Haeckel.WHITE.hex,
-					opacity: '0.33'
+					fill: 'url(#strat-unit-hatch)'
 				});
 			*/
 			g
@@ -225,12 +247,33 @@ function ageFigure(
 				area: stratArea,
 				areaPerOccurrence: 64,
 				builder: g,
+				defs: settings.defs,
 				nomenclature: settings.nomenclature,
 				occurrences: occurrences,
 				spacing: STRAT_UNIT_SPACING,
 				taxonNames: settings.taxa.map(taxon => taxon.name),
 				time: time
 			});
+			g
+				.child(SVG_NS, 'text')
+				.text('UPPER BOUNDARY')
+				.attrs(SVG_NS, STRAT_DIRECTION_STYLE)
+				.attrs(SVG_NS, {
+					x: (settings.area.left + 8) + 'px',
+					y: (stratArea.top - 2) + 'px',
+					'text-anchor': 'start',
+					fill: Haeckel.WHITE.hex
+				});
+			g
+				.child(SVG_NS, 'text')
+				.text('LOWER BOUNDARY')
+				.attrs(SVG_NS, STRAT_DIRECTION_STYLE)
+				.attrs(SVG_NS, {
+					x: (settings.area.left + 8) + 'px',
+					y: (stratArea.bottom + STRATUM_LINE_THICKNESS - 2) + 'px',
+					'text-anchor': 'start',
+					fill: Haeckel.WHITE.hex
+				});
 		}
 	})();
 
@@ -304,23 +347,26 @@ function ageFigure(
 			var taxonOccurences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(occurrences, taxon, Haeckel.OCCURRENCE_CHARACTER);
 			var min = 0;
 			var max = 0;
-			Haeckel.ext.each(taxonOccurences, occurrence =>
+			if (taxonOccurences)
 			{
-				if (Haeckel.rng.overlap(occurrence.time, time))
+				Haeckel.ext.each(taxonOccurences, occurrence =>
 				{
-					if (Haeckel.rng.includes(time, occurrence.time))
+					if (Haeckel.rng.overlap(occurrence.time, time))
 					{
-						min += occurrence.count.min;
-						max += occurrence.count.max;
+						if (Haeckel.rng.includes(time, occurrence.time))
+						{
+							min += occurrence.count.min;
+							max += occurrence.count.max;
+						}
+						else
+						{
+							var ratio = Haeckel.rng.intersect(occurrence.time, time).size / occurrence.time.size;
+							min += ratio * occurrence.count.min;
+							max += ratio * occurrence.count.max;
+						}
 					}
-					else
-					{
-						var ratio = Haeckel.rng.intersect(occurrence.time, time).size / occurrence.time.size;
-						min += ratio * occurrence.count.min;
-						max += ratio * occurrence.count.max;
-					}
-				}
-			});
+				});
+			}
 			var label = getCountLabel(Haeckel.rng.create(min, max));
 			var singular = /^\D*1\D*$/.test(label);
 			var x = leftOffset + columnWidth * (i + 0.5);
@@ -358,23 +404,23 @@ function ageFigure(
 	// Maps
 	(() =>
 	{
+		/*
 		settings.defs
 			.child(SVG_NS, 'pattern')
 			.attrs(SVG_NS, {
 				id: 'map-hatch',
 				patternUnits: "userSpaceOnUse",
 				width: '1',
-				height: '1.5'
+				height: '3'
 			})
 			.child(SVG_NS, 'rect')
 			.attrs(SVG_NS, {
-				id: 'map-hatch',
-				patternUnits: "userSpaceOnUse",
 				x: '0',
 				y: '0',
 				width: '1',
-				height: '0.5'
+				height: '1'
 			});
+		*/
 
 		function drawMap(id: string, builder: Haeckel.ElementBuilder, area: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string, maskMap: boolean)
 		{
@@ -414,7 +460,7 @@ function ageFigure(
 						y: area.y + 'px',
 						width: (area.width - 0.5) + 'px',
 						height: (area.height - 0.5) + 'px',
-						fill: 'url(#map-hatch)'
+						fill: '#c0c0c0'//url(#map-hatch)'
 					});
 			chartGroup
 				.child(SVG_NS, 'use')

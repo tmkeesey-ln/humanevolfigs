@@ -118,6 +118,11 @@
 				{
 					"type": "system/period",
 					"boundaries": ["f", "n"]
+				},
+				"Messinian to Recent":
+				{
+					"boundaries": ["a", "i"],
+					"note": "Not in source, but needed for some charts"
 				}
 			}
 		}
