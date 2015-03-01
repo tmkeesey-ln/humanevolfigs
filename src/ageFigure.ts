@@ -13,10 +13,11 @@ interface AgeFigureTaxon
 
 var STRATUM_HEIGHT = 150;
 var SILHOUETTE_HEIGHT = 200;
+var MAP_MARGIN = 12;
 var MAP_SPACING = 8;
 var SECTION_SPACING = 8;
 var STRAT_UNIT_SPACING = 2;
-var STRATUM_LINE_THICKNESS = 12;
+var STRATUM_LINE_THICKNESS = 18;
 var TAXON_LABEL_MARGIN = 6;
 var TAXON_LABEL_FONT_SIZE = 16;
 var TAXON_LABEL_STYLE: { [name: string]: string; } = {
@@ -100,7 +101,7 @@ function ageFigure(
 		}
 		if (count.min > 100)
 		{
-			return ">" + (Math.floor(count.min / 100) * 100);
+			return ">" + (Math.floor(count.min / 10) * 10);
 		}
 		if (count.min < 2)
 		{
@@ -404,6 +405,8 @@ function ageFigure(
 	// Maps
 	(() =>
 	{
+		var scale = 1;
+
 		/*
 		settings.defs
 			.child(SVG_NS, 'pattern')
@@ -422,7 +425,7 @@ function ageFigure(
 			});
 		*/
 
-		function drawMap(id: string, builder: Haeckel.ElementBuilder, area: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string, maskMap: boolean)
+		function drawMap(id: string, builder: Haeckel.ElementBuilder, worldArea: Haeckel.Rectangle, mapArea: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string, maskMap: boolean)
 		{
 			var clipPath = settings.defs
 				.child(SVG_NS, 'clipPath')
@@ -430,10 +433,10 @@ function ageFigure(
 			clipPath
 				.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
-						x: area.x + 'px',
-						y: area.y + 'px',
-						width: area.width + 'px',
-						height: area.height + 'px'
+						x: mapArea.x + 'px',
+						y: mapArea.y + 'px',
+						width: mapArea.width + 'px',
+						height: mapArea.height + 'px'
 					});
 			if (maskMap)
 			{
@@ -443,10 +446,10 @@ function ageFigure(
 				mapMask
 					.child(SVG_NS, 'use')
 					.attrs(SVG_NS, {
-							x: area.left + 'px',
-							y: area.top + 'px',
-							width: area.width + 'px',
-							height: area.height + 'px'
+							x: worldArea.left + 'px',
+							y: worldArea.top + 'px',
+							width: worldArea.width + 'px',
+							height: worldArea.height + 'px'
 						})
 					.attr('xlink:href', '#assets/worldmap.svg');
 			}
@@ -456,29 +459,29 @@ function ageFigure(
 			chartGroup
 				.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
-						x: area.x + 'px',
-						y: area.y + 'px',
-						width: (area.width - 0.5) + 'px',
-						height: (area.height - 0.5) + 'px',
-						fill: '#c0c0c0'//url(#map-hatch)'
+						x: mapArea.x + 'px',
+						y: mapArea.y + 'px',
+						width: (mapArea.width - 0.5) + 'px',
+						height: (mapArea.height - 0.5) + 'px',
+						fill: '#a0a0a0'//url(#map-hatch)'
 					});
 			chartGroup
 				.child(SVG_NS, 'use')
 				.attrs(SVG_NS, {
-						x: area.left + 'px',
-						y: area.top + 'px',
-						width: area.width + 'px',
-						height: area.height + 'px'
+						x: worldArea.left + 'px',
+						y: worldArea.top + 'px',
+						width: worldArea.width + 'px',
+						height: worldArea.height + 'px'
 					})
 				.attr('xlink:href', '#assets/worldmap.svg');
 			if (specialMap)
 			{
 				var image = settings.pngAssets.image(chartGroup, specialMap)
 					.attrs(SVG_NS, {
-							x: area.left + 'px',
-							y: area.top + 'px',
-							width: area.width + 'px',
-							height: area.height + 'px'
+							x: worldArea.left + 'px',
+							y: worldArea.top + 'px',
+							width: worldArea.width + 'px',
+							height: worldArea.height + 'px'
 						});
 				if (maskMap)
 				{
@@ -491,9 +494,9 @@ function ageFigure(
 				taxonOccurrences = Haeckel.occ.timeSlice(time, taxonOccurrences);
 				var occGroup = chartGroup.child(SVG_NS, 'g');
 				var chart = new Haeckel.GeoChart();
-				chart.minThickness = 1;
+				chart.minThickness = scale;
 				chart.occurrences = taxonOccurrences;
-				chart.area = area;
+				chart.area = worldArea;
 				chart.render(occGroup);
 				if (maskMap)
 				{
@@ -503,10 +506,10 @@ function ageFigure(
 			builder
 				.child(SVG_NS, 'rect')
 				.attrs(SVG_NS, {
-						x: area.x + 'px',
-						y: area.y + 'px',
-						width: (area.width - 0.5) + 'px',
-						height: (area.height - 0.5) + 'px',
+						x: mapArea.x + 'px',
+						y: mapArea.y + 'px',
+						width: (mapArea.width - 0.5) + 'px',
+						height: (mapArea.height - 0.5) + 'px',
 						fill: 'none',
 						stroke: Haeckel.BLACK.hex,
 						'stroke-linejoin': 'miter',
@@ -514,13 +517,53 @@ function ageFigure(
 					});
 		}
 
+		var i: number;
+		var mapArea = Haeckel.rec.create(0, 0, columnWidth - MAP_SPACING, (columnWidth - MAP_SPACING) / 2);
+		var points = new Haeckel.ExtSetBuilder<Haeckel.Point>();
+		var chart = new Haeckel.GeoChart();
+		var tempGroup = mapsGroup.child(SVG_NS, 'g');
+		chart.area = mapArea;
+		chart.points = points;
+		settings.taxa.forEach(taxon =>
+		{
+			if (taxon.specialMap)
+			{
+				points.add(Haeckel.pt.create(mapArea.left, mapArea.top));
+				points.add(Haeckel.pt.create(mapArea.right, mapArea.top));
+				points.add(Haeckel.pt.create(mapArea.left, mapArea.bottom));
+				points.add(Haeckel.pt.create(mapArea.right, mapArea.bottom));
+			}
+			else
+			{
+				var taxonOccurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(occurrences, settings.nomenclature.nameMap[taxon.name], Haeckel.OCCURRENCE_CHARACTER);
+				taxonOccurrences = Haeckel.occ.timeSlice(time, taxonOccurrences);
+				chart.occurrences = taxonOccurrences;
+				chart.render(tempGroup);
+			}
+		});
+		tempGroup.detach();
+		var contentArea = Haeckel.pt.rectangle(Haeckel.ext.list(points.build()));
+		var viewArea = Haeckel.rec.create(MAP_MARGIN, MAP_MARGIN, mapArea.width - 2 * MAP_MARGIN, mapArea.height - 2 * MAP_MARGIN);
+		var worldArea = mapArea;
+		if (!Haeckel.rec.includes(contentArea, viewArea) && !contentArea.empty)
+		{
+			scale = Math.min(viewArea.width / Math.max(1, contentArea.width), viewArea.height / Math.max(1, contentArea.height));
+			var w = scale * worldArea.width;
+			var h = scale * worldArea.height;
+			var scaledContentWidth = scale * contentArea.width;
+			var scaledContentHeight = scale * contentArea.height;
+			var scaledContentX = viewArea.centerX - scaledContentWidth / 2;
+			var scaledContentY = viewArea.centerY - scaledContentHeight / 2;
+			worldArea = Haeckel.rec.create(scaledContentX - scale * contentArea.x, scaledContentY - scale * contentArea.y, w, h);
+		}
 		var y = settings.area.bottom - (columnWidth - MAP_SPACING) / 2;
-		for (var i = 0; i < numTaxa; ++i)
+		for (i = 0; i < numTaxa; ++i)
 		{
 			var taxon = settings.taxa[i];
-			var area = Haeckel.rec.create(leftOffset + columnWidth * i + MAP_SPACING / 2, y,
+			mapArea = Haeckel.rec.create(leftOffset + columnWidth * i + MAP_SPACING / 2, y,
 				columnWidth - MAP_SPACING, (columnWidth - MAP_SPACING) / 2);
-			drawMap('taxon' + i, mapsGroup, area, settings.nomenclature.nameMap[taxon.name], taxon.specialMap, taxon.maskMap);
+			var taxonWorldArea = Haeckel.rec.create(mapArea.x + worldArea.x, mapArea.y + worldArea.y, worldArea.width, worldArea.height);
+			drawMap('taxon' + i, mapsGroup, taxonWorldArea, mapArea, settings.nomenclature.nameMap[taxon.name], taxon.specialMap, taxon.maskMap);
 		}				
 	})();
 }

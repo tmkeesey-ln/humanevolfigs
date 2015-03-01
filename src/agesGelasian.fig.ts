@@ -4,14 +4,9 @@ var FIGURE_WIDTH = 1000;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
-		name: 'Gigantopithecus',
-		italics: true,
-		silhouette: 'assets/silhouettes/Gigantopithecus blacki.svg'
-	},
-	{
-		name: 'Lufengpithecus',
-		italics: true,
-		silhouette: 'assets/silhouettes/Lufengpithecus wushanensis.svg'
+		name: 'Ponginae',
+		label: 'pongines',
+		silhouette: 'assets/silhouettes/Indopithecus giganteus.svg'
 	},
 	{
 		name: 'Australopithecus',
@@ -21,7 +16,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'Paranthropus',
 		italics: true,
-		silhouette: 'assets/silhouettes/Paranthropus robustus.svg'
+		silhouette: 'assets/silhouettes/Paranthropus boisei (female).svg'
 	},
 	{
 		name: 'habilines',

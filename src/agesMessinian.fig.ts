@@ -4,13 +4,8 @@ var FIGURE_WIDTH = 1000;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
-		name: 'Khoratpithecus',
-		italics: true,
-		silhouette: 'assets/silhouettes/Pongo abelii.svg' // :TODO: Khoratpithecus image
-	},
-	{
-		name: 'Lufengpithecus',
-		italics: true,
+		name: 'Ponginae',
+		label: 'pongines',
 		silhouette: 'assets/silhouettes/Lufengpithecus hudienensis.svg'
 	},
 	{

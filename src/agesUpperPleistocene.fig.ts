@@ -5,7 +5,7 @@ var FIGURE_WIDTH = 1000;
 var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'orangutans',
-		silhouette: 'assets/silhouettes/Pongo pygmaeus (male, quadrupedal).svg'
+		silhouette: 'assets/silhouettes/Pongo abelii.svg'
 	},
 	{
 		name: 'Floresian \"hobbits\"',
@@ -13,22 +13,12 @@ var TAXA: AgeFigureTaxon[] = [
 		silhouette: 'assets/silhouettes/Homo floresiensis.svg'
 	},
 	{
-		name: 'eastern archaics',
-		label: 'East Asian near-humans',
-		silhouette: 'assets/silhouettes/Homo heidelbergensis daliensis.svg'
-	},
-	{
-		name: 'Neandertals',
+		name: 'archaics',
 		silhouette: 'assets/silhouettes/Homo neanderthalensis (male).svg'
 	},
 	{
-		name: 'other humans',
-		label: 'Robust Humans',
-		silhouette: 'assets/silhouettes/Homo sapiens njarasensis.svg'
-	},
-	{
-		name: 'modern humans',
-		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, walking).svg'
+		name: 'humans',
+		silhouette: 'assets/silhouettes/Homo sapiens sapiens (female, walking).svg'
 	}
 ];
 

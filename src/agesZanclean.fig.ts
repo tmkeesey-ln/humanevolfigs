@@ -4,11 +4,6 @@ var FIGURE_WIDTH = 500;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
-		name: 'Indopithecus',
-		italics: true,
-		silhouette: 'assets/silhouettes/Indopithecus giganteus.svg'
-	},
-	{
 		name: 'Ardipithecus',
 		italics: true,
 		silhouette: 'assets/silhouettes/Ardipithecus ramidus.svg'
