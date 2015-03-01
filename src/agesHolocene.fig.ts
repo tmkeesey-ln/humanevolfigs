@@ -1,6 +1,6 @@
 /// <reference path="ageFigure.ts"/>
 
-var FIGURE_WIDTH = 750;
+var FIGURE_WIDTH = 1000;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
