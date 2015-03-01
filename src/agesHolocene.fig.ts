@@ -19,7 +19,7 @@ var TAXA: AgeFigureTaxon[] = [
 		silhouette: 'assets/silhouettes/Pan troglodytes (bipedal).svg'
 	},
 	{
-		name: 'modern humans',
+		name: 'humans',
 		maskMap: true,
 		silhouette: 'assets/silhouettes/Homo sapiens sapiens (male, standing).svg',
 		specialMap: 'assets/worldmap_popdensity.png'

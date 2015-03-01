@@ -15,11 +15,12 @@ var STRATUM_HEIGHT = 150;
 var SILHOUETTE_HEIGHT = 200;
 var MAP_MARGIN = 12;
 var MAP_SPACING = 8;
+var MAX_MAP_SCALE = 4;
 var SECTION_SPACING = 8;
 var STRAT_UNIT_SPACING = 2;
 var STRATUM_LINE_THICKNESS = 18;
 var TAXON_LABEL_MARGIN = 6;
-var TAXON_LABEL_FONT_SIZE = 16;
+var TAXON_LABEL_FONT_SIZE = 24;
 var TAXON_LABEL_STYLE: { [name: string]: string; } = {
 	'font-size': TAXON_LABEL_FONT_SIZE + 'px',
 	'font-weight': 'bold',
@@ -37,7 +38,7 @@ var TIME_LABEL_STYLE: { [name: string]: string; } = {
 	'font-family': 'Myriad Pro'
 };
 var TIME_LABEL_SPACING = 8;
-var COUNT_LABEL_FONT_SIZE = 16;
+var COUNT_LABEL_FONT_SIZE = 20;
 var COUNT_LABEL_STYLE: { [name: string]: string; } = {
 	'font-size': COUNT_LABEL_FONT_SIZE + 'px',
 	'font-family': 'Myriad Pro'
@@ -244,6 +245,24 @@ function ageFigure(
 					height: STRATUM_LINE_THICKNESS + 'px',
 					fill: Haeckel.BLACK.hex
 				});
+			g
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+					x: settings.area.left + 'px',
+					y: stratArea.top + 'px',
+					width: '1px',
+					height: stratArea.height + 'px',
+					fill: Haeckel.BLACK.hex
+				});
+			g
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+					x: (settings.area.right - 1) + 'px',
+					y: stratArea.top + 'px',
+					width: '1px',
+					height: stratArea.height + 'px',
+					fill: Haeckel.BLACK.hex
+				});
 			stratUnit({
 				area: stratArea,
 				areaPerOccurrence: 64,
@@ -407,7 +426,6 @@ function ageFigure(
 	{
 		var scale = 1;
 
-		/*
 		settings.defs
 			.child(SVG_NS, 'pattern')
 			.attrs(SVG_NS, {
@@ -423,7 +441,6 @@ function ageFigure(
 				width: '1',
 				height: '1'
 			});
-		*/
 
 		function drawMap(id: string, builder: Haeckel.ElementBuilder, worldArea: Haeckel.Rectangle, mapArea: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string, maskMap: boolean)
 		{
@@ -463,7 +480,7 @@ function ageFigure(
 						y: mapArea.y + 'px',
 						width: (mapArea.width - 0.5) + 'px',
 						height: (mapArea.height - 0.5) + 'px',
-						fill: '#a0a0a0'//url(#map-hatch)'
+						fill: 'url(#map-hatch)' // '#a0a0a0'
 					});
 			chartGroup
 				.child(SVG_NS, 'use')
@@ -548,6 +565,16 @@ function ageFigure(
 		if (!Haeckel.rec.includes(contentArea, viewArea) && !contentArea.empty)
 		{
 			scale = Math.min(viewArea.width / Math.max(1, contentArea.width), viewArea.height / Math.max(1, contentArea.height));
+			if (scale > MAX_MAP_SCALE)
+			{
+				var scaleRatio = scale / MAX_MAP_SCALE;
+				var contentWidth = scaleRatio * contentArea.width;
+				var contentHeight = scaleRatio * contentArea.height;
+				contentArea = Haeckel.rec.create(contentArea.centerX - contentWidth / 2,
+					contentArea.centerY - contentHeight / 2, contentWidth, contentHeight);
+				contentArea = Haeckel.rec.intersect(contentArea, mapArea);
+				scale = Math.min(viewArea.width / Math.max(1, contentArea.width), viewArea.height / Math.max(1, contentArea.height));
+			}
 			var w = scale * worldArea.width;
 			var h = scale * worldArea.height;
 			var scaledContentWidth = scale * contentArea.width;
