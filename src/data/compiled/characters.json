@@ -1994,7 +1994,7 @@
 			"Homo sapiens sapiens (fossil)":
 			[
 				{
-                    "count": 15,
+					"count": 15,
 					"time": [-115000, -92000],
 					"geo": {
 						"Qafzeh": [[34, 9]]
@@ -2127,6 +2127,15 @@
 					"geo": {
 						"Eel Point, Caldey Island, Wales": [[51.64, -4.69]]
 					}
+				},
+				{
+					"count": 1,
+					"time": [-23576, -22887],
+					"geo": {
+						"GvJm-22, Lukenya Hill, Kenya": [[-1.49,37.06]]
+					},
+					"note": "KNM-LH 1: partial calvaria",
+					"uri": "urn:doi:10.1073/pnas.1417909112"
 				},
 				{
 					"count": 1,
