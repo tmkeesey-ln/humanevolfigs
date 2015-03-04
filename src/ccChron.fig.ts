@@ -47,23 +47,14 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		italic: true,
 		position: LabelPosition.RIGHT
 	},
-	"Australopithecus & Paranthropus": {
-		italic: true,
-		position: LabelPosition.LEFT
+	"australopithecines": {
+		position: LabelPosition.RIGHT_BOTTOM
 	},
-	"Kenyanthropus & Praeanthropus": {
-		italic: true,
-		position: LabelPosition.RIGHT,
-		noBreak: true
-	},
-	"Homo floresiensis": {
-		italic: true,
+	"Floresian \"hobbits\"": {
 		position: LabelPosition.BOTTOM
 	},
-	"Homo habilis & rudolfensis": {
-		italic: true,
-		position: LabelPosition.RIGHT_BOTTOM,
-		noBreak: true
+	"habilines": {
+		position: LabelPosition.RIGHT_BOTTOM
 	},
 	/*
 	"Homo erectus & ergaster": {
@@ -103,6 +94,11 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		position: LabelPosition.BOTTOM_RIGHT
 	}
 };
+
+function capitalize(s: string)
+{
+	return s.replace(/(^([a-zA-Z\p{M}]))|([ -"][a-zA-Z\p{M}])/g, c => c.toUpperCase());
+}
 
 function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInfo, area: Haeckel.Rectangle)
 {
@@ -184,16 +180,16 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 		case LabelPosition.BOTTOM:
 		case LabelPosition.BOTTOM_LEFT:
 		case LabelPosition.BOTTOM_RIGHT:
-			y = area.bottom + 14;
+			y = area.bottom + 20;
 			break;
 		case LabelPosition.TOP:
 		case LabelPosition.TOP_LEFT:
 		case LabelPosition.TOP_RIGHT:
-			y = area.top - 2;
+			y = area.top;
 			break;
 		case LabelPosition.LEFT:
 		case LabelPosition.RIGHT:
-			y = area.centerY + 7;
+			y = area.centerY + 10;
 			break;
 		case LabelPosition.RIGHT_BOTTOM:
 			y = area.bottom; // Temporary
@@ -202,11 +198,15 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			throw new Error("Invalid position: " + info.position);
 	}
 	var text = info.text || name;
+	if (!info.italic)
+	{
+		text = capitalize(text);
+	}
 	var label = builder.child(Haeckel.SVG_NS, 'text')
 		.attrs(Haeckel.SVG_NS, {
 			'fill': Haeckel.BLACK.hex,
 			//'fill-opacity': '0.667',
-			'font-size': '14px',
+			'font-size': '20px',
 			'font-weight': 'bold',
 			'font-family': "Myriad Pro",
 			'text-anchor': anchor,
@@ -229,7 +229,7 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			{
 				span.attrs(Haeckel.SVG_NS, {
 					x: x + 'px',
-					dy: '14px'
+					dy: '20px'
 				});
 			};
 		}
@@ -551,8 +551,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			*/
 
 			var ccChar = matrix.characterList[0];
-			drawRange('Pan', 'chimpanzee range');
-			drawRange('Homo sapiens sapiens (living)', 'living human range');
+			drawRange('Pan', 'Chimpanzee Range');
+			drawRange('Homo sapiens sapiens (living)', 'Living Human Range');
 		}
 
 		function drawLegend(g: Haeckel.ElementBuilder)
@@ -967,7 +967,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						stroke: 'none'
 					});
 			};
-			chart.random = Haeckel.seedRandom(0);
+			chart.random = Haeckel.seedRandom(1);
 			chart.time = TIME;
 			chart.render(g)
 				.attr(Haeckel.SVG_NS, 'clip-path', 'url(#chart-area)');

@@ -29,6 +29,11 @@ interface TaxonEntry extends NameEntry
 	showName?: boolean;
 }
 
+function capitalize(s: string)
+{
+	return s.replace(/(^([a-zA-Z\p{M}]))|([ -"][a-zA-Z\p{M}])/g, c => c.toUpperCase());
+}
+
 var DIVIDER_COLUMN = 21.5;
 
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
@@ -100,7 +105,7 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	},
 	"mt-MRCA": {
 		column: 31,
-		name: "mitochondrial \"Eve\"",
+		name: "Mitochondrial \"Eve\"",
 		ancestral: true
 	}
 };
@@ -292,7 +297,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					taxonEntries[Haeckel.hash(taxon)] = {
 						ancestral: !!entry.ancestral,
 						column: entry.column,
-						name: entry.name || name,
+						name: entry.name || (entry.italic ? name : capitalize(name)),
 						italic: !!entry.italic,
 						showName: !!entry.name || !entry.ancestral,
 						taxon: taxon
