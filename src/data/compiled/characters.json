@@ -136,7 +136,7 @@
 					"Gorilla":                       [0,       0, 0, 0,     0,     0,    0,     0,    0,    0,    0,    0],
 					"Pan":                           [0,       0, 0, 0,     0,     0,    1,     0,    0,    0,    0,    0],
 					"Ardipithecus":                  [0,       0, 1, 1,     0,     null, 1,     2,    null, null, 0,    0],
-					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], 1,    [1,2], 3,    0,    0,    0,    0],
+					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], null, [1,2], 3,    0,    0,    0,    0],
 					"Australopithecus":              [[0,1],   1, 1, 1,     1,     0,    2,     3,    0,    0,    0,    0],
 					"Homo habilis & rudolfensis":    [[0,1],   1, 1, [1,2], [1,2], null, [1,2], 1,    null, null, 1,    0],
 					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     3,    1,    1,    1,    null],
@@ -1412,6 +1412,19 @@
 					"reference": "urn:doi:10.1016/j.jhevol.2007.10.012"
 				}
 			],
+			"Homo indet. H":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Ledi-Geraru, Afar, Ethiopia": [[11.4,40.9]]
+					},
+					"time": [-2800000, -2750000],
+					"note": "LD 350",
+					"reference": "urn:doi:10.1126/science.aaa1343"
+				}
+			],
 			"Homo lantianensis":
 			[
 				{
@@ -2019,6 +2032,13 @@
 				},
 				{
 					"count": 1,
+					"time": [-46000, -46000],
+					"geo": {
+						"Annamite Mountains, Laos": [[17,106]]
+					}
+				},
+				{
+					"count": 1,
 					"time": [-45000, -39000],
 					"geo": {
 						"Niah cave, East Malaysia": [[3.81, 113.78]]
@@ -2030,6 +2050,13 @@
 					"time": [-44200, -41500],
 					"geo": {
 						"Kents Cavern 4": [[50.47, -3.50]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-45000, -43000],
+					"geo": {
+						"Grotta del Cavallo, Italy": [[44.779146,9.927488]]
 					}
 				},
 				{
@@ -2072,16 +2099,16 @@
 				},
 				{
 					"count": 1,
-					"time": [-37000, -37000],
+					"time": [-37000, -34000],
 					"geo": {
-						"Sri Lanka": [[7, 81]]
+						"Fa Hien Cave, Sri Lanka": [[7, 81]]
 					}
 				},
 				{
 					"count": 1,
 					"time": [-33000, -33000],
 					"geo": {
-						"Upper Zhoukoudian Cave": [[51.55, -4.26]]
+						"Gower, Wales": [[51.55, -4.26]]
 					},
 					"note": "Red Lady of Paviland"
 				},
@@ -2106,6 +2133,14 @@
 					"geo": {
 						"Mladec<h>": [[49.71, 17.02]]
 					}
+				},
+				{
+					"count": 38,
+					"time": [-30000, -28000],
+					"geo": {
+						"Balangoda, Sri Lanka": [[6.67,80.70]]
+					},
+					"note": "sometimes classified as Homo sapiens balangodensis"
 				},
 				{
 					"count": 1,
@@ -2146,6 +2181,20 @@
 					"note": "may be more than 1"
 				},
 				{
+					"count": 2,
+					"time": [-17000, -12000],
+					"geo": {
+						"Tandou, Australia": [[-36.4, 145.4]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-17000, -12000],
+					"geo": {
+						"Chancelade, France": [[45.204188,0.664189]]
+					}
+				},
+				{
 					"count": 1,
 					"time": [-16300, -11700],
 					"geo": {
@@ -2182,19 +2231,114 @@
 					}
 				},
 				{
-					"count": 100,
-					"note": "Africa :TODO: Provisional - need to split out.",
-					"time": [-80000, -6000]
+					"count": 1,
+					"time": [-14250, -12230],
+					"geo": {
+						"Meadowcroft, Pennsylvania": [[40.29,-80.49]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "SI 2065",
+					"uri": "urn:isbn:978-1-62349-200-7" 
 				},
 				{
-					"count": 200,
-					"note": "Old World & Australasia :TODO: Need to split out.",
-					"time": [-45000, -6000]
+					"count": 1,
+					"time": [-13610, -12930],
+					"geo": {
+						"Meadowcroft, Pennsylvania": [[40.29,-80.49]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "SI 2488",
+					"uri": "urn:isbn:978-1-62349-200-7" 
 				},
 				{
-					"count": 50,
-					"note": "Americas :TODO: Need to split out.",
-					"time": [-20000, -6000]
+					"count": 1,
+					"time": [-12000, -10000],
+					"geo": {
+						"Wadjak, Indonesia": [[-8.1,112.7]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-11730, -11610],
+					"geo": {
+						"Eva de Naharon, Tulum Caves, Mexico": [[20.2,-87.5]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "CAMS 87301",
+					"uri": "urn:isbn:978-1-62349-200-7" 
+				},
+				{
+					"count": 1,
+					"time": [-11340, -10580],
+					"geo": {
+						"Arlington Springs, California": [[38.72,-121.26]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "CAMS-16810",
+					"uri": "urn:isbn:978-1-62349-200-7" 
+				},
+				{
+					"count": 1,
+					"time": [-11243, -11710],
+					"geo": {
+						"Belo Horizonte, Brazil": [[-20,-44]]
+					},
+					"note": "Luzia Woman"
+				},
+				{
+					"count": 1,
+					"time": [-11200, -10600],
+					"geo": {
+						"Fishbone Cave, Burial 2, Nevada": [[38.80,-116.42]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"uri": "urn:isbn:978-1-62349-200-7" 
+				},
+				{
+					"count": 1,
+					"time": [-11200, -10600],
+					"geo": {
+						"Peñon III, Mexico": [[19.45,-99.13]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "OxA 10112",
+					"uri": "urn:isbn:978-1-62349-200-7" 
+				},
+				{
+					"count": 1,
+					"time": [-11000, -11000],
+					"geo": {
+						"Cerro Sota, Chile": [[-52.054444,-70.060556]]
+					}
+				},
+				{
+					"count": 1,
+					"time": [-10740, -10670],
+					"geo": {
+						"Anzick 1, Montana": [[46.880,-110.363]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "CAMS 80538",
+					"uri": "urn:isbn:978-1-62349-200-7" 
+				},
+				{
+					"count": 1,
+					"time": [-10740, -10670],
+					"geo": {
+						"Anzick 1, Montana": [[46.880,-110.363]]
+					},
+					"note": "Radiocarbon years -- need to convert",
+					"specimen": "CAMS 80538",
+					"uri": "urn:isbn:978-1-62349-200-7" 
+				},
+				{
+					"count": 316,
+					"time": [-10720, -7800],
+					"notes": [
+						":TODO: split out, starting with Beta 43055/ETH 7729",
+						"Radiocarbon years -- need to convert"
+					],
+					"uri": "urn:isbn:978-1-62349-200-7" 
 				}
 			],
 			"Homo sapiens sapiens (living)":
@@ -2202,7 +2346,7 @@
 				{
 					"count": 100000000000,
 					"note": "worldwide",
-					"time": [-6000, 0]
+					"time": [-11700, 0]
 				}
 			],
 			"Homo sapiens ssp.":

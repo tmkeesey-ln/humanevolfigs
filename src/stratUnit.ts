@@ -47,6 +47,7 @@ function stratUnit(
 
 	var RESOLUTION = 1;
 
+	/*
 	settings.defs
 		.child(Haeckel.SVG_NS, 'pattern')
 		.attrs(Haeckel.SVG_NS, {
@@ -62,6 +63,7 @@ function stratUnit(
 			width: '1',
 			height: '1'
 		});
+	*/
 
 	var spacing = isFinite(settings.spacing) ? settings.spacing : 10;
 	var areaPerOccurrence = isFinite(settings.areaPerOccurrence) ? settings.areaPerOccurrence : 32;
@@ -182,7 +184,7 @@ function stratUnit(
 					.attrs(Haeckel.SVG_NS,
 					{
 						d: path,
-						fill: 'url(#strat-taxon-hatch)',//Haeckel.BLACK.hex,
+						fill: Haeckel.BLACK.hex,//'url(#strat-taxon-hatch)',
 						stroke: Haeckel.BLACK.hex,
 						"stroke-width": "0.5px"
 					});

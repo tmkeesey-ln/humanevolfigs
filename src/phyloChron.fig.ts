@@ -185,63 +185,46 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 9,
 		italic: true
 	},
-	"Australopithecus & Praeanthropus": {
-		column: 10,
-		italic: true
+	"australopithecines": {
+		column: 10
 	},
-	"Paranthropus": {
+	"Homo rudolfensis": {
 		column: 11,
 		italic: true
 	},
-	"Hominina4*": {
-		column: 11.5,
-		ancestral: true
-	},
-	"Hominina3*": {
-		column: 12,
-		ancestral: true
-	},
-	"Kenyanthropus": {
-		column: 12,
-		italic: true
-	},
-	"Homo rudolfensis": {
-		column: 13,
-		italic: true
-	},
 	"Homo*": {
-		column: 14,
+		column: 12,
 		ancestral: true
 	},
 	"Homo habilis": {
-		column: 14,
+		column: 12,
 		italic: true
 	},
 	"Floresian \"hobbits\"": {
-		column: 15,
+		column: 13,
 		italic: false
 	},
 	"Homo ergaster": {
-		column: 16,
+		column: 14,
 		italic: true
 	},
 	"Homo2*": {
-		column: 17,
+		column: 15,
 		ancestral: true
 	},
 	"Homo erectus": {
-		column: 17,
+		column: 15,
 		italic: true
 	},
 	"Neandertals": {
-		column: 18
+		column: 16
 	},
 	"Homo heidelbergensis": {
-		column: 19,
+		column: 17,
 		italic: true
 	},
 	"humans": {
-		column: 20
+		column: 18
 	}
 };
 

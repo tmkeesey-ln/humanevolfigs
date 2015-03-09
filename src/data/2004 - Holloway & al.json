@@ -69,7 +69,7 @@
 				["Homo ergaster georgicus", "Dmanisi D2280"],
 				["Homo ergaster georgicus", "Dmanisi D2282"],
 
-				["Homo heidelbergensis cepranensis", "Daka, Ethiopia"],
+				["Homo heidelbergensis aff. cepranensis", "Daka, Ethiopia"],
 
 				["Homo erectus hexianensis", "Hexian"],
 
@@ -92,12 +92,13 @@
 				["Homo erectus soloensis", "Sambungmacan 3"],
 				["Homo erectus soloensis", "Sambungmacan 4"],
 
-				["Homo erectus erectus", "Sangiran 2"],
-				["Homo erectus erectus", "Sangiran 3"],
-				["Homo erectus erectus", "Sangiran 4"],
-				["Homo erectus erectus", "Sangiran 10"],
-				["Homo erectus erectus", "Sangiran 12"],
-				["Homo erectus erectus", "Sangiran 17"],
+				["Homo erectus palaeojavanicus", "Sangiran 2"],
+				["Homo erectus palaeojavanicus", "Sangiran 3"],
+				["Homo erectus palaeojavanicus", "Sangiran 4"],
+				["Homo erectus palaeojavanicus", "Sangiran 10"],
+				["Homo erectus palaeojavanicus", "Sangiran 12"],
+				["Homo erectus palaeojavanicus", "Sangiran 17"],
+				
 				["Homo erectus erectus", "Trinil 2"],
 
 				["Homo erectus pekinensis", "Yunxian (1 and 2)"],

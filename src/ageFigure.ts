@@ -19,6 +19,7 @@ var MAX_MAP_SCALE = 4;
 var SECTION_SPACING = 8;
 var STRAT_UNIT_SPACING = 2;
 var STRATUM_LINE_THICKNESS = 18;
+var STRATUM_SIDE_LINE_THICKNESS = 4;
 var TAXON_LABEL_MARGIN = 6;
 var TAXON_LABEL_FONT_SIZE = 24;
 var TAXON_LABEL_STYLE: { [name: string]: string; } = {
@@ -100,10 +101,6 @@ function ageFigure(
 			}
 			return "≥" + count.min;
 		}
-		if (count.min > 100)
-		{
-			return ">" + (Math.floor(count.min / 10) * 10);
-		}
 		if (count.min < 2)
 		{
 			return "1?";
@@ -111,6 +108,14 @@ function ageFigure(
 		if (precise)
 		{
 			return '~' + Math.round(count.min);
+		}
+		if (count.min >= 100)
+		{
+			return ">" + (Math.floor(count.min / 100) * 100);
+		}
+		if (count.min >= 10)
+		{
+			return ">" + (Math.floor(count.min / 10) * 10);
 		}
 		return ">" + Math.floor(count.min);
 	}
@@ -227,42 +232,6 @@ function ageFigure(
 					fill: 'url(#strat-unit-hatch)'
 				});
 			*/
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: settings.area.left + 'px',
-					y: (stratArea.top - STRATUM_LINE_THICKNESS) + 'px',
-					width: settings.area.width + 'px',
-					height: STRATUM_LINE_THICKNESS + 'px',
-					fill: Haeckel.BLACK.hex
-				});
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: settings.area.left + 'px',
-					y: stratArea.bottom + 'px',
-					width: settings.area.width + 'px',
-					height: STRATUM_LINE_THICKNESS + 'px',
-					fill: Haeckel.BLACK.hex
-				});
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: settings.area.left + 'px',
-					y: stratArea.top + 'px',
-					width: '1px',
-					height: stratArea.height + 'px',
-					fill: Haeckel.BLACK.hex
-				});
-			g
-				.child(SVG_NS, 'rect')
-				.attrs(SVG_NS, {
-					x: (settings.area.right - 1) + 'px',
-					y: stratArea.top + 'px',
-					width: '1px',
-					height: stratArea.height + 'px',
-					fill: Haeckel.BLACK.hex
-				});
 			stratUnit({
 				area: stratArea,
 				areaPerOccurrence: 64,
@@ -275,12 +244,48 @@ function ageFigure(
 				time: time
 			});
 			g
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+					x: settings.area.left + 'px',
+					y: (stratArea.top - STRATUM_LINE_THICKNESS) + 'px',
+					width: settings.area.width + 'px',
+					height: STRATUM_LINE_THICKNESS + 'px',
+					fill: '#a0a0a0'
+				});
+			g
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+					x: settings.area.left + 'px',
+					y: stratArea.bottom + 'px',
+					width: settings.area.width + 'px',
+					height: STRATUM_LINE_THICKNESS + 'px',
+					fill: '#a0a0a0'
+				});
+			g
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+					x: settings.area.left + 'px',
+					y: (stratArea.top - 1) + 'px',
+					width: STRATUM_SIDE_LINE_THICKNESS + 'px',
+					height: (stratArea.height + 2) + 'px',
+					fill: '#a0a0a0'
+				});
+			g
+				.child(SVG_NS, 'rect')
+				.attrs(SVG_NS, {
+					x: (settings.area.right - STRATUM_SIDE_LINE_THICKNESS) + 'px',
+					y: (stratArea.top - 1) + 'px',
+					width: STRATUM_SIDE_LINE_THICKNESS + 'px',
+					height: (stratArea.height + 2) + 'px',
+					fill: '#a0a0a0'
+				});
+			g
 				.child(SVG_NS, 'text')
 				.text('UPPER BOUNDARY')
 				.attrs(SVG_NS, STRAT_DIRECTION_STYLE)
 				.attrs(SVG_NS, {
 					x: (settings.area.left + 8) + 'px',
-					y: (stratArea.top - 2) + 'px',
+					y: (stratArea.top - 3) + 'px',
 					'text-anchor': 'start',
 					fill: Haeckel.WHITE.hex
 				});
@@ -290,7 +295,7 @@ function ageFigure(
 				.attrs(SVG_NS, STRAT_DIRECTION_STYLE)
 				.attrs(SVG_NS, {
 					x: (settings.area.left + 8) + 'px',
-					y: (stratArea.bottom + STRATUM_LINE_THICKNESS - 2) + 'px',
+					y: (stratArea.bottom + STRATUM_LINE_THICKNESS - 3) + 'px',
 					'text-anchor': 'start',
 					fill: Haeckel.WHITE.hex
 				});
@@ -426,6 +431,7 @@ function ageFigure(
 	{
 		var scale = 1;
 
+		/*
 		settings.defs
 			.child(SVG_NS, 'pattern')
 			.attrs(SVG_NS, {
@@ -441,6 +447,7 @@ function ageFigure(
 				width: '1',
 				height: '1'
 			});
+		*/
 
 		function drawMap(id: string, builder: Haeckel.ElementBuilder, worldArea: Haeckel.Rectangle, mapArea: Haeckel.Rectangle, taxon: Haeckel.Taxic, specialMap: string, maskMap: boolean)
 		{
@@ -480,7 +487,7 @@ function ageFigure(
 						y: mapArea.y + 'px',
 						width: (mapArea.width - 0.5) + 'px',
 						height: (mapArea.height - 0.5) + 'px',
-						fill: 'url(#map-hatch)' // '#a0a0a0'
+						fill: '#a0a0a0'
 					});
 			chartGroup
 				.child(SVG_NS, 'use')

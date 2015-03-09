@@ -271,7 +271,7 @@ module.exports = function(grunt)
 		},
 		figure:
 		{
-			agesAll: {},
+			//agesAll: {},
 			agesCalabrian: {},
 			agesGelasian: {},
 			agesHolocene: {},
@@ -284,7 +284,7 @@ module.exports = function(grunt)
 			//craniodental: {},
 			//craniodentalChron: {},
 			//craniodentalExtant: {},
-			extant: {},
+			//extant: {},
 			//geoChron: {},
 			matrix: {},
 			//matrixExtant: {},

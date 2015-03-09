@@ -20,9 +20,8 @@ var TAXON_LABEL_HEIGHT = 125;
 
 var TAXON_NAMES: string[] = ['orangutans', 'gorillas', 'chimpanzees',
 	'Ardipithecus',
-	'Australopithecus & Praeanthropus',
-	//'Praeanthropus', 'Australopithecus',
-	'habilines', 'erectines', 'near-humans',
+	'australopithecines',
+	'habilines', 'erectines', 'archaics',
 	'fossil humans', 'living humans'];
 
 var TAXON_SILHOUETTES: string[] = [
@@ -30,7 +29,6 @@ var TAXON_SILHOUETTES: string[] = [
 		'assets/silhouettes/Gorilla gorilla (male, bipedal).svg',
 		'assets/silhouettes/Pan troglodytes (bipedal).svg',
 		'assets/silhouettes/Ardipithecus ramidus.svg',
-		//'assets/silhouettes/Praeanthropus anamensis.svg',
 		'assets/silhouettes/Australopithecus africanus.svg',
 		'assets/silhouettes/Homo rudolfensis.svg',
 		'assets/silhouettes/Homo ergaster ergaster.svg',

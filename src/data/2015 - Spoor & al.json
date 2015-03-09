@@ -1,0 +1,38 @@
+{
+	"metadata":
+	{
+		"authors": ["Fred Spoor", "Philipp Gunz", "Simon Neubauer", "Stefanie Stelzer", "Nadia Scott", "Amandus Kwekason", "M. Christopher Dean"],
+		"year": 2015,
+		"title": "Reconstructed <i>Homo habilis</i> type OH 7 suggests deep-rooted species diversity in early <i>Homo</i>",
+		"journal": "Nature",
+		"volume": 519,
+	    "uri": "urn:doi:10.1038/nature14224"
+	},
+	"data":
+	{
+		"nomenclature": {
+			"hyponymies": [
+				["Homo habilis", "OH 7"]
+			]
+		},
+		"characterScores":
+		{
+			"text":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume"
+					},
+					{
+						"name": "MYA"
+					}
+				],
+				"scores": {
+					"OH 7": [[729, 824], 1.8]
+				}
+			}
+		}
+	}
+}

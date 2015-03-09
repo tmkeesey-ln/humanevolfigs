@@ -6,7 +6,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'Ponginae',
 		label: 'pongines',
-		silhouette: 'assets/silhouettes/Gigantopithecus blacki.svg'
+		silhouette: 'assets/silhouettes/Lufengpithecus wushanensis.svg'
 	},
 	{
 		name: 'Australopithecus',

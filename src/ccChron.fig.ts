@@ -249,9 +249,14 @@ function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haecke
 	function addFromMatrix(matrix: Haeckel.CharacterMatrix<Haeckel.Set>,
 		character: Haeckel.Character<Haeckel.Set>,
 		factor: number = 1,
-		characterIndex: number = 0)
+		characterIndex: number = 0,
+		removeExisting: boolean = false)
 	{
 		var char = matrix.characterList[characterIndex];
+		if (removeExisting)
+		{
+			cmBuilder.removeStates(matrix.taxon, character);
+		}
 		Haeckel.ext.each(matrix.taxon.units, (unit: Haeckel.Taxic) =>
 		{
 			var range = <Haeckel.Range> Haeckel.chr.states(matrix, unit, char);
@@ -313,6 +318,7 @@ function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haecke
 	addFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion'], ccChar);
 	addFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion'], ccChar);
 	addFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], ccChar);
+	addFromMatrix(sources.sources['data/2015 - Spoor & al.json'].characterMatrices['text'], ccChar, 1, 0, true);
 
 	// Add living humans specially.
 	var livingHumans = sources.nomenclature.nameMap['Homo sapiens sapiens (living)'];
@@ -387,7 +393,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         'data/2009 - Suwa & al.json',
         'data/2010 - Berger & al.json',
         'data/2013 - Lordkipanidze & al.json',
-        'data/2014 - ICS.json'
+        'data/2014 - ICS.json',
+        'data/2015 - Spoor & al.json'
 	],
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>

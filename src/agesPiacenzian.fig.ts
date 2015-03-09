@@ -22,6 +22,11 @@ var TAXA: AgeFigureTaxon[] = [
 		name: 'Paranthropus',
 		italics: true,
 		silhouette: 'assets/silhouettes/Paranthropus aethiopicus.svg'
+	},
+	{
+		name: 'habilines',
+		italics: true,
+		silhouette: 'assets/silhouettes/Homo rudolfensis.svg'
 	}
 ];
 
