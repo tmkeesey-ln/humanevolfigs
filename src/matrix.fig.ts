@@ -1,26 +1,27 @@
 /// <reference path="../bower_components/haeckel/bin/haeckel.d.ts"/>
 
-var CHARACTER_LABEL_FONT_SIZE = 21;
+var CHARACTER_LABEL_FONT_SIZE = 30;
 
-var CHARACTER_LABEL_WIDTH = 125;
+var CHARACTER_LABEL_WIDTH = 165;
 
-var FIGURE_HEIGHT = 3.5 * 300;
+var FIGURE_HEIGHT = 6 * 300;
 
 var FIGURE_WIDTH = 5 * 300;
 
 var MARGIN_BOTTOM = 12;
 
-var SILHOUETTE_SCALE = 1 / 2;
+var SILHOUETTE_SCALE = 1;
+
+var STATE_FONT_SIZE = 30;
 
 var STATES_LABEL_WIDTH = 12;
 
-var TAXON_LABEL_FONT_SIZE = 20;
+var TAXON_LABEL_FONT_SIZE = 25;
 
-var TAXON_LABEL_HEIGHT = 125;
+var TAXON_LABEL_HEIGHT = 150;
 
 var TAXON_NAMES: string[] = ['orangutans', 'gorillas', 'chimpanzees',
-	'Ardipithecus',
-	'australopithecines',
+	'Ardipithecus', 'australopithecines',
 	'habilines', 'erectines', 'archaics',
 	'fossil humans', 'living humans'];
 
@@ -114,9 +115,17 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		var silhouettesGroup = builder.child(Haeckel.SVG_NS, 'g');
 		var chart = new Haeckel.CharacterMatrixChart();
 
-		chart.area = Haeckel.rec.create(CHARACTER_LABEL_WIDTH, TAXON_LABEL_HEIGHT,
-			FIGURE_WIDTH - CHARACTER_LABEL_WIDTH - STATES_LABEL_WIDTH, FIGURE_HEIGHT - TAXON_LABEL_HEIGHT - MARGIN_BOTTOM);
-		chart.stateFontSize = 18;
+		chart.area = Haeckel.rec.create(CHARACTER_LABEL_WIDTH, TAXON_LABEL_HEIGHT + 100 * SILHOUETTE_SCALE,
+			FIGURE_WIDTH - CHARACTER_LABEL_WIDTH - STATES_LABEL_WIDTH, FIGURE_HEIGHT - TAXON_LABEL_HEIGHT - MARGIN_BOTTOM -  + 100 * SILHOUETTE_SCALE);
+		chart.stateFontSize = STATE_FONT_SIZE;
+		chart.stateSort = row => (a, b) => {
+			if (row === 0 && ((b === 1 && a == 2) || (a === 1 && b === 2)))
+			{
+				return b - a;
+			}
+			return a - b;
+		};
+		chart.unknownFontSize = STATE_FONT_SIZE;
 		chart.matrix = <Haeckel.CharacterMatrix<Haeckel.BitSet>> sources.sources['data/compiled/characters.json'].characterMatrices['examples'];
 		chart.characters = [4, 0, 11, 2, 9, 3, 10, 7, 5, 1, 6]
 			.map(index => chart.matrix.characterList[index]);
@@ -158,11 +167,11 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			var label = labelsGroup
 				.child(Haeckel.SVG_NS, 'text')
 				.attrs(Haeckel.SVG_NS, {
-					x: area.centerX + 'px',
-					y: TAXON_LABEL_FONT_SIZE + 'px',
 					'text-anchor': 'middle',
 					'font-size': TAXON_LABEL_FONT_SIZE + 'px',
-					'font-family': "Myriad Pro"
+					'font-family': "Myriad Pro",
+					'font-weight': 'bold',
+					'transform': 'translate(' + area.centerX + ' ' + (TAXON_LABEL_FONT_SIZE * 2) + ') rotate(-20)'
 				});
 			var ampPos = name.indexOf('&');
 			if (ampPos < 0)

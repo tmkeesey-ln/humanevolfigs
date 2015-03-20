@@ -26,7 +26,7 @@
 				"characters": [
 					{
 						"name": "Brow",
-						"states": ["continuous", "two arches", "smooth"],
+						"states": ["continuous", "2 arches", "smooth"],
 						"references": [
 							"Argue & al. 2009 #3",
 							"Mallegni & al. 2003 #18",
@@ -422,35 +422,6 @@
 						"Middle Awash": [[10, 40]]
 					},
 					"time": [-2600000, -2500000]
-				}
-			],
-			"Australopithecus platyops":
-			[
-				{
-					"count": 1,
-					"geo":
-					{
-						"Koobi Fora": [[4, 36]]
-					},
-					"note": "KNM-ER 2602 - placement provisional - was originally assigned to afarensis",
-					"time": [-3300000, -3300000]
-				},
-				{
-					"count": 5,
-					"geo":
-					{
-						"Lomekwi": [[3.90, 35.73]]
-					},
-					"note": "Classified as Kenyanthropus cf. platyops.",
-					"time": [-3530000, -3200000]
-				},
-				{
-					"count": 2,
-					"geo":
-					{
-						"Lomekwi": [[3.90, 35.73]]
-					},
-					"time": [-3500000, -3300000]
 				}
 			],
 			"Australopithecus praegens":
@@ -2406,6 +2377,35 @@
 					},
 					"note": ":TODO: More than 2, but need to determine number.",
 					"time": [-8800000, -8600000]
+				}
+			],
+			"Kenyanthropus platyops":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Koobi Fora": [[4, 36]]
+					},
+					"note": "KNM-ER 2602 - placement provisional - was originally assigned to afarensis",
+					"time": [-3300000, -3300000]
+				},
+				{
+					"count": 5,
+					"geo":
+					{
+						"Lomekwi": [[3.90, 35.73]]
+					},
+					"note": "Classified as Kenyanthropus cf. platyops.",
+					"time": [-3530000, -3200000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Lomekwi": [[3.90, 35.73]]
+					},
+					"time": [-3500000, -3300000]
 				}
 			],
 			"Khoratpithecus chiangmuanensis":
