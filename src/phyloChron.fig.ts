@@ -34,77 +34,77 @@ function capitalize(s: string)
 	return s.replace(/(^([a-zA-Z\p{M}]))|([ \-"][a-zA-Z\p{M}])/g, c => c.toUpperCase());
 }
 
-var DIVIDER_COLUMN = 18;
+var DIVIDER_COLUMN = 16;
 
 var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	"Bornean orangutans": {
-		column: 18
+		column: DIVIDER_COLUMN
 	},
 	"mt-Pongo*": {
-		column: 18.5,
+		column: DIVIDER_COLUMN + 0.5,
 		ancestral: true
 	},
 	"Sumatran orangutans": {
-		column: 19
+		column: DIVIDER_COLUMN + 1
 	},
 	"mt-Hominidae*": {
-		column: 20.375,
+		column: DIVIDER_COLUMN + 2.375,
 		ancestral: true
 	},
 	"western gorillas": {
-		column: 20
+		column: DIVIDER_COLUMN + 2
 	},
 	"mt-Homininae*": {
-		column: 22.25,
+		column: DIVIDER_COLUMN + 4.25,
 		ancestral: true
 	},
 	"mt-Gorilla*": {
-		column: 20.5,
+		column: DIVIDER_COLUMN + 2.5,
 		ancestral: true
 	},
 	"eastern gorillas": {
-		column: 21
+		column: DIVIDER_COLUMN + 3
 	},
 	"mt-Hominini*": {
-		column: 24,
+		column: DIVIDER_COLUMN + 6,
 		ancestral: true
 	},
 	"bonobo chimpanzees": {
-		column: 22
+		column: DIVIDER_COLUMN + 4
 	},
 	"mt-Pan*": {
-		column: 22.5,
+		column: DIVIDER_COLUMN + 4.5,
 		ancestral: true
 	},
 	"common chimpanzees": {
-		column: 23
+		column: DIVIDER_COLUMN + 5
 	},
 	"mt-Homo*": {
-		column: 25.5,
+		column: DIVIDER_COLUMN + 7.5,
 		ancestral: true
 	},
 	"mt-HomoA*": {
-		column: 24.5,
+		column: DIVIDER_COLUMN + 6.5,
 		ancestral: true
 	},
 	"mt-HomoB*": {
-		column: 26.5,
+		column: DIVIDER_COLUMN + 8.5,
 		ancestral: true
 	},
 	"Homo heidelbergensis heidelbergensis (Sima de los Huesos)": {
 		name: "Sima de los Huesos",
-		column: 24
+		column: DIVIDER_COLUMN + 6
 	},
 	"Homo sp. (Denisova)": {
 		name: "Denisova",
-		column: 25
+		column: DIVIDER_COLUMN + 7
 	},
 	"Homo neanderthalensis neanderthalensis": {
 		name: "Neandertals",
-		column: 26
+		column: DIVIDER_COLUMN + 8
 	},
 	"mt-MRCA": {
-		column: 27,
+		column: DIVIDER_COLUMN + 9,
 		name: "Mitochondrial \"Eve\"",
 		ancestral: true
 	}
@@ -128,8 +128,8 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		ancestral: true
 	},
 	"Dryopithecinae": {
-		column: 4,
-		italic: true
+		name: "Dryopithecines",
+		column: 4
 	},
 	"western gorillas": {
 		column: 5
@@ -195,27 +195,14 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 12,
 		italic: false
 	},
-	"Homo ergaster": {
-		column: 13,
-		italic: true
+	"erectines": {
+		column: 13
 	},
-	"Homo2*": {
-		column: 14,
-		ancestral: true
-	},
-	"Homo erectus": {
-		column: 14,
-		italic: true
-	},
-	"Neandertals": {
-		column: 15
-	},
-	"Homo heidelbergensis": {
-		column: 16,
-		italic: true
+	"archaics": {
+		column: 14
 	},
 	"humans": {
-		column: 17
+		column: 15
 	}
 };
 
@@ -640,7 +627,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			{
 				var height = FIGURE_HEIGHT / 8;
 				var width = height * 1.618034; // :TODO: Add golden ratio to Haeckel
-				var area = Haeckel.rec.create((FIGURE_WIDTH - width) / 2 - 20, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
+				var area = Haeckel.rec.create((FIGURE_WIDTH - width) / 2 - 50, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
 				var group = builder.child(Haeckel.SVG_NS, 'g');
 				group.child(Haeckel.SVG_NS, 'rect')
 					.attrs(Haeckel.SVG_NS, {

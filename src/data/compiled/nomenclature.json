@@ -283,10 +283,13 @@
 				["other humans", "Homo sapiens helmei"],
 				["other humans", "Homo sapiens idaltu"],
 				["other humans", "Homo sapiens njarasensis"],
-				["other humans", "Homo sapiens ssp."]
+				["other humans", "Homo sapiens ssp."],
+				["archaics & early humans", "archaics"],
+				["archaics & early humans", "early humans"]
 			],
 			"synonymies":
 			[
+				["other humans", "early humans"],
 				["Pan", "chimpanzees", "chimps"],
 				["Pan paniscus", "bonobo chimpanzees", "bonobos"],
 				["Pan troglodytes", "common chimpanzees"],

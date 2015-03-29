@@ -44,9 +44,23 @@ function haploMap(builder: Haeckel.ElementBuilder,
 			})
 	defs.child(Haeckel.SVG_NS, 'marker')
 		.attrs(Haeckel.SVG_NS, {
-				id: 'arrowhead',
+				id: 'arrowhead-fill',
       			viewBox: "0 0 10 10",
       			refX: "5",
+      			refY: "5",
+      			markerUnits: "strokeWidth",
+      			markerWidth: "5",
+      			markerHeight: "4",
+      			orient: "auto",
+      			fill: '#ffffff'
+  			})
+		.child(Haeckel.SVG_NS, 'path')
+			.attr(Haeckel.SVG_NS, 'd', "M0 0L10 5L0 10Z");
+	defs.child(Haeckel.SVG_NS, 'marker')
+		.attrs(Haeckel.SVG_NS, {
+				id: 'arrowhead-stroke',
+      			viewBox: "0 0 10 10",
+      			refX: "4.5",
       			refY: "5",
       			markerUnits: "strokeWidth",
       			markerWidth: "4",
@@ -54,8 +68,7 @@ function haploMap(builder: Haeckel.ElementBuilder,
       			orient: "auto"
   			})
 		.child(Haeckel.SVG_NS, 'path')
-			.attr(Haeckel.SVG_NS, 'd', "M0 0L10 5L0 10z");
-
+			.attr(Haeckel.SVG_NS, 'd', "M0 0L10 5L0 10Z");
 	var main = builder
 		.child(Haeckel.SVG_NS, 'g')
 		.attr(Haeckel.SVG_NS, 'clip-path', 'url(#mask)');
@@ -98,6 +111,8 @@ function haploMap(builder: Haeckel.ElementBuilder,
 	{
 		maxDistance = Math.max(maxDistance, phylogeny.distance(root, sink));
 	});
+
+	/*
 	chart.lineAttrs = function(source: Haeckel.Taxic, target: Haeckel.Taxic, solver: Haeckel.DAGSolver<Haeckel.Taxic>): { [name: string]: any; }
 	{
 		function getRegions()
@@ -111,11 +126,10 @@ function haploMap(builder: Haeckel.ElementBuilder,
 		}
 
 		var attrs: { [name: string]: string; } = {
-				'fill': 'transparent',
-				'opacity': '0.33',
+				'fill': '#fffff',
 				'stroke': '#000000',
 				'stroke-linecap': 'round',
-				'stroke-width': '4px'
+				'stroke-width': '2px'
 			},
 			regions: Haeckel.ExtSet<Haeckel.GeoCoords[]>,
 			regionsChecked = false;
@@ -125,13 +139,13 @@ function haploMap(builder: Haeckel.ElementBuilder,
 		}
 		return attrs;
 	};
+	*/
 	chart.extensions = extensions;
 	chart.mapArea = mapArea;
 	chart.nomenclature = nomenclature;
 	chart.occurrenceMatrix = occurrences;
 	chart.paddingY = 12;
 	chart.projector = (coords: Haeckel.GeoCoords) => Haeckel.pt.create((wrapLongitude(coords.lon) + 180) / 360, (90 - coords.lat) / 180);
-	chart.rootRadius = 5;
 	chart.solver = phylogeny;
 	chart.render(chartGroup);
 

@@ -36,7 +36,7 @@
 					},
 					{
 						"name": "Big Toe",
-						"states": ["opposable", "not opposable"],
+						"states": ["opposable", "interm.", "not opposable"],
 						"references": [
 							"Lovejoy & al. 2009"
 						]
@@ -104,11 +104,11 @@
 					},
 					{
 						"name": "Bar-Glenoid Angle",
-						"states": ["<135°", ">135° in adults"],
+						"states": ["<130°", "130–135°", ">135° in adults"],
 						"references": [
 							"Argue & al. 2009 #55",
-							"Green 2013 Table 9",
-							"Inouye & Shea 1997 Table II"
+							"Inouye & Shea 1997 p. 630, Table II",
+							"Haile-Selassie & al. 2010"
 						],
 						"note": "lower in human children, and smaller humans in general"
 					},
@@ -116,6 +116,7 @@
 						"name": "Parietal Tuber",
 						"states": ["absent", "present"],
 						"references": [
+							"Argue & al., 2009 #8",
 							"Strait & Grine 2004 #63",
 							"Asfaw & al. 2009",
 							"pers. obs. from Suwa & al. (2009), Fig 2"
@@ -132,18 +133,18 @@
 				],
 				"scores":
 				{
-					"Pongo":                         [1,       0, 0, 0,     0,     0,    0,     0,    0,    0,    0,    0],
-					"Gorilla":                       [0,       0, 0, 0,     0,     0,    0,     0,    0,    0,    0,    0],
-					"Pan":                           [0,       0, 0, 0,     0,     0,    1,     0,    0,    0,    0,    0],
-					"Ardipithecus":                  [0,       0, 1, 1,     0,     null, 1,     2,    null, null, 0,    0],
-					"Praeanthropus":                 [0,       1, 1, 1,     [0,1], null, [1,2], 3,    0,    0,    0,    0],
-					"Australopithecus":              [[0,1],   1, 1, 1,     1,     0,    2,     3,    0,    0,    0,    0],
-					"Homo habilis & rudolfensis":    [[0,1],   1, 1, [1,2], [1,2], null, [1,2], 1,    null, null, 1,    0],
-					"Homo erectus & ergaster":       [[0,1],   1, 2, [1,2], 2,     1,    2,     3,    1,    1,    1,    null],
-					"Homo heidelbergensis":          [[0,1],   1, 2, 2,     2,     1,    2,     null, 1,    1,    1,    null],
-					"Homo neanderthalensis":         [[0,1],   1, 2, 2,     2,     1,    2,     3,    1,    1,    1,    1],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 1, 2, 2,     [2,3], 1,    2,     3,    1,    1,    1,    1],
-					"Homo sapiens sapiens (living)": [[1,2],   1, 2, 2,     3,     1,    2,     3,    1,    1,    1,    1]
+					"Pongo":                         [1,       0,    0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
+					"Gorilla":                       [0,       0,    0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
+					"Pan":                           [0,       0,    0, 0,     0,     0,    1,     0,    0,    0,    0,     0],
+					"Ardipithecus":                  [0,       0,    1, 1,     0,     null, 1,     2,    null, null, 0,     0],
+					"Praeanthropus":                 [0,       null, 1, 1,     [0,1], null, [1,2], 3,    0,    1,    0,     0],
+					"Australopithecus":              [[0,1],   1,    1, 1,     1,     0,    2,     3,    0,    null, 0,     0],
+					"Homo habilis & rudolfensis":    [[0,1],   2,    1, [1,2], [1,2], null, [1,2], 1,    null, null, [0,1], 0],
+					"Homo erectus & ergaster":       [[0,1],   2,    2, [1,2], 2,     1,    2,     3,    1,    2,    [0,1], null],
+					"Homo heidelbergensis":          [[0,1],   2,    2, 2,     2,     1,    2,     null, 1,    2,    1,     null],
+					"Homo neanderthalensis":         [[0,1],   2,    2, 2,     2,     1,    2,     3,    1,    2,    1,     1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 2,    2, 2,     [2,3], 1,    2,     3,    1,    2,    1,     1],
+					"Homo sapiens sapiens (living)": [[1,2],   2,    2, 2,     3,     1,    2,     3,    1,    2,    1,     1]
 				}
 			}
 		},
@@ -861,7 +862,7 @@
 					{
 						"Koobi Fora": [[4.31, 36.23]]
 					},
-					"note": "KNM ER specimens (incl. 3833) -- count is only the best specimens -- total may be higher",
+					"note": "KNM ER specimens (incl. 3733 & 3833) -- count is only the best specimens -- total may be higher",
 					"time": [-1800000, -1400000]
 				},
 				{
@@ -1169,7 +1170,7 @@
 			"Homo heidelbergensis mauritanicus":
 			[
 				{
-					"count": 3,
+					"count": 4,
 					"geo":
 					{
 						"Tighennif, Algeria": [[35.4,0.33]]
@@ -1178,7 +1179,7 @@
 					"notes":
 						[
 							"a.k.a. Atlanthropus mauritanicus",
-							"3 mandibles, parietal, isolated teeth",
+							"3 mandibles, parietal, isolated juvenile teeth",
 							"age from Geraads, D., Hublin, J. J., Jaeger, J. J., Tong, H., Sen, S., & Toubeau, P. (1986)"
 						]
 				}
@@ -1211,9 +1212,36 @@
 					"count": 1,
 					"geo":
 					{
+						"Aïn Maarouf, El Hajeb, Morrocco": [[33.67,-5.33]]
+					},
+					"time": [-780000, -130000],
+					"note": "placement provisional"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Sidi Abderrahman, Casablanca, Morocco": [[33.58,-7.87]]
+					},
+					"time": [-700000, -600000],
+					"note": "time and placement provisional"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
 						"Bodo D'ar": [[12.3, 42.3]]
 					},
 					"time": [-610000, -590000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Thomas Quarries, Casablanca, Morocco": [[33.6,-7.7]]
+					},
+					"time": [-600000, -600000],
+					"note": "placement provisional"
 				},
 				{
 					"count": 1,
@@ -1977,6 +2005,14 @@
 			],
 			"Homo sapiens sapiens (fossil)":
 			[
+				{
+					"count": 1,
+					"time": [-133000, -78000],
+					"geo": {
+						"Ngaloba Beds, Laetoli": [[-3.2,35.2]]
+					},
+					"note": "LH-18, a skull"
+				},
 				{
 					"count": 15,
 					"time": [-115000, -92000],

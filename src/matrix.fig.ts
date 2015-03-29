@@ -127,7 +127,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		};
 		chart.unknownFontSize = STATE_FONT_SIZE;
 		chart.matrix = <Haeckel.CharacterMatrix<Haeckel.BitSet>> sources.sources['data/compiled/characters.json'].characterMatrices['examples'];
-		chart.characters = [4, 0, 11, 2, 9, 3, 10, 7, 5, 1, 6]
+		chart.characters = [4, 0, 11, 10, 5, 9, 1, 2, 3, 7, 6]
 			.map(index => chart.matrix.characterList[index]);
 		chart.taxa = TAXON_NAMES.map(name => sources.nomenclature.nameMap[name]);
 		chart.render(chartGroup);
