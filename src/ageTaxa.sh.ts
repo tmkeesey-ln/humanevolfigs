@@ -34,7 +34,7 @@ SOURCE_LIST.map((source: string) => files.text[source] = fs.readFileSync('./src/
 
 var dataSources: Haeckel.DataSources = new Haeckel.DataSourcesReader().read(files, SOURCE_LIST);
 
-var output: Entry[] = [];
+var entries: Entry[] = [];
 
 var ages = Haeckel.ext.list(dataSources.sources['data/2014 - ICS.json'].strata)
   .filter((stratum: Haeckel.Stratum) => stratum.type === 'stage/age')
@@ -103,7 +103,33 @@ Haeckel.arr.each(ages, (age: Haeckel.Stratum) =>
     var bName = b.names.length ? b.names[0] : '';
     return aName < bName ? -1 : (aName > bName ? 1 : 0);
   });
-  output.push(entry);
+  entries.push(entry);
 });
+
+var taxonRanges: { [name: string]: number[]; } = {};
+
+Haeckel.ext.each(occurrences.taxon.units, unit =>
+{
+    var names = Haeckel.ext.list(Haeckel.nom.forTaxon(dataSources.nomenclature, unit)).sort();
+    if (names.length)
+    {
+      var taxonOccurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(occurrences, unit, Haeckel.OCCURRENCE_CHARACTER);
+      var times: Haeckel.Range[] = [];
+      Haeckel.ext.each(taxonOccurrences, occurrence => times.push(occurrence.time));
+      if (times.length)
+      {
+        var time = Haeckel.rng.combine(times);
+        if (!time.empty)
+        {
+          taxonRanges[names.join('/')] = [time.min, time.max];
+        }
+      }
+    }
+});
+
+var output: any = {
+  "taxonRanges": taxonRanges,
+  "entries": entries
+};
 
 console.log(JSON.stringify(output, null, '\t'));

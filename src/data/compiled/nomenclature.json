@@ -17,6 +17,7 @@
 				["Ardipithecus", "Ardipithecus ramidus"],
 				["Australopithecus", "Australopithecus africanus"],
 				["Australopithecus", "Australopithecus garhi"],
+				["Australopithecus", "Australopithecus prometheus"],
 				["Australopithecus", "Australopithecus sediba"],
 				["Australopithecus", "Australopithecus sp."],
 				["Australopithecus", "Hominina indet. A"],
@@ -133,8 +134,8 @@
 				["Homo sapiens", "Homo sapiens njarasensis"],
 				["Homo sapiens", "Homo sapiens sapiens"],
 				["Homo sapiens", "Homo sapiens ssp."],
-				["Homo sapiens sapiens", "mt-MRCA"],
-				["Homo sapiens sapiens", "Y-MRCA"],
+				["Homo sapiens", "mt-MRCA"],
+				["Homo sapiens", "Y-MRCA"],
 				["Homo sapiens sapiens", "Homo sapiens sapiens (fossil)"],
 				["Homo sapiens sapiens", "Homo sapiens sapiens (living)"],
 				["Hylobatidae", "Hoolock"],
@@ -285,7 +286,11 @@
 				["other humans", "Homo sapiens njarasensis"],
 				["other humans", "Homo sapiens ssp."],
 				["archaics & early humans", "archaics"],
-				["archaics & early humans", "early humans"]
+				["archaics & early humans", "early humans"],
+				["ardipithecines", "Ardipithecus"],
+				["ardipithecines", "Orrorin"],
+				["ardipithecines", "Sahelanthropus"],
+				["ardipithecines", "Australopithecus praegens"]
 			],
 			"synonymies":
 			[
@@ -319,6 +324,7 @@
 				["Cynocephalus", "Philippine colugos", "colugos"],
 				["Tupaia", "common treeshrews"],
 				["Rattus", "rats"],
+				["Australopithecus", "Praeanthropus"],
 				["Australopithecus praegens", "\"Australopithecus\" praegens", "Praeanthropus praegens"],
 				["Australopithecus aethiopicus", "Paranthropus aethiopicus", "Paraustralopithecus aethiopicus"],
 				["Australopithecus aff. afarensis", "Praeanthropus aff. afarensis"],

@@ -153,37 +153,24 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 6
 	},
 	"Hominini*": {
-		column: 7,
+		column: 8,
 		ancestral: true
 	},
 	"Pan*": {
-		column: 7,
+		column: 8,
 		ancestral: true
 	},
-	"fossil chimpanzees": {
+	"bonobo chimpanzees": {
 		column: 7
 	},
-	"bonobo chimpanzees": {
+	"fossil chimpanzees": {
 		column: 8
 	},
 	"common chimpanzees": {
 		column: 9
 	},
-	"Hominina*": {
-		column: 8,
-		ancestral: true
-	},
-	"Sahelanthropus": {
-		column: 8,
-		italic: true
-	},
-	"Hominina2*": {
-		column: 9,
-		ancestral: true
-	},
-	"Ardipithecus": {
-		column: 9,
-		italic: true
+	"ardipithecines": {
+		column: 9
 	},
 	"australopithecines": {
 		column: 10
@@ -385,6 +372,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					['data/2006 - Steiper & Young.json', 'Fig1-abridged'],
 					['data/2012 - Langergraber & al.json', 'synthesis']
 				]);
+				// :KLUDGE: autosomal ancestors extend Homo sapiens' range. This fixes it.
+				cmBuilder.removeStates(sources.nomenclature.nameMap['Homo sapiens'], Haeckel.TIME_CHARACTER);
 				Haeckel.ext.each(phylogeny.vertices, (taxon: Haeckel.Taxic) => 
 				{
 					cmBuilder.states(taxon, Haeckel.TIME_CHARACTER, <Haeckel.Range> Haeckel.chr.states(occurrences, taxon, Haeckel.TIME_CHARACTER));
@@ -469,7 +458,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				});
 				addToCharacterMatrix(cmBuilder, solver, [
 					['data/2012 - Langergraber & al.json', 'synthesis'],
-					['data/1996 - Zhi & al.json', 'Abstract'],
+					['data/1996 - Zhi & al.json', 'Table4'],
 					['data/2013 - Fu & al.json', 'Fig1-abridged'],
 					['data/2014 - Meyer & al.json', 'Table1-strict-enriched'],
 					['data/2006 - Steiper & Young.json', 'Fig1-abridged']

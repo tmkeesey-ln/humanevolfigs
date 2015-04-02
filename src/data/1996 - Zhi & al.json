@@ -15,10 +15,10 @@
 	{
 	    "datings":
 	    {
-	    	"Abstract": [
+	    	"Table4": [
 	    		{
 	    			"taxa": ["Pongo abelii", "Pongo pygmaeus"],
-	    			"time": [-1700000, -1500000]
+	    			"time": [-3400000, -600000]
 	    		}
 	    	]
 	    }

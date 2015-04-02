@@ -9,7 +9,7 @@ var TAXA: AgeFigureTaxon[] = [
 		silhouette: 'assets/silhouettes/Ardipithecus ramidus.svg'
 	},
 	{
-		name: 'Praeanthropus',
+		name: 'Australopithecus',
 		italics: true,
 		silhouette: 'assets/silhouettes/Praeanthropus anamensis.svg'
 	}

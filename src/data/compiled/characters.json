@@ -337,16 +337,6 @@
 					"time": [-2900000, -2000000]
 				},
 				{
-					"count": 35,
-					"geo":
-					{
-						"Makapansgat": [[-24.16, 29.18]]
-					},
-					"note": "Count conservative.",
-					"time": [-2850000, -2580000]
-
-				},
-				{
 					"count": 1,
 					"geo":
 					{
@@ -374,15 +364,6 @@
 					},
 					"note": "teeth",
 					"time": [-2400000, -2000000]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Sterkfontein": [[-26.02, 27.73]]
-					},
-					"note": "StW 573 - 'Little Foot' - may be another species",
-					"time": [-2300000, -2200000]
 				},
 				{
 					"count": 1,
@@ -434,6 +415,27 @@
 					{
 						"Tugen Hills": [[0.67, 36]]
 					}
+				}
+			],
+			"Australopithecus prometheus":
+			[
+				{
+					"count": 1,
+					"geo":
+					{
+						"Sterkfontein": [[-26.02, 27.73]]
+					},
+					"note": "StW 573 - 'Little Foot'",
+					"time": [-3830000, -3510000]
+				},
+				{
+					"count": 35,
+					"geo":
+					{
+						"Makapansgat": [[-24.16, 29.18]]
+					},
+					"note": "Count conservative.",
+					"time": [-2850000, -2580000]
 				}
 			],
 			"Australopithecus sediba":

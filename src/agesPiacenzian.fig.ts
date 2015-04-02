@@ -4,11 +4,6 @@ var FIGURE_WIDTH = 1000;
 
 var TAXA: AgeFigureTaxon[] = [
 	{
-		name: 'Praeanthropus',
-		italics: true,
-		silhouette: 'assets/silhouettes/Praeanthropus afarensis (male).svg'
-	},
-	{
 		name: 'Australopithecus',
 		italics: true,
 		silhouette: 'assets/silhouettes/Australopithecus garhi.svg'
@@ -25,7 +20,6 @@ var TAXA: AgeFigureTaxon[] = [
 	},
 	{
 		name: 'habilines',
-		italics: true,
 		silhouette: 'assets/silhouettes/Homo rudolfensis.svg'
 	}
 ];

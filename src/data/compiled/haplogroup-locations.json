@@ -390,6 +390,8 @@
 			{
 				"geo":
 				{
+					"SE Asia": [[24, 105]],
+					"Taiwan": [[23.8, 120.6]],
 					"Hawaii": [[19.9, -155.6]],
 					"Easter Island": [[-27, -109]],
 					"Philippines": [[8, 124]],
@@ -621,14 +623,14 @@
 			{
 				"geo":
 				{
-					"North Cameroon": [[8.5, 14]]
+					"North Cameroon": [[10.5, 14]]
 				}
 			}],
 			"Y-A0": [
 			{
 				"geo":
 				{
-					"South Cameroon": [[2.5, 11.75]]
+					"South Cameroon": [[0.5, 11.75]]
 				}
 			}],
 			"Y-A1a": [
@@ -689,7 +691,7 @@
 				"geo":
 				{
 					"East Africa": [[-1, 37]],
-					"West Africa": [[14, 4]],
+					"West Africa": [[4.5, -7.5]],
 					"South Africa": [[-30, 25]],
 					"Bongolava": [[-19, 46]]
 				}
