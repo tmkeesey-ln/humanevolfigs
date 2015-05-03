@@ -54,7 +54,10 @@
 						"name": "Lower Jaw",
 						"states": ["rectangular", "intermediate", "parabolic"],
 						"references": [
-							"TBD"
+							"Johanson & Wong (2009), pp. 194–195",
+							"Lordkipanidze & al. (2013), Fig. 1D",
+							"Margvelashvili & al. (2013), Fig. 2",
+							"Villmoare & al. (2015)"
 						]
 					},
 					{
