@@ -166,11 +166,11 @@ function drawLabel(builder: Haeckel.ElementBuilder, name: string, info: LabelInf
 			break;
 		case LabelPosition.BOTTOM_RIGHT:
 		case LabelPosition.TOP_RIGHT:
-			x = area.right - 10;
+			x = area.right;
 			break;
 		case LabelPosition.BOTTOM_LEFT:
 		case LabelPosition.TOP_LEFT:
-			x = area.left + 10;
+			x = area.left;
 			break;
 		default:
 			throw new Error("Invalid position: " + info.position);

@@ -20,7 +20,8 @@
 			{
 				"geo":
 				{
-					"south Africa": [[-25, 21]]
+					"south Africa": [[-25, 21]],
+					"West Madagascar": [[-16.6, 44.4]]
 				}
 			}],
 			"mt-L1": [
@@ -71,7 +72,7 @@
 				"geo":
 				{
 					"India": [[21, 78]],
-					"W. Madagascar": [[-17, 46]]
+					"Madagascar": [[-18.8, 46.9]]
 				}
 			}],
 			"mt-N": [
