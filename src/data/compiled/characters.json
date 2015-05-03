@@ -2024,6 +2024,13 @@
 					"note": "Some Neandertal characters"
 				},
 				{
+					"count": 1,
+					"time": [-112000, -44000],
+					"geo": {
+						"Laibin, China": [[23.7, 109.2]]
+					}
+				},
+				{
 					"count": 16,
 					"time": [-101000, -81000],
 					"geo": {
@@ -2041,9 +2048,17 @@
 				},
 				{
 					"count": 1,
-					"time": [-46000, -46000],
+					"time": [-68000, -66000],
 					"geo": {
-						"Annamite Mountains, Laos": [[17,106]]
+						"Callao Cave, Luzon, Philippines": [[17.703261, 121.82375]]
+					},
+					"note": "placement uncertain"
+				},
+				{
+					"count": 2,
+					"time": [-63000, -46000],
+					"geo": {
+						"Tam Pa Ling, Annamite Mountains, Laos": [[17,106]]
 					}
 				},
 				{
