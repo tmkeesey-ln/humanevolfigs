@@ -1,0 +1,60 @@
+{
+	"metadata":
+	{
+		"authors": ["Yohannes Haile-Selassie", "Luis Gibert", "Gary Scott", "Beverly Z. Saylor"],
+		"year": 2015,
+		"title": "New species from Ethiopia further expands Middle Pliocene hominin diversity",
+		"journal": "Nature",
+		"volume": 521,
+		"pages": [483, 488],
+	    "uri": "urn:doi:10.1038/nature14448"
+	},
+	"data":
+	{
+		"topologies": {
+			"Fig6":
+			[
+				"Pan",
+				[
+					"Sahelanthropus tchadensis",
+					[
+						"Ardipithecus ramidus",
+						[
+							"Australopithecus anamensis",
+							[
+								"Australopithecus afarensis",
+								[
+									"Australopithecus garhi",
+									[
+										"Australopithecus deyiremeda",
+										[
+											"Australopithecus africanus",
+											[
+												"Homo habilis",
+												[
+													"Homo erectus",
+													"Homo sapiens"
+												],
+												[
+													[
+														"Kenyanthropus platyops",
+														"Homo rudolfensis"
+													],
+													[
+														"Paranthropus aethiopicus",
+														"Paranthropus boisei",
+														"Paranthropus robustus",
+													]
+												]
+											]
+										]
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		}
+	}
+}

@@ -138,79 +138,82 @@
 											"Australopithecus aff. afarensis",
 											"Australopithecus afarensis",
 											[
-												"Australopithecus africanus",
 												"Australopithecus garhi",
-												"Australopithecus sp.",
-												"Australopithecus indet.",
-												"Australopithecus prometheus",
-												"Australopithecus sediba",
-												"Hominina indet. A",
-												"Kenyanthropus platyops",
 												[
-													"Paranthropus aethiopicus",
-													"Paranthropus indet.",
+													"Australopithecus deyiremeda",
+													"Australopithecus prometheus",
 													[
-														"Paranthropus boisei",
-														"Paranthropus robustus"
-													]
-												],
-												[
-													"Homo aff. habilis",
-													"Homo floresiensis",
-													"Homo habilis",
-													"Homo rudolfensis",
-													"Homo indet. A",
-													"Homo indet. B",
-													"Homo indet. E",
-													"Homo indet. G",
-													"Homo indet. H",
-													[
-														"Homo ergaster ergaster",
-														"Homo ergaster georgicus",
-														"Homo lantianensis",
-														"Homo modjokertensis",
-														"Homo yuanmouensis",
-														"Homo indet. C",
-														"Homo indet. D",
-														"Homo indet. F",
+														"Australopithecus africanus",
+														"Australopithecus sp.",
+														"Australopithecus indet.",
+														"Australopithecus sediba",
+														"Hominina indet. A",
+														"Kenyanthropus platyops",
 														[
+															"Paranthropus indet.",
+															"Paranthropus aethiopicus",
+															"Paranthropus boisei",
+															"Paranthropus robustus"
+														],
+														[
+															"Homo aff. habilis",
+															"Homo floresiensis",
+															"Homo habilis",
+															"Homo rudolfensis",
+															"Homo indet. A",
+															"Homo indet. B",
+															"Homo indet. E",
+															"Homo indet. G",
+															"Homo indet. H",
 															[
-																"Homo erectus ssp. (Taiwan)",
-																"Homo erectus ssp. (Vietnam)",
+																"Homo ergaster ergaster",
+																"Homo ergaster georgicus",
+																"Homo lantianensis",
+																"Homo modjokertensis",
+																"Homo yuanmouensis",
+																"Homo indet. C",
+																"Homo indet. D",
+																"Homo indet. F",
 																[
-																	"Homo erectus erectus",
-																	"Homo erectus palaeojavanicus",
-																	"Homo erectus soloensis"
-																],
-																[
-																	"Homo erectus hexianensis",
-																	"Homo erectus nankinensis",
-																	"Homo erectus pekinensis"
-																]
-															],
-															[
-																"Homo heidelbergensis antecessor",
-																[
-																	"Homo heidelbergensis aff. cepranensis",
-																	"Homo heidelbergensis cepranensis",
-																	"Homo heidelbergensis narmadensis",
-																	"Homo heidelbergensis ssp. (Kacabas)",
-																	"Homo heidelbergensis daliensis",
-																	"Homo heidelbergensis mabaensis",
-																	"Homo heidelbergensis heidelbergensis",
-																	"Homo sp. (Denisova)",
 																	[
-																		"Homo heidelbergensis mauritanicus",
-																		"Homo heidelbergensis rhodesiensis",
-																		"Homo sapiens"
+																		"Homo erectus ssp. (Taiwan)",
+																		"Homo erectus ssp. (Vietnam)",
+																		[
+																			"Homo erectus erectus",
+																			"Homo erectus palaeojavanicus",
+																			"Homo erectus soloensis"
+																		],
+																		[
+																			"Homo erectus hexianensis",
+																			"Homo erectus nankinensis",
+																			"Homo erectus pekinensis"
+																		]
 																	],
 																	[
-																		"Homo heidelbergensis steinheimensis",
+																		"Homo heidelbergensis antecessor",
 																		[
-																			"Homo neanderthalensis ssp. (Early)",
+																			"Homo heidelbergensis aff. cepranensis",
+																			"Homo heidelbergensis cepranensis",
+																			"Homo heidelbergensis narmadensis",
+																			"Homo heidelbergensis ssp. (Kacabas)",
+																			"Homo heidelbergensis daliensis",
+																			"Homo heidelbergensis mabaensis",
+																			"Homo heidelbergensis heidelbergensis",
+																			"Homo sp. (Denisova)",
 																			[
-																				"Homo neanderthalensis ssp. (Transitional)",
-																				"Homo neanderthalensis neanderthalensis"
+																				"Homo heidelbergensis mauritanicus",
+																				"Homo heidelbergensis rhodesiensis",
+																				"Homo sapiens"
+																			],
+																			[
+																				"Homo heidelbergensis steinheimensis",
+																				[
+																					"Homo neanderthalensis ssp. (Early)",
+																					[
+																						"Homo neanderthalensis ssp. (Transitional)",
+																						"Homo neanderthalensis neanderthalensis"
+																					]
+																				]
 																			]
 																		]
 																	]

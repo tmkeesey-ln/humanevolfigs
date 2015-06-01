@@ -398,6 +398,53 @@
 					"time": [-4120000, -4120000]
 				}
 			],
+			"Australopithecus deyiremeda":
+			[
+				{
+					"count": 6,
+					"geo":
+					{
+						"Burtele 1": [[-11.46, 40.53]]
+					},
+					"time": [-3500000, -3300000],
+					"notes":
+					[
+						"dental remains",
+						"assignment tentative"
+					]
+				},
+				{
+					"count": 4,
+					"geo":
+					{
+						"Burtele 2": [[-11.46, 40.53]]
+					},
+					"time": [-3500000, -3300000],
+					"notes":
+					[
+						"BRT-VP-2/10 frontal fragment, BRT-VP-2/73 right partial foot, BRT-VP-2/89 right P^4, BRT-VP-2/104 molar fragment",
+						"assignment tentative"
+					]
+				},
+				{
+					"count": [2, 3],
+					"geo":
+					{
+						"Burtele 3": [[-11.462, 40.528]]
+					},
+					"time": [-3506000, -3469000],
+					"note": "BRT-VP-3/1 (holotype), BRT-VP-3/14 (paratype), BRT-VP-3/37 (referred -- same individual as BRT-VP-3/14?)"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Waytaleyta 2": [[-11.46, 40.53]]
+					},
+					"time": [-3500000, -3300000],
+					"note": "WYT-VP-2/10 (paratype)"
+				}
+			],
 			"Australopithecus garhi":
 			[
 				{
