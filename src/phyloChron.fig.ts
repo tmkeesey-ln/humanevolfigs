@@ -49,7 +49,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			function legendArea()
 			{
 				var height = FIGURE_HEIGHT / 8;
-				var width = height * 1.618034; // :TODO: Add golden ratio to Haeckel
+				var width = height * 1.618034;
+				height *= 5 / 4;
 				return Haeckel.rec.create((FIGURE_WIDTH - width) / 2 - 50, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
 			}
 
