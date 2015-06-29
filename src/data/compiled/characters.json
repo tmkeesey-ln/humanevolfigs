@@ -80,7 +80,7 @@
 					},
 					{
 						"name": "Canine Teeth",
-						"states": ["strongly dimorphic", "dimorphic", "small"],
+						"states": ["strongly\u000Adimorphic", "dimorphic", "small"],
 						"references": [
 							"Collard & Wood 2000 #92"
 						]
@@ -107,7 +107,7 @@
 					},
 					{
 						"name": "Bar-Glenoid Angle",
-						"states": ["<130°", "130–135°", ">135° in adults"],
+						"states": ["<130°", "130–\u000A135°", ">135° in adults"],
 						"references": [
 							"Argue & al. 2009 #55",
 							"Inouye & Shea 1997 p. 630, Table II",
