@@ -41,7 +41,15 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			timesGroup = builder.child(Haeckel.SVG_NS, 'g');
 			morphChart(builder, sources, taxonEntries, AREA, TIME, colTracker.max);
 			times(timesGroup, Haeckel.ext.list(sources.sources['data/2014 - ICS.json'].strata), FIGURE_AREA, AREA, TIME, TIME_INCREMENT);
-			legend(builder.child(Haeckel.SVG_NS, 'g'), legendArea());
+			legend(
+				builder.child(Haeckel.SVG_NS, 'g'),
+				legendArea(),
+				{
+					specimens: true,
+					ancestors: false,
+					lineages: true,
+					gaps: true
+				});
 		}
 		catch (e)
 		{

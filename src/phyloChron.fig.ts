@@ -102,7 +102,16 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			times(timesGroup, Haeckel.ext.list(sources.sources['data/2014 - ICS.json'].strata), FIGURE_AREA, AREA, TIME, TIME_INCREMENT);
 			divider();
 			sectionTitles();
-			legend(builder.child(Haeckel.SVG_NS, 'g'), legendArea(), true);
+			legend(
+				builder.child(Haeckel.SVG_NS, 'g'),
+				legendArea(),
+				{
+					specimens: true,
+					ancestors: true,
+					lineages: true,
+					gaps: true
+				}
+			);
 		}
 		catch (e)
 		{

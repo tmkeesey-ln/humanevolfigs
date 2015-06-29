@@ -178,8 +178,9 @@ function createArcRenderer(useSides?: boolean)
 	};
 }
 
-function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureArea: Haeckel.Rectangle, chartArea: Haeckel.Rectangle, time: Haeckel.Range, timeIncrement: number)
+function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureArea: Haeckel.Rectangle, chartArea: Haeckel.Rectangle, time: Haeckel.Range, timeIncrement: number, includeStrata: boolean = true)
 {
+	var fontSize = 16;
 	var chart = new Haeckel.ChronoChart();
 	chart.area = chartArea;
 	chart.time = time;
@@ -194,57 +195,60 @@ function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureA
 			width: figureArea.width + 'px',
 			height: '1px'
 		});
-	strata.sort((a: Haeckel.Stratum, b: Haeckel.Stratum) =>
+	if (includeStrata)
 	{
-		return b.start.mean - a.start.mean;
-	});
-	var fillStratum = false;
-	Haeckel.arr.each(strata, (stratum: Haeckel.Stratum) =>
-	{
-		if (stratum && stratum.type === 'series/epoch')
+		strata.sort((a: Haeckel.Stratum, b: Haeckel.Stratum) =>
 		{
-			var startY = chart.getTimeY(stratum.start);
-			var endY = chart.getTimeY(stratum.end);
-			if (fillStratum)
+			return b.start.mean - a.start.mean;
+		});
+		var fillStratum = false;
+		Haeckel.arr.each(strata, (stratum: Haeckel.Stratum) =>
+		{
+			if (stratum && stratum.type === 'series/epoch')
 			{
-				if (endY.mean <= chartArea.bottom)
+				var startY = chart.getTimeY(stratum.start);
+				var endY = chart.getTimeY(stratum.end);
+				if (fillStratum)
 				{
-					group.child(Haeckel.SVG_NS, 'rect')
-						.attrs({
-							fill: Haeckel.BLACK.hex,
-							'fill-opacity': '0.1',
-							stroke: 'none',
-							x: '0px',
-							y: endY.mean + 'px',
-							width: figureArea.width + 'px',
-							height: (startY.mean - endY.mean) + 'px'
+					if (endY.mean <= chartArea.bottom)
+					{
+						group.child(Haeckel.SVG_NS, 'rect')
+							.attrs({
+								fill: Haeckel.BLACK.hex,
+								'fill-opacity': '0.1',
+								stroke: 'none',
+								x: '0px',
+								y: endY.mean + 'px',
+								width: figureArea.width + 'px',
+								height: (startY.mean - endY.mean) + 'px'
+							});
+					}
+				}
+				fillStratum = !fillStratum;
+				if ((startY.mean - endY.mean) > fontSize)
+				{
+					var text = group.child(Haeckel.SVG_NS, 'text')
+						.text(stratum.name.toUpperCase())
+						.attrs(Haeckel.SVG_NS, {
+							'fill': Haeckel.BLACK.hex,
+							'fill-opacity': '0.5',
+							'font-size': fontSize + 'px',
+							'font-weight': 'bold',
+							'font-family': "Myriad Pro",
+							'text-anchor': 'middle'
 						});
+					var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
+					var y = (startY.mean + endY.mean) / 2;
+					if (y + box.width / 2 > chartArea.bottom)
+					{
+						y = chartArea.bottom - box.width / 2;
+					}
+					text.attr(Haeckel.SVG_NS, 'transform',
+						'translate(' + (chartArea.left + fontSize / 2) + ',' + y + ') rotate(-90)');
 				}
 			}
-			fillStratum = !fillStratum;
-			if ((startY.mean - endY.mean) > 16)
-			{
-				var text = group.child(Haeckel.SVG_NS, 'text')
-					.text(stratum.name.toUpperCase())
-					.attrs(Haeckel.SVG_NS, {
-						'fill': Haeckel.BLACK.hex,
-						'fill-opacity': '0.5',
-						'font-size': '16px',
-						'font-weight': 'bold',
-						'font-family': "Myriad Pro",
-						'text-anchor': 'middle'
-					});
-				var box = Haeckel.rec.createFromBBox(<SVGTextElement> text.build());
-				var y = (startY.mean + endY.mean) / 2;
-				if (y + box.width / 2 > chartArea.bottom)
-				{
-					y = chartArea.bottom - box.width / 2;
-				}
-				text.attr(Haeckel.SVG_NS, 'transform',
-					'translate(' + (chartArea.left + 8) + ',' + y + ') rotate(-90)');
-			}
-		}
-	});
+		});
+	}
 	for (var t = time.max + timeIncrement; t >= time.min; t += timeIncrement)
 	{
 		var y = chart.getTimeY(Haeckel.rng.create(t, t)).mean;
@@ -273,7 +277,16 @@ function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureA
 	}
 }
 
-function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeInferredAncestor: boolean = false)
+interface LegendSettings
+{
+	[name: string]: boolean;
+	specimens?: boolean;
+	gaps?: boolean;
+	ancestors?: boolean;
+	lineages?: boolean;
+}
+
+function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, settings: LegendSettings)
 {
 	group.child(Haeckel.SVG_NS, 'rect')
 		.attrs(Haeckel.SVG_NS, {
@@ -286,7 +299,15 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeI
 			'stroke-width': '2px',
 			'stroke-linejoin': 'miter'
 		});
-	var rows = includeInferredAncestor ? 5 : 4;
+	var rows = 1;
+	var prop: string;
+	for (prop in settings)
+	{
+		if (settings[prop])
+		{
+			rows++;
+		}
+	}
 	var fontSize = (area.height / (2 * rows)) + 'px';
 	group.child(Haeckel.SVG_NS, 'text')
 		.text('LEGEND')
@@ -299,54 +320,65 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeI
 			'font-size': fontSize
 		});
 
-	var rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + area.height * 5 / (rows * 4),
-			area.width / 12, area.height / (rows * 2));
-	group.child(Haeckel.SVG_NS, 'rect')
-		.attrs(Haeckel.SVG_NS, {
-			'x': rectangle.left + 'px',
-			'y': rectangle.top + 'px',
-			'width': rectangle.width + 'px',
-			'height': rectangle.height + 'px',
-			'fill': Haeckel.BLACK.hex,
-			'stroke': 'none'
-		});
-	group.child(Haeckel.SVG_NS, 'text')
-		.text('specimens')
-		.attrs(Haeckel.SVG_NS, {
-			'x': (area.left + area.width / 4) + 'px',
-			'y': (area.top + area.height * 13 / (rows * 8)) + 'px',
-			'text-anchor': 'left',
-			'font-family': 'Myriad Pro',
-			'font-size': fontSize
-		});
+	var rowHeight = area.height / rows;
+	var offset = rowHeight;
 
-	rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + area.height * 9 / (rows * 4),
-			area.width / 12, area.height / (rows * 2));
-	group.child(Haeckel.SVG_NS, 'rect')
-		.attrs(Haeckel.SVG_NS, {
-			'x': rectangle.left + 'px',
-			'y': rectangle.top + 'px',
-			'width': rectangle.width + 'px',
-			'height': rectangle.height + 'px',
-			'fill': Haeckel.WHITE.hex,
-			'stroke': Haeckel.BLACK.hex,
-			'stroke-width': '1px',
-			'stroke-linejoin': 'miter'
-		});
-	group.child(Haeckel.SVG_NS, 'text')
-		.text('fossil gaps')
-		.attrs(Haeckel.SVG_NS, {
-			'x': (area.left + area.width / 4) + 'px',
-			'y': (area.top + area.height * 21 / (rows * 8)) + 'px',
-			'text-anchor': 'left',
-			'font-family': 'Myriad Pro',
-			'font-size': fontSize
-		});
-
-	if (includeInferredAncestor)
+	if (settings.specimens)
 	{
-		rectangle = Haeckel.rec.create(area.left + area.width * 3 / 32, area.top + area.height * 25 / (rows * 8),
-				area.width / 16, area.height * 3 / (rows * 4))
+		var rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + offset + rowHeight / 4,
+				area.width / 12, rowHeight / 2);
+		group.child(Haeckel.SVG_NS, 'rect')
+			.attrs(Haeckel.SVG_NS, {
+				'x': rectangle.left + 'px',
+				'y': rectangle.top + 'px',
+				'width': rectangle.width + 'px',
+				'height': rectangle.height + 'px',
+				'fill': Haeckel.BLACK.hex,
+				'stroke': 'none'
+			});
+		group.child(Haeckel.SVG_NS, 'text')
+			.text('specimens')
+			.attrs(Haeckel.SVG_NS, {
+				'x': (area.left + area.width / 4) + 'px',
+				'y': (area.top + offset + rowHeight * 5 / 8) + 'px',
+				'text-anchor': 'left',
+				'font-family': 'Myriad Pro',
+				'font-size': fontSize
+			});
+		offset += rowHeight;
+	}
+
+	if (settings.gaps)
+	{
+		rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + offset + rowHeight / 4,
+				area.width / 12, rowHeight / 2);
+		group.child(Haeckel.SVG_NS, 'rect')
+			.attrs(Haeckel.SVG_NS, {
+				'x': rectangle.left + 'px',
+				'y': rectangle.top + 'px',
+				'width': rectangle.width + 'px',
+				'height': rectangle.height + 'px',
+				'fill': Haeckel.WHITE.hex,
+				'stroke': Haeckel.BLACK.hex,
+				'stroke-width': '1px',
+				'stroke-linejoin': 'miter'
+			});
+		group.child(Haeckel.SVG_NS, 'text')
+			.text('fossil gap')
+			.attrs(Haeckel.SVG_NS, {
+				'x': (area.left + area.width / 4) + 'px',
+				'y': (area.top + offset + rowHeight * 5 / 8) + 'px',
+				'text-anchor': 'left',
+				'font-family': 'Myriad Pro',
+				'font-size': fontSize
+			});
+		offset += rowHeight;
+	}
+
+	if (settings.ancestors)
+	{
+		rectangle = Haeckel.rec.create(area.left + area.width * 3 / 32, area.top + offset + rowHeight / 8,
+				area.width / 16, rowHeight * 3 / 4)
 		group.child(Haeckel.SVG_NS, 'path')
 			.attrs(Haeckel.SVG_NS, {
 				'd': 'M' + [rectangle.centerX, rectangle.top].join(' ')
@@ -364,34 +396,37 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeI
 			.text('inferred ancestor')
 			.attrs(Haeckel.SVG_NS, {
 				'x': (area.left + area.width / 4) + 'px',
-				'y': (area.top + area.height * 29 / (rows * 8)) + 'px',
+				'y': (area.top + offset + rowHeight * 5 / 8) + 'px',
 				'text-anchor': 'left',
 				'font-family': 'Myriad Pro',
 				'font-size': fontSize
 			});
+		offset += rowHeight;
 	}
 
-	var offset = includeInferredAncestor ? (area.height / rows) : 0;
-
-	group.child(Haeckel.SVG_NS, 'path')
-		.attrs(Haeckel.SVG_NS, {
-			'd': 'M' + [area.left + area.width / 8, area.top + area.height * 13 / (rows * 4) + offset].join(' ')
-				+ 'V' + (area.top + area.height * 15 / (rows * 4) + offset),
-			'stroke': Haeckel.BLACK.hex,
-			'fill': 'none',
-			'stroke-linecap': 'round',
-			'stroke-dasharray': '2 4',
-			'stroke-width': '2px'
-		});
-	group.child(Haeckel.SVG_NS, 'text')
-		.text('inferred lineage')
-		.attrs(Haeckel.SVG_NS, {
-			'x': (area.left + area.width / 4) + 'px',
-			'y': (area.top + area.height * 29 / (rows * 8) + offset) + 'px',
-			'text-anchor': 'left',
-			'font-family': 'Myriad Pro',
-			'font-size': fontSize
-		});
+	if (settings.lineages)
+	{
+		group.child(Haeckel.SVG_NS, 'path')
+			.attrs(Haeckel.SVG_NS, {
+				'd': 'M' + [area.left + area.width / 8, area.top + offset + rowHeight / 4].join(' ')
+					+ 'v' + (rowHeight / 2),
+				'stroke': Haeckel.BLACK.hex,
+				'fill': 'none',
+				'stroke-linecap': 'round',
+				'stroke-dasharray': '2 4',
+				'stroke-width': '2px'
+			});
+		group.child(Haeckel.SVG_NS, 'text')
+			.text('inferred lineage')
+			.attrs(Haeckel.SVG_NS, {
+				'x': (area.left + area.width / 4) + 'px',
+				'y': (area.top + offset + rowHeight * 5 / 8) + 'px',
+				'text-anchor': 'left',
+				'font-family': 'Myriad Pro',
+				'font-size': fontSize
+			});
+		//offset += rowHeight;
+	}
 }
 
 function background(builder: Haeckel.ElementBuilder)
