@@ -86,7 +86,7 @@
 				["mt-Pan*", "Pan troglodytes"],
 				["mt-Homo*", "mt-HomoA*"],
 				["mt-Homo*", "mt-HomoB*"],
-				["mt-HomoA*", "Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+				["mt-HomoA*", "Homo heidelbergensis steinheimensis (Sima de los Huesos)"],
 				["mt-HomoA*", "Homo sp. (Denisova)"],
 				["mt-HomoB*", "Homo neanderthalensis neanderthalensis"],
 				["mt-HomoB*", "mt-MRCA"]
@@ -199,14 +199,16 @@
 																			"Homo heidelbergensis daliensis",
 																			"Homo heidelbergensis mabaensis",
 																			"Homo heidelbergensis heidelbergensis",
-																			"Homo sp. (Denisova)",
 																			[
 																				"Homo heidelbergensis mauritanicus",
 																				"Homo heidelbergensis rhodesiensis",
 																				"Homo sapiens"
 																			],
 																			[
-																				"Homo heidelbergensis steinheimensis",
+																				[
+																					"Homo heidelbergensis steinheimensis",
+																					"Homo sp. (Denisova)"
+																				],
 																				[
 																					"Homo neanderthalensis ssp. (Early)",
 																					[

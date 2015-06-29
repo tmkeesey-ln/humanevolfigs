@@ -207,7 +207,7 @@ module.exports = function(grunt)
 			},
 			phyloChron:
 			{
-				src: [ 'src/phyloChron.fig.ts' ],
+				src: [ 'src/chron.ts', 'src/mtChron.ts', 'src/morphChron.ts', 'src/phyloChron.fig.ts' ],
 				dest: 'src/phyloChron.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
