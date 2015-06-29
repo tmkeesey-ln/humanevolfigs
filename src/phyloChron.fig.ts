@@ -12,10 +12,6 @@ var MARGIN = 25;
 
 var TOP_MARGIN = 200;
 
-var KEY_WIDTH = 600;
-
-var KEY_HEIGHT = 600;
-
 var DIVIDER_COLUMN = 16;
 
 var FIGURE_TO_RENDER: Haeckel.Figure = 
@@ -23,7 +19,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 	height: FIGURE_HEIGHT,
 	width: FIGURE_WIDTH,
 
-	sources: MT_SOURCES.concat(MORPH_SOURCES),
+	sources: SOURCES,
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>
 	{
@@ -39,7 +35,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				entry.column += DIVIDER_COLUMN;
 			}
 
-			var bgGroup: Haeckel.ElementBuilder;
+			var bgGroup= builder.child(Haeckel.SVG_NS, 'g');
 			var timesGroup: Haeckel.ElementBuilder;
 			var dividerX: number;
 			var colTracker = { max: 1 };
@@ -52,20 +48,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				var width = height * 1.618034;
 				height *= 5 / 4;
 				return Haeckel.rec.create((FIGURE_WIDTH - width) / 2 - 50, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
-			}
-
-			function background()
-			{
-				bgGroup = builder.child(Haeckel.SVG_NS, 'g');
-				bgGroup.child(Haeckel.SVG_NS, 'rect')
-					.attrs(Haeckel.SVG_NS, {
-						fill: Haeckel.WHITE.hex,
-						stroke: 'none',
-						x: '0px',
-						y: '0px',
-						width: FIGURE_WIDTH + 'px',
-						height: FIGURE_HEIGHT + 'px'
-					});
 			}
 
 			function divider()
@@ -112,7 +94,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.attrs(Haeckel.SVG_NS, STYLE);
 			}
 			
-			background();
+			background(bgGroup);
 			timesGroup = builder.child(Haeckel.SVG_NS, 'g');
 			mtChart(builder, sources, mtTaxonEntries, AREA, TIME, colTracker.max);
 			morphChart(builder, sources, morphTaxonEntries, AREA, TIME, colTracker.max);

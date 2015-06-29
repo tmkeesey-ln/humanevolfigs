@@ -19,7 +19,14 @@ var SOURCES: string[] = [
 	'data/compiled/characters.json',
 	'data/compiled/nomenclature.json',
 	'data/compiled/phylogeny.json',
-	'data/2014 - ICS.json'
+
+	'data/2014 - ICS.json',
+
+	'data/1996 - Zhi & al.json',
+	'data/2006 - Steiper & Young.json',
+	'data/2012 - Langergraber & al.json',
+	'data/2013 - Fu & al.json',
+	'data/2014 - Meyer & al.json'
 ];
 
 var TIME = Haeckel.rng.create(-20000000, 0);
@@ -266,7 +273,7 @@ function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureA
 	}
 }
 
-function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeGaps: boolean = false)
+function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeInferredAncestor: boolean = false)
 {
 	group.child(Haeckel.SVG_NS, 'rect')
 		.attrs(Haeckel.SVG_NS, {
@@ -279,7 +286,7 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeG
 			'stroke-width': '2px',
 			'stroke-linejoin': 'miter'
 		});
-	var rows = includeGaps ? 5 : 4;
+	var rows = includeInferredAncestor ? 5 : 4;
 	var fontSize = (area.height / (2 * rows)) + 'px';
 	group.child(Haeckel.SVG_NS, 'text')
 		.text('LEGEND')
@@ -313,58 +320,58 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeG
 			'font-size': fontSize
 		});
 
-	var offset = includeGaps ? (area.height / rows) : 0;
+	rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + area.height * 9 / (rows * 4),
+			area.width / 12, area.height / (rows * 2));
+	group.child(Haeckel.SVG_NS, 'rect')
+		.attrs(Haeckel.SVG_NS, {
+			'x': rectangle.left + 'px',
+			'y': rectangle.top + 'px',
+			'width': rectangle.width + 'px',
+			'height': rectangle.height + 'px',
+			'fill': Haeckel.WHITE.hex,
+			'stroke': Haeckel.BLACK.hex,
+			'stroke-width': '1px',
+			'stroke-linejoin': 'miter'
+		});
+	group.child(Haeckel.SVG_NS, 'text')
+		.text('fossil gaps')
+		.attrs(Haeckel.SVG_NS, {
+			'x': (area.left + area.width / 4) + 'px',
+			'y': (area.top + area.height * 21 / (rows * 8)) + 'px',
+			'text-anchor': 'left',
+			'font-family': 'Myriad Pro',
+			'font-size': fontSize
+		});
 
-	if (includeGaps)
+	if (includeInferredAncestor)
 	{
-		rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + area.height * 9 / (rows * 4),
-				area.width / 12, area.height / (rows * 2));
-		group.child(Haeckel.SVG_NS, 'rect')
+		rectangle = Haeckel.rec.create(area.left + area.width * 3 / 32, area.top + area.height * 25 / (rows * 8),
+				area.width / 16, area.height * 3 / (rows * 4))
+		group.child(Haeckel.SVG_NS, 'path')
 			.attrs(Haeckel.SVG_NS, {
-				'x': rectangle.left + 'px',
-				'y': rectangle.top + 'px',
-				'width': rectangle.width + 'px',
-				'height': rectangle.height + 'px',
-				'fill': Haeckel.WHITE.hex,
+				'd': 'M' + [rectangle.centerX, rectangle.top].join(' ')
+					+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.right, rectangle.centerY].join(' ')
+					+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.bottom].join(' ')
+					+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
+					+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
+					+ 'Z',
+				'fill': Haeckel.BLACK.hex,
 				'stroke': Haeckel.BLACK.hex,
 				'stroke-width': '1px',
 				'stroke-linejoin': 'miter'
 			});
 		group.child(Haeckel.SVG_NS, 'text')
-			.text('fossil gaps')
+			.text('inferred ancestor')
 			.attrs(Haeckel.SVG_NS, {
 				'x': (area.left + area.width / 4) + 'px',
-				'y': (area.top + area.height * 21 / (rows * 8)) + 'px',
+				'y': (area.top + area.height * 29 / (rows * 8)) + 'px',
 				'text-anchor': 'left',
 				'font-family': 'Myriad Pro',
 				'font-size': fontSize
 			});
 	}
 
-	rectangle = Haeckel.rec.create(area.left + area.width * 3 / 32, area.top + area.height * 17 / (rows * 8) + offset,
-			area.width / 16, area.height * 3 / (rows * 4))
-	group.child(Haeckel.SVG_NS, 'path')
-		.attrs(Haeckel.SVG_NS, {
-			'd': 'M' + [rectangle.centerX, rectangle.top].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.right, rectangle.centerY].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.bottom].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
-				+ 'Z',
-			'fill': Haeckel.BLACK.hex,
-			'stroke': Haeckel.BLACK.hex,
-			'stroke-width': '1px',
-			'stroke-linejoin': 'miter'
-		});
-	group.child(Haeckel.SVG_NS, 'text')
-		.text('inferred ancestor')
-		.attrs(Haeckel.SVG_NS, {
-			'x': (area.left + area.width / 4) + 'px',
-			'y': (area.top + area.height * 21 / (rows * 8) + offset) + 'px',
-			'text-anchor': 'left',
-			'font-family': 'Myriad Pro',
-			'font-size': fontSize
-		});
+	var offset = includeInferredAncestor ? (area.height / rows) : 0;
 
 	group.child(Haeckel.SVG_NS, 'path')
 		.attrs(Haeckel.SVG_NS, {
@@ -386,4 +393,18 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, includeG
 			'font-size': fontSize
 		});
 }
+
+function background(builder: Haeckel.ElementBuilder)
+{
+	builder.child(Haeckel.SVG_NS, 'rect')
+		.attrs(Haeckel.SVG_NS, {
+			fill: Haeckel.WHITE.hex,
+			stroke: 'none',
+			x: '0px',
+			y: '0px',
+			width: FIGURE_WIDTH + 'px',
+			height: FIGURE_HEIGHT + 'px'
+		});
+}
+
 

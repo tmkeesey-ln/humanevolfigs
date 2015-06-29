@@ -199,6 +199,12 @@ module.exports = function(grunt)
 				dest: 'src/matrixExtant.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			morphChron:
+			{
+				src: [ 'src/chron.ts', 'src/morphChron.ts', 'src/morphChron.fig.ts' ],
+				dest: 'src/morphChron.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			mtDNA:
 			{
 				src: [ 'src/haploMap.ts', 'src/mtDNA.fig.ts' ],
@@ -264,6 +270,7 @@ module.exports = function(grunt)
 			geoChron: {},
 			matrix: {},
 			matrixExtant: {},
+			morphChron: {},
 			mtDNA: {},
 			phyloChron: {},
 			softTissue: {},
@@ -288,6 +295,7 @@ module.exports = function(grunt)
 			//geoChron: {},
 			matrix: {},
 			//matrixExtant: {},
+			morphChron: {},
 			mtDNA: {},
 			phyloChron: {},
 			//softTissue: {},

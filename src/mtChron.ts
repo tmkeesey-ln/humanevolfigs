@@ -74,14 +74,6 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	}
 };
 
-var MT_SOURCES = SOURCES.concat([
-	'data/1996 - Zhi & al.json',
-	'data/2006 - Steiper & Young.json',
-	'data/2012 - Langergraber & al.json',
-	'data/2013 - Fu & al.json',
-	'data/2014 - Meyer & al.json'
-]);
-
 function mtChart(builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, taxonEntries: { [taxonHash: string]: TaxonEntry; }, area: Haeckel.Rectangle, time: Haeckel.Range, maxColumn: number)
 {
 	var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['mtDNA'];

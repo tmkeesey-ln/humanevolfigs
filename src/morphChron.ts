@@ -83,8 +83,6 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 	}
 };
 
-var MORPH_SOURCES = SOURCES.concat();
-
 function morphChart(builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, taxonEntries: { [taxonHash: string]: TaxonEntry; }, area: Haeckel.Rectangle, time: Haeckel.Range, maxColumn: number)
 {
 	var phylogeny = sources.sources['data/compiled/phylogeny.json'].phylogenies['morphology'];
