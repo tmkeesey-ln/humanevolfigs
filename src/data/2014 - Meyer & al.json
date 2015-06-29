@@ -17,7 +17,7 @@
 			[
 				"Pan",
 				[
-					["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+					["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
 					["Homo neanderthalensis neanderthalensis", "mt-MRCA"]
 				]
 			]
@@ -26,7 +26,7 @@
 	    {
 	    	"Table1-strict": [
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)"],
 	    			"time": [-600000, -180000]
 	    		},
 	    		{
@@ -34,18 +34,18 @@
 	    			"time": [-690000, -350000]
 	    		},
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)",
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)",
 	    				"Homo neanderthalensis neanderthalensis", "mt-MRCA"],
 	    			"time": [-1330000, -700000]
 	    		},
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
 	    			"time": [-1010000, -500000]
 	    		}
 	    	],
 	    	"Table1-inclusive": [
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)"],
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)"],
 	    			"time": [-590000, -160000]
 	    		},
 	    		{
@@ -53,12 +53,12 @@
 	    			"time": [-720000, -360000]
 	    		},
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)",
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)",
 	    				"Homo neanderthalensis neanderthalensis", "mt-MRCA"],
 	    			"time": [-1410000, -720000]
 	    		},
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
 	    			"time": [-1060000, -510000]
 	    		}
 	    	],
@@ -72,12 +72,12 @@
 	    			"time": [-610000, -290000]
 	    		},
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)",
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)",
 	    				"Homo neanderthalensis neanderthalensis", "mt-MRCA"],
 	    			"time": [-1110000, -540000]
 	    		},
 	    		{
-	    			"taxa": ["Homo heidelbergensis heidelbergensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
+	    			"taxa": ["Homo heidelbergensis steinheimensis (Sima de los Huesos)", "Homo sp. (Denisova)"],
 	    			"time": [-920000, -400000]
 	    		}
 	    	]
