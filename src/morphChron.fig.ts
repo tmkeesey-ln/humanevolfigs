@@ -34,6 +34,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			{
 				var height = FIGURE_HEIGHT / 8;
 				var width = height * 1.618034;
+				height *= 4 / 5;
 				return Haeckel.rec.create(AREA.right - width - 60, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
 			}
 
@@ -47,8 +48,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				{
 					specimens: true,
 					ancestors: false,
-					lineages: true,
-					gaps: true
+					lineages: true
 				});
 		}
 		catch (e)

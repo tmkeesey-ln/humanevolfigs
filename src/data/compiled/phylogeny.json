@@ -49,21 +49,14 @@
 			[
 				["Hominidae*", "Dryopithecinae"],
 				["Hominidae*", "stem-orangutans"],
-				["Hominidae*", "pan-Homininae*"],
-				["pan-Homininae*", "stem-hominines"],
-				["pan-Homininae*", "Homininae*"],
-				["stem-orangutans", "fossil orangutans"],
-				["fossil orangutans", "Pongo abelii"],
-				["fossil orangutans", "Pongo pygmaeus"],
-				["Homininae*", "Gorilla*"],
+				["stem-orangutans", "orangutans"],
+				["Hominidae*", "Pan-Homininae*"],
+				["Pan-Homininae*", "stem-hominines"],
+				["Pan-Homininae*", "Homininae*"],
+				["Homininae*", "Gorilla"],
 				["Homininae*", "Hominini*"],
-				["Gorilla*", "Gorilla beringei"],
-				["Gorilla*", "Gorilla gorilla"],
-				["Hominini*", "Pan*"],
+				["Hominini*", "Pan"],
 				["Hominini*", "ardipithecines"],
-				["Pan*", "Pan sp."],
-				["Pan*", "Pan paniscus"],
-				["Pan*", "Pan troglodytes"],
 				["ardipithecines", "australopithecines"],
 				["australopithecines", "habilines"],
 				["habilines", "Homo floresiensis"],
@@ -89,7 +82,8 @@
 				["mt-HomoA*", "Homo heidelbergensis steinheimensis (Sima de los Huesos)"],
 				["mt-HomoA*", "Homo sp. (Denisova)"],
 				["mt-HomoB*", "Homo neanderthalensis neanderthalensis"],
-				["mt-HomoB*", "mt-MRCA"]
+				["mt-HomoB*", "mt-MRCA"],
+				["mt-MRCA", "living humans"]
 			]
 		},
 		"topologies":

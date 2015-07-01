@@ -158,10 +158,10 @@ function createArcRenderer(useSides?: boolean)
 		}
 		else
 		{
-			var startX = useSides
+			var sourceY = getSourceY(sourceRect, targetRect);
+			var startX = (useSides && sourceY === sourceRect.centerY)
 				? (targetRect.centerX < sourceRect.centerX ? sourceRect.left : sourceRect.right)
 				: sourceRect.centerX;
-			var sourceY = getSourceY(sourceRect, targetRect);
 			var targetY = Math.min(targetRect.bottom, sourceY);
 			data += [startX, sourceY].join(' ')
 				+ 'Q' + [targetRect.centerX, sourceY, targetRect.centerX, targetY];
@@ -377,8 +377,21 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, settings
 
 	if (settings.ancestors)
 	{
-		rectangle = Haeckel.rec.create(area.left + area.width * 3 / 32, area.top + offset + rowHeight / 8,
-				area.width / 16, rowHeight * 3 / 4)
+		var rectangle = Haeckel.rec.create(area.left + area.width / 12, area.top + offset + rowHeight / 4,
+				area.width / 12, rowHeight / 2);
+		group.child(Haeckel.SVG_NS, 'ellipse')
+			.attrs(Haeckel.SVG_NS, {
+				'cx': rectangle.centerX + 'px',
+				'cy': rectangle.centerY + 'px',
+				'rx': (rectangle.width / 2) + 'px',
+				'ry': (rectangle.height / 2) + 'px',
+				'fill': '#D0D0D0',
+				'stroke': Haeckel.BLACK.hex,
+				'stroke-dasharray': '4 2',
+				'stroke-width': '2px',
+				'stroke-linejoin': 'miter'
+			});
+		/*
 		group.child(Haeckel.SVG_NS, 'path')
 			.attrs(Haeckel.SVG_NS, {
 				'd': 'M' + [rectangle.centerX, rectangle.top].join(' ')
@@ -392,6 +405,7 @@ function legend(group: Haeckel.ElementBuilder, area: Haeckel.Rectangle, settings
 				'stroke-width': '1px',
 				'stroke-linejoin': 'miter'
 			});
+		*/
 		group.child(Haeckel.SVG_NS, 'text')
 			.text('inferred ancestor')
 			.attrs(Haeckel.SVG_NS, {

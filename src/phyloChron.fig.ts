@@ -12,8 +12,6 @@ var MARGIN = 25;
 
 var TOP_MARGIN = 200;
 
-var DIVIDER_COLUMN = 16;
-
 var FIGURE_TO_RENDER: Haeckel.Figure = 
 {
 	height: FIGURE_HEIGHT,
@@ -29,24 +27,23 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			var AREA = Haeckel.rec.create(MARGIN, TOP_MARGIN, FIGURE_WIDTH - MARGIN * 2, FIGURE_HEIGHT - MARGIN - TOP_MARGIN);
 			var FIGURE_AREA = Haeckel.rec.create(0, 0, FIGURE_WIDTH, FIGURE_HEIGHT);
 
-			for (var prop in MT_NAME_ENTRIES)
-			{
-				var entry = MT_NAME_ENTRIES[prop];
-				entry.column += DIVIDER_COLUMN;
-			}
-
 			var bgGroup= builder.child(Haeckel.SVG_NS, 'g');
 			var timesGroup: Haeckel.ElementBuilder;
 			var dividerX: number;
 			var colTracker = { max: 1 };
 			var morphTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(sources.nomenclature, MORPH_NAME_ENTRIES, colTracker);
+			var dividerColumn = ++colTracker.max;
+			for (var prop in MT_NAME_ENTRIES)
+			{
+				var entry = MT_NAME_ENTRIES[prop];
+				entry.column += dividerColumn;
+			}
 			var mtTaxonEntries: { [taxonHash: string]: TaxonEntry; } = toTaxonEntries(sources.nomenclature, MT_NAME_ENTRIES, colTracker);
 
 			function legendArea()
 			{
 				var height = FIGURE_HEIGHT / 8;
 				var width = height * 1.618034;
-				height *= 5 / 4;
 				return Haeckel.rec.create((FIGURE_WIDTH - width) / 2 - 50, FIGURE_HEIGHT - MARGIN * 2 - height, width, height);
 			}
 
@@ -98,7 +95,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			timesGroup = builder.child(Haeckel.SVG_NS, 'g');
 			mtChart(builder, sources, mtTaxonEntries, AREA, TIME, colTracker.max);
 			morphChart(builder, sources, morphTaxonEntries, AREA, TIME, colTracker.max);
-			dividerX = AREA.left + AREA.width * (DIVIDER_COLUMN + 0.5) / (colTracker.max + 2);
+			dividerX = AREA.left + AREA.width * (dividerColumn + 0.5) / (colTracker.max + 2);
 			times(timesGroup, Haeckel.ext.list(sources.sources['data/2014 - ICS.json'].strata), FIGURE_AREA, AREA, TIME, TIME_INCREMENT);
 			divider();
 			sectionTitles();
@@ -108,8 +105,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				{
 					specimens: true,
 					ancestors: true,
-					lineages: true,
-					gaps: true
+					lineages: true
 				}
 			);
 		}

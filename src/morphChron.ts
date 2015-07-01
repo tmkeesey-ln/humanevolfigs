@@ -1,85 +1,62 @@
 /// <reference path="chron.ts"/>
 
 var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
-	"Bornean orangutans": {
+	"orangutans": {
 		column: 0
 	},
-	"fossil orangutans": {
+	"stem-orangutans": {
 		column: 1
 	},
-	"Sumatran orangutans": {
-		column: 2
-	},
-	"stem-orangutans": {
-		column: 3
-	},
 	"Hominidae*": {
-		column: 4,
+		column: 2,
 		ancestral: true
 	},
 	"Dryopithecinae": {
 		name: "Dryopithecines",
-		column: 4
+		column: 2
 	},
-	"western gorillas": {
-		column: 5
+	"Pan-Homininae*": {
+		column: 3,
+		ancestral: true
 	},
 	"stem-hominines": {
-		column: 5
+		column: 3
 	},
-	"pan-Homininae*": {
+	"Homininae*": {
+		column: 4,
+		ancestral: true
+	},
+	"gorillas": {
+		column: 4
+	},
+	"Hominini*": {
 		column: 5,
 		ancestral: true
 	},
-	"Homininae*": {
-		column: 6,
-		ancestral: true
-	},
-	"Gorilla*": {
-		column: 6,
-		ancestral: true
-	},
-	"eastern gorillas": {
-		column: 6
-	},
-	"Hominini*": {
-		column: 8,
-		ancestral: true
-	},
-	"Pan*": {
-		column: 8,
-		ancestral: true
-	},
-	"bonobo chimpanzees": {
-		column: 7
-	},
-	"fossil chimpanzees": {
-		column: 8
-	},
-	"common chimpanzees": {
-		column: 9
+	"chimpanzees": {
+		column: 5
 	},
 	"ardipithecines": {
-		column: 9
+		column: 6
 	},
 	"australopithecines": {
-		column: 10
+		column: 7
 	},
 	"habilines": {
-		column: 11
+		column: 8
 	},
 	"Floresian \"hobbits\"": {
-		column: 12,
+		column: 9,
 		italic: false
 	},
 	"erectines": {
-		column: 13
+		column: 10
 	},
 	"archaics": {
-		column: 14
+		column: 11
 	},
 	"humans": {
-		column: 15
+		column: 12
 	}
 };
 
@@ -140,30 +117,64 @@ function morphChart(builder: Haeckel.ElementBuilder, sources: Haeckel.DataSource
 			else
 			{
 				var group = builder.child(Haeckel.SVG_NS, 'g');
+
+				/*
 				group.child(Haeckel.SVG_NS, 'rect')
 					.attrs(Haeckel.SVG_NS, {
 						'x': rectangle.left + 'px',
 						'y': rectangle.top + 'px',
 						'width': rectangle.width + 'px',
 						'height': rectangle.height + 'px',
-						'fill': Haeckel.WHITE.hex,
-						'stroke': Haeckel.BLACK.hex,
-						'stroke-width': '1px',
-						'stroke-linejoin': 'miter'
+						'fill': Haeckel.BLACK.hex,
+						'stroke': 'none'
 					});
+				*/
+				//var yMin = NaN;
 				var taxonOccurrences = <Haeckel.ExtSet<Haeckel.Occurrence>> Haeckel.chr.states(occurrences, taxon, Haeckel.OCCURRENCE_CHARACTER);
-				Haeckel.ext.each(taxonOccurrences, occurrence => {
-					var timeY = chart.getTimeY(occurrence.time);
+				Haeckel.ext.each(taxonOccurrences, occ => {
+					var y = chart.getTimeY(occ.time);
+					var height = occ.count.min;
+					y = Haeckel.rng.intersect(y, Haeckel.rng.create(y.mean - height / 2, y.mean + height / 2));
+					if (y.size < 2)
+					{
+						y = Haeckel.rng.create(Math.max(0, y.mean - 1), y.mean + 1);
+					}
+					if (y.empty)
+					{
+						return;
+					}
+					//yMin = isNaN(yMin) ? y.mean : Math.min(yMin, y.mean);
 					group.child(Haeckel.SVG_NS, 'rect')
 						.attrs(Haeckel.SVG_NS, {
 							'x': rectangle.left + 'px',
-							'y': timeY.min + 'px',
+							'y': y.min + 'px',
 							'width': rectangle.width + 'px',
-							'height': timeY.size + 'px',
+							'height': y.size + 'px',
 							'fill': Haeckel.BLACK.hex,
 							'stroke': 'none'
 						});
 				});
+				group.child(Haeckel.SVG_NS, 'path')
+					.attrs(Haeckel.SVG_NS, {
+						'd': 'M' + rectangle.centerX + ' ' + (rectangle.top + 1) + 'V' + rectangle.bottom,
+						'stroke': Haeckel.BLACK.hex,
+						'stroke-dasharray': '2 4',
+						'stroke-width': '2px',
+						'stroke-linecap': 'round',
+						'fill': 'none'
+					});
+
+				/*
+				group.child(Haeckel.SVG_NS, 'rect')
+					.attrs(Haeckel.SVG_NS, {
+						'x': rectangle.left + 'px',
+						'y': rectangle.top + 'px',
+						'width': rectangle.width + 'px',
+						'height': rectangle.height + 'px',
+						'fill': Haeckel.BLACK.hex,
+						'stroke': 'none'
+					});
+				*/
 				labelTaxon(group, entry, rectangle, true);
 			}
 		}

@@ -60,7 +60,7 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 6
 	},
 	"Homo sp. (Denisova)": {
-		name: "Denisova",
+		name: "Denisovans",
 		column: 7
 	},
 	"Homo neanderthalensis neanderthalensis": {
@@ -71,8 +71,43 @@ var MT_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 9,
 		name: "Mitochondrial \"Eve\"",
 		ancestral: true
+	},
+	"living humans": {
+		column: 10
 	}
 };
+
+function ancestralNodePath(rectangle: Haeckel.Rectangle): string
+{
+	/*
+	return 'M' + [rectangle.centerX, rectangle.top].join(' ')
+		+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.right, rectangle.centerY].join(' ')
+		+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.bottom].join(' ')
+		+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
+		+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
+		+ 'Z';
+	*/
+	var cx = rectangle.centerX;
+	var cy = rectangle.centerY;
+	var t = rectangle.top;
+	var l = rectangle.left;
+	var b = rectangle.bottom;
+	var r = rectangle.right;
+	var lcx = (l + cx) / 2;
+	var rcx = (r + cx) / 2;
+	var tcy = (t + cy) / 2;
+	var bcy = (b + cy) / 2;
+	return 'M' + [cx, t].join(' ')
+		+ 'Q' + [cx, tcy, lcx, tcy].join(' ')
+		+ 'Q' + [l, tcy, l, cy].join(' ')
+		+ 'Q' + [l, bcy, lcx, bcy].join(' ')
+		+ 'Q' + [cx, bcy, cx, b].join(' ')
+		+ 'Q' + [cx, bcy, rcx, bcy].join(' ')
+		+ 'Q' + [r, bcy, r, cy].join(' ')
+		+ 'Q' + [r, tcy, rcx, tcy].join(' ')
+		+ 'Q' + [cx, tcy, cx, t].join(' ')
+		+ 'Z';
+}
 
 function mtChart(builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, taxonEntries: { [taxonHash: string]: TaxonEntry; }, area: Haeckel.Rectangle, time: Haeckel.Range, maxColumn: number)
 {
@@ -125,7 +160,7 @@ function mtChart(builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, 
 					'x': rectangle.left + 'px',
 					'y': rectangle.top + 'px',
 					'width': rectangle.width + 'px',
-					'height': rectangle.height + 'px',
+					'height': Math.max(2, rectangle.height) + 'px',
 					'fill': Haeckel.BLACK.hex,
 					'stroke': 'none'
 				});
@@ -133,18 +168,27 @@ function mtChart(builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, 
 		}
 		else
 		{
-			var data = 'M' + [rectangle.centerX, rectangle.top].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.right, rectangle.centerY].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.bottom].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.left, rectangle.centerY].join(' ')
-				+ 'Q' + [rectangle.centerX, rectangle.centerY, rectangle.centerX, rectangle.top].join(' ')
-				+ 'Z';
+			/*
 			group.child(Haeckel.SVG_NS, 'path')
 				.attrs(Haeckel.SVG_NS, {
-					'd': data,
-					'fill': Haeckel.BLACK.hex,
+					'd': ancestralNodePath(rectangle),
+					'fill': Haeckel.WHITE.hex,
 					'stroke': Haeckel.BLACK.hex,
-					'stroke-width': '1px',
+					'stroke-dasharray': '4 2',
+					'stroke-width': '2px',
+					'stroke-linejoin': 'miter'
+				});
+			*/
+			group.child(Haeckel.SVG_NS, 'ellipse')
+				.attrs(Haeckel.SVG_NS, {
+					'cx': rectangle.centerX + 'px',
+					'cy': rectangle.centerY + 'px',
+					'rx': (rectangle.width / 3) + 'px',
+					'ry': Math.max(2, (rectangle.height / 2)) + 'px',
+					'fill': '#D0D0D0',
+					'stroke': Haeckel.BLACK.hex,
+					'stroke-dasharray': '4 2',
+					'stroke-width': '2px',
 					'stroke-linejoin': 'miter'
 				});
 			if (entry.showName)
