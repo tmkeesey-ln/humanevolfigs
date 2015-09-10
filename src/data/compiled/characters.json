@@ -31,7 +31,8 @@
 							"Argue & al. 2009 #3",
 							"Mallegni & al. 2003 #18",
 							"Schwartz & Tattersall 2000, p. 369 (continuous in some early H. sapiens)",
-							"Collard & Wood #25"
+							"Collard & Wood #25",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -39,7 +40,8 @@
 						"states": ["opposable", "interm.", "not opposable"],
 						"references": [
 							"Kidd & al. 1996",
-							"Lovejoy & al. 2009"
+							"Lovejoy & al. 2009",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -49,7 +51,8 @@
 							"Simpson & al. 2008",
 							"Lovejoy & al. 2009",
 							"Schmid & al. 2013",
-							"Ward & al. 2015"
+							"Ward & al. 2015",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -59,7 +62,8 @@
 							"Johanson & Wong (2009), pp. 194–195",
 							"Lordkipanidze & al. (2013), Fig. 1D",
 							"Margvelashvili & al. (2013), Fig. 2",
-							"Villmoare & al. (2015)"
+							"Villmoare & al. (2015)",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -69,7 +73,8 @@
 							"Argue & al. 2009 #58",
 							"Schwartz & Tattersall 2000",
 							"Strait & Grine 2004 #45",
-							"Suwa & al. 2009 Fig. 2"
+							"Suwa & al. 2009 Fig. 2",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -77,14 +82,16 @@
 						"states": ["conical", "barrel-like"],
 						"references": [
 							"Schmid & al. 2013",
-							"Haile-Selassie & al. 2010, p. 12122"
+							"Haile-Selassie & al. 2010, p. 12122",
+							"Berger & al. 2015"
 						]
 					},
 					{
 						"name": "Canine Teeth",
 						"states": ["strongly\u000Adimorphic", "dimorphic", "small"],
 						"references": [
-							"Collard & Wood 2000 #92"
+							"Collard & Wood 2000 #92",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -124,7 +131,8 @@
 							"Argue & al., 2009 #8",
 							"Strait & Grine 2004 #63",
 							"Asfaw & al. 2009",
-							"pers. obs. from Suwa & al. (2009), Fig 2"
+							"pers. obs. from Suwa & al. (2009), Fig 2",
+							"Berger & al. 2015"
 						]
 					},
 					{
@@ -132,24 +140,25 @@
 						"states": ["wedge-shaped", "boot-shaped"],
 						"references": [
 							"Tocheri & al. 2007",
-							"pers. obs from Lovejoy & al. 2009, Fig. 1"
+							"pers. obs from Lovejoy & al. 2009, Fig. 1",
+							"Berger & al. 2015"
 						]
 					}
 				],
 				"scores":
 				{
-					"Pongo":                         [1,       0,    0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
-					"Gorilla":                       [0,       0,    0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
-					"Pan":                           [0,       0,    0, 0,     0,     0,    1,     0,    0,    0,    0,     0],
-					"Ardipithecus":                  [0,       0,    1, 1,     0,     null, 1,     2,    null, null, 0,     0],
-					"Praeanthropus":                 [0,       null, 1, 1,     [0,1], null, [1,2], 3,    0,    1,    0,     0],
-					"Australopithecus":              [[0,1],   1,    1, 1,     1,     0,    2,     3,    0,    null, 0,     0],
-					"Homo habilis & rudolfensis":    [[0,1],   1,    1, [1,2], [1,2], null, [1,2], 1,    null, null, [0,1], 0],
-					"Homo erectus & ergaster":       [[0,1],   2,    2, [1,2], 2,     1,    2,     3,    1,    2,    [0,1], null],
-					"Homo heidelbergensis":          [[0,1],   2,    2, 2,     2,     1,    2,     null, 1,    2,    1,     null],
-					"Homo neanderthalensis":         [[0,1],   2,    2, 2,     2,     1,    2,     3,    1,    2,    1,     1],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 2,    2, 2,     [2,3], 1,    2,     3,    1,    2,    1,     1],
-					"Homo sapiens sapiens (living)": [[1,2],   2,    2, 2,     3,     1,    2,     3,    1,    2,    1,     1]
+					"Pongo":                         [1,       0,     0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
+					"Gorilla":                       [0,       0,     0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
+					"Pan":                           [0,       0,     0, 0,     0,     0,    1,     0,    0,    0,    0,     0],
+					"Ardipithecus":                  [0,       0,     1, 1,     0,     null, 1,     2,    null, null, 0,     0],
+					"Praeanthropus":                 [0,       null,  1, 1,     [0,1], null, [1,2], 3,    0,    1,    0,     0],
+					"Australopithecus":              [[0,1],   1,     1, 1,     1,     0,    2,     3,    0,    null, 0,     0],
+					"habilines":                     [[0,1],   [1,2], 1, [1,2], [1,2], 0,    [1,2], 1,    null, null, [0,1], [0,1]],
+					"Homo erectus & ergaster":       [[0,1],   2,     2, [1,2], 2,     1,    2,     3,    1,    2,    [0,1], null],
+					"Homo heidelbergensis":          [[0,1],   2,     2, 2,     2,     1,    2,     null, 1,    2,    1,     null],
+					"Homo neanderthalensis":         [[0,1],   2,     2, 2,     2,     1,    2,     3,    1,    2,    1,     1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 2,     2, 2,     [2,3], 1,    2,     3,    1,    2,    1,     1],
+					"Homo sapiens sapiens (living)": [[1,2],   2,     2, 2,     3,     1,    2,     3,    1,    2,    1,     1]
 				}
 			}
 		},
@@ -1503,6 +1512,29 @@
 					"note": "maximum date from https://edocs.uis.edu/druez2/www/publications/MojokertoDiscoveryJHE.pdf [O.F. Huffman et al. / Journal of Human Evolution 50 (2006) 431e451]; minimum date unknown -- some tentative support for Early-Middle Pleistocene boundary"
 				}
 			],
+			"Homo naledi":
+			[
+				{
+					"count": 15,
+					"geo":
+					{
+						"Dinaledi chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
+					},
+					"time": [-2800000, -1740000],
+					"note": "Unit 3. Count is minimum. Date is an estimate based on other habilines, pending further research on the strata.",
+					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001"]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Dinaledi chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
+					},
+					"time": [-2800000, -1740000],
+					"note": "Unit 2. Taxonomic assignment tentative. Count is minimum. Date is an estimate based on other habilines, pending further research on the strata.",
+					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001"]
+				}
+			],
 			"Homo neanderthalensis ssp. (Early)":
 			[
 				{
@@ -1600,8 +1632,8 @@
 			"Homo neanderthalensis ssp. (Transitional)":
 			[
 				{
-					"count": 75,
-					"note": "Number approximate and conservative -- over 800 fossil elements",
+					"count": 23,
+					"note": "Minimum count -- over 800 fossil elements",
 					"time": [-130000, -120000],
 					"geo": {
 						"Krapina": [[46.16, 15.87]]
