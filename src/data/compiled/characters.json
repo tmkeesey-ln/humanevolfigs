@@ -147,18 +147,19 @@
 				],
 				"scores":
 				{
-					"Pongo":                         [1,       0,     0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
-					"Gorilla":                       [0,       0,     0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
-					"Pan":                           [0,       0,     0, 0,     0,     0,    1,     0,    0,    0,    0,     0],
-					"Ardipithecus":                  [0,       0,     1, 1,     0,     null, 1,     2,    null, null, 0,     0],
-					"Praeanthropus":                 [0,       null,  1, 1,     [0,1], null, [1,2], 3,    0,    1,    0,     0],
-					"Australopithecus":              [[0,1],   1,     1, 1,     1,     0,    2,     3,    0,    null, 0,     0],
-					"habilines":                     [[0,1],   [1,2], 1, [1,2], [1,2], 0,    [1,2], 1,    null, null, [0,1], [0,1]],
-					"Homo erectus & ergaster":       [[0,1],   2,     2, [1,2], 2,     1,    2,     3,    1,    2,    [0,1], null],
-					"Homo heidelbergensis":          [[0,1],   2,     2, 2,     2,     1,    2,     null, 1,    2,    1,     null],
-					"Homo neanderthalensis":         [[0,1],   2,     2, 2,     2,     1,    2,     3,    1,    2,    1,     1],
-					"Homo sapiens sapiens (fossil)": [[0,1,2], 2,     2, 2,     [2,3], 1,    2,     3,    1,    2,    1,     1],
-					"Homo sapiens sapiens (living)": [[1,2],   2,     2, 2,     3,     1,    2,     3,    1,    2,    1,     1]
+					"Pongo":                         [1,       0,    0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
+					"Gorilla":                       [0,       0,    0, 0,     0,     0,    0,     0,    0,    0,    0,     0],
+					"Pan":                           [0,       0,    0, 0,     0,     0,    1,     0,    0,    0,    0,     0],
+					"Ardipithecus":                  [0,       0,    1, 1,     0,     null, 1,     2,    null, null, 0,     0],
+					"Praeanthropus":                 [0,       null, 1, 1,     [0,1], null, [1,2], 3,    0,    1,    0,     0],
+					"Australopithecus":              [[0,1],   1,    1, 1,     1,     0,    2,     3,    0,    null, 0,     0],
+					"Homo habilis & rudolfensis":    [[0,1],   1,    1, [1,2], [1,2], null, [1,2], 1,    null, null, [0,1], 0],
+					"Homo naledi":                   [0,       2,    1, 2,     2,     0,    2,     null, null, null, 1,     1]],
+					"Homo erectus & ergaster":       [[0,1],   2,    2, [1,2], 2,     1,    2,     3,    1,    2,    [0,1], null],
+					"Homo heidelbergensis":          [[0,1],   2,    2, 2,     2,     1,    2,     null, 1,    2,    1,     null],
+					"Homo neanderthalensis":         [[0,1],   2,    2, 2,     2,     1,    2,     3,    1,    2,    1,     1],
+					"Homo sapiens sapiens (fossil)": [[0,1,2], 2,    2, 2,     [2,3], 1,    2,     3,    1,    2,    1,     1],
+					"Homo sapiens sapiens (living)": [[1,2],   2,    2, 2,     3,     1,    2,     3,    1,    2,    1,     1]
 				}
 			}
 		},
