@@ -27,31 +27,23 @@
 				["fossil orangutans", "Pongo khalkei"],
 				["fossil orangutans", "Pongo palaeosumatrensis"],
 				["fossil orangutans", "Pongo weidenreichi"],
-				["fossil orangutans", "Pongo (Pongo) indet."],
-				["stem African great apes", "Chororapithecus"],
-				["stem African great apes", "Graecopithecus"],
-				["stem African great apes", "Nakalipithecus"],
-				["stem African great apes", "Ouranopithecus"],
-				["stem African great apes", "Samburupithecus"],
-				["stem African great apes", "Udabnopithecus"]
+				["fossil orangutans", "Pongo (Pongo) indet."]
 			],
 			"synonymies":
 			[
 				["Hominidae*", "mt-Hominidae*"],
 				["Homininae*", "mt-Homininae*"],
-				["Hominini*", "mt-Hominini*"],
-				["stem African great apes", "stem-hominines"]
+				["Hominini*", "mt-Hominini*"]
 			]
 		},
 		"phyloGraphs":
 		{
 			"morphology":
 			[
-				["Hominidae*", "Dryopithecinae"],
 				["Hominidae*", "stem-orangutans"],
 				["stem-orangutans", "orangutans"],
 				["Hominidae*", "Pan-Homininae*"],
-				["Pan-Homininae*", "stem-hominines"],
+				["Pan-Homininae*", "Dryopithecinae"],
 				["Pan-Homininae*", "Homininae*"],
 				["Homininae*", "Gorilla"],
 				["Homininae*", "Hominini*"],
@@ -90,12 +82,6 @@
 		{
 			"allTaxa":
 			[
-				"Bodvapithecus",
-				"Hispanopithecus",
-				[
-					"Pierolapithecus",
-					["Dryopithecus", "Oreopithecus"]
-				],
 				[
 					"Lufengpithecus",
 					"Ponginae indet.",
@@ -110,12 +96,11 @@
 					]
 				],
 				[
-					"Chororapithecus",
-					"Graecopithecus",
-					"Nakalipithecus",
-					"Ouranopithecus",
-					"Samburupithecus",
-					"Udabnopithecus",
+					[
+						"Hispanopithecus",
+						"Pierolapithecus",
+						"Dryopithecus"
+					],
 					[
 						"Gorilla",
 						[
@@ -137,10 +122,10 @@
 												[
 													"Australopithecus deyiremeda",
 													"Australopithecus prometheus",
+													"Australopithecus sp.",
+													"Australopithecus indet.",
 													[
 														"Australopithecus africanus",
-														"Australopithecus sp.",
-														"Australopithecus indet.",
 														"Australopithecus sediba",
 														"Hominina indet. A",
 														[
@@ -200,15 +185,15 @@
 																				"Homo sapiens"
 																			],
 																			[
+																				"Homo sp. (Denisova)",
 																				[
 																					"Homo heidelbergensis steinheimensis",
-																					"Homo sp. (Denisova)"
-																				],
-																				[
-																					"Homo neanderthalensis ssp. (Early)",
 																					[
-																						"Homo neanderthalensis ssp. (Transitional)",
-																						"Homo neanderthalensis neanderthalensis"
+																						"Homo neanderthalensis ssp. (Early)",
+																						[
+																							"Homo neanderthalensis ssp. (Transitional)",
+																							"Homo neanderthalensis neanderthalensis"
+																						]
 																					]
 																				]
 																			]

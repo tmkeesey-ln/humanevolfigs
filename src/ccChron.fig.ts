@@ -318,6 +318,7 @@ function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haecke
 	addFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion'], ccChar);
 	addFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion'], ccChar);
 	addFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], ccChar);
+	addFromMatrix(sources.sources['data/2015 - Berger & al.json'].characterMatrices['text'], ccChar);
 	addFromMatrix(sources.sources['data/2015 - Spoor & al.json'].characterMatrices['text'], ccChar, 1, 0, true);
 
 	// Add living humans specially.
@@ -394,6 +395,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         'data/2010 - Berger & al.json',
         'data/2013 - Lordkipanidze & al.json',
         'data/2014 - ICS.json',
+        'data/2015 - Berger & al.json',
         'data/2015 - Spoor & al.json'
 	],
 

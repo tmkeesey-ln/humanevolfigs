@@ -1,18 +1,8 @@
 /// <reference path="ageFigure.ts"/>
 
-var FIGURE_WIDTH = 1000;
+var FIGURE_WIDTH = 500;
 
 var TAXA: AgeFigureTaxon[] = [
-	{
-		name: 'Ponginae',
-		label: 'pongines',
-		silhouette: 'assets/silhouettes/Lufengpithecus hudienensis.svg'
-	},
-	{
-		name: 'Oreopithecus',
-		italics: true,
-		silhouette: 'assets/silhouettes/Oreopithecus bambolii.svg'
-	},
 	{
 		name: 'Sahelanthropus',
 		italics: true,

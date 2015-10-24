@@ -11,52 +11,49 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 2,
 		ancestral: true
 	},
+	"Pan-Homininae*": {
+		column: 2,
+		ancestral: true
+	},
 	"Dryopithecinae": {
 		name: "Dryopithecines",
 		column: 2
 	},
-	"Pan-Homininae*": {
+	"Homininae*": {
 		column: 3,
 		ancestral: true
 	},
-	"stem-hominines": {
+	"gorillas": {
 		column: 3
 	},
-	"Homininae*": {
+	"Hominini*": {
 		column: 4,
 		ancestral: true
 	},
-	"gorillas": {
+	"chimpanzees": {
 		column: 4
 	},
-	"Hominini*": {
-		column: 5,
-		ancestral: true
-	},
-	"chimpanzees": {
+	"ardipithecines": {
 		column: 5
 	},
-	"ardipithecines": {
+	"australopithecines": {
 		column: 6
 	},
-	"australopithecines": {
+	"habilines": {
 		column: 7
 	},
-	"habilines": {
-		column: 8
-	},
 	"Floresian \"hobbits\"": {
-		column: 9,
+		column: 8,
 		italic: false
 	},
 	"erectines": {
-		column: 10
+		column: 9
 	},
 	"archaics": {
-		column: 11
+		column: 10
 	},
 	"humans": {
-		column: 12
+		column: 11
 	}
 };
 

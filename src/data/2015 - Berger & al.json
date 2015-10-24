@@ -1,0 +1,42 @@
+{
+	"metadata":
+	{
+		"authors": ["Lee R Berger", "John Hawks", "Darryl J de Ruiter", "Steven E Churchill", "Peter Schmid", "Lucas K Delezene", "Tracy L Kivell", "Heather M Garvin", "Scott A Williams", "Jeremy M DeSilva", "Matthew M Skinner", "Charles M Musiba", "Noel Cameron", "Trenton W Holliday", "William Harcourt-Smith", "Rebecca R Ackermann", "Markus Bastir", "Barry Bogin", "Debra Bolter", "Juliet Brophy", "Zachary D Cofran", "Kimberly A Congdon", "Andrew S Deane", "Mana Dembo", "Michelle Drapeau", "Marina C Elliott", "Elen M Feuerriegel", "Daniel Garcia-Martinez", "David J Green", "Alia Gurtov", "Joel D Irish", "Ashley Kruger", "Myra F Laird", "Damiano Marchi", "Marc R Meyer", "Shahed Nalla", "Enquye W Negash", "Caley M Orr", "Davorka Radovcic", "Lauren Schroeder", "Jill E Scott", "Zachary Throckmorton", "Matthew W Tocheri", "Caroline VanSickle", "Christopher S Walker", "Pianpian Wei", "Bernhard Zipfel"],
+		"year": 2015,
+		"title": "<i>Homo naledi</i>, a new species of the genus <i>Homo</i> from the Dinaledi Chamber, South Africa",
+		"journal": "eLife",
+		"volume": 4,
+		"pages": "e09560",
+	    "uri": "urn:doi:10.7554/eLife.09560"
+	},
+	"data":
+	{
+		"nomenclature": {
+			"hyponymies": [
+				["Homo naledi", "DH 1"],
+				["Homo naledi", "DH 2"],
+				["Homo naledi", "DH 3"],
+				["Homo naledi", "DH 4"]
+			]
+		},
+		"characterScores":
+		{
+			"text":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume"
+					}
+				],
+				"scores": {
+					"DH 1": [560],
+					"DH 2": [560],
+					"DH 3": [465],
+					"DH 4": [465]
+				}
+			}
+		}
+	}
+}
