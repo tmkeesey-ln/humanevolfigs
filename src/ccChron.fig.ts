@@ -62,25 +62,33 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		position: LabelPosition.BOTTOM_RIGHT
 	},
 	*/
+	/*
 	"Homo ergaster": {
 		italic: true,
 		position: LabelPosition.RIGHT_BOTTOM
 	},
+	*/
+	"erectines": {
+		position: LabelPosition.RIGHT_BOTTOM
+	},
 	/*
+	"Asian erectines": {
+		position: LabelPosition.RIGHT_BOTTOM
+	},
 	"Homo erectus": {
 		italic: true,
 		position: LabelPosition.TOP_LEFT
 	},
-	"Homo heidelbergensis": {
-		italic: true,
-		position: LabelPosition.RIGHT
-	},
 	*/
-	"Homo erectus & heidelbergensis": {
+	"Homo heidelbergensis": {
 		italic: true,
 		position: LabelPosition.RIGHT_BOTTOM
 	},
 	/*
+	"Homo erectus & heidelbergensis": {
+		italic: true,
+		position: LabelPosition.RIGHT_BOTTOM
+	},
 	"Homo neanderthalensis": {
 		text: "Neandertals",
 		position: LabelPosition.BOTTOM_RIGHT
@@ -498,8 +506,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					.attrs(Haeckel.SVG_NS, {
 						//fill: 'url(#diagonalHatch)',
 						fill: Haeckel.BLACK.hex,
-						//'fill-opacity': '0.25',
-						'fill-opacity': '0.1',
+						'fill-opacity': '0.15',
+						//'fill-opacity': '0.1',
 						stroke: 'none',
 						//stroke: Haeckel.BLACK.hex,
 						//'stroke-opacity': '0.1',
@@ -523,6 +531,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					});
 			}
 
+			/*
 			var gradient = defs().child(Haeckel.SVG_NS, 'linearGradient')
 				.attrs(Haeckel.SVG_NS, {
 						'id': 'range',
@@ -541,6 +550,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							'stop-opacity': opacity.toFixed(3)
 						})
 			}
+			*/
 
 			/*
 			defs().child(Haeckel.SVG_NS, 'pattern')
@@ -673,8 +683,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 			strata.sort((a: Haeckel.Stratum, b: Haeckel.Stratum) => b.start.mean - a.start.mean);
 			var stages = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'stage/age');
 			var series = strata.filter((stratum: Haeckel.Stratum) => stratum.type === 'series/epoch');
-			//var boundaries = new Haeckel.ExtSetBuilder<Haeckel.Range>();
-			var fillStratum = false;
+			var boundaries = new Haeckel.ExtSetBuilder<Haeckel.Range>();
+			//var fillStratum = false;
 			Haeckel.arr.each(series, (stratum: Haeckel.Stratum) =>
 			{
 				var startY = chart.getTimeY(stratum.start);
@@ -683,19 +693,17 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				{
 					return;
 				}
-				/*
 				guides.child(Haeckel.SVG_NS, 'line')
-						.attrs({
-							stroke: Haeckel.BLACK.hex,
-							'stroke-opacity': '0.5',
-							'stroke-width': '1px',
-							x1: '0px',
-							y1: startY.mean + 'px',
-							x2: FIGURE_WIDTH + 'px',
-							y2: startY.mean + 'px'
-						});
-				*/
-				//boundaries.add(startY);
+					.attrs({
+						stroke: Haeckel.BLACK.hex,
+						'stroke-opacity': '0.5',
+						'stroke-width': '2px',
+						x1: '0px',
+						y1: startY.mean + 'px',
+						x2: FIGURE_WIDTH + 'px',
+						y2: startY.mean + 'px'
+					});
+				boundaries.add(startY);
 				var yRange = Haeckel.rng.create(endY.mean, Math.min(FIGURE_HEIGHT, startY.mean));
 				var text = labels.child(Haeckel.SVG_NS, 'text')
 					.text(stratum.name.toUpperCase())
@@ -732,6 +740,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 					text.attr(Haeckel.SVG_NS, 'transform',
 						'translate(' + (MARGIN + 12) + ',' + yRange.mean + ') rotate(-90)');
 				}
+				/*
 				if (fillStratum)
 				{
 					guides.child(Haeckel.SVG_NS, 'rect')
@@ -746,8 +755,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							});
 				}
 				fillStratum = !fillStratum;
+				*/
 			});
-			fillStratum = true;
+			//fillStratum = true;
 			Haeckel.arr.each(stages, (stratum: Haeckel.Stratum) =>
 			{
 				var startY = chart.getTimeY(stratum.start);
@@ -790,19 +800,21 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 				{
 					text.attr(Haeckel.SVG_NS, 'transform',
 						'translate(' + (MARGIN + 24 + 12) + ',' + yRange.mean + ') rotate(-90)');
-				}				
-				/*
-				guides.child(Haeckel.SVG_NS, 'line')
+				}
+				if (!boundaries.contains(startY))
+				{
+					guides.child(Haeckel.SVG_NS, 'line')
 						.attrs({
 							stroke: Haeckel.BLACK.hex,
-							'stroke-opacity': '0.1',
-							'stroke-width': '1px',
+							'stroke-opacity': '0.5',
+							'stroke-width': '0.5px',
 							x1: '0px',
 							y1: startY.mean + 'px',
 							x2: FIGURE_WIDTH + 'px',
 							y2: startY.mean + 'px'
 						});
-				*/
+				}
+				/*
 				if (fillStratum)
 				{
 					guides.child(Haeckel.SVG_NS, 'rect')
@@ -817,6 +829,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 							});
 				}
 				fillStratum = !fillStratum;
+				*/
 			});
 		}
 
@@ -875,8 +888,8 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 						fill: 'none',//Haeckel.BLACK.hex,
 						//'fill-opacity': '0.05',
 						stroke: Haeckel.BLACK.hex,
-						'stroke-width': '2px',
-						'stroke-opacity': '0.35',
+						'stroke-width': '3px',
+						'stroke-opacity': '0.4',
 						'stroke-dasharray': '6 3'
 					});
 
