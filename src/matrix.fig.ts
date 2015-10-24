@@ -129,6 +129,7 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
 		chart.matrix = <Haeckel.CharacterMatrix<Haeckel.BitSet>> sources.sources['data/compiled/characters.json'].characterMatrices['examples'];
 		chart.characters = [4, 0, 11, 10, 5, 9, 2, 1, 3, 7, 6]
 			.map(index => chart.matrix.characterList[index]);
+		chart.stateLabelColumnOffsetter = (character: number, state: number) => (character === 2 && state === 1) ? 2 : 0;
 		chart.taxa = TAXON_NAMES.map(name => sources.nomenclature.nameMap[name]);
 		chart.render(chartGroup);
 
