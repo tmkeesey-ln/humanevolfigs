@@ -426,8 +426,8 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
 
 function drawLegend(builder: Haeckel.ElementBuilder) {
     var rowSize = TAXON_SIZE * 1.5;
-    var h = rowSize * 4;
-    var w = h * 1.7;
+    var h = rowSize * 5;
+    var w = h * 1.25;
     var area = Haeckel.rec.create(FIGURE_WIDTH - w - 2, FIGURE_HEIGHT - h - 2, w, h);
     var g = builder
         .child(Haeckel.SVG_NS, 'g')
@@ -471,8 +471,7 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
             y: (area.top + rowSize * 1.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
             'text-anchor': 'start',
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
-            'font-family': "Myriad Pro",
-            'font-weight': 'bold'
+            'font-family': "Myriad Pro"
         })
         .text('group');
     drawTransitionSymbol(g, area.left + rowSize / 2, area.top + rowSize * 2.5 + TRANSITION_RADIUS / 2);
@@ -485,7 +484,7 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
             'font-family': "Myriad Pro"
         })
-        .text('hypothesized trait change');
+        .text('inferred trait change');
     drawHTUSymbol(g, area.left + rowSize / 2, area.top + rowSize * 3.5);
     g
         .child(Haeckel.SVG_NS, 'text')
@@ -494,10 +493,31 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
             y: (area.top + rowSize * 3.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
             'text-anchor': 'start',
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
-            'font-family': "Myriad Pro",
-            'font-weight': 'bold'
+            'font-family': "Myriad Pro"
         })
-        .text('hypothesized ancestor');
+        .text('inferred ancestor');
+    g
+        .child(Haeckel.SVG_NS, 'line')
+        .attrs(Haeckel.SVG_NS, {
+            x1: (area.left + rowSize / 2) + 'px',
+            x2: (area.left + rowSize / 2) + 'px',
+            y1: (area.top + rowSize * 4.5 - TAXON_SIZE / 2) + 'px',
+            y2: (area.top + rowSize * 4.5 + TAXON_SIZE / 2) + 'px',
+            'stroke': Haeckel.BLACK.hex,
+            'stroke-linecap': 'round',
+            'stroke-dasharray': '2 4',
+            'stroke-width': '2px'
+        });
+    g
+        .child(Haeckel.SVG_NS, 'text')
+        .attrs(Haeckel.SVG_NS, {
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            y: (area.top + rowSize * 4.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
+            'text-anchor': 'start',
+            'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
+            'font-family': "Myriad Pro"
+        })
+        .text('inferred lineage');
 }
 
 var FIGURE_TO_RENDER: Haeckel.Figure =
