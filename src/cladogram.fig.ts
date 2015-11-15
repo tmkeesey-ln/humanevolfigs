@@ -485,7 +485,7 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
             'font-family': "Myriad Pro"
         })
-        .text('hypothetical trait change');
+        .text('hypothesized trait change');
     drawHTUSymbol(g, area.left + rowSize / 2, area.top + rowSize * 3.5);
     g
         .child(Haeckel.SVG_NS, 'text')
@@ -497,7 +497,7 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
             'font-family': "Myriad Pro",
             'font-weight': 'bold'
         })
-        .text('hypothetical ancestor');
+        .text('hypothesized ancestor');
 }
 
 var FIGURE_TO_RENDER: Haeckel.Figure =
