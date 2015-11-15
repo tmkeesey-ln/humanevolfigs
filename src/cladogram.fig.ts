@@ -4,19 +4,23 @@ var FIGURE_HEIGHT = 6 * 300;
 
 var FIGURE_WIDTH = 5 * 300;
 
-var RIGHT_MARGIN = 355;
+var LEGEND_LABEL_FONT_SIZE = 32;
+
+var LEGEND_LABEL_MARGIN = 12;
+
+var RIGHT_MARGIN = 380;
 
 var SILHOUETTE_SCALE = 1;
 
 var TAXON_LABEL_FONT_SIZE = 32;
 
-var TAXON_LABEL_MARGIN = TAXON_LABEL_FONT_SIZE / 2;
+var TAXON_LABEL_MARGIN = 12;
 
-var TAXON_SIZE = 30;
+var TAXON_SIZE = 40;
 
-var TRANSITION_LABEL_FONT_SIZE = 25;
+var TRANSITION_LABEL_FONT_SIZE = 32;
 
-var TRANSITION_LABEL_MARGIN = TRANSITION_LABEL_FONT_SIZE / 2;
+var TRANSITION_LABEL_MARGIN = 4;
 
 var TRANSITION_RADIUS = 15;
 
@@ -31,7 +35,7 @@ var TRANSITIONS: PhyloTransition[] = [
     {
         arc: ['ancestral hominoid', 'gibbons'],
         transitions: [
-            'arms lengthen'
+            'arms\nlengthen'
         ]
     },
     {
@@ -39,10 +43,10 @@ var TRANSITIONS: PhyloTransition[] = [
         transitions: [
             'body size increases',
             'brain size increases',
-            'spindle neurons become fully developed',
+        //'spindle neurons become fully developed',
             'canines shrink in females',
-            'apical lingual glands are acquired',
-            'terminal hairs become sparse'
+            //'apical lingual glands are acquired',
+            //'terminal hairs become sparse'
         ]
     },
     {
@@ -54,56 +58,57 @@ var TRANSITIONS: PhyloTransition[] = [
     {
         arc: ['ancestral hominid', 'ancestral hominine'],
         transitions: [
-            'spindle neurons proliferate',
+        //'spindle neurons proliferate',
             'supraorbital torus is acquired',
             'orientation of semicircular canals changes',
-            'risorius muscle is acquired',
-            'superior thoracic artery is acquired',
-            'axillary organ replaces sternal glands',
-            'hands become more compact',
-            'branches from tibial nerve control small toes'
+            //'risorius muscle is acquired',
+            //'superior thoracic artery is acquired',
+            //'axillary organ replaces sternal glands',
+            //'hands become more compact',
+            //'branches from tibial nerve control small toes'
         ]
     },
     {
         arc: ['ancestral hominine', 'gorillas'],
         transitions: [
-            'columnar\nknuckle-walking\nis acquired'
+            'columnar\nknuckle-\nwalking\nis acquired'
         ]
     },
     {
         arc: ['ancestral hominine', 'chimpanzee–\nhuman\nancestor'],
         transitions: [
             'canines shrink slightly in males',
-            'dorsalis pollicis artery is lost',
-            'terminal hairs become sparser',
-            'gangliform enlargement at junction of radial and\nposterior interosseous nerves is acquired'
+            //'dorsalis pollicis artery is lost',
+            //'terminal hairs become sparser',
+            //'gangliform enlargement at junction of radial and\nposterior interosseous nerves is acquired'
         ]
     },
     {
         arc: ['chimpanzee–\nhuman\nancestor', 'chimpanzees'],
         transitions: [
-            'flexed knuckle-\nwalking\nis acquired'
+            'flexed\nknuckle-\nwalking\nis acquired'
         ]
     },
     {
         arc: ['chimpanzee–\nhuman\nancestor', 'humans'],
         transitions: [
             'supraorbital torus is lost',
-            'foreheads become round*',
+            'foreheads become round',
             'chin is acquired',
             'rib cage acquires barrel shape',
             'brain size increases even more',
-            'terminal hairs become even sparser',
-            'proportions of semicircular canals change',
-            'bar–glenoid angle becomes over 135°*',
-            'trapezoid bone acquires boot shape',
+        //'terminal hairs become even sparser',
+            'semicircular canal proportions\nchange',
+            null,
+            'shoulder orientation changes',
+            'trapezoid acquires boot shape',
             'jaw acquires parabolic shape',
-            'quadrupedality is lost*',
+            'quadrupedality is lost',
             'parietal tuber is acquired',
             'opposable big toe is lost',
-            'precision grip is acquired',
+        //'precision grip is acquired',
             'arms shrink and legs lengthen',
-            'canines shrink to same size in both sexes',
+            'canines become small (both sexes)',
             'hip bones become short and wide'
         ]
     }
@@ -194,7 +199,7 @@ function buildPlacements(phyloData: PhyloData, nomenclature: Haeckel.Nomenclatur
         var imSucs = phyloData.solver.dagSolver.imSucs(unit);
         Haeckel.ext.each(imSucs, suc => {
             var arcHash = Haeckel.hash([unit, suc]);
-            depth = Math.max(depth, getDepth(suc) + phyloData.arcTransitionsMap[arcHash].length);
+            depth = Math.max(depth, getDepth(suc) + phyloData.arcTransitionsMap[arcHash].length + 1);
         });
         maxDepth = Math.max(maxDepth, depth);
         return depths[hash] = depth;
@@ -323,7 +328,7 @@ function drawTransitionSymbol(builder: Haeckel.ElementBuilder, x: number, y: num
     var data = 'M' + [x - TRANSITION_RADIUS, y].join(' ')
         + 'L' + [x, y - TRANSITION_RADIUS].join(' ')
         + 'L' + [x + TRANSITION_RADIUS, y].join(' ')
-        //+ 'L' + [x, y + TRANSITION_RADIUS].join(' ')
+    //+ 'L' + [x, y + TRANSITION_RADIUS].join(' ')
         + 'Z';
     builder
         .child(Haeckel.SVG_NS, 'path')
@@ -385,6 +390,9 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
         var bottom = source.y - TAXON_SIZE / 2;
         var n = transitions.length;
         transitions.forEach((transition: string, index: number) => {
+            if (transition === null) {
+                return;
+            }
             var tg = arcG
                 .child(Haeckel.SVG_NS, 'g')
                 .attr('id', 'transition-' + arcID + '-' + index);
@@ -417,7 +425,79 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
 }
 
 function drawLegend(builder: Haeckel.ElementBuilder) {
-
+    var rowSize = TAXON_SIZE * 1.5;
+    var h = rowSize * 4;
+    var w = h * 1.7;
+    var area = Haeckel.rec.create(FIGURE_WIDTH - w - 2, FIGURE_HEIGHT - h - 2, w, h);
+    var g = builder
+        .child(Haeckel.SVG_NS, 'g')
+        .attr('id', 'legend');
+    g
+        .child(Haeckel.SVG_NS, 'rect')
+        .attrs(Haeckel.SVG_NS, {
+            fill: Haeckel.BLACK.hex,
+            stroke: 'none',
+            x: (area.left - 2) + 'px',
+            y: (area.top - 2) + 'px',
+            width: (w + 4) + 'px',
+            height: (h + 4) + 'px'
+        });
+    g
+        .child(Haeckel.SVG_NS, 'rect')
+        .attrs(Haeckel.SVG_NS, {
+            fill: Haeckel.WHITE.hex,
+            stroke: 'none',
+            x: area.left + 'px',
+            y: area.top + 'px',
+            width: w + 'px',
+            height: h + 'px'
+        });
+    g
+        .child(Haeckel.SVG_NS, 'text')
+        .attrs(Haeckel.SVG_NS, {
+            x: area.centerX + 'px',
+            y: (area.top + rowSize / 2 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
+            'text-anchor': 'middle',
+            'font-family': "Myriad Pro",
+            'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
+            'font-weight': 'bold'
+        })
+        .text('LEGEND');
+    drawOTUSymbol(g, area.left + rowSize / 2, area.top + rowSize * 1.5 - TAXON_SIZE / 2);
+    g
+        .child(Haeckel.SVG_NS, 'text')
+        .attrs(Haeckel.SVG_NS, {
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            y: (area.top + rowSize * 1.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
+            'text-anchor': 'start',
+            'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
+            'font-family': "Myriad Pro",
+            'font-weight': 'bold'
+        })
+        .text('group');
+    drawTransitionSymbol(g, area.left + rowSize / 2, area.top + rowSize * 2.5 + TRANSITION_RADIUS / 2);
+    g
+        .child(Haeckel.SVG_NS, 'text')
+        .attrs(Haeckel.SVG_NS, {
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            y: (area.top + rowSize * 2.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
+            'text-anchor': 'start',
+            'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
+            'font-family': "Myriad Pro"
+        })
+        .text('hypothetical trait change');
+    drawHTUSymbol(g, area.left + rowSize / 2, area.top + rowSize * 3.5);
+    g
+        .child(Haeckel.SVG_NS, 'text')
+        .attrs(Haeckel.SVG_NS, {
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            y: (area.top + rowSize * 3.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
+            'text-anchor': 'start',
+            'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
+            'font-family': "Myriad Pro",
+            'font-weight': 'bold'
+        })
+        .text('hypothetical ancestor');
 }
 
 var FIGURE_TO_RENDER: Haeckel.Figure =
@@ -456,16 +536,6 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
             drawHTUs(builder, placements, phyloData, nomenclature);
             drawArcs(builder, placements, phyloData, nomenclature);
             drawLegend(builder);
-            builder
-                .child(Haeckel.SVG_NS, 'text')
-                .attrs({
-                    x: (FIGURE_WIDTH - TRANSITION_LABEL_MARGIN) + 'px',
-                    y: (FIGURE_HEIGHT - TRANSITION_LABEL_MARGIN) + 'px',
-                    'text-anchor': 'end',
-                    'font-size': TRANSITION_LABEL_FONT_SIZE + 'px',
-                    'font-family': "Myriad Pro"
-                })
-                .text('* in adults');
             return builder;
         }
     };
