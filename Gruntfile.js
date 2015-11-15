@@ -145,6 +145,12 @@ module.exports = function(grunt)
 				dest: 'src/agesZanclean.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			cladogram:
+			{
+				src: [ 'src/cladogram.fig.ts' ],
+				dest: 'src/cladogram.fig.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			ccChron:
 			{
 				src: [ 'src/ccChron.fig.ts' ],
@@ -269,6 +275,7 @@ module.exports = function(grunt)
 			agesUpperPleistocene: {},
 			agesZanclean: {},
 			ccChron: {},
+			cladogram: {},
 			craniodental: {},
 			craniodentalChron: {},
 			craniodentalExtant: {},
@@ -295,6 +302,7 @@ module.exports = function(grunt)
 			agesUpperPleistocene: {},
 			agesZanclean: {},
 			ccChron: {},
+			cladogram: {},
 			//craniodental: {},
 			//craniodentalChron: {},
 			//craniodentalExtant: {},
