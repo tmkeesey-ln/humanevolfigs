@@ -180,19 +180,6 @@ function createArcRenderer(useSides?: boolean)
 
 function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureArea: Haeckel.Rectangle, chartArea: Haeckel.Rectangle, time: Haeckel.Range, timeIncrement: number, includeStrata: boolean = true)
 {
-	function drawLine(range: Haeckel.Range) {
-		group.child(Haeckel.SVG_NS, 'line')
-			.attrs(Haeckel.SVG_NS, {
-				stroke: Haeckel.BLACK.hex,
-				'stroke-opacity': '0.5',
-				'stroke-width': '1px',
-				x1: '0px',
-				y1: range.mean + 'px',
-				x2: FIGURE_WIDTH + 'px',
-				y2: range.mean + 'px'
-			});
-	}
-	
 	var fontSize = 16;
 	var chart = new Haeckel.ChronoChart();
 	chart.area = chartArea;
@@ -214,15 +201,13 @@ function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureA
 		{
 			return b.start.mean - a.start.mean;
 		});
-		drawLine(chart.getTimeY(Haeckel.RANGE_0));
-		//var fillStratum = false;
+		var fillStratum = false;
 		Haeckel.arr.each(strata, (stratum: Haeckel.Stratum) =>
 		{
 			if (stratum && stratum.type === 'series/epoch')
 			{
 				var startY = chart.getTimeY(stratum.start);
 				var endY = chart.getTimeY(stratum.end);
-				/*
 				if (fillStratum)
 				{
 					if (endY.mean <= chartArea.bottom)
@@ -240,8 +225,6 @@ function times(group: Haeckel.ElementBuilder, strata: Haeckel.Stratum[], figureA
 					}
 				}
 				fillStratum = !fillStratum;
-				*/
-				drawLine(startY);
 				if ((startY.mean - endY.mean) > fontSize)
 				{
 					var text = group.child(Haeckel.SVG_NS, 'text')
