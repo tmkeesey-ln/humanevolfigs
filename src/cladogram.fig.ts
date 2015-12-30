@@ -8,21 +8,21 @@ var LEGEND_LABEL_FONT_SIZE = 32;
 
 var LEGEND_LABEL_MARGIN = 12;
 
-var RIGHT_MARGIN = 380;
+var LEGEND_MARGIN = 24;
+
+var RIGHT_MARGIN = 360;
 
 var SILHOUETTE_SCALE = 1;
 
 var TAXON_LABEL_FONT_SIZE = 32;
 
-var TAXON_LABEL_MARGIN = 12;
+var TAXON_LABEL_MARGIN = 32;
 
 var TAXON_SIZE = 40;
 
-var TRANSITION_LABEL_FONT_SIZE = 32;
+var TRANSITION_LABEL_MARGIN = 6;
 
-var TRANSITION_LABEL_MARGIN = 4;
-
-var TRANSITION_RADIUS = 15;
+var TRANSITION_RADIUS = 10;
 
 var OTUS = ['gibbons', 'orangutans', 'gorillas', 'chimpanzees', 'humans'];
 
@@ -35,16 +35,16 @@ var TRANSITIONS: PhyloTransition[] = [
     {
         arc: ['ancestral hominoid', 'gibbons'],
         transitions: [
-            'arms\nlengthen'
+            'Arms\nlengthen.'
         ]
     },
     {
         arc: ['ancestral hominoid', 'ancestral hominid'],
         transitions: [
-            'body size increases',
-            'brain size increases',
+            'Body size increases.',
+            'Brain size increases.',
         //'spindle neurons become fully developed',
-            'canines shrink in females',
+            'Canine teeth shrink in females.',
             //'apical lingual glands are acquired',
             //'terminal hairs become sparse'
         ]
@@ -52,15 +52,15 @@ var TRANSITIONS: PhyloTransition[] = [
     {
         arc: ['ancestral hominid', 'orangutans'],
         transitions: [
-            'fist-walking\nis acquired'
+            'Fist-walking\nis acquired.'
         ]
     },
     {
         arc: ['ancestral hominid', 'ancestral hominine'],
         transitions: [
         //'spindle neurons proliferate',
-            'supraorbital torus is acquired',
-            'orientation of semicircular canals changes',
+            'Supraorbital torus is acquired.',
+            'Orientation of semicircular canals changes.'
             //'risorius muscle is acquired',
             //'superior thoracic artery is acquired',
             //'axillary organ replaces sternal glands',
@@ -71,13 +71,13 @@ var TRANSITIONS: PhyloTransition[] = [
     {
         arc: ['ancestral hominine', 'gorillas'],
         transitions: [
-            'columnar\nknuckle-\nwalking\nis acquired'
+            'Columnar\nknuckle-\nwalking\nis acquired.'
         ]
     },
     {
         arc: ['ancestral hominine', 'chimpanzee–\nhuman\nancestor'],
         transitions: [
-            'canines shrink slightly in males',
+            'Canine teeth shrink slightly in males.',
             //'dorsalis pollicis artery is lost',
             //'terminal hairs become sparser',
             //'gangliform enlargement at junction of radial and\nposterior interosseous nerves is acquired'
@@ -86,30 +86,30 @@ var TRANSITIONS: PhyloTransition[] = [
     {
         arc: ['chimpanzee–\nhuman\nancestor', 'chimpanzees'],
         transitions: [
-            'flexed\nknuckle-\nwalking\nis acquired'
+            'Flexed\nknuckle-\nwalking\nis acquired.'
         ]
     },
     {
         arc: ['chimpanzee–\nhuman\nancestor', 'humans'],
         transitions: [
-            'supraorbital torus is lost',
-            'foreheads become round',
-            'chin is acquired',
-            'rib cage acquires barrel shape',
-            'brain size increases even more',
+            'Supraorbital torus is lost.',
+            'Foreheads become round.',
+            'Chin is acquired.',
+            'Rib cage acquires barrel shape.',
+            'Brain size increases even more.',
         //'terminal hairs become even sparser',
-            'semicircular canal proportions\nchange',
+            'Semicircular canal proportions\nchange.',
             null,
-            'shoulder orientation changes',
-            'trapezoid acquires boot shape',
-            'jaw acquires parabolic shape',
-            'quadrupedality is lost',
-            'parietal tuber is acquired',
-            'opposable big toe is lost',
+            'Shoulder orientation changes.',
+            'Trapezoid acquires boot shape.',
+            'Jaw acquires parabolic shape.',
+            'Quadrupedality is lost.',
+            'Parietal tuber is acquired.',
+            'Opposable big toe is lost.',
         //'precision grip is acquired',
-            'arms shrink and legs lengthen',
-            'canines become small (both sexes)',
-            'hip bones become short and wide'
+            'Arms shrink and legs lengthen.',
+            'Canine teeth shrink (both sexes).',
+            'Hip bones become short and wide.'
         ]
     }
 ];
@@ -141,11 +141,25 @@ function buildNomenclature(): Haeckel.Nomenclature {
     return builder.build();
 }
 
+function capitalize(s: string) {
+    return s.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g, c => c.toUpperCase());
+}
+
 interface PhyloData {
     arcTransitionsMap: {
         [arcHash: string]: string[];
     };
     solver: Haeckel.PhyloSolver;
+}
+
+function getTransitionLines(transitions: string[]) {
+    var length = 0;
+    transitions.forEach(value => {
+        if (value) {
+            length += value.split('\n').length + 1;
+        }
+    });
+    return length;
 }
 
 function buildPhyloData(nomenclature: Haeckel.Nomenclature): PhyloData {
@@ -168,6 +182,8 @@ interface Placements {
     [taxonHash: string]: Haeckel.Point;
 }
 
+var lineHeight = 0;
+
 function buildPlacements(phyloData: PhyloData, nomenclature: Haeckel.Nomenclature, area: Haeckel.Rectangle): Placements {
     var placements: Placements = {};
     var xPositions: {
@@ -185,40 +201,64 @@ function buildPlacements(phyloData: PhyloData, nomenclature: Haeckel.Nomenclatur
         x /= imSucs.size;
         return xPositions[hash] = x;
     }
-    var depths: {
+    var linesAbove: {
         [taxonHash: string]: number;
     } = {};
-    var maxDepth = 0;
-    function getDepth(unit: Haeckel.Taxic): number {
+    var taxaAbove: {
+        [taxonHash: string]: number;
+    } = {};
+    var maxLinesAbove = 0;
+    var maxTaxaAbove = 0;
+    function getLinesAbove(unit: Haeckel.Taxic): number {
         var hash = Haeckel.hash(unit);
-        var existing = depths[hash];
+        var existing = linesAbove[hash];
         if (existing) {
             return existing;
         }
-        var depth = 0;
+        var lines = 0;
         var imSucs = phyloData.solver.dagSolver.imSucs(unit);
         Haeckel.ext.each(imSucs, suc => {
             var arcHash = Haeckel.hash([unit, suc]);
-            depth = Math.max(depth, getDepth(suc) + phyloData.arcTransitionsMap[arcHash].length + 1);
+            lines = Math.max(lines, getLinesAbove(suc) + getTransitionLines(phyloData.arcTransitionsMap[arcHash]));
         });
-        maxDepth = Math.max(maxDepth, depth);
-        return depths[hash] = depth;
+        maxLinesAbove = Math.max(maxLinesAbove, lines);
+        return linesAbove[hash] = lines;
+    }
+    function getTaxaAbove(unit: Haeckel.Taxic): number {
+        var hash = Haeckel.hash(unit);
+        var existing = taxaAbove[hash];
+        if (existing) {
+            return existing;
+        }
+        var taxa = 0;
+        var imSucs = phyloData.solver.dagSolver.imSucs(unit);
+        Haeckel.ext.each(imSucs, suc => {
+            taxa = Math.max(taxa, getTaxaAbove(suc) + 1);
+        });
+        maxTaxaAbove = Math.max(maxTaxaAbove, taxa);
+        return taxaAbove[hash] = taxa;
     }
     function placeHTU(htu: Haeckel.Taxic): void {
         var hash = Haeckel.hash(htu);
         var x = getUnitX(htu);
-        var depth = getDepth(htu);
-        placements[hash] = Haeckel.pt.create(x, area.top + area.height * depth / maxDepth);
+        var lines = getLinesAbove(htu);
+        var taxa = getTaxaAbove(htu);
+        placements[hash] = Haeckel.pt.create(x, area.top + taxa * TAXON_SIZE + lines * lineHeight);
     }
     OTUS.forEach((value: string, index: number) => {
         var taxon = nomenclature.nameMap[value];
         var hash = Haeckel.hash(taxon);
         var x = area.left + area.width * (index + 0.5) / OTUS.length;
         xPositions[hash] = x;
-        depths[hash] = 0;
+        linesAbove[hash] = taxaAbove[hash] = 0;
         placements[hash] = Haeckel.pt.create(x, area.top);
     });
     var htus = Haeckel.tax.setDiff(phyloData.solver.universal, phyloData.solver.max(phyloData.solver.universal)).units;
+    Haeckel.ext.each(htus, htu => {
+        getLinesAbove(htu);
+        getTaxaAbove(htu);
+    });
+    lineHeight = (area.height - TAXON_SIZE * (maxTaxaAbove + 1)) / maxLinesAbove;
     Haeckel.ext.each(htus, htu => placeHTU(htu));
     return placements;
 }
@@ -257,7 +297,7 @@ function drawOTUs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
                 'font-family': "Myriad Pro",
                 'font-weight': 'bold'
             })
-            .text(name);
+            .text(capitalize(name));
         taxonG
             .child(Haeckel.SVG_NS, 'use')
             .attrs(Haeckel.SVG_NS, {
@@ -306,14 +346,14 @@ function drawHTUs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
                 x: position.x + 'px',
                 y: (position.y - TAXON_LABEL_MARGIN - TAXON_SIZE / 2 - (n - 1) * TAXON_LABEL_FONT_SIZE) + 'px',
                 'text-anchor': 'middle',
-                'font-size': TAXON_LABEL_FONT_SIZE + 'px',
+                'font-size': (TAXON_LABEL_FONT_SIZE - 1) + 'px',
                 'font-family': "Myriad Pro",
                 'font-weight': 'bold',
             });
         for (var i = 0; i < n; ++i) {
             var span = label
                 .child(Haeckel.SVG_NS, 'tspan')
-                .text(parts[i]);
+                .text(capitalize(parts[i]));
             if (i) {
                 span.attrs(Haeckel.SVG_NS, {
                     x: position.x + 'px',
@@ -334,7 +374,7 @@ function drawTransitionSymbol(builder: Haeckel.ElementBuilder, x: number, y: num
         .child(Haeckel.SVG_NS, 'path')
         .attrs(Haeckel.SVG_NS, {
             d: data,
-            'fill': Haeckel.WHITE.hex,
+            'fill': '#D0D0D0',
             'stroke': Haeckel.BLACK.hex,
             'stroke-dasharray': '4 2',
             'stroke-width': '2px',
@@ -388,15 +428,14 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
         var transitions = phyloData.arcTransitionsMap[hash];
         var top = target.y + TAXON_SIZE;
         var bottom = source.y - TAXON_SIZE / 2;
-        var n = transitions.length;
+        var y = top + lineHeight;
         transitions.forEach((transition: string, index: number) => {
-            if (transition === null) {
+            if (!transition) {
                 return;
             }
             var tg = arcG
                 .child(Haeckel.SVG_NS, 'g')
                 .attr('id', 'transition-' + arcID + '-' + index);
-            var y = top + (index + 0.5) * (bottom - top) / n;
             drawTransitionSymbol(tg, target.x, y);
             var parts = transition.split('\n');
             var x = target.x + TRANSITION_LABEL_MARGIN + TRANSITION_RADIUS;
@@ -404,11 +443,12 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
                 .child(Haeckel.SVG_NS, 'text')
                 .attrs(Haeckel.SVG_NS, {
                     x: x + 'px',
-                    y: y + 'px',
+                    y: (y + lineHeight / 4) + 'px',
                     'text-anchor': 'start',
-                    'font-size': TRANSITION_LABEL_FONT_SIZE + 'px',
+                    'font-size': lineHeight + 'px',
                     'font-family': "Myriad Pro"
                 });
+            y += (parts.length + 1) * lineHeight;
             for (var i = 0; i < parts.length; ++i) {
                 var span = label
                     .child(Haeckel.SVG_NS, 'tspan')
@@ -416,7 +456,7 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
                 if (i) {
                     span.attrs(Haeckel.SVG_NS, {
                         x: x + 'px',
-                        dy: TRANSITION_LABEL_FONT_SIZE + 'px'
+                        dy: lineHeight + 'px'
                     });
                 };
             }
@@ -427,8 +467,8 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
 function drawLegend(builder: Haeckel.ElementBuilder) {
     var rowSize = TAXON_SIZE * 1.5;
     var h = rowSize * 5;
-    var w = h * 1.25;
-    var area = Haeckel.rec.create(FIGURE_WIDTH - w - 2, FIGURE_HEIGHT - h - 2, w, h);
+    var w = h * 1.15;
+    var area = Haeckel.rec.create(FIGURE_WIDTH - w - 2 - LEGEND_MARGIN, FIGURE_HEIGHT - h - 2 - LEGEND_MARGIN, w, h);
     var g = builder
         .child(Haeckel.SVG_NS, 'g')
         .attr('id', 'legend');
