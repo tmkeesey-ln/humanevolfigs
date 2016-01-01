@@ -8,7 +8,11 @@ var LEGEND_LABEL_FONT_SIZE = 32;
 
 var LEGEND_LABEL_MARGIN = 12;
 
-var LEGEND_MARGIN = 24;
+var LEGEND_MARGIN_BOTTOM = 0;
+
+var LEGEND_MARGIN_RIGHT = 12;
+
+var LEGEND_PADDING_H = 24;
 
 var RIGHT_MARGIN = 360;
 
@@ -16,7 +20,7 @@ var SILHOUETTE_SCALE = 1;
 
 var TAXON_LABEL_FONT_SIZE = 32;
 
-var TAXON_LABEL_MARGIN = 32;
+var TAXON_LABEL_MARGIN = 24;
 
 var TAXON_SIZE = 40;
 
@@ -395,7 +399,7 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
                 x1: placement.x + 'px',
                 x2: placement.x + 'px',
                 y1: (placement.y + TAXON_SIZE / 2) + 'px',
-                y2: FIGURE_HEIGHT + 'px',
+                y2: (FIGURE_HEIGHT + 12) + 'px',
                 'stroke': Haeckel.BLACK.hex,
                 'stroke-linecap': 'round',
                 'stroke-dasharray': '2 4',
@@ -466,9 +470,9 @@ function drawArcs(builder: Haeckel.ElementBuilder, placements: Placements, phylo
 
 function drawLegend(builder: Haeckel.ElementBuilder) {
     var rowSize = TAXON_SIZE * 1.5;
-    var h = rowSize * 5;
-    var w = h * 1.15;
-    var area = Haeckel.rec.create(FIGURE_WIDTH - w - 2 - LEGEND_MARGIN, FIGURE_HEIGHT - h - 2 - LEGEND_MARGIN, w, h);
+    var h = rowSize * 5.25;
+    var w = h * 1.15 + 2 * LEGEND_PADDING_H;
+    var area = Haeckel.rec.create(FIGURE_WIDTH - w - 2 - LEGEND_MARGIN_RIGHT, FIGURE_HEIGHT - h - 2 - LEGEND_MARGIN_BOTTOM, w, h);
     var g = builder
         .child(Haeckel.SVG_NS, 'g')
         .attr('id', 'legend');
@@ -503,33 +507,33 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
             'font-weight': 'bold'
         })
         .text('LEGEND');
-    drawOTUSymbol(g, area.left + rowSize / 2, area.top + rowSize * 1.5 - TAXON_SIZE / 2);
+    drawOTUSymbol(g, area.left + rowSize / 2 + LEGEND_PADDING_H, area.top + rowSize * 1.5 - TAXON_SIZE / 2);
     g
         .child(Haeckel.SVG_NS, 'text')
         .attrs(Haeckel.SVG_NS, {
-            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN + LEGEND_PADDING_H) + 'px',
             y: (area.top + rowSize * 1.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
             'text-anchor': 'start',
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
             'font-family': "Myriad Pro"
         })
         .text('group');
-    drawTransitionSymbol(g, area.left + rowSize / 2, area.top + rowSize * 2.5 + TRANSITION_RADIUS / 2);
+    drawTransitionSymbol(g, area.left + rowSize / 2 + LEGEND_PADDING_H, area.top + rowSize * 2.5 + TRANSITION_RADIUS / 2);
     g
         .child(Haeckel.SVG_NS, 'text')
         .attrs(Haeckel.SVG_NS, {
-            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN + LEGEND_PADDING_H) + 'px',
             y: (area.top + rowSize * 2.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
             'text-anchor': 'start',
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
             'font-family': "Myriad Pro"
         })
         .text('inferred trait change');
-    drawHTUSymbol(g, area.left + rowSize / 2, area.top + rowSize * 3.5);
+    drawHTUSymbol(g, area.left + rowSize / 2 + LEGEND_PADDING_H, area.top + rowSize * 3.5);
     g
         .child(Haeckel.SVG_NS, 'text')
         .attrs(Haeckel.SVG_NS, {
-            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN + LEGEND_PADDING_H) + 'px',
             y: (area.top + rowSize * 3.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
             'text-anchor': 'start',
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
@@ -539,8 +543,8 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
     g
         .child(Haeckel.SVG_NS, 'line')
         .attrs(Haeckel.SVG_NS, {
-            x1: (area.left + rowSize / 2) + 'px',
-            x2: (area.left + rowSize / 2) + 'px',
+            x1: (area.left + rowSize / 2 + LEGEND_PADDING_H) + 'px',
+            x2: (area.left + rowSize / 2 + LEGEND_PADDING_H) + 'px',
             y1: (area.top + rowSize * 4.5 - TAXON_SIZE / 2) + 'px',
             y2: (area.top + rowSize * 4.5 + TAXON_SIZE / 2) + 'px',
             'stroke': Haeckel.BLACK.hex,
@@ -551,7 +555,7 @@ function drawLegend(builder: Haeckel.ElementBuilder) {
     g
         .child(Haeckel.SVG_NS, 'text')
         .attrs(Haeckel.SVG_NS, {
-            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN) + 'px',
+            x: (area.left + rowSize / 2 + TAXON_SIZE / 2 + LEGEND_LABEL_MARGIN + LEGEND_PADDING_H) + 'px',
             y: (area.top + rowSize * 4.5 + LEGEND_LABEL_FONT_SIZE / 2) + 'px',
             'text-anchor': 'start',
             'font-size': LEGEND_LABEL_FONT_SIZE + 'px',
