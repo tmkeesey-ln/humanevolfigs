@@ -40,7 +40,7 @@
 						"states": ["opposable", "interm.", "not opposable"],
 						"references": [
 							"Kidd & al. 1996",
-							"Lovejoy & al. 2009",
+							"Lovejoy, Latimer & al. 2009",
 							"Berger & al. 2015"
 						]
 					},
@@ -49,7 +49,7 @@
 						"states": ["long, narrow", "short", "short, with wide pelvic canal"],
 						"references": [
 							"Simpson & al. 2008",
-							"Lovejoy & al. 2009",
+							"Lovejoy, Suwa & al. 2009",
 							"Schmid & al. 2013",
 							"Ward & al. 2015",
 							"Berger & al. 2015"
@@ -98,10 +98,10 @@
 						"name": "Forearm/Thighbone Ratio",
 						"states": [">80%", ">65%", "65–80%", "<65%"],
 						"references": [
-							"Argue & al. 2006 Fig. 7",
-							"Argue & al. 2009 #51",
+							"Argue & al. 2006, Fig. 7",
+							"Argue & al. 2009, #51",
 							"Bacon & Long 2001, Table 5",
-							"est. from Lovejoy & al. 2009 Fig. 1",
+							"est. from Lovejoy, Simpson & al. 2009 Fig. 1",
 							"Walker & al. 2011 Tables S7, S8"
 						],
 						"note": "most humans below 60%"
@@ -141,7 +141,7 @@
 						"states": ["wedge-shaped", "boot-shaped"],
 						"references": [
 							"Tocheri & al. 2007",
-							"pers. obs from Lovejoy & al. 2009, Fig. 1",
+							"pers. obs from Lovejoy, Simpson & al. 2009, Figs. 1 & 3",
 							"Berger & al. 2015"
 						]
 					}
