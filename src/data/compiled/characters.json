@@ -999,7 +999,10 @@
 					{
 						"Liang Bua": [[-8.53, 120.46]]
 					},
-					"time": [-38000, -13000]
+					"time": [-100000, -60000],
+					"reference": {
+						"time": "Sutikna & al. (2016) doi:10.1038/nature17179"
+					}
 				}
 			],
 			"Homo habilis":
