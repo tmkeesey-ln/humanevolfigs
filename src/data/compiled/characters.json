@@ -277,6 +277,15 @@
 					},
 					"time": [-3450000, -3350000],
 					"note": "MAK-VP 1/2; 1/6; 1/12; 1/83; etc."
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Kantis, Kenya": [[-01.391, -36.724]]
+					},
+					"time": [-3596000, -3330000],
+					"reference": "Mbua & al. (2016) doi:10.1016/j.jhevol.2016.01.006"
 				}
 			],
 			"Australopithecus afarensis afarensis":
