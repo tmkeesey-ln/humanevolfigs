@@ -258,7 +258,7 @@
 					"note": "count is probably higher"
 				}
 			],
-			"Australopithecus afarensis sspp.":
+			"Australopithecus afarensis ssp.":
 			[
 				{
 					"count": 2,
@@ -282,7 +282,7 @@
 					"count": 3,
 					"geo":
 					{
-						"Kantis, Kenya": [[-01.391, -36.724]]
+						"Kantis, Kenya": [[-1, 37]]
 					},
 					"time": [-3596000, -3330000],
 					"reference": "Mbua & al. (2016) doi:10.1016/j.jhevol.2016.01.006"
