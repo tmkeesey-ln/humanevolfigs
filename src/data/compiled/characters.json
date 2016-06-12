@@ -793,6 +793,18 @@
 					"time": [-2400000, -2260000]
 				}
 			],
+			"Homo cf. floresiensis":
+			[
+				{
+					"count": [3, 7],
+					"geo":
+					{
+						"Mata Menge": [[-8.6919, 121.0953]]
+					},
+					"time": [-800000, -650000],
+					"reference": "urn.doi:10.1038/nature17999"
+				}
+			],
 			"Homo erectus ssp. (Taiwan)": [
 				{
 					"count": 1,
