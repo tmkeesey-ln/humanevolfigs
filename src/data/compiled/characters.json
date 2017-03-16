@@ -1186,6 +1186,16 @@
 					}
 				},
 				{
+					"count": 1,
+					"geo":
+					{
+						"Aroeira": [[39.50556, -8.61583]]
+					},
+					"ref": "urn:doi:10.1073/pnas.1619040114",
+					"note": "partial cranium (Aroeira 3), assoc. with Acheulean tools",
+					"time": [-436000, -390000]
+				},
+				{
 					"count": 2,
 					"geo":
 					{
