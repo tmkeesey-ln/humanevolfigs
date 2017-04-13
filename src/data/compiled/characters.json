@@ -1087,6 +1087,21 @@
 					"count": 1,
 					"geo":
 					{
+						"Xujiayao, Gucheng, Shaanxi": [[33.7,110.3]]
+					},
+					"time": [-370000, -260000],
+					"note": "placement provisional",
+					"refs": [
+						{
+							"uri": "urn:doi:10.1016/j.jhevol.2017.01.014",
+							"note": "dating revision"
+						}
+					]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
 						"Jinniushan": [[41.9,123.8]]
 					},
 					"time": [-280000, -200000],
@@ -1099,15 +1114,6 @@
 						"Jiefang, Dali, Shaanxi": [[34.8,109.9]]
 					},
 					"time": [-232000, -186000]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Xujiayao, Gucheng, Shaanxi": [[33.7,110.3]]
-					},
-					"time": [-125000, -104000],
-					"note": "placement provisional"
 				}
 			],
 			"Homo heidelbergensis heidelbergensis":
