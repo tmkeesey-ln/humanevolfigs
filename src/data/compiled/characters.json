@@ -1569,8 +1569,8 @@
 					{
 						"Dinaledi chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
 					},
-					"time": [-2800000, -1740000],
-					"note": "Unit 3. Count is minimum. Date is an estimate based on other habilines, pending further research on the strata.",
+					"time": [-300000, -200000],
+					"note": "Unit 3. Count is minimum. Dates were cited in a National Geographic interview and are pending proper publication.",
 					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001"]
 				},
 				{
@@ -1579,8 +1579,8 @@
 					{
 						"Dinaledi chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
 					},
-					"time": [-2800000, -1740000],
-					"note": "Unit 2. Taxonomic assignment tentative. Count is minimum. Date is an estimate based on other habilines, pending further research on the strata.",
+					"time": [-300000, -200000],
+					"note": "Unit 2. Taxonomic assignment tentative. Count is minimum. Dates were cited in a National Geographic interview and are pending proper publication.",
 					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001"]
 				}
 			],
