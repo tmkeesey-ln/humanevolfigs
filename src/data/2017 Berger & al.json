@@ -1,0 +1,36 @@
+{
+	"metadata":
+	{
+		"authors": ["John Hawks","Marina Elliott","Peter Schmid","Steven E Churchill","Darryl J de Ruiter","Eric M Roberts","Hannah Hilbert-Wolf","Heather M Garvin","Scott A Williams","Lucas K Delezene","Elen M Feuerriegel","Patrick Randolph-Quinney","Tracy L Kivell","Myra F Laird","Gaokgatlhe Tawane","Jeremy M DeSilva","Shara E Bailey","Juliet K Brophy","Marc R Meyer","Matthew M Skinner","Matthew W Tocheri","Caroline VanSickle","Christopher S Walker","Timothy L Campbell","Brian Kuhn","Ashley Kruger","Steven Tucker","Alia Gurtov","Nompumelelo Hlophe","Rick Hunter","Hannah Morris","Becca Peixotto","Maropeng Ramalepa","Dirk van Rooyen","Mathabela Tsikoane","Pedro Boshoff","Paul HGM Dirks","Lee R Berger"],
+		"year": 2017,
+		"title": "New fossil remains of <i>Homo naledi</i> from the Lesedi Chamber, South Africa",
+		"journal": "eLife",
+		"volume": 6,
+		"pages": "e24232",
+    "uri": "urn:doi:10.7554/eLife.24232"
+	},
+	"data":
+	{
+		"nomenclature": {
+			"hyponymies": [
+				["Homo naledi", "LES 1"]
+			]
+		},
+		"characterScores":
+		{
+			"text":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume"
+					}
+				],
+				"scores": {
+					"LES 1": [610]
+				}
+			}
+		}
+	}
+}
