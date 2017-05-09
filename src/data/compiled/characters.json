@@ -1569,9 +1569,9 @@
 					{
 						"Dinaledi chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
 					},
-					"time": [-300000, -200000],
-					"note": "Unit 3. Count is minimum. Dates were cited in a National Geographic interview and are pending proper publication.",
-					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001"]
+					"time": [-335000, -236000],
+					"note": "Unit 3. Count is minimum.",
+					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001", "urn:doi:10.7554/eLife.24231"]
 				},
 				{
 					"count": 1,
@@ -1579,9 +1579,19 @@
 					{
 						"Dinaledi chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
 					},
-					"time": [-300000, -200000],
-					"note": "Unit 2. Taxonomic assignment tentative. Count is minimum. Dates were cited in a National Geographic interview and are pending proper publication.",
-					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001"]
+					"time": [-335000, -236000],
+					"note": "Unit 2. Taxonomic assignment tentative. Count is minimum.",
+					"uris": ["urn:doi:10.7554/eLife.09560", "urn:doi:10.7554/eLife.09561.001", "urn:doi:10.7554/eLife.24231"]
+				},
+				{
+					"count": 3,
+					"geo":
+					{
+						"Lesedi Chamber, Rising Star cave system, Gauteng Province, South Africa": [[-26.05, 27.82]]
+					},
+					"time": [-335000, -236000],
+					"note": "Count is minimum (likely higher). Includes LES1.",
+					"uris": ["urn:doi:10.7554/eLife.24232"]
 				}
 			],
 			"Homo neanderthalensis ssp. (Early)":
