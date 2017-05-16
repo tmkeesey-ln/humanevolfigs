@@ -55,7 +55,7 @@ module.exports = function(grunt)
             name = this.target,
             msg = 'Analyzing "' + name + '"...';
         grunt.verbose.write(msg);
-        grunt.task.run('typescript:' + name);
+        //grunt.task.run('typescript:' + name);
         grunt.util.spawn({
             cmd: './analyze.sh',
             args: [ name ]
@@ -193,6 +193,12 @@ module.exports = function(grunt)
 				dest: 'src/geoChron.fig.js',
 				options: TYPESCRIPT_OPTIONS
 			},
+			individuals:
+			{
+				src: [ 'src/individuals.sh.ts' ],
+				dest: 'src/individuals.sh.js',
+				options: TYPESCRIPT_OPTIONS
+			},
 			matrix:
 			{
 				src: [ 'src/matrix.fig.ts' ],
@@ -321,6 +327,7 @@ module.exports = function(grunt)
         {
             ageTaxa: {},
             distanceDetails: {},
+			individuals: {},
             phylogeny: {},
             synapomorphies: {}
         }

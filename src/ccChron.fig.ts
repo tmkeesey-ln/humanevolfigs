@@ -51,10 +51,14 @@ var LABELS: { [name: string]: LabelInfo; } = {
 		position: LabelPosition.RIGHT_BOTTOM
 	},
 	"Floresian \"hobbits\"": {
-		position: LabelPosition.BOTTOM
+		position: LabelPosition.LEFT
 	},
 	"habilines": {
 		position: LabelPosition.RIGHT_BOTTOM
+	},
+	"Homo naledi": {
+		italic: true,
+		position: LabelPosition.BOTTOM
 	},
 	/*
 	"Homo erectus & ergaster": {
@@ -328,6 +332,7 @@ function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haecke
 	addFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], ccChar);
 	addFromMatrix(sources.sources['data/2015 - Berger & al.json'].characterMatrices['text'], ccChar);
 	addFromMatrix(sources.sources['data/2015 - Spoor & al.json'].characterMatrices['text'], ccChar, 1, 0, true);
+	addFromMatrix(sources.sources['data/2017 - Hawks & al.json'].characterMatrices['text'], ccChar);
 
 	// Add living humans specially.
 	var livingHumans = sources.nomenclature.nameMap['Homo sapiens sapiens (living)'];
@@ -352,6 +357,7 @@ function getCCMatrix(sources: Haeckel.DataSources, taxon: Haeckel.Taxic): Haecke
 	addOccurrenceFromMatrix(sources.sources['data/2009 - Suwa & al.json'].characterMatrices['Discussion'], 1, 1000000);
 	addOccurrenceFromMatrix(sources.sources['data/2010 - Berger & al.json'].characterMatrices['Discussion'], 1, 1000000);
 	addOccurrenceFromMatrix(sources.sources['data/2013 - Lordkipanidze & al.json'].characterMatrices['Abstract'], 1, -1000000);
+	addOccurrenceFromMatrix(sources.sources['data/2017 - Dirks & al.json'].characterMatrices['text'], 0, -1000);
 
 	//cmBuilder.addMatrix(sources.sources["data/compiled/characters.json"].occurrences);
 	cmBuilder.removeTaxon(Haeckel.tax.setDiff(cmBuilder.taxon, taxon));
@@ -404,7 +410,9 @@ var FIGURE_TO_RENDER: Haeckel.Figure =
         'data/2013 - Lordkipanidze & al.json',
         'data/2014 - ICS.json',
         'data/2015 - Berger & al.json',
-        'data/2015 - Spoor & al.json'
+        'data/2015 - Spoor & al.json',
+		'data/2017 - Dirks & al.json',
+		'data/2017 - Hawks & al.json'
 	],
 
 	render: (builder: Haeckel.ElementBuilder, sources: Haeckel.DataSources, defs: () => Haeckel.ElementBuilder, pngAssets: Haeckel.PNGAssets) =>

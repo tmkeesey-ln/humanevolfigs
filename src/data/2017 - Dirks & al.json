@@ -1,0 +1,35 @@
+{
+	"metadata":
+	{
+		"authors": ["Paul HGM Dirks","al."],
+		"year": 2017,
+		"title": "The age of <i>Homo naledi</i> and associated sediments in the Rising Star Cave, South Africa",
+		"journal": "eLife",
+		"volume": 6,
+		"pages": "e24231",
+		"uri": "urn:doi:10.7554/eLife.24231"
+	},
+	"data":
+	{
+		"characterScores":
+		{
+			"text":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "kya"
+					}
+				],
+				"scores": {
+					"DH 1": [[335, 236]],
+					"DH 2": [[335, 236]],
+					"DH 3": [[335, 236]],
+					"DH 4": [[335, 236]],
+					"LES 1": [[335, 236]]
+				}
+			}
+		}
+	}
+}
