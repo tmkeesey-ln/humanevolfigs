@@ -1,0 +1,40 @@
+{
+	"metadata":
+	{
+		"authors": ["Zhan-Yang Li", "Xiu-Jie Wu", "Li-Ping Zhou", "Wu Liu", "Xing Gao", "Xiao-Mei Nian", "Erik Trinkaus"],
+		"year": 2017,
+		"title": "Late Pleistocene archaic human crania from Xuchang, China",
+		"journal": "Science",
+		"volume": 355,
+		"pages": [969, 972],
+		"uri": "urn:doi:Late Pleistocene archaic human crania from Xuchang, China"
+	},
+	"data":
+	{
+		"nomenclature": {
+      "note": "This is not explicitly in the paper.",
+			"hyponymies": [
+				["Homo heidelbergensis mabaensis", "Lingjing 1"]
+			]
+		},
+		"characterScores":
+		{
+			"text":
+			{
+				"characterType": "range",
+				"characters":
+				[
+					{
+						"name": "endocranial volume"
+					},
+					{
+						"name": "kya"
+					}
+				],
+				"scores": {
+					"Lingjing 1": [1800, [-125000, -105000]]
+				}
+			}
+		}
+	}
+}
