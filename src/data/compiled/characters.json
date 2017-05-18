@@ -1278,6 +1278,16 @@
 						"Maba, Guandong, China": [[24.71,113.59]]
 					},
 					"time": [-135000, -129000]
+				},
+				{
+					"count": 2,
+					"geo":
+					{
+						"Lingjing, Xuchang, China": [[34.01583, 113.97472]]
+					},
+					"time": [-125000, -105000],
+					"uri": "urn:doi:10.1126/science.aal2482",
+					"note": "2 partial crania; placement provisional"
 				}
 			],
 			"Homo heidelbergensis mauritanicus":
