@@ -2136,6 +2136,16 @@
 			"Homo sapiens helmei":
 			[
 				{
+					"count": 10,
+					"geo":
+					{
+						"Jebel Irhoud": [[31.854981, -8.872506]]
+					},
+					"time": [-349000, -241000],
+					"note": "Placement provisional. Count minimal.",
+					"ref": "urn:doi:10.1038/nature22336",
+				},
+				{
 					"count": 1,
 					"geo":
 					{
