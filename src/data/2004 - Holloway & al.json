@@ -258,7 +258,10 @@
 						"name": "MYA"
 					}
 				],
-				"note": "Revised age of Makapansgat remains from 3.1 Mya to 2.72 Mya based on later studies.",
+				"notes": [
+					"Revised age of Makapansgat remains from 3.1 Mya to 2.72 Mya based on later studies.",
+					"Revised age of Jebel Irhoud remains from 100 kya to 315 kya based on later studies."
+				],
 				"scores": {
 					"AL 162-28":	[400, 3.18],
 					"AL 288-1":		[387, 3],
@@ -367,8 +370,8 @@
 					"Ganovce":               [1320, 0.09],
 					"Gibraltar (Devil's)":   [1400, 0.05],
 					"Gibraltar (Forbe's)":   [1200, 0.05],
-					"Jebel Irhoud 1":        [1305, 0.1],
-					"Jebel Irhoud 2":        [1400, 0.1],
+					"Jebel Irhoud 1":        [1305, 0.315],
+					"Jebel Irhoud 2":        [1400, 0.315],
 					"Krapina B":             [1450, 0.13],
 					"Krapina 3 (Cranium C)": [1255, 0.13],
 					"Krapina 6 (Cranium E)": [1205, 0.13],

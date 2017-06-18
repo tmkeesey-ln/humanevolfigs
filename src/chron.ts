@@ -93,7 +93,7 @@ function createHorizontalRatioMap(nomenclature: Haeckel.Nomenclature, nameEntrie
 			{
 				clade = taxon;
 			}
-			for (name in nameEntries)
+			for (let name in nameEntries)
 			{
 				var subtaxon = nomenclature.nameMap[name];
 				if (subtaxon && Haeckel.tax.includes(clade, subtaxon))

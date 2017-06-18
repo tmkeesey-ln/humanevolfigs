@@ -15,7 +15,7 @@ var TAXA: AgeFigureTaxon[] = [
 	{
 		name: 'Homo naledi',
 		italics: true,
-		silhouette: 'assets/silhouettes/Homo habilis.svg'
+		silhouette: 'assets/silhouettes/Homo naledi.svg'
 	},
 	{
 		name: 'erectines',

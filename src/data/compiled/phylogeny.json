@@ -52,6 +52,7 @@
 				["ardipithecines", "australopithecines"],
 				["australopithecines", "habilines"],
 				["habilines", "Homo floresiensis"],
+				["habilines", "Homo naledi"],
 				["habilines", "erectines"],
 				["erectines", "archaics"],
 				["archaics", "humans"]

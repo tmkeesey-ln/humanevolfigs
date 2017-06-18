@@ -46,14 +46,18 @@ var MORPH_NAME_ENTRIES: { [name: string]: NameEntry; } = {
 		column: 8,
 		italic: false
 	},
-	"erectines": {
-		column: 9
+	"Homo naledi": {
+		column: 9,
+		italic: true
 	},
-	"archaics": {
+	"erectines": {
 		column: 10
 	},
-	"humans": {
+	"archaics": {
 		column: 11
+	},
+	"humans": {
+		column: 12
 	}
 };
 
