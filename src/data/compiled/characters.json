@@ -2566,17 +2566,9 @@
 					{
 						"Denisova": [[51.40, 84.68]]
 					},
-					"note": "Denisova 4, a molar",
-					"time": [-41500, -40500]
-				},
-				{
-					"count": 1,
-					"geo":
-					{
-						"Denisova": [[51.40, 84.68]]
-					},
-					"note": "Denisova 3, a finger phalanx from a child; lower time bound is an estimate",
-					"time": [-60000, -50000]
+					"note": "Denisova 2, a deciduous lower second molar",
+					"time": [-99400, -54200],
+					"reference": "urn:doi:10.1126/sciadv.1700186"
 				},
 				{
 					"count": 1,
@@ -2586,6 +2578,24 @@
 					},
 					"note": "Denisova 8, a molar; time bounds are a rough estimate",
 					"time": [-70000, -55000]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Denisova": [[51.40, 84.68]]
+					},
+					"note": "Denisova 3, a finger phalanx from a child; lower time bound is an estimate",
+					"time": [-41500, -40500]
+				},
+				{
+					"count": 1,
+					"geo":
+					{
+						"Denisova": [[51.40, 84.68]]
+					},
+					"note": "Denisova 4, a molar",
+					"time": [-41500, -40500]
 				}
 			],
 			"Homo yuanmouensis":
