@@ -1087,14 +1087,14 @@
 					"count": 1,
 					"geo":
 					{
-						"Xujiayao, Gucheng, Shaanxi": [[33.7,110.3]]
+						"Xujiayao, Gucheng, Shaanxi": [[40.10,113.98]]
 					},
 					"time": [-370000, -260000],
 					"note": "placement provisional",
 					"refs": [
 						{
 							"uri": "urn:doi:10.1016/j.jhevol.2017.01.014",
-							"note": "dating revision"
+							"note": "dating revision, geo coordinates"
 						}
 					]
 				},
