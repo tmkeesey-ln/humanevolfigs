@@ -2556,6 +2556,16 @@
 						"Omo Kibish, Ethiopia": [[5.8, 35.8]]
 					},
 					"note": "Count approximate. At least 5 individuals with skeletal remains, but about 200 teeth."
+				},
+				{
+					"count": 1,
+					"time": [-194000, -177000],
+					"geo":
+					{
+						"Misliya Cave, Israel": [[32.7, 35.0]]
+					},
+					"note": "left hemimaxilla with dentition",
+					"source": "urn:doi:10.1126/science.aap8369"
 				}
 			],
 			"Homo sp. (Denisova)":
