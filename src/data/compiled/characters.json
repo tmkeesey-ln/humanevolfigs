@@ -805,16 +805,16 @@
 					"reference": "urn.doi:10.1038/nature17999"
 				}
 			],
-			"Homo erectus ssp. (Taiwan)": [
+			"Homo erectus tsaichangensis": [
 				{
 					"count": 1,
 					"geo":
 					{
 						"Penghu Strait, Taiwan": [[23.47,119.78]]
 					},
-					"note": "mandible (Penghu 1) -- age uncertain, could be up to 450 kya",
+					"note": "mandible (Penghu 1) -- age uncertain, could be up to 450 kya. Also classified as Homo tsaichangensis.",
 					"reference": "urn:doi:10.1038/ncomms7037",
-					"time": [-190000, -10000]
+					"time": [-450000, -10000]
 				}
 			],
 			"Homo erectus ssp. (Vietnam)":
