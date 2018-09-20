@@ -2105,6 +2105,15 @@
 					"count": 1,
 					"geo":
 					{
+						"Harbin": [[45.8, 126.6]]
+					},
+					"time": [-400000, -200000],
+					"note": "placement provisional"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
 						"Xujiayao, Gucheng, Shaanxi": [[40.10,113.98]]
 					},
 					"time": [-370000, -260000],
