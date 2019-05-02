@@ -2584,6 +2584,16 @@
 					"count": 1,
 					"geo":
 					{
+						"Baishiya Karst Cave, Xiahe, Gansu, China": [[35.4, 102.5]],
+					},
+					"note": "mandible; time bound is upper estimate",
+					"time": [-160000, -160000],
+					"reference": "https://doi.org/10.1038/s41586-019-1139-x"
+				},
+				{
+					"count": 1,
+					"geo":
+					{
 						"Denisova": [[51.40, 84.68]]
 					},
 					"note": "Denisova 2, a deciduous lower second molar",
